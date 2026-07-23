@@ -9,14 +9,14 @@
 ## llm essential
 ##### - untrained model
 ##### - transformer
-   ###### -- Encoder
+   > Encoder
       1. data input 
       2. self-attention
       3. add & normalize
       4. feed forward neural network
       5. add & normalize
       6. multiple encoder
-   ###### -- Decoder
+   > Decoder
       1. encoder input
       2. self-attention
       3. add & normalize
@@ -24,4 +24,4 @@
       5. add & normalize
       6. feed forward neural network
       7. add & normalize
-   ###### -- Linear & Softmax
+   > Linear & Softmax
