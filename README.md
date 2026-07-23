@@ -7,7 +7,7 @@
 ***
 
 ## llm essential
-##### - untrained model
+##### - model training
 ##### - transformer
    ###### Encoder
       1. data input 
