@@ -6,7 +6,7 @@
 
 ***
 
-#### 1. llm essential
+#### llm essential
 ##### transformer
 ###### Encoder
    1. data input 
