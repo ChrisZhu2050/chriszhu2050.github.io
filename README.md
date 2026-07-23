@@ -7,8 +7,8 @@
 ***
 
 ## llm essential
-##### - model training
-##### - transformer
+##### model training
+##### transformer
    ###### Encoder
       1. data input & embedding
       2. positional encoding
