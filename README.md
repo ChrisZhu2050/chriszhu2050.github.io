@@ -1,8 +1,8 @@
 #### Outline:
-1. llm essential
-2. llm fine-tune
-3. agent framework
-4. data feedback(?)
+. llm essential
+. llm fine-tune
+. agent framework
+. data feedback(?)
 
 ***
 
