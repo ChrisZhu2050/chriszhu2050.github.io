@@ -1,4 +1,4 @@
-#### Outline:
+### Outline:
 - llm essential
 - llm fine-tune
 - agent framework
@@ -7,9 +7,9 @@
 ***
 
 ## llm essential
-##### model training
-##### transformer
-###### Encoder
+### model training
+### transformer
+### Encoder
       1. data input & embedding
       2. positional encoding
       3. multi-head attention
@@ -17,7 +17,7 @@
       5. feed forward neural network
       6. add & normalize
       7. multiple encoder
-###### Decoder
+### Decoder
       1. outputs
       2. output embedding
       3. positional encoding
@@ -27,5 +27,5 @@
       7. add & normalize
       8. feed forward neural network
       9. add & normalize
-###### Linear & Softmax
-###### Output probabilities
+### Linear & Softmax
+### Output probabilities
