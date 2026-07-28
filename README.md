@@ -7,10 +7,11 @@ Outline:
 
 ***
 
-## llm essential
-### model training
-### transformer
-### Encoder
+## LLM essential
+##### Model training
+parameters(e.g. 13b) = Weight + Bias
+##### Transformer
+Encoder
 1. data input & embedding
 2. positional encoding
 3. multi-head attention
@@ -19,7 +20,7 @@ Outline:
 6. add & normalize
 7. multiple encoder
    
-### Decoder
+Decoder
 1. outputs
 2. output embedding
 3. positional encoding
@@ -30,6 +31,6 @@ Outline:
 8. feed forward neural network
 9. add & normalize
     
-### Linear & Softmax
+Linear & Softmax
 
-### Output probabilities
+Output probabilities
