@@ -8,9 +8,9 @@ Outline:
 ***
 
 ## LLM essential
-##### Model training
+#### Model training
 parameters(e.g. 13b) = Weight + Bias
-##### Transformer
+#### Transformer
 Encoder
 1. data input & embedding
 2. positional encoding
