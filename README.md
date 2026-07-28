@@ -9,7 +9,8 @@ Outline:
 
 ## LLM essential
 ### Model training1
-![](img\2026-07-28-18-16-14.png)
+![](2026-07-28-18-21-28.png)
+
 ```parameters(e.g. 13b) = Weight + Bias```
 ### Transformer
 Encoder
