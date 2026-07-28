@@ -8,7 +8,7 @@ Outline:
 ***
 
 ## LLM essential
-### Model training
+### Model training1
 ![](img\2026-07-28-18-16-14.png)
 ```parameters(e.g. 13b) = Weight + Bias```
 ### Transformer
