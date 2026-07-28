@@ -9,7 +9,7 @@ Outline:
 
 ## LLM essential
 ### Model training
-parameters(e.g. 13b) = Weight + Bias
+    parameters(e.g. 13b) = Weight + Bias
 ### Transformer
 Encoder
 1. data input & embedding
