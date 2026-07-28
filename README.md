@@ -8,10 +8,11 @@ Outline:
 ***
 
 ## LLM essential
-### Model training1
+### Model training
+```parameters(e.g. 13b) = Weight + Bias```
 ![](2026-07-28-18-21-28.png)
 
-```parameters(e.g. 13b) = Weight + Bias```
+
 ### Transformer
 Encoder
 1. data input & embedding
