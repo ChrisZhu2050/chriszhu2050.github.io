@@ -10,7 +10,7 @@ Outline:
 ## LLM essential
 ### Model training
 
-![](img\2026-07-29-17-19-11.png)
+![](img\2026-07-29-17-33-32.png)
 
 
 ### Transformer
