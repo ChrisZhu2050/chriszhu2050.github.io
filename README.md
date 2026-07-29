@@ -10,7 +10,7 @@ Outline:
 ## LLM essential
 ### Model training
 ```parameters(e.g. 13b) = Weight + Bias```
-![](img\2026-07-28-18-21-28.png)
+![](img\2026-07-29-17-19-11.png)
 
 
 ### Transformer
