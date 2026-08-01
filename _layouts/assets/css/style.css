@@ -3,7 +3,3 @@
 
 @import "{{ site.theme }}";
 
-  .transparent-background {
-    background-color: white; /* 或者你希望的任何颜色 */
-    padding: 10px; /* 可选，增加一些内边距以便看到背景色 */
-  }
