@@ -10,8 +10,8 @@ Outline:
 ## LLM essential
 ### Model training
 
-![](img\1.png)
-
+<!-- ![](img\1.png) -->
+![](https://chriszhu2050.github.io/img/1.png)
 
 ### Transformer
 Encoder
