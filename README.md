@@ -22,7 +22,7 @@ Encoder
 5. feed forward neural network
 6. add & normalize
 7. multiple encoder
-   
+
 Decoder
 1. outputs
 2. output embedding
