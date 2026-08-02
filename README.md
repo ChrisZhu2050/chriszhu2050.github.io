@@ -2,10 +2,10 @@
 Outline:
 - LLM essential
   - [Model training](#section1)
-  - Transformer
-- LLM fine-tune
-- Agent framework
-- Data feedback
+  - [Transformer](#section2)
+- [LLM fine-tune](#section3)
+- [Agent framework](#section4)
+- [Data feedback](#section5)
 
 ***
 
@@ -23,6 +23,7 @@ Outline:
         > cross-entropy loss
 
 - Transformer  
+<a id="section2"></a>  
     - Encoder
     1. data input & embedding
     2. positional encoding
@@ -46,3 +47,9 @@ Outline:
     - Linear & Softmax
 
     - Output probabilities
+## LLM fine-tune
+<a id="section3"></a>
+## Agent framework
+<a id="section4"></a>
+## Data feedback
+<a id="section5"></a>
