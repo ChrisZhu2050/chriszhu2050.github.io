@@ -1,6 +1,8 @@
 
 Outline:
 - LLM essential
+  - Model training
+  - Transformer
 - LLM fine-tune
 - Agent framework
 - Data feedback
