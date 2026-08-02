@@ -1,6 +1,8 @@
 
 Outline:
-- [LLM essential](#llm-essential)
+- [LLM essential]
+  - [Model training](#section1)
+  - [Transformer](#section2)
 - [LLM fine-tune](#llm-fine-tune)
 - [Agent framework](#agent-framework)
 - [Data feedback](#data-feedback)
