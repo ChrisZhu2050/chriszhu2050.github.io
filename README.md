@@ -14,7 +14,7 @@ Outline:
   
 
 - Forward pass
-  - Data compression(Byte-pair encoding)
+  - Data compression (Byte-pair encoding)
   
 - Backward pass
   - Loss computation  
