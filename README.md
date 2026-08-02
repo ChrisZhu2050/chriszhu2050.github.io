@@ -16,6 +16,7 @@ Outline:
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
 
   - Forward pass
+    - Weights initialization
     - Data compression (Byte-pair encoding)
     
   - Backward pass  
