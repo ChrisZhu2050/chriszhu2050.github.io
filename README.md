@@ -7,8 +7,8 @@ Outline:
 
 ***
 
-## LLM essential  
-<a id="section6"></a>
+## LLM essential
+  
 - Model training  
 <a id="section1"></a>
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
@@ -51,10 +51,10 @@ Outline:
     - Output probabilities  
   
 ## LLM fine-tune  
-<a id="section3"></a>  
+  
 
 ## Agent framework  
-<a id="section4"></a>  
+ 
 
 ## Data feedback  
-<a id="section5"></a>  
+
