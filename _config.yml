@@ -15,13 +15,13 @@ minima:
     - title: Jekyll repository at GitHub
       icon: github
       url: "https://github.com/jekyll/jekyll"
-    - title: Jekyll at X (formerly Twitter)
-      icon: x-twitter
-      url: "https://x.com/jekyllrb"
+    # - title: Jekyll at X (formerly Twitter)
+    #   icon: x-twitter
+    #   url: "https://x.com/jekyllrb"
   show_excerpts: true
   date_format: "%b %-d, %Y"
   hide_site_feed_link: true
 
 author:
-  name: John Smith
-  email: "john.smith@foobar.com"
+  name: Chris Zhu
+  email: "ChrisZhu@foobar.com"
