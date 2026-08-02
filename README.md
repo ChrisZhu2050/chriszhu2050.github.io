@@ -1,15 +1,14 @@
 
 Outline:
-- LLM essential
-  - [Model training](#section1)
-  - [Transformer](#section2)
-- [LLM fine-tune](#section3)
-- [Agent framework](#section4)
-- [Data feedback](#section5)
+- [LLM essential](#llm-essential)
+- [LLM fine-tune](#llm-fine-tune)
+- [Agent framework](#agent-framework)
+- [Data feedback](#data-feedback)
 
 ***
 
 ## LLM essential  
+<a id="section6"></a>
 - Model training  
 <a id="section1"></a>
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
