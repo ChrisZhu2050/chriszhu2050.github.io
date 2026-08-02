@@ -23,7 +23,9 @@ Outline:
 
         > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$
 
-
+    - Gradient computation
+        >1
+   
 - Transformer  
 <a id="section2"></a>  
     - Encoder  
