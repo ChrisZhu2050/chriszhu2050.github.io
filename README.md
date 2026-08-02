@@ -9,7 +9,7 @@ Outline:
 
 ***
 
-## LLM essential
+## LLM essential  
 - Model training  
 <a id="section1"></a>
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
@@ -18,13 +18,13 @@ Outline:
   - Forward pass
     - Data compression (Byte-pair encoding)
     
-  - Backward pass
+  - Backward pass  
     - Loss computation  
         > cross-entropy loss
 
 - Transformer  
 <a id="section2"></a>  
-    - Encoder
+    - Encoder  
     1. data input & embedding
     2. positional encoding
     3. multi-head attention
@@ -33,7 +33,7 @@ Outline:
     6. add & normalize
     7. multiple encoder  
 
-    - Decoder
+    - Decoder  
     1. outputs
     2. output embedding
     3.  positional encoding
@@ -46,10 +46,13 @@ Outline:
         
     - Linear & Softmax
 
-    - Output probabilities
-## LLM fine-tune
-<a id="section3"></a>
-## Agent framework
-<a id="section4"></a>
-## Data feedback
-<a id="section5"></a>
+    - Output probabilities  
+  
+## LLM fine-tune  
+<a id="section3"></a>  
+
+## Agent framework  
+<a id="section4"></a>  
+
+## Data feedback  
+<a id="section5"></a>  
