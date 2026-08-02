@@ -20,7 +20,7 @@ Outline:
     
   - Backward pass
     - Loss computation  
-  
+        > cross-entropy loss
 
 - Transformer  
     - Encoder
