@@ -1,7 +1,7 @@
 
 Outline:
 - LLM essential
-  - [Model training] [1]
+  - [Model training][#section1]
   - Transformer
 - LLM fine-tune
 - Agent framework
@@ -11,9 +11,9 @@ Outline:
 
 ## LLM essential
 - Model training  
+<a id="section1"></a>
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
-[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle (Hobbit lifestyles)
 
   - Forward pass
     - Data compression (Byte-pair encoding)
