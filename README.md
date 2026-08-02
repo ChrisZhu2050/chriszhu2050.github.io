@@ -27,6 +27,9 @@ Outline:
     - Gradient computation
         > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$
 
+    - Weight update by Adam
+        > $$ W_n = W_o - η*\nabla L(W_o) $$
+
    
 - Transformer  
 <a id="section2"></a>  
