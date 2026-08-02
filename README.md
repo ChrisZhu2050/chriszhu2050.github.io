@@ -10,7 +10,8 @@ Outline:
 ***
 
 ## LLM essential
-- [1]: Model training
+- Model training
+  [1]: 
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   
