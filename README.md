@@ -10,8 +10,8 @@ Outline:
 ***
 
 ## LLM essential
-- Model training
-  [1]: 
+- Model training  
+[1]: https://en.wikipedia.org/wiki/Hobbit#Lifestyle
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   
