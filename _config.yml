@@ -6,3 +6,22 @@ title: Chris' Blog
 description: Stay curious
 # show_downloads: ["true" or "false" (unquoted) to indicate whether to provide a download URL]
 # google_analytics: [Your Google Analytics tracking ID]
+minima:
+  skin: classic
+  nav_pages:
+    - about.md
+    - portfolio.md
+  social_links:
+    - title: Jekyll repository at GitHub
+      icon: github
+      url: "https://github.com/jekyll/jekyll"
+    - title: Jekyll at X (formerly Twitter)
+      icon: x-twitter
+      url: "https://x.com/jekyllrb"
+  show_excerpts: true
+
+  date_format: "%b %-d, %Y"
+
+author:
+  name: John Smith
+  email: "john.smith@foobar.com"
