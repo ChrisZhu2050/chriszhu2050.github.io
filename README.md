@@ -11,7 +11,7 @@ Outline:
 ### Model training
 
 <!-- ![](img\1.png) -->
-![](https://chriszhu2050.github.io/img/1.png)
+![](https://chriszhu2050.github.io/images/1.png)
 
 ### Transformer
 Encoder
