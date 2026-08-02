@@ -10,7 +10,7 @@ minima:
   skin: classic
   nav_pages:
     - about.md
-    - portfolio.md
+
   social_links:
     - title: Jekyll repository at GitHub
       icon: github
@@ -19,8 +19,8 @@ minima:
       icon: x-twitter
       url: "https://x.com/jekyllrb"
   show_excerpts: true
-
   date_format: "%b %-d, %Y"
+  hide_site_feed_link: true
 
 author:
   name: John Smith
