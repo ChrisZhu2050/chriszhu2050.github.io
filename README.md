@@ -10,8 +10,8 @@ Outline:
 ## LLM essential
 - Model training
 
-<!-- ![](img\1.png) -->
-![](https://chriszhu2050.github.io/images/1.png)
+[![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
+<!-- ![](https://chriszhu2050.github.io/images/1.png) -->
 - Forward pass
 - Backward pass
   - Loss computation
