@@ -14,6 +14,7 @@ Outline:
 ![](https://chriszhu2050.github.io/images/1.png)
 - Forward pass
 - Backward pass
+  - Loss computation
 
 
 - Transformer  
@@ -27,16 +28,16 @@ Outline:
     7. multiple encoder  
 
     - Decoder
-    8. outputs
-    9. output embedding
-    10. positional encoding
-    11. masked multi-head attention
-    12. add & normalize
-    13. multi-head attention
-    14. add & normalize
-    15. feed forward neural network
-    16. add & normalize
+    1. outputs
+    2. output embedding
+    3.  positional encoding
+    4.  masked multi-head attention
+    5.  add & normalize
+    6.  multi-head attention
+    7.  add & normalize
+    8.  feed forward neural network
+    9.  add & normalize
         
-    Linear & Softmax
+    - Linear & Softmax
 
-    Output probabilities
+    - Output probabilities
