@@ -1,7 +1,7 @@
 
 Outline:
 - LLM essential
-  - Model training
+  - [Model training] [1]
   - Transformer
 - LLM fine-tune
 - Agent framework
@@ -10,7 +10,7 @@ Outline:
 ***
 
 ## LLM essential
-- Model training
+- [1]:Model training
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   
