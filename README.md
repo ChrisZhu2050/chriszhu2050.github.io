@@ -1,9 +1,9 @@
 
 Outline:
-- llm essential
-- llm fine-tune
-- agent framework
-- data feedback
+- LLM essential
+- LLM fine-tune
+- Agent framework
+- Data feedback
 
 ***
 
