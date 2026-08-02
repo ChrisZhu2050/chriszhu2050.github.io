@@ -1,7 +1,7 @@
 
 Outline:
 - LLM essential
-  - [Model training][#section1]
+  - [Model training](#section1)
   - Transformer
 - LLM fine-tune
 - Agent framework
