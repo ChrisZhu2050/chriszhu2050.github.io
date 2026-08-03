@@ -22,13 +22,14 @@ Outline:
       - Bias
         - normally initial as 0
       - LayerNorm
-        - γ to 1 and β to 0
+        - γ as 1 and β as 0
       - Token & Position embedding
         - N(0,1)
       - LM Head
         - Xavier/Glorot/Kaiming
         - or shared with embedding
-    - Data compression (Byte-pair encoding)
+    - Data compression (Byte-pair encoding)  
+  
     
   - Backward pass  
     - cross-entropy Loss computation  
