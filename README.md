@@ -28,10 +28,10 @@ Outline:
       - LM Head
         - Xavier/Glorot/Kaiming
         - or shared with embedding
-    - Data compression (Byte-pair encoding)  
-    
-    
-    
+    - Data compression (Byte-pair encoding) 
+
+
+
   - Backward pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
@@ -43,6 +43,8 @@ Outline:
 
     - Weight update by Adam
         > $$ W_n = W_o - η*\nabla L(W_o) $$
+
+
 
    
 - Transformer  
@@ -72,11 +74,19 @@ Outline:
     - Output probabilities  
    
 
+
+
 ## LLM fine-tune  
 ***
+
+
 
 ## Agent framework  
 ***
 
+
+
 ## Data feedback  
 ***
+
+
