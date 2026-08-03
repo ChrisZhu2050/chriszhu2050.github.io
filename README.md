@@ -29,7 +29,8 @@ Outline:
         - Xavier/Glorot/Kaiming
         - or shared with embedding
     - Data compression (Byte-pair encoding)  
-  
+    
+    
     
   - Backward pass  
     - cross-entropy Loss computation  
@@ -69,7 +70,8 @@ Outline:
     - Linear & Softmax
 
     - Output probabilities  
-  
+   
+
 ## LLM fine-tune  
 ***
 
