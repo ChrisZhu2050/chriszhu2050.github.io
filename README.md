@@ -17,6 +17,17 @@ Outline:
 
   - Forward pass
     - Weights initialization
+      - FFN,Q/K/V/O
+        - Xavier/Glorot/Kaiming/He
+      - Bias
+        - normally initial as 0
+      - LayerNorm
+        - γ to 1 and β to 0
+      - Token & Position embedding
+        - N(0,1)
+      - LM Head
+        - Xavier/Glorot/Kaiming
+        - or shared with embedding
     - Data compression (Byte-pair encoding)
     
   - Backward pass  
