@@ -24,7 +24,6 @@ Outline:
      - promt&result with rank for RW model
        - prepaired manually by peope  
     
-<br/>  
 
 3. Weights initialization
     - FFN,Q/K/V/O
