@@ -34,7 +34,7 @@ Outline:
     - LM Head
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
-   <br> 
+   <br>
     
 4. Forward pass
     - Data compression (Byte-pair encoding)
