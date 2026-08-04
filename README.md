@@ -18,9 +18,8 @@ Outline:
     - not tagged data for base model
     - prompt&answer for SFT model
     - promt&result with rank for RW model
-
-
-
+  
+    
   - Weights initialization
       - FFN,Q/K/V/O
         - Xavier/Glorot/Kaiming/He
@@ -36,7 +35,8 @@ Outline:
 
 
 
-
+  
+    
   - Forward pass
     
     - Data compression (Byte-pair encoding)
