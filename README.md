@@ -22,9 +22,8 @@ Outline:
      - prompt&answer for SFT model
        - repaired manually by people
      - promt&result with rank for RW model
-       - prepaired manually by peope  
-    
-
+       - prepaired manually by peope     
+      
 3. Weights initialization
     - FFN,Q/K/V/O
       - Xavier/Glorot/Kaiming/He
