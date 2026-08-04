@@ -11,14 +11,17 @@ Outline:
 
 ## LLM essential
 <a id="section1"></a>
-- Model training  
+- Model training process
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   - Training Data
     - not tagged data for base model
+      - wikipedia
     - prompt&answer for SFT model
+      - repaired manually by people
     - promt&result with rank for RW model
-
+      - prepaired manually by peope
+<br/>
 
   - Weights initialization
       - FFN,Q/K/V/O
@@ -33,7 +36,7 @@ Outline:
         - Xavier/Glorot/Kaiming
         - or shared with embedding
 
-
+<br/>
 
   
     
@@ -50,7 +53,7 @@ Outline:
         5. feed forward neural network
         6. add & normalize
         7. multiple encoder
-
+<br/>
 
         - Decoder  
         1. outputs
@@ -62,11 +65,12 @@ Outline:
         7.  add & normalize
         8.  feed forward neural network
         9.  add & normalize
+<br/>
     - Linear & Softmax
-
+<br/>
     - Output probabilities
 
-
+<br/>
   - Backward pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
