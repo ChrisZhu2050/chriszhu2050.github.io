@@ -1,8 +1,6 @@
 
 Outline:
-- [LLM essential]
-  - [Model training process](#section1)
-  - [Transformer](#section2)
+- [LLM essential](#llm-essential)
 - [LLM fine-tune](#llm-fine-tune)
 - [Agent framework](#agent-framework)
 - [Data feedback](#data-feedback)
@@ -10,7 +8,7 @@ Outline:
 ***
 
 ## LLM essential
-<a id="section1"></a>
+<!-- <a id="section1"></a> -->
 1. Model training process
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
@@ -42,7 +40,7 @@ Outline:
 4. Forward pass
     - Data compression (Byte-pair encoding)
     - Transformer  
-    <a id="section2"></a>  
+    <!-- <a id="section2"></a>   -->
         - Encoder  
           1. data input & embedding
           2. positional encoding
