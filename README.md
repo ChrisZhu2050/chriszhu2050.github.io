@@ -33,7 +33,7 @@ Outline:
       - N(0,1)
     - LM Head
       - Xavier/Glorot/Kaiming
-      - or shared with embedding
+      - or shared with embedding   
    <br> 
     
 4. Forward pass
@@ -60,7 +60,7 @@ Outline:
           9.  add & normalize
 
     - Linear & Softmax
-    - Output probabilities
+    - Output probabilities  
   <br>
 
 5. Backward pass  
@@ -73,9 +73,9 @@ Outline:
         > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$
 
     - Weight update by Adam
-        > $$ W_n = W_o - η*\nabla L(W_o) $$
+        > $$ W_n = W_o - η*\nabla L(W_o) $$  
 
-
+  <br>
 
 ## LLM fine-tune  
 ***
