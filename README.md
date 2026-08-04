@@ -21,9 +21,7 @@ Outline:
 
 
 
-
-  - Forward pass
-    - Weights initialization
+  - Weights initialization
       - FFN,Q/K/V/O
         - Xavier/Glorot/Kaiming/He
       - Bias
@@ -35,6 +33,12 @@ Outline:
       - LM Head
         - Xavier/Glorot/Kaiming
         - or shared with embedding
+
+
+
+
+  - Forward pass
+    
     - Data compression (Byte-pair encoding)
     - Transformer  
     <a id="section2"></a>  
