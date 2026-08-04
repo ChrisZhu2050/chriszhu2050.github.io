@@ -27,7 +27,8 @@ Outline:
       - Xavier/Glorot
       - Kaiming/He
     - Q/K/V/O
-
+      - Xavier/Glorot
+      - Kaiming/He
     - Bias
       - normally initial as 0
     - LayerNorm
