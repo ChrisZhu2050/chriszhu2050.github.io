@@ -1,7 +1,7 @@
 
 Outline:
 - [LLM essential]
-  - [Model training](#section1)
+  - [Model training process](#section1)
   - [Transformer](#section2)
 - [LLM fine-tune](#llm-fine-tune)
 - [Agent framework](#agent-framework)
@@ -11,33 +11,33 @@ Outline:
 
 ## LLM essential
 <a id="section1"></a>
-- Model training process
+1. Model training process
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
-  - Training Data
-    - not tagged data for base model
-      - wikipedia
-    - prompt&answer for SFT model
-      - repaired manually by people
-    - promt&result with rank for RW model
-      - prepaired manually by peope
+2. Training Data
+     - not tagged data for base model
+       - wikipedia
+     - prompt&answer for SFT model
+       - repaired manually by people
+     - promt&result with rank for RW model
+       - prepaired manually by peope
 
 
-  - Weights initialization
-      - FFN,Q/K/V/O
-        - Xavier/Glorot/Kaiming/He
-      - Bias
-        - normally initial as 0
-      - LayerNorm
-        - γ as 1 and β as 0
-      - Token & Position embedding
-        - N(0,1)
-      - LM Head
-        - Xavier/Glorot/Kaiming
-        - or shared with embedding
+3. Weights initialization
+    - FFN,Q/K/V/O
+      - Xavier/Glorot/Kaiming/He
+    - Bias
+      - normally initial as 0
+    - LayerNorm
+      - γ as 1 and β as 0
+    - Token & Position embedding
+      - N(0,1)
+    - LM Head
+      - Xavier/Glorot/Kaiming
+      - or shared with embedding
 
 
-  - Forward pass
+4. Forward pass
     - Data compression (Byte-pair encoding)
     - Transformer  
     <a id="section2"></a>  
@@ -64,7 +64,7 @@ Outline:
     - Output probabilities
 
 
-  - Backward pass  
+5. Backward pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
