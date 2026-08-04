@@ -23,8 +23,11 @@ Outline:
        - prepaired manually by peope     
   <br>
 3. Weights initialization
-    - FFN,Q/K/V/O
-      - Xavier/Glorot/Kaiming/He
+    - FFN
+      - Xavier/Glorot
+      - Kaiming/He
+    - Q/K/V/O
+
     - Bias
       - normally initial as 0
     - LayerNorm
@@ -63,7 +66,7 @@ Outline:
     - Output probabilities  
   <br>
 
-5. Backward pass  
+1. Backward pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
