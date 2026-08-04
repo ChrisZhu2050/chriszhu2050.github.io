@@ -13,7 +13,7 @@ Outline:
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   
-  
+
 2. Training Data
      - not tagged data for base model
        - wikipedia
@@ -21,7 +21,7 @@ Outline:
        - repaired manually by people
      - promt&result with rank for RW model
        - prepaired manually by peope     
-      
+  
 3. Weights initialization
     - FFN,Q/K/V/O
       - Xavier/Glorot/Kaiming/He
