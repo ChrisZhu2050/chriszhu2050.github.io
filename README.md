@@ -14,14 +14,17 @@ Outline:
 1. Model training process
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
+  
+  
 2. Training Data
      - not tagged data for base model
        - wikipedia
      - prompt&answer for SFT model
        - repaired manually by people
      - promt&result with rank for RW model
-       - prepaired manually by peope
-
+       - prepaired manually by peope  
+    
+<br/>  
 
 3. Weights initialization
     - FFN,Q/K/V/O
@@ -35,7 +38,8 @@ Outline:
     - LM Head
       - Xavier/Glorot/Kaiming
       - or shared with embedding
-
+    
+    
 
 4. Forward pass
     - Data compression (Byte-pair encoding)
