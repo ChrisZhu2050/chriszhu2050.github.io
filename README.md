@@ -49,7 +49,8 @@ Outline:
         4. add & normalize
         5. feed forward neural network
         6. add & normalize
-        7. multiple encoder  
+        7. multiple encoder
+
 
         - Decoder  
         1. outputs
@@ -63,7 +64,7 @@ Outline:
         9.  add & normalize
     - Linear & Softmax
 
-    - Output probabilities  
+    - Output probabilities
 
 
   - Backward pass  
