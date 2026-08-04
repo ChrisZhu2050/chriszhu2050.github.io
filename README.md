@@ -14,6 +14,13 @@ Outline:
 - Model training  
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
+  - Training Data
+    - not tagged data for base model
+    - prompt&answer for SFT model
+    - promt&result with rank for RW model
+
+
+
 
   - Forward pass
     - Weights initialization
