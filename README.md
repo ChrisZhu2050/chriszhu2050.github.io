@@ -21,7 +21,7 @@ Outline:
        - repaired manually by people
      - promt&result with rank for RW model
        - prepaired manually by peope     
-  
+  <br>
 3. Weights initialization
     - FFN,Q/K/V/O
       - Xavier/Glorot/Kaiming/He
@@ -34,9 +34,8 @@ Outline:
     - LM Head
       - Xavier/Glorot/Kaiming
       - or shared with embedding
+   <br> 
     
-    
-
 4. Forward pass
     - Data compression (Byte-pair encoding)
     - Transformer  
@@ -62,7 +61,7 @@ Outline:
 
     - Linear & Softmax
     - Output probabilities
-
+  <br>
 
 5. Backward pass  
     - cross-entropy Loss computation  
