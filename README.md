@@ -16,9 +16,12 @@ Outline:
 
 2. Training Data
      - Raw data for base model
-       - Common Crawl
-       - C4/C4.EN (from April 2019 snapshot of Common Crawl)
-       - Github/Wikipedia
+       - Sources
+         - Common Crawl
+         - C4/C4.EN (from April 2019 snapshot of Common Crawl)
+         - Github/Wikipedia/ArXiv/Stack Exchange
+       - Tokenize
+         
      - prompt&answer for SFT model
        - repaired manually by people
      - promt&result with rank for RW model
