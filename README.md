@@ -45,7 +45,7 @@ Outline:
    <br> 
     
 4. Forward pass
-    -Tokenization
+    - Tokenization
          - Data compression (Byte-pair encoding)
     - Transformer  
     <!-- <a id="section2"></a>   -->
