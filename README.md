@@ -46,8 +46,10 @@ Outline:
     
 4. Forward pass
     - Tokenization
-         - SentencePiece  
-         - Data compression (Byte-pair encoding)  
+          - Vocabulary
+            - LLaMA(~32K-100K) / Deepseek(~32K-100K)
+         - SentencePiece
+         - Byte-pair encoding
     - Transformer  
     <!-- <a id="section2"></a>   -->
         - Encoder  
