@@ -16,7 +16,9 @@ Outline:
 
 2. Training Data
      - not tagged data for base model
-       - wikipedia
+       - Common Crawl
+       - C4/C4.EN (from April 2019 snapshot of Common Crawl)
+       - Github/Wikipedia
      - prompt&answer for SFT model
        - repaired manually by people
      - promt&result with rank for RW model
