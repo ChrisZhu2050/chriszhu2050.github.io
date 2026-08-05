@@ -46,8 +46,8 @@ Outline:
     
 4. Forward pass
     - Tokenization
-          - Vocabulary
-            - LLaMA(~32K-100K) / Deepseek(~32K-100K)
+        - Vocabulary
+            - LLaMA(~32K-100K) / Deepseek(~65K-250K)
          - SentencePiece
          - Byte-pair encoding
     - Transformer  
