@@ -20,7 +20,8 @@ Outline:
          - Common Crawl
          - C4/C4.EN (from April 2019 snapshot of Common Crawl)
          - Github/Wikipedia/ArXiv/Stack Exchange
-       - Tokenize
+       - Tokenization
+         - Data compression (Byte-pair encoding)
          
      - prompt&answer for SFT model
        - repaired manually by people
@@ -46,7 +47,6 @@ Outline:
    <br> 
     
 4. Forward pass
-    - Data compression (Byte-pair encoding)
     - Transformer  
     <!-- <a id="section2"></a>   -->
         - Encoder  
