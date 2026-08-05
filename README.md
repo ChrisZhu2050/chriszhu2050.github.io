@@ -46,9 +46,8 @@ Outline:
     
 4. Forward pass
     - Tokenization
-         - SentencePiece
-         - Data compression (Byte-pair encoding)
-
+         - SentencePiece  
+         - Data compression (Byte-pair encoding)  
     - Transformer  
     <!-- <a id="section2"></a>   -->
         - Encoder  
