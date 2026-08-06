@@ -45,6 +45,7 @@ Outline:
 4. Tokenizer
     - Algorithm
       - BPE (Byte-pair encoding)
+      - Byte-level BPE
     - Vocabulary
       - Base vocabulary(e.g. 256 UTF8 code)
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
