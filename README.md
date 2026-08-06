@@ -43,7 +43,7 @@ Outline:
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-4. Tokenizer for training
+4. Tokenizer For Training
     - Algorithm
       - BPE (Byte-pair encoding)
       - Byte-level BPE
