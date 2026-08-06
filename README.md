@@ -9,7 +9,7 @@ Outline:
 
 ## LLM Essential
 <!-- <a id="section1"></a> -->
-1. Model Training Process
+1. GPT Training Process
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   
