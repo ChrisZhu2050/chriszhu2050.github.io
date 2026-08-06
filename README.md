@@ -1,12 +1,13 @@
 Outline:
-- [LLM essential](#llm-essential)
-- [LLM fine-tune](#llm-fine-tune)
-- [Agent framework](#agent-framework)
-- [Data feedback](#data-feedback)
+- [LLM Essential](#llm-essential)
+- [LLM Fine-tune](#llm-fine-tune)
+- [LLM Distillation](#llm-distillation)
+- [Agent Framework](#agent-framework)
+- [Data Feedback](#data-feedback)
 
 ***
 
-## LLM essential
+## LLM Essential
 <!-- <a id="section1"></a> -->
 1. Model Training Process
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
@@ -96,11 +97,12 @@ Outline:
 
   <br>
 
-## LLM fine-tune  
+## LLM Fine-tune  
+***
+## LLM Distillation  
+***
+## Agent Framework  
 ***
 
-## Agent framework  
-***
-
-## Data feedback  
+## Data Feedback  
 ***
