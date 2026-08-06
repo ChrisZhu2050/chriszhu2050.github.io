@@ -22,10 +22,10 @@ Outline:
          - Github/Wikipedia/ArXiv/Stack Exchange
          - Books(1,2,3)
          
-     - prompt&answer for SFT model
-       - repaired manually by people
-     - promt&result with rank for RW model
-       - prepaired manually by peope     
+     - Prompt & answer for SFT model
+       - Prepaired manually by people
+     - Prompt & result with rank for RW model
+       - Prepaired manually by peope     
   <br>
 3. Weights initializing before base model's training
     - FFN
