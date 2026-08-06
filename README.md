@@ -42,18 +42,18 @@ Outline:
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-    
-4. Forward pass
+4. Tokenizer
+    - Algorithm
+      - BPE (Byte-pair encoding)
+    - Vocabulary
+      - Base vocabulary(e.g. 256 UTF8 code)
+      - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
+      - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
+    - Tool
+      - SentencePiece
+
+5. Forward pass
     - Tokenization
-      - Algorithm
-        - BPE (Byte-pair encoding)
-      - Vocabulary
-        - Base vocabulary(e.g. 256 UTF8 code)
-        - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
-        - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
-      - Tokenizer
-        - SentencePiece(Tokenizer)
-    
     - Transformer  
     <!-- <a id="section2"></a>   -->
         - Encoder  
@@ -79,7 +79,7 @@ Outline:
     - Output probabilities  
   <br>
 
-1. Backward pass  
+6. Backward pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
