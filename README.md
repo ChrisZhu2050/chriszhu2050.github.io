@@ -1,6 +1,3 @@
-
-<<<<<<< HEAD
-=======
 Outline:
 - [LLM essential](#llm-essential)
 - [LLM fine-tune](#llm-fine-tune)
@@ -106,7 +103,3 @@ Outline:
 
 ## Data feedback  
 ***
-
-
-
->>>>>>> 565fb75ebb94c85f7f6b3f8ad573c74c6d694ed7
