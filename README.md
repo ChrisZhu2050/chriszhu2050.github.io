@@ -52,7 +52,7 @@ Outline:
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
     - Tool
       - SentencePiece
-
+ <br> 
 5. Forward pass
     - Tokenization
     - Transformer  
