@@ -27,7 +27,7 @@ Outline:
      - promt&result with rank for RW model
        - prepaired manually by peope     
   <br>
-3. Weights initialization before base model's training
+3. Weights initializing before base model's training
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -44,7 +44,7 @@ Outline:
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-4. Tokenizer initialization before base model's Training
+4. Tokenizer initializing before base model's training
     - Algorithm
       - BPE (Byte-pair encoding)
       - Byte-level BPE
