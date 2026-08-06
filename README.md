@@ -8,13 +8,13 @@ Outline:
 
 ## LLM essential
 <!-- <a id="section1"></a> -->
-1. Model training process
+1. Model Training Process
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   
 
-2. Training Data
-     - Raw data for training base model
+2. Different Training Data
+     - Raw data for base model's training 
        - Sources
          - [Common Crawl](https://commoncrawl.org/)
          - C4/C4.EN (from April 2019 snapshot of Common Crawl)
@@ -26,7 +26,7 @@ Outline:
      - promt&result with rank for RW model
        - prepaired manually by peope     
   <br>
-3. Weights initialization
+3. Weights initialization before base model's training
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -43,7 +43,7 @@ Outline:
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-4. Tokenizer
+4. Tokenizer for training
     - Algorithm
       - BPE (Byte-pair encoding)
       - Byte-level BPE
@@ -54,7 +54,7 @@ Outline:
     - Tool
       - SentencePiece   
  <br> 
-5. Forward pass
+5. Training Forward Pass
     - Tokenization
     - Transformer  
     <!-- <a id="section2"></a>   -->
@@ -81,7 +81,7 @@ Outline:
     - Output probabilities  
   <br>
 
-6. Backward pass  
+6. Training Backward Pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
