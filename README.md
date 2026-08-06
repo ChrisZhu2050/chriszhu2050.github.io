@@ -14,7 +14,7 @@ Outline:
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   
 
-2. Different Training Data
+2. Training Data
      - Raw data for base model's training 
        - Sources
          - [Common Crawl](https://commoncrawl.org/)
@@ -44,7 +44,7 @@ Outline:
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-4. Tokenizer For Training
+4. Tokenizer before base model's Training
     - Algorithm
       - BPE (Byte-pair encoding)
       - Byte-level BPE
