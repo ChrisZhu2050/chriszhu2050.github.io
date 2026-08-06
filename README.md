@@ -50,8 +50,8 @@ Outline:
         - base vocabulary(e.g. 256 UTF8 code)
         - iteration to add each most frequent subword to the vocabulary
         - Typical vocabulary size: LLaMA(~32K-100K) / Deepseek(~65K-250K)
-      - SentencePiece
-      - Byte-pair encoding
+      - SentencePiece(tool)
+      - Byte-pair encoding(algorithm)
 
     - Transformer  
     <!-- <a id="section2"></a>   -->
