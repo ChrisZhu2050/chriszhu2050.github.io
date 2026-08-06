@@ -44,7 +44,7 @@ Outline:
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-4. Tokenizer before base model's Training
+4. Tokenizer initialization before base model's Training
     - Algorithm
       - BPE (Byte-pair encoding)
       - Byte-level BPE
