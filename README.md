@@ -51,7 +51,7 @@ Outline:
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
     - Tool
-      - SentencePiece
+      - SentencePiece   
  <br> 
 5. Forward pass
     - Tokenization
