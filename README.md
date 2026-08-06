@@ -14,7 +14,7 @@ Outline:
   
 
 2. Training Data
-     - Raw data for base model
+     - Raw data for training base model
        - Sources
          - [Common Crawl](https://commoncrawl.org/)
          - C4/C4.EN (from April 2019 snapshot of Common Crawl)
