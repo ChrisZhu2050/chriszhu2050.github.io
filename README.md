@@ -47,9 +47,9 @@ Outline:
 4. Forward pass
     - Tokenization
       - Vocabulary
-        - base vocabulary(e.g. 256 UTF8 code)
-        - iteration to add each most frequent subword to the vocabulary
-        - Typical vocabulary size: LLaMA(~32K-100K) / Deepseek(~65K-250K)
+        - Base vocabulary(e.g. 256 UTF8 code)
+        - Iteration to add each most frequent subword to the vocabulary via 
+        - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
       - SentencePiece(tool)
       - Byte-pair encoding(algorithm)
 
