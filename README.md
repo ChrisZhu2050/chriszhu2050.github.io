@@ -3,7 +3,7 @@ Outline:
 - [LLM Fine-tune](#llm-fine-tune)
 - [LLM Distillation](#llm-distillation)
 - [Agent Framework](#agent-framework)
-- [Data Feedback](#data-feedback)
+- [Data Flywheel](#data-flywheel)
 
 ***
 
@@ -104,5 +104,5 @@ Outline:
 ## Agent Framework  
 ***
 
-## Data Feedback  
+## Data Flywheel
 ***
