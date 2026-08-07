@@ -1,4 +1,4 @@
-%%{init: {'theme':'base'}}%%
+
 Outline:
 - [LLM Essential](#llm-essential)
 - [LLM Fine-tune](#llm-fine-tune)
@@ -10,7 +10,7 @@ Outline:
 
 ## LLM Essential
 1. GPT Training Process  
-
+%%{init: {'theme':'base'}}%%
 ```mermaid
 graph LR
     A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
