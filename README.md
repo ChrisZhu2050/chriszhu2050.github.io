@@ -1,4 +1,4 @@
-
+%%{init: {'theme':'base'}}%%
 Outline:
 - [LLM Essential](#llm-essential)
 - [LLM Fine-tune](#llm-fine-tune)
