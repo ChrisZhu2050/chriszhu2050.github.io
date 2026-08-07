@@ -19,11 +19,10 @@ graph LR
 
 2. Training Data
      - Raw data of base model's training 
-       - Sources
-         - [Common Crawl](https://commoncrawl.org/)
-         - C4/C4.EN (from April 2019 snapshot of Common Crawl)
-         - Github/Wikipedia/ArXiv/Stack Exchange
-         - Books 1/2/3(digital books with undeclared source)
+        - [Common Crawl](https://commoncrawl.org/)
+        - C4/C4.EN (from April 2019 snapshot of Common Crawl)
+        - Github/Wikipedia/ArXiv/Stack Exchange
+        - Books 1/2/3(digital books with undeclared source)
          
      - Training Data of SFT model
        - Prepaired manually by people
@@ -50,6 +49,10 @@ graph LR
 4. Tokenizer initializing before base model's training
     - Algorithm
       - BPE (Byte-pair encoding)
+      ```mermaid
+        graph LR
+            A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
+      ```
       - Byte-level BPE(?)
       - WordPiece(?)
       - Unigram(?)
