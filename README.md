@@ -12,7 +12,7 @@ Outline:
 <!-- <a id="section1"></a> -->
 1. GPT Training Process
 ```mermaid
-graph LR
+graph TD
     A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```
 
