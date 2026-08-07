@@ -15,16 +15,16 @@ Outline:
   
 
 2. Training Data
-     - Raw data for base model's training 
+     - Raw data of base model's training 
        - Sources
          - [Common Crawl](https://commoncrawl.org/)
          - C4/C4.EN (from April 2019 snapshot of Common Crawl)
          - Github/Wikipedia/ArXiv/Stack Exchange
-         - Books(1,2,3)
+         - Books 1/2/3(digital books with undeclared source)
          
-     - Prompt & answer for SFT model
+     - Training Data of SFT model
        - Prepaired manually by people
-     - Prompt & result with rank for RW model
+     - Training Data of RW model
        - Prepaired manually by peope     
   <br>
 3. Weights initializing before base model's training
@@ -47,13 +47,23 @@ Outline:
 4. Tokenizer initializing before base model's training
     - Algorithm
       - BPE (Byte-pair encoding)
-      - Byte-level BPE
+      - Byte-level BPE(?)
     - Vocabulary
+      - Training Data(subset of Raw data of base model training)
       - Base vocabulary(e.g. 256 UTF8 code)
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
+    - Normalizer
+        > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text
+    - Pre-tokenizer
+        > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit
+    - Post-processor
+        > Add special markers (such as [CLS], [SEP], <bos>, <eos>) and construct attention masks or paragraph type IDs to adapt to the Transformer input format
+    - Decoder
+    - Special Token Map
     - Tool
-      - SentencePiece   
+      - SentencePiece
+      - WordPiece
  <br> 
 5. Training Forward Pass
     - Tokenization
