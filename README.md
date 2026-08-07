@@ -47,8 +47,10 @@ Outline:
 4. Tokenizer initializing before base model's training
     - Algorithm
       - BPE (Byte-pair encoding)
-      - WordPiece(?)
       - Byte-level BPE(?)
+      - WordPiece(?)
+      - Unigram()
+
     - Vocabulary
       - Training Data(subset of Raw data of base model training)
       - Base vocabulary(e.g. 256 UTF8 code)
@@ -64,7 +66,6 @@ Outline:
         > Define the inverse rules for restoring original text from Token ID (such as byte-level decoding, removing prefix spaces), which are only necessary during the inference phase but need to be configured along with the trainer
     - Special Token Map
         > Explicitly register reserved tokens such as "<pad>" and their corresponding IDs to ensure that the model can recognize boundaries and unknown words, and align them with the dimension of the model's embedding layer
-
     - Tool
       - SentencePiece
  <br> 
