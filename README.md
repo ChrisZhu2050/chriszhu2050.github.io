@@ -54,7 +54,7 @@ graph LR
             A[a b c d b c d] --> B[a X d X d] --> C[a Y]
       ```
     > X=bc & Y=Xd  
-      "a Y" is the final token
+      "a bcd" is the final 2 tokens, and "bcd" may be added to the vocabulary 
       - Byte-level BPE(?)
       - WordPiece(?)
       - Unigram(?)
