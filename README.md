@@ -12,7 +12,7 @@ Outline:
 1. GPT Training Process  
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {primaryColor: "#ffffff",primaryTextColor: "#000000",primaryBorderColor: "#000000",lineColor: "#000000",secondaryColor:"#ffffff",tertiaryColor: "#ffffff"} }}%%
+%%{init: {'theme':'base', 'themeVariables': {'primaryColor': '#ffffff','primaryTextColor': '#000000','primaryBorderColor': '#000000','lineColor': '#000000','secondaryColor':'#ffffff','tertiaryColor': '#ffffff'} }}%%
 graph LR
     A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```
