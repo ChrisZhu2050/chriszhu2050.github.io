@@ -29,7 +29,7 @@ graph LR
      - Training Data of RW model
        - Prepaired manually by peope     
   <br>
-3. Weights initializing before base model's training
+3. Weights initializing
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -46,7 +46,7 @@ graph LR
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-4. Tokenizer initializing before base model's training
+4. Tokenizer initializing
     - Algorithm
       - BPE (Byte-pair encoding)
       ```mermaid
