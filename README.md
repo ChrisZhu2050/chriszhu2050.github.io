@@ -15,9 +15,6 @@ Outline:
 graph LR
     A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```
-[![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
-<!-- ![](https://chriszhu2050.github.io/images/1.png) -->
-  
 
 2. Training Data
      - Raw data of base model's training 
@@ -126,3 +123,5 @@ graph LR
 ## Data Flywheel
 ***
 
+[![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
+<!-- ![](https://chriszhu2050.github.io/images/1.png) -->
