@@ -10,6 +10,10 @@ Outline:
 ## LLM Essential
 <!-- <a id="section1"></a> -->
 1. GPT Training Process
+```mermaid
+graph LR
+    A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
+```
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   
@@ -49,7 +53,7 @@ Outline:
       - BPE (Byte-pair encoding)
       - Byte-level BPE(?)
       - WordPiece(?)
-      - Unigram()
+      - Unigram(?)
 
     - Vocabulary
       - Training Data(subset of Raw data of base model training)
@@ -120,3 +124,4 @@ Outline:
 
 ## Data Flywheel
 ***
+
