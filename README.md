@@ -114,7 +114,7 @@ graph LR
 
 7. Overview
 
-<!-- [![](images\1.png)](https://chriszhu2050.github.io/images/1.png) -->
+[![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
 <br>
 
