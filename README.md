@@ -108,9 +108,13 @@ graph LR
         > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$
 
     - Weight update by Adam
-        > $$ W_n = W_o - η*\nabla L(W_o) $$  
-        
+        > $$ W_n = W_o - η*\nabla L(W_o) $$     
+  
+  <br>        
+7. Process Overview
 
+[![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
+<!-- ![](https://chriszhu2050.github.io/images/1.png) -->
   <br>
 
 ## LLM Fine-tune  
@@ -123,5 +127,3 @@ graph LR
 ## Data Flywheel
 ***
 
-[![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
-<!-- ![](https://chriszhu2050.github.io/images/1.png) -->
