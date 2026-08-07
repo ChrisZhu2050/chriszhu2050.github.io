@@ -53,7 +53,8 @@ graph LR
         graph LR
             A[a b c d b c d] --> B[a X d X d] --> C[a Y]
       ```
-    > X=bc & Y=Xd
+    > X=bc & Y=Xd  
+      "a Y" is the final token
       - Byte-level BPE(?)
       - WordPiece(?)
       - Unigram(?)
