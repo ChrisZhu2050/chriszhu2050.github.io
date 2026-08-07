@@ -10,8 +10,9 @@ Outline:
 
 ## LLM Essential
 1. GPT Training Process  
-%%{init: {'theme':'base'}}%%
+
 ```mermaid
+%%{init: {'theme':'base'}}%%
 graph LR
     A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```
