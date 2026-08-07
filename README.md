@@ -53,8 +53,8 @@ Outline:
       - Base vocabulary(e.g. 256 UTF8 code)
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
-    - Normalizer
-        > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text
+    - Normalizer  
+        ```Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text```
     - Pre-tokenizer
         > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit
     - Post-processor
