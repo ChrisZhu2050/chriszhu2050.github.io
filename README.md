@@ -56,7 +56,7 @@ graph LR
 
     - Vocabulary
       - Training Data(subset of Raw data of base model training)
-      - Base vocabulary(e.g. 256 UTF8 code)
+      - Base vocabulary(e.g. 256 bytes / Unicode characters from Raw data)
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
     - Normalizer  
