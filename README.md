@@ -72,7 +72,7 @@ graph LR
     - Special Token Map
         > Explicitly register reserved tokens such as "<pad>" and their corresponding IDs to ensure that the model can recognize boundaries and unknown words, and align them with the dimension of the model's embedding layer
     - Tool
-      - SentencePiece
+      - SentencePiece  
  <br> 
 5. Training Forward Pass
     - Tokenization
