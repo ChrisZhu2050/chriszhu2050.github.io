@@ -53,7 +53,7 @@ graph LR
         graph LR
             A[a b c d b c d] --> B[a X d X d] --> C[a Y]
       ```
-    > X=bc & Y=Xd  
+    > Use X="bc" & Y="Xd" to be intuitive  
       "a bcd" are the final 2 tokens, and "bcd" may be added to the vocabulary
       - Byte-level BPE(?)
       - WordPiece(?)
