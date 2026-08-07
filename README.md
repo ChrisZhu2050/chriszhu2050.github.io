@@ -110,7 +110,8 @@ graph TD
     - Weight update by Adam
         > $$ W_n = W_o - η*\nabla L(W_o) $$     
   
-  <br>        
+  <br>  
+
 7. Overview
 
 <!-- [![](images\1.png)](https://chriszhu2050.github.io/images/1.png) -->
