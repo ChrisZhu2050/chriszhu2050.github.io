@@ -111,7 +111,7 @@ graph LR
         > $$ W_n = W_o - η*\nabla L(W_o) $$     
   
   <br>        
-7. Process Overview
+7. Overview
 
 [![](images\1.png)](https://chriszhu2050.github.io/images/1.png)
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
