@@ -51,8 +51,9 @@ graph LR
       - BPE (Byte-pair encoding)
       ```mermaid
         graph LR
-            A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
+            A[a b c d b c d] --> B[a X d X d] --> C[a Y]
       ```
+    > X=bc & Y=Xd
       - Byte-level BPE(?)
       - WordPiece(?)
       - Unigram(?)
