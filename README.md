@@ -9,7 +9,6 @@ Outline:
 ***
 
 ## LLM Essential
-<!-- <a id="section1"></a> -->
 1. GPT Training Process  
 
 ```mermaid
