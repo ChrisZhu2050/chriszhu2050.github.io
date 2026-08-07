@@ -47,6 +47,7 @@ Outline:
 4. Tokenizer initializing before base model's training
     - Algorithm
       - BPE (Byte-pair encoding)
+      - WordPiece(?)
       - Byte-level BPE(?)
     - Vocabulary
       - Training Data(subset of Raw data of base model training)
@@ -66,7 +67,6 @@ Outline:
 
     - Tool
       - SentencePiece
-      - WordPiece
  <br> 
 5. Training Forward Pass
     - Tokenization
