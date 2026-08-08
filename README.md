@@ -16,7 +16,7 @@ GPT Training Process
 graph LR
     A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```  
-<br>
+
 1. Training Data  
 
    - Raw data of base model's training 
@@ -30,7 +30,7 @@ graph LR
    - Training Data of RW model
     - Prepared manually by people     
   <br>
-2. Weights initializing
+1. Weights initializing
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -47,7 +47,7 @@ graph LR
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-3. Tokenizer initializing
+2. Tokenizer initializing
     - Algorithm
       - BPE (Byte-pair encoding)  
         ```mermaid
@@ -81,7 +81,7 @@ graph LR
     - Tool
       - SentencePiece  
  <br> 
-4. Training Forward Pass
+1. Training Forward Pass
     - Tokenization
     - Transformer  
     <!-- <a id="section2"></a>   -->
@@ -108,7 +108,7 @@ graph LR
     - Output probabilities  
   <br>
 
-5. Training Backward Pass  
+1. Training Backward Pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
