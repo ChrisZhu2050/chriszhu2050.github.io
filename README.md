@@ -82,7 +82,14 @@ graph LR
         
           > Used in BERT (Encoder Only).  
           Advantage in search / RAG /Edge LLM(Size is smaller)   
-      - Unigram(?)  
+      - Unigram
+        ```mermaid
+            graph LR
+                A["`big initial voca(>100k)`"] --> B["Use below formula to calculate each pair"] --> C["`low → l, ##o, ##w
+                lower → l, ##o, ##w, **##er**`"] --> D["`Vocab:
+                subword(##er, ##ing etc.)
+                `"]
+          ```
 
     - Vocabulary  
       - Training Data(subset of Raw data of base model training)
