@@ -9,7 +9,7 @@ Outline:
 ***
 
 ## LLM Essential
-GPT Training Process  
+GPT Training Process  ([State of GPT](https://karpathy.ai/))
 
 ```mermaid
 
