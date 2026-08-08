@@ -68,12 +68,23 @@ graph LR
         > Initial vocabulary only have these 256 basic bytes.  
           Need to transfer the text to NTF-8 byte firstly, then implement BPE for vocabulary iteration and tokenization.  
 
-      - WordPiece
-        $$
-          \text{score}(a, b) = \frac{\text{freq}(a, b)}{\text{freq}(a) \times \text{freq}(b)}
-        $$
-        > Used in BERT (Encoder Only).  
-        Advantage in search / RAG /Edge LLM(Size is smaller)   
+      - WordPiece  
+       ```mermaid
+          graph LR
+              A["`low → l, ##o, ##w
+              lower → l, ##o, ##w, ##e, ##r`"] --> B["Use below formula to calculate each pair"] --> C["`low → l, ##o, ##w
+              lower → l, ##o, ##w, **##er**`"] --> D["`Vocab:
+              - basic letters(a,b,c)
+              - subword(##ing, ##ed)
+              - words(the, low)
+              - Special mark([CLS], [SEP])
+              `"]
+        ```
+
+        > $$\text{score}(a, b) = \frac{\text{freq}(a, b)}{\text{freq}(a) \times \text{freq}(b)}$$
+        
+          > Used in BERT (Encoder Only).  
+          Advantage in search / RAG /Edge LLM(Size is smaller)   
       - Unigram(?)  
 
     - Vocabulary  
