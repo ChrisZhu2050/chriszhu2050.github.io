@@ -48,14 +48,15 @@ graph LR
    <br> 
 4. Tokenizer initializing
     - Algorithm
-      - BPE (Byte-pair encoding)
-      ```mermaid
-        graph LR
-            A[a b c d b c d] --> B[a X d X d] --> C[a Y]
-      ```
-      > Use X="bc" & Y="Xd" to be intuitive, the are unicode codes particularlly in BPE  
-        "a bcd" are the final 2 tokens, and "bcd" may be added to the vocabulary
+      - BPE (Byte-pair encoding)  
+        ```mermaid
+          graph LR
+              A[a b c d b c d] --> B[a X d X d] --> C[a Y]
+        ```
+        > Above letters are sampled for illustrating, actually they're unicode codes.   
+          "a bcd" are the final 2 tokens, and "bcd" may be added to the vocabulary
       - Byte-level BPE(?)
+        - s
       - WordPiece(?)
       - Unigram(?)
 
@@ -79,7 +80,7 @@ graph LR
     - Tool
       - SentencePiece  
  <br> 
-5. Training Forward Pass
+1. Training Forward Pass
     - Tokenization
     - Transformer  
     <!-- <a id="section2"></a>   -->
@@ -106,7 +107,7 @@ graph LR
     - Output probabilities  
   <br>
 
-6. Training Backward Pass  
+1. Training Backward Pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
