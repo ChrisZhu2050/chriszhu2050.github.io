@@ -9,27 +9,28 @@ Outline:
 ***
 
 ## LLM Essential
-1. GPT Training Process  
+GPT Training Process  
 
 ```mermaid
 
 graph LR
-    A[Training Data] --> B[Weight Ininitializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
-```
+    A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
+```  
+<br>
+1. Training Data  
 
-2. Training Data
-     - Raw data of base model's training 
-        - [Common Crawl](https://commoncrawl.org/)
-        - C4/C4.EN (from April 2019 snapshot of Common Crawl)
-        - Github/Wikipedia/ArXiv/Stack Exchange
-        - Books 1/2/3(digital books with undeclared source)
-         
-     - Training Data of SFT model
-       - Prepaired manually by people
-     - Training Data of RW model
-       - Prepaired manually by peope     
+   - Raw data of base model's training 
+     - [Common Crawl](https://commoncrawl.org/)
+     - C4/C4.EN (from April 2019 snapshot of Common Crawl)
+     - Github/Wikipedia/ArXiv/Stack Exchange
+     - Books 1/2/3(digital books with undeclared source)
+      
+   - Training Data of SFT model
+    - Prepared manually by people
+   - Training Data of RW model
+    - Prepared manually by people     
   <br>
-3. Weights initializing
+2. Weights initializing
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -46,7 +47,7 @@ graph LR
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-4. Tokenizer initializing
+3. Tokenizer initializing
     - Algorithm
       - BPE (Byte-pair encoding)  
         ```mermaid
@@ -80,7 +81,7 @@ graph LR
     - Tool
       - SentencePiece  
  <br> 
-1. Training Forward Pass
+4. Training Forward Pass
     - Tokenization
     - Transformer  
     <!-- <a id="section2"></a>   -->
@@ -107,7 +108,7 @@ graph LR
     - Output probabilities  
   <br>
 
-1. Training Backward Pass  
+5. Training Backward Pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
@@ -121,7 +122,6 @@ graph LR
   
   <br>  
 
-7. Overview
 
 <!-- [![](images\1.png)](https://chriszhu2050.github.io/images/1.png) -->
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
