@@ -69,17 +69,14 @@ graph LR
           Need to transfer the text to NTF-8 byte firstly, then implement BPE for vocabulary iteration and tokenization.  
 
       - WordPiece  
-       ```mermaid
-          graph LR
-              A["`low → l, ##o, ##w
-              lower → l, ##o, ##w, ##e, ##r`"] --> B["Use below formula to calculate each pair"] --> C["`low → l, ##o, ##w
-              lower → l, ##o, ##w, **##er**`"] --> D["`Vocab:
-              - basic letters(a,b,c)
-              - subword(##ing, ##ed)
-              - words(the, low)
-              - Special mark([CLS], [SEP])
-              `"]
-        ```
+        ```mermaid
+            graph LR
+                A["`low → l, ##o, ##w
+                lower → l, ##o, ##w, ##e, ##r`"] --> B["Use below formula to calculate each pair"] --> C["`low → l, ##o, ##w
+                lower → l, ##o, ##w, **##er**`"] --> D["`Vocab:
+                - subword(##ing, ##ed)
+                `"]
+          ```
 
         > $$\text{score}(a, b) = \frac{\text{freq}(a, b)}{\text{freq}(a) \times \text{freq}(b)}$$
         
