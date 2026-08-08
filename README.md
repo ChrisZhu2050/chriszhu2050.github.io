@@ -68,7 +68,9 @@ graph LR
         > Initial vocabulary only have these 256 basic bytes.  
           Need to transfer the text to NTF-8 byte firstly, then implement BPE for vocabulary iteration and tokenization.  
 
-      - WordPiece(?)  
+      - WordPiece
+        > Used in BERT (Encoder Only).  
+        Advantage in search & RAG etc.   
       - Unigram(?)  
 
     - Vocabulary  
