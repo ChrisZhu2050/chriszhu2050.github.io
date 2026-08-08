@@ -64,7 +64,7 @@ graph LR
               2<sup>8</sup> = 256 possible byte values`"]
         ```
         > Initial vocabulary only have these 256 basic bytes.  
-          Need to transfer the text to byte firstly, then implement BPE for tokenization.  
+          Need to transfer the text to NTF-8 byte firstly, then implement BPE for vocabulary iteration and tokenization.  
 
       - WordPiece(?)  
       - Unigram(?)  
