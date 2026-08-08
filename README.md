@@ -17,7 +17,7 @@ graph LR
     A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```  
 
-1. Training Data  
+1. **Training Data**  
 
    - Raw data of base model's training 
      - [Common Crawl](https://commoncrawl.org/)
