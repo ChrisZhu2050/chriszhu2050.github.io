@@ -59,7 +59,7 @@ graph LR
       - BBPE(Byte-level BPE)
         ```mermaid
           graph LR
-              A[1 UTF-8 byte] --> B[8 Bit => 0 0 0 0 0 0 0 0 ] --> C[0/1 of each bit => 256 combinations]
+              A[1 UTF-8 byte] --> B[8 Bit => 0 0 0 0 0 0 0 0 ] --> C[0/1 of each bit => 256 possible byte values]
         ```
         > Initial vocabulary only have these 256 basic bytes.  
           Need to transfer the text to byte firstly, then implement BPE for tokenization.  
@@ -70,7 +70,7 @@ graph LR
     - Vocabulary  
       - Training Data(subset of Raw data of base model training)
       - Base vocabulary
-        - BBPE -> 256 bytes
+        - BBPE -> all possible 256 UFT-8 byte values
         - BPE ->  Unicode of alphabet,numbers etc. from Raw data
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
