@@ -62,7 +62,8 @@ graph LR
               A["`1 UTF-8 byte
               e.g. B8`"] --> B["8 Bit => 
               1 0 1 1 1 0 0 0"] --> C["`0/1 of each bit =>
-              2<sup>8</sup> = 256 possible byte values`"]
+              2<sup>8</sup> = 256 possible byte values`"] --> D["`Decimal format for calculation
+              e.g. 184`"]
         ```
         > Initial vocabulary only have these 256 basic bytes.  
           Need to transfer the text to NTF-8 byte firstly, then implement BPE for vocabulary iteration and tokenization.  
