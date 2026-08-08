@@ -85,14 +85,17 @@ graph LR
       - Unigram
         ```mermaid
             graph LR
-                A["`all letters + certain subwords from raw data =>
+                A["`Initial big voca (>100k):
+                all letters + certain subwords from raw data
 
-                initial big voca (>100k)`"] --> B["`$$p(x)=\frac{freq(x)}{freq(x)+...+freq(n)} $$`"] --> C["`low → l, ##o, ##w
-                lower → l, ##o, ##w, **##er**`"] --> D["`Vocab:
-                subword(##er, ##ing etc.)
+                `"] --> B["`Initial  p(x)= $$\frac{freq(x)}{freq(x)+...+freq(n)} $$`"] --> C["`EM Iteration:   
+                $$ \mathbb{E}[\text{count}(x)] $$ and recalculate hte p(x) 
+              
+                `"] --> D["`calculate loss(x)  and reduce voca for maximum $$ \mathcal{L} = \sum_{S \in \mathcal{D}} \log P(S) $$
                 `"]
           ```
-
+          > It's from result(raw data) to reason(voca+probability) process.  
+          Initial big vocab will be reduced to the proper size via ME iteration 
     - Vocabulary  
       - Training Data(subset of Raw data of base model training)
       - Base of vocabulary
