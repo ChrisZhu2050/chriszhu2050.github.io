@@ -69,8 +69,11 @@ graph LR
           Need to transfer the text to NTF-8 byte firstly, then implement BPE for vocabulary iteration and tokenization.  
 
       - WordPiece
+        $$
+          \text{score}(a, b) = \frac{\text{freq}(a, b)}{\text{freq}(a) \times \text{freq}(b)}
+        $$
         > Used in BERT (Encoder Only).  
-        Advantage in search & RAG etc.   
+        Advantage in search / RAG /Edge LLM(Size is smaller)   
       - Unigram(?)  
 
     - Vocabulary  
