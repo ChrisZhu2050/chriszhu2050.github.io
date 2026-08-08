@@ -85,7 +85,9 @@ graph LR
       - Unigram
         ```mermaid
             graph LR
-                A["`big initial voca(>100k)`"] --> B["Use below formula to calculate each pair"] --> C["`low → l, ##o, ##w
+                A["`all letters + certain subwords from raw data =>
+
+                initial big voca (>100k)`"] --> B["`$$p(x)=\frac{freq(x)}{freq(x)+...+freq(n)} $$`"] --> C["`low → l, ##o, ##w
                 lower → l, ##o, ##w, **##er**`"] --> D["`Vocab:
                 subword(##er, ##ing etc.)
                 `"]
