@@ -1,0 +1,32 @@
+{% comment %}
+  Placeholder to allow defining custom head, in principle, you can add anything here, e.g. favicons:
+
+  1. Head over to https://realfavicongenerator.net/ to add your own favicons.
+  2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
+{% endcomment %}
+<script type="module">
+
+import mermaid from 
+'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+mermaid.initialize({
+    startOnLoad:false,
+    theme:'base',
+    themeVariables:{
+        background:'#ffffff',
+        primaryColor: '#ffffff',
+        primaryTextColor: '#000000',
+        primaryBorderColor: '#000000',
+        lineColor: '#000000',
+        secondaryColor:'#ffffff',
+        tertiaryColor: '#ffffff'
+    }
+});
+
+document.addEventListener(
+"DOMContentLoaded",
+async ()=>{
+    await mermaid.run();
+});
+
+</script>
