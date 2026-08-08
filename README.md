@@ -74,7 +74,7 @@ graph LR
                 A["`low → l, ##o, ##w
                 lower → l, ##o, ##w, ##e, ##r`"] --> B["Use below formula to calculate each pair"] --> C["`low → l, ##o, ##w
                 lower → l, ##o, ##w, **##er**`"] --> D["`Vocab:
-                subword(##er, ##ing etc.)
+                subword(low, ##er, ##ing etc.)
                 `"]
           ```
 
@@ -85,17 +85,17 @@ graph LR
       - Unigram
         ```mermaid
             graph LR
-                A["`Initial big voca (>100k):
-                all letters + certain subwords from raw data
+                A["`voca (>100k)=>
+                letters + subwords
 
-                `"] --> B["`Initial  p(x)= $$\frac{freq(x)}{freq(x)+...+freq(n)} $$`"] --> C["`EM Iteration:   
-                $$ \mathbb{E}[\text{count}(x)] $$ and recalculate hte p(x) 
+                `"] --> B["` p(x)= $$\frac{freq(x)}{freq(x)+...+freq(n)} $$`"] --> C["`  
+                $$ \mathbb{E}[\text{count}(x)] $$ and recalculate the p(x) 
               
-                `"] --> D["`calculate loss(x)  and reduce voca for maximum $$ \mathcal{L} = \sum_{S \in \mathcal{D}} \log P(S) $$
+                `"] --> D["`loss(x)  and  maximum $$ \mathcal{L} = \sum_{S \in \mathcal{D}} \log P(S) $$
                 `"]
           ```
           > It's from result(raw data) to reason(voca+probability) process.  
-          Initial big vocab will be reduced to the proper size via ME iteration 
+          Vocabulary pruning will be done with ME iteration and loss calculation
     - Vocabulary  
       - Training Data(subset of Raw data of base model training)
       - Base of vocabulary
