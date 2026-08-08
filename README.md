@@ -74,7 +74,7 @@ graph LR
                 A["`low → l, ##o, ##w
                 lower → l, ##o, ##w, ##e, ##r`"] --> B["Use below formula to calculate each pair"] --> C["`low → l, ##o, ##w
                 lower → l, ##o, ##w, **##er**`"] --> D["`Vocab:
-                - subword(##ing, ##ed)
+                subword(##ing, ##ed)
                 `"]
           ```
 
