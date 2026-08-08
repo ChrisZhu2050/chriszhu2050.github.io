@@ -57,7 +57,10 @@ graph LR
         > Above letters are sampled for illustrating, actually they're unicode codes.   
           "a bcd" are the final 2 tokens, and "bcd" may be added to the vocabulary
       - Byte-level BPE(?)
-        - s
+        ```mermaid
+          graph LR
+              A[1 byte] --> B[8 Bit => 0 0 0 0 0 0 0 0 ] --> C[0/1 bit => 256 combinations]
+        ```
       - WordPiece(?)
       - Unigram(?)
 
@@ -81,7 +84,7 @@ graph LR
     - Tool
       - SentencePiece  
  <br> 
-4. **Training Forward Pass**
+1. **Training Forward Pass**
     - Tokenization
     - Transformer  
     <!-- <a id="section2"></a>   -->
@@ -108,7 +111,7 @@ graph LR
     - Output probabilities  
   <br>
 
-5. **Training Backward Pass**  
+1. **Training Backward Pass**  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
