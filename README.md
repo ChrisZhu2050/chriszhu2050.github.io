@@ -71,7 +71,7 @@ graph LR
 
     - Vocabulary  
       - Training Data(subset of Raw data of base model training)
-      - Base vocabulary
+      - Base of vocabulary
         - BBPE -> all possible 256 UFT-8 byte values
         - BPE ->  Unicode of alphabet,numbers etc. from Raw data
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
