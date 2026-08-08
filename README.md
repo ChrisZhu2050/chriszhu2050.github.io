@@ -68,7 +68,7 @@ graph LR
         > Initial vocabulary only have these 256 basic bytes.  
           Need to transfer the text to NTF-8 byte firstly, then implement BPE for vocabulary iteration and tokenization.  
 
-      - WordPiece  
+      - WordPiece ([Paper](https://arxiv.org/abs/1810.04805))  
         ```mermaid
             graph LR
                 A["`low → l, ##o, ##w
