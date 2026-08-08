@@ -55,14 +55,14 @@ graph LR
               A[a b c d b c d] --> B[a X d X d] --> C[a Y]
         ```
         > Above letters are sampled for illustrating, actually in they're maybe unicode codes / bytes.   
-        "a bcd" are the final 2 tokens, and "bcd" may be added to the vocabulary
+        "a bcd" are the final 2 tokens, and "bcd" may be added to the vocabulary.
       - BBPE(Byte-level BPE)
         ```mermaid
           graph LR
               A[1 UTF-8 byte] --> B[8 Bit => 0 0 0 0 0 0 0 0 ] --> C[0/1 of bit => 256 combinations]
         ```
         > Initial vocabulary only have these 256 basic bytes.  
-          Need to transfer the text to byte firstly, then implement BPE for tokenization
+          Need to transfer the text to byte firstly, then implement BPE for tokenization.
 
       - WordPiece(?)
       - Unigram(?)
