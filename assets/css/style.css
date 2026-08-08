@@ -4,3 +4,11 @@
 @import
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
+
+  .mermaid svg {
+    background-color: transparent !important;
+}
+
+.mermaid {
+    background-color: transparent !important;
+}
