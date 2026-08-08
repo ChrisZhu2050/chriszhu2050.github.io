@@ -30,7 +30,7 @@ graph LR
    - Training Data of RW model
     - Prepared manually by people     
   <br>
-1. Weights initializing
+2. Weights initializing
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -47,7 +47,7 @@ graph LR
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-2. Tokenizer initializing
+3. Tokenizer initializing
     - Algorithm
       - BPE (Byte-pair encoding)  
         ```mermaid
@@ -81,7 +81,7 @@ graph LR
     - Tool
       - SentencePiece  
  <br> 
-1. Training Forward Pass
+4. Training Forward Pass
     - Tokenization
     - Transformer  
     <!-- <a id="section2"></a>   -->
@@ -108,7 +108,7 @@ graph LR
     - Output probabilities  
   <br>
 
-1. Training Backward Pass  
+5. Training Backward Pass  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
