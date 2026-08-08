@@ -48,7 +48,7 @@ graph LR
       - or shared with embedding   
    <br> 
 3. **Tokenizer initializing**
-    - Algorithm
+    - Algorithm  
       - BPE ([Byte-pair encoding](https://github.com/tpn/pdfs/blob/master/A%20New%20Algorithm%20for%20Data%20Compression%20(1994).pdf))  
         ```mermaid
           graph LR
@@ -64,10 +64,10 @@ graph LR
         > Initial vocabulary only have these 256 basic bytes.  
           Need to transfer the text to byte firstly, then implement BPE for tokenization.  
 
-      - WordPiece(?)
-      - Unigram(?)
+      - WordPiece(?)  
+      - Unigram(?)  
 
-    - Vocabulary
+    - Vocabulary  
       - Training Data(subset of Raw data of base model training)
       - Base vocabulary
         - BBPE -> 256 bytes
