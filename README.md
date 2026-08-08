@@ -94,8 +94,8 @@ graph LR
                 `"] --> D["`loss(x)  and  maximum $$ \mathcal{L} = \sum_{S \in \mathcal{D}} \log P(S) $$
                 `"]
           ```
-          > It's from result(raw data) to reason(voca+probability) process.  
-          Vocabulary pruning will be done with ME iteration and loss calculation
+          > It proceed from result(raw data) to reason(voca+probability) with big initial vocabulary.  
+          Vocabulary pruning will be done with ME iteration and loss calculation.
     - Vocabulary  
       - Training Data(subset of Raw data of base model training)
       - Base of vocabulary
