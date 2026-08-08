@@ -82,7 +82,7 @@ graph LR
         
           > Used in BERT (Encoder Only).  
           Advantage in search / RAG /Edge LLM(Size is smaller)   
-      - Unigram
+      - Unigram ([Paper](https://arxiv.org/abs/1808.06226))
         ```mermaid
             graph LR
                 A["`voca (>100k)=>
