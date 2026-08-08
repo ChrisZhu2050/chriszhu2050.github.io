@@ -56,7 +56,7 @@ graph LR
         ```
         > Above letters are sampled for illustrating, actually in they're maybe unicode codes / bytes.  
         "a bcd" are the final 2 tokens, and "bcd" may be added to the vocabulary.  
-      - BBPE(Byte-level BPE)
+      - BBPE([Byte-level BPE](https://arxiv.org/abs/1909.03341))
         ```mermaid
           graph LR
               A[1 UTF-8 byte] --> B[8 Bit => 0 0 0 0 0 0 0 0 ] --> C[0/1 of each bit => 256 possible byte values]
