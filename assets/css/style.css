@@ -4,3 +4,7 @@
 @import
   "minima/skins/{{ site.minima.skin | default: 'classic' }}",
   "minima/initialize";
+.mermaid text {
+    font-size: 16px !important;
+    font-family: Arial, sans-serif !important;
+}
