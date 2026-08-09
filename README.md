@@ -77,9 +77,25 @@ graph LR
       <br>
 
     - Pre-tokenizer  
-      Transfer the corpus to initial chunks  
+      Transfer the corpus to initial chunks for token calculation  
+      Regex-based pre-tokenization (GPT used):   
+        ```mermaid
+            graph LR
+                A["`I'm learning AI!`"] --> B["`I
+                'm
+                Ġlearning
+                ĠAI
+                !`"] 
+        ```
+      Ġ present the space  
+      <br>
+      SentencePiece's pre-tokenizer:  
       
-
+      ```mermaid
+            graph LR
+                A["`Hello world`"] --> B["`▁Hello ▁world`"] 
+        ```
+      ▁ preset the space  
     <br>
 
     - Subword Algorithm  
@@ -188,7 +204,7 @@ graph LR
 
       | Model | Company | Tokenizer | Vocabulary Size | Comments |
       |:----:|:----:|:----:|:----:|:----:|
-      | GPT-4o | OpenAI | o200k_base(BBPE + regex-based pre-tokenization?) | ~199,998 | [>> link](https://github.com/tryAGI/Tiktoken/blob/main/data/README.md?utm_source=chatgpt.com) |
+      | GPT-4o | OpenAI | o200k_base(BBPE) | ~199,998 | [>> link](https://github.com/tryAGI/Tiktoken/blob/main/data/README.md?utm_source=chatgpt.com) |
       | Mixtral 7B| Mistral AI | SentencePiece BPE | ~32,000 | ?|
       | LLaMA 3| Meta | tiktoken-based BPE | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
       | Qwen3| Alibaba | BBPE | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
