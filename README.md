@@ -99,22 +99,29 @@ graph LR
       
       <br>
     - Vocabulary  
-      - Training Data(subset of Raw data of base model training)
+      - Training Data
+        - (subset of Raw data of base model training)
       - Base of vocabulary
         - BBPE -> all possible 256 UFT-8 byte values
         - BPE ->  Unicode of alphabet,numbers etc. from Raw data
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
-      - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)
+      - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)  
+        <br>
     - Normalizer  
-      > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text
+      > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text  
+      <br>
     - Pre-tokenizer
-        > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit
+        > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit  
+    <br>
     - Post-processor
-        > Add special markers (such as [CLS], [SEP], <bos>, <eos>) and construct attention masks or paragraph type IDs to adapt to the Transformer input format
+        > Add special markers (such as [CLS], [SEP], <bos>, <eos>) and construct attention masks or paragraph type IDs to adapt to the Transformer input format  
+    <br>
     - Decoder
-        > Define the inverse rules for restoring original text from Token ID (such as byte-level decoding, removing prefix spaces), which are only necessary during the inference phase but need to be configured along with the trainer
+        > Define the inverse rules for restoring original text from Token ID (such as byte-level decoding, removing prefix spaces), which are only necessary during the inference phase but need to be configured along with the trainer  
+    <br>
     - Special Token Map
-        > Explicitly register reserved tokens such as "<pad>" and their corresponding IDs to ensure that the model can recognize boundaries and unknown words, and align them with the dimension of the model's embedding layer
+        > Explicitly register reserved tokens such as "<pad>" and their corresponding IDs to ensure that the model can recognize boundaries and unknown words, and align them with the dimension of the model's embedding layer  
+    <br>
     - Tool
       - SentencePiece  
  <br> 
