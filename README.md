@@ -77,9 +77,9 @@ graph LR
       <br>
 
     - Pre-tokenizer  
-      Transfer the corpus to initial chunks for token calculation  
-      <br>
-      Regex-based pre-tokenization (GPT used):   
+      It's for transferring the corpus to initial chunks for calculating token.  
+
+      Regex-based pre-tokenization (GPT used), Ġ present the space:   
         ```mermaid
             graph LR
                 A["`I'm learning AI!`"] --> B["`I
@@ -88,15 +88,22 @@ graph LR
                 ĠAI
                 !`"] 
         ```
-      Ġ present the space  
+  
       <br>
-      SentencePiece's pre-tokenizer:  
+      SentencePiece's pre-tokenizer, ▁ preset the space: 
       
       ```mermaid
             graph LR
                 A["`Hello world`"] --> B["`▁Hello ▁world`"] 
-        ```
-      ▁ preset the space  
+      ```
+      <br>
+
+      Byte-level transferring: 
+       ```mermaid
+            graph LR
+                A["`Chinese: 中`"] --> B["`UTF-8: E4 BD A0`"] 
+      ``` 
+     
     <br>
 
     - Subword Algorithm  
