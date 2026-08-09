@@ -102,7 +102,7 @@ graph LR
       - Training Data
         - Random sampling from  Raw data of base model training(e.g. BookCorpus, Wikipedia)
       - vocabulary
-        - BBPE -> initialized with all possible 256 UFT-8 byte values  
+        - BBPE -> initialized with all possible 256 UFT-8 byte values and finalized with frequent bytes pair and so on
   
           | TokenID | Byte | Hex | Meaning |
           |:----:|:----:|:----:|:----:|
@@ -114,7 +114,7 @@ graph LR
         - BPE 
           - Initialized with characters, numbers and so on from Raw data
         - WordPiece
-          - Initialized with basic letters and finallized with characters with/without **##**, numbers and so on from Raw data
+          - Initialized with basic letters and finalized with characters with/without **##**, numbers and so on from Raw data
   
           | TokenID | Character |
           |:----:|:----:|
