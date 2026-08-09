@@ -126,6 +126,16 @@ graph LR
 
         - Unigram
            - Initialized with big vocabulary(>100k) and prune to target size
+           - Specific letter to indicate space:
+          **▁This ▁is ▁a ▁tokenizer** 
+  
+          | TokenID | Character |
+            |:----:|:----:|
+            | 0 | ▁This |
+            | 1 | This |
+            | 2 | Th|
+            | ... | ... |
+            | 500001| ▁tokenizer |
 
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)  
