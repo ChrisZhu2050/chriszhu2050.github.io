@@ -49,10 +49,10 @@ graph LR
    <br> 
 3. **Tokenizer initializing**
     
-    - Normalizer  
+    - Normalizer    
       > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text  
       <br>
-    - Pre-tokenizer
+    - Pre-tokenizer  
       > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit  
     <br>
     - Subword Algorithm  
