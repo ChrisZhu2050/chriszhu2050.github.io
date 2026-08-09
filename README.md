@@ -125,7 +125,7 @@ graph LR
           | 30522| ##able |
 
         - Unigram
-           - Initialized with big vocabulary(>100k) and prune to target size
+           - Initialized with big vocabulary(>100k) and prune to target size(e.g. ~30k)
            - Specific letter to indicate space:
           **▁This ▁is ▁a ▁tokenizer** 
   
@@ -137,8 +137,7 @@ graph LR
             | ... | ... |
             | 500001| ▁tokenizer |
 
-      - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
-      - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)  
+      - Typical finalized vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)  
         <br>
     - Normalizer  
       > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text  
