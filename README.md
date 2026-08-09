@@ -153,7 +153,7 @@ graph LR
                 `"]
           ```
           > It proceed from result(raw data) to reason(voca+probability) with big initial vocabulary.  
-          Vocabulary pruning will be done with ME iteration and loss calculation.
+          Vocabulary pruning will be done with ME iteration and loss calculation.  
       <br>
       
     - Vocabulary  
