@@ -78,6 +78,7 @@ graph LR
 
     - Pre-tokenizer  
       Transfer the corpus to initial chunks for token calculation  
+      <br>
       Regex-based pre-tokenization (GPT used):   
         ```mermaid
             graph LR
