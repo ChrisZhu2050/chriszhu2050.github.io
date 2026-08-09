@@ -58,7 +58,7 @@ graph LR
         quadrantChart
           title 4 methods of unicode normalization
           x-axis Decomposition --> Composition
-          y-axis Low Aggressive --> High Aggressive
+          y-axis "Canonical" --> "Compatibility(Aggressive)"
               quadrant-1 e.g. ﬁ → fi
               quadrant-2 e.g. ﬁ → f+i
               quadrant-3 e.g. é → e + ́ 
@@ -68,8 +68,7 @@ graph LR
           "NFD": [0.25, 0.25]
           "NFC": [0.75, 0.25]
       ```
-      - NFC
-      - NFKC  
+
       <br>
 
     - Pre-tokenizer  
