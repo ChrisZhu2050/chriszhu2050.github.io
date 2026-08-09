@@ -77,8 +77,11 @@ graph LR
       <br>
 
     - Pre-tokenizer  
-      > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit  
+      Transfer the corpus to initial chunks  
+      
+
     <br>
+
     - Subword Algorithm  
       - BPE ([Byte-pair encoding](https://github.com/tpn/pdfs/blob/master/A%20New%20Algorithm%20for%20Data%20Compression%20(1994).pdf))  
         ```mermaid
