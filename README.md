@@ -51,7 +51,7 @@ graph LR
 3. **Tokenizer initializing**
     
     - Normalizer    
-      >Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
+      Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
 
       ```mermaid
         quadrantChart
