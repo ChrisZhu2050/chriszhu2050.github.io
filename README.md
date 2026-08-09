@@ -53,7 +53,6 @@ graph LR
     - Normalizer    
       >Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
 
-      Normally LLM training was not performing the aggressively normalize because it cause the meaning losing on letters(e.g. Apple/apple/APPLE contain different info)
       ```mermaid
         quadrantChart
           title 4 methods of unicode normalization
@@ -68,7 +67,7 @@ graph LR
           "NFD": [0.25, 0.25]
           "NFC": [0.75, 0.25]
       ```
-
+      Normally LLM training was not performing the aggressively normalize because it cause the meaning losing on letters(e.g. Apple/apple/APPLE contain different info)  
       <br>
 
     - Pre-tokenizer  
