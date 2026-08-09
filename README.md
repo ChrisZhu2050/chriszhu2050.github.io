@@ -111,8 +111,10 @@ graph LR
           | ... | ... | ... | ... |
           | 255 | 255 | FF | byte FF |
 
-        - BPE ->  characters, numbers and so from Raw data
-        - WordPiece -> characters with ##, numbers and so from Raw data
+        - BPE 
+          - characters, numbers and so on from Raw data
+        - WordPiece
+          - Characters with/without ##, numbers and so from Raw data
   
           | TokenID | Character |
           |:----:|:----:|
@@ -120,7 +122,7 @@ graph LR
           | 1 | ##ing |
           | 2 | ##er|
           | ... | ... |
-          | 255| ##able |
+          | 30522| ##able |
 
         - Unigram
 
