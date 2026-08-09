@@ -101,7 +101,7 @@ graph LR
     - Vocabulary  
       - Training Data
         - Random sampling from  Raw data of base model training(e.g. BookCorpus, Wikipedia)
-      - vocabulary
+      - Vocabulary structure
         - BBPE -> initialized with all possible 256 UFT-8 byte values and finalized with frequent bytes pair and so on
   
           | TokenID | Byte | Hex | Meaning |
