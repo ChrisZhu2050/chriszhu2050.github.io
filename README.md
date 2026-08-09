@@ -138,16 +138,7 @@ graph LR
           | ... | ... |
           | 500001| ▁tokenizer |
 
-      - Models' vocabulary info: 
-  
-          | Model | Company | Tokenizer | Vocabulary Size | Comments |
-          |:----:|:----:|:----:|:----:|:----:|
-          | GPT-4o | OpenAI | o200k_base(BBPE + regex-based pre-tokenization?) | ~199,998 | [>> link](https://github.com/tryAGI/Tiktoken/blob/main/data/README.md?utm_source=chatgpt.com) |
-          | Mixtral 7B| Mistral AI | SentencePiece BPE | ~32,000 | ?|
-          | LLaMA 3| Meta | tiktoken-based BPE | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
-          | Qwen3| Alibaba | BBPE | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
-          | DeepSeek-V3| DeepSeek | BBPE | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |
-
+      
         <br>
     - Normalizer  
       > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text  
@@ -167,6 +158,17 @@ graph LR
     - Tool
       - SentencePiece  
  <br> 
+    - Models' vocabulary info: 
+     
+        | Model | Company | Tokenizer | Vocabulary Size | Comments |
+        |:----:|:----:|:----:|:----:|:----:|
+        | GPT-4o | OpenAI | o200k_base(BBPE + regex-based pre-tokenization?) | ~199,998 | [>> link](https://github.com/tryAGI/Tiktoken/blob/main/data/README.md?utm_source=chatgpt.com) |
+        | Mixtral 7B| Mistral AI | SentencePiece BPE | ~32,000 | ?|
+        | LLaMA 3| Meta | tiktoken-based BPE | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
+        | Qwen3| Alibaba | BBPE | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
+        | DeepSeek-V3| DeepSeek | BBPE | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |  
+<br> 
+
 1. **Training Forward Pass**
     - Tokenization
     - Transformer  
