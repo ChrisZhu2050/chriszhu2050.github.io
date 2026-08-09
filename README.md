@@ -30,6 +30,7 @@ graph LR
    - Training Data of RW model
       - Prepared manually by people     
   <br>
+
 2. **Weights initializing**
     - FFN
       - Xavier/Glorot
@@ -51,7 +52,10 @@ graph LR
     
     - Normalizer    
       > Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text  
-      
+      Normally not perform the aggressively normalize because it cause the meaning losing on letters(e.g. Apple/apple/APPLE contain different info)
+      - NFC
+      - NFKC 
+
       <br>
     - Pre-tokenizer  
       > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit  
