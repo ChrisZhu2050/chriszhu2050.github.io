@@ -102,7 +102,14 @@ graph LR
       - Training Data
         - Random sampling from  Raw data of base model training
       - Base of vocabulary
-        - BBPE -> all possible 256 UFT-8 byte values
+        - BBPE -> all possible 256 UFT-8 byte values  
+          | TokenID | Byte |hex|origin|
+          |:----:|:----:|:----:|:----:|
+          | 0 | 0 | 00 | byte 0 |
+          | 1 | 1 | 01 | byte 1 |
+          | ... | ... | ... | ... |
+          | 255 | 255 | FF | byte FF |
+
         - BPE ->  Unicode of alphabet,numbers etc. from Raw data
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)  
