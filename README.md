@@ -137,7 +137,16 @@ graph LR
             | ... | ... |
             | 500001| ▁tokenizer |
 
-      - Typical finalized vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)  
+      - Typical finalized vocabulary size: 
+  
+          | Model | Company | Tokenizer | Vocabulary Size |
+          |:----:|:----:|:----:|:----:|
+          | GPT-4o | OpenAI | o200k_base | ~199,998 |
+          | Mixtral 7B| Mistral AI | SentencePiece BPE | ~32,000 |
+          | LLaMA 3| Meta | tiktoken-based BPE | ~128,256 |
+          | Qwen3| Alibaba | BBPE | ~151,669 |
+          | DeepSeek-V3| DeepSeek | BBPE | ~128,000 |
+
         <br>
     - Normalizer  
       > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text  
