@@ -100,7 +100,7 @@ graph LR
       <br>
     - Vocabulary  
       - Training Data
-        - Random sampling from  Raw data of base model training
+        - Random sampling from  Raw data of base model training(e.g. BookCorpus, Wikipedia)
       - Base of vocabulary
         - BBPE -> all possible 256 UFT-8 byte values  
   
