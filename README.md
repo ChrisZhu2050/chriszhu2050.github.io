@@ -54,6 +54,20 @@ graph LR
       >Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
 
       Normally LLM training was not performing the aggressively normalize because it cause the meaning losing on letters(e.g. Apple/apple/APPLE contain different info)
+      ```mermaid
+        quadrantChart
+          title 4 methods of unicode normalization
+          x-axis Decomposition --> Composition
+          y-axis Low Aggressive --> High Aggressive
+              quadrant-1 e.g. ﬁ → fi
+              quadrant-2 e.g. ﬁ → f+i
+              quadrant-3 e.g. é → e + ́ 
+              quadrant-4 e.g. e + ́ → é
+          "NFKD": [0.25, 0.8]
+          "NFKC": [0.75, 0.8]
+          "NFD": [0.25, 0.25]
+          "NFC": [0.75, 0.25]
+      ```
       - NFC
       - NFKC  
       <br>
