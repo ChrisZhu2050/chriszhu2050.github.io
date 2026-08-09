@@ -114,7 +114,7 @@ graph LR
         - BPE 
           - characters, numbers and so on from Raw data
         - WordPiece
-          - Characters with/without ##, numbers and so from Raw data
+          - Characters with/without ##, numbers and so on from Raw data
   
           | TokenID | Character |
           |:----:|:----:|
