@@ -1,10 +1,10 @@
 
 Outline:
-- [LLM Essential](#llm-essential)
-- [LLM Fine-tune](#llm-fine-tune)
-- [LLM Distillation](#llm-distillation)
-- [Agent Framework](#agent-framework)
-- [Data Flywheel](#data-flywheel)
+- [LLM Essential](README.md)
+- [LLM Fine-tune](_posts\llm_fine_tune.md)
+- [LLM Distillation](_post\llm_distillation.md)
+- [Agent Framework](_post\agent_framework.md)
+- [Data Flywheel](_post\data_flywheel.md)
 
 ***
 
@@ -267,7 +267,7 @@ graph LR
 <!-- ![](https://chriszhu2050.github.io/images/1.png) -->
 <br>
 
-## LLM Fine-tune  
+<!-- ## LLM Fine-tune  
 ***
 ## LLM Distillation  
 ***
@@ -275,5 +275,5 @@ graph LR
 ***
 
 ## Data Flywheel
-***
+*** -->
 
