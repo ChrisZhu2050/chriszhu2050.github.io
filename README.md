@@ -103,8 +103,7 @@ graph LR
         - Random sampling from  Raw data of base model training
       - Base of vocabulary
         - BBPE -> all possible 256 UFT-8 byte values  
-  
-          | TokenID | Byte |hex|origin|
+          | TokenID | Byte | Hex | Meaning |
           |:----:|:----:|:----:|:----:|
           | 0 | 0 | 00 | byte 0 |
           | 1 | 1 | 01 | byte 1 |
