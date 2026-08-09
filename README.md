@@ -111,7 +111,19 @@ graph LR
           | ... | ... | ... | ... |
           | 255 | 255 | FF | byte FF |
 
-        - BPE ->  Unicode of alphabet,numbers etc. from Raw data
+        - BPE ->  characters, numbers and so from Raw data
+        - WordPiece -> characters with ##, numbers and so from Raw data
+  
+          | TokenID | Character |
+          |:----:|:----:|
+          | 0 | play |
+          | 1 | ##ing |
+          | 2 | ##er|
+          | ... | ... |
+          | 255| ##able |
+
+        - Unigram
+
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)  
         <br>
