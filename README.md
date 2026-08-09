@@ -99,11 +99,11 @@ graph LR
       
       <br>
     - Vocabulary  
-      - Training Data
-        - Random sampling from  Raw data of base model training(e.g. BookCorpus, Wikipedia)
+      - Training Data  
+         Random sampling from  Raw data of base model training(e.g. BookCorpus, Wikipedia)
     
-      - BBPE
-        - initialized with all possible 256 UFT-8 byte values and finalized with frequent bytes pair and so on
+      - BBPE  
+         initialized with all possible 256 UFT-8 byte values and finalized with frequent bytes pair and so on
 
         | TokenID | Byte | Hex | Meaning |
         |:----:|:----:|:----:|:----:|
@@ -112,10 +112,10 @@ graph LR
         | ... | ... | ... | ... |
         | 255 | 255 | FF | byte FF |
 
-      - BPE 
-        - Initialized with characters, numbers and so on from Raw data
-      - WordPiece
-        - Initialized with basic letters and finalized with characters with/without **##**, numbers and so on from Raw data
+      - BPE   
+         Initialized with characters, numbers and so on from Raw data
+      - WordPiece  
+         Initialized with basic letters and finalized with characters with/without **##**, numbers and so on from Raw data
 
         | TokenID | Character |
         |:----:|:----:|
@@ -125,9 +125,9 @@ graph LR
         | ... | ... |
         | 30522| ##able |
 
-      - Unigram
-         - Initialized with big vocabulary(>100k) and prune to target size(e.g. ~30k)
-         - Specific letter to indicate space:
+      - Unigram  
+          Initialized with big vocabulary(>100k) and prune to target size(e.g. ~30k)
+          Specific letter to indicate space:
         **▁This ▁is ▁a ▁tokenizer** 
 
         | TokenID | Character |
