@@ -125,6 +125,7 @@ graph LR
           | 30522| ##able |
 
         - Unigram
+           - Initialized with big vocabulary(>100k) and prune to target size
 
       - Increment via BAE(Iteration to add each most frequent subword to the vocabulary)
       - Typical vocabulary size: LLaMA(~32K-100K ?) / Deepseek(~65K-250K?)  
