@@ -58,10 +58,10 @@ graph LR
           title 4 methods of unicode normalization
           x-axis Decomposition --> Composition
           y-axis "Canonical" --> "Compatibility(Aggressive)"
-              quadrant-1 e.g. ﬁ → fi
-              quadrant-2 e.g. ﬁ → f+i
-              quadrant-3 e.g. é → e + ́ 
-              quadrant-4 e.g. e + ́ → é
+              quadrant-1 "(e.g. ﬁ → fi / ① → 1)"
+              quadrant-2 "(e.g. ﬁ → f+i / ① → 1)"
+              quadrant-3 "(e.g. é → e + ́ )"
+              quadrant-4 "(e.g. e + ́ → é)"
           "NFKD": [0.25, 0.8]
           "NFKC": [0.75, 0.8]
           "NFD": [0.25, 0.25]
