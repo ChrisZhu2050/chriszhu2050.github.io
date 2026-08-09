@@ -26,11 +26,11 @@ graph LR
      - Books 1/2/3(digital books with undeclared source)
       
    - Training Data of SFT model
-    - Prepared manually by people
+       - Prepared manually by people
    - Training Data of RW model
-    - Prepared manually by people     
+      - Prepared manually by people     
   <br>
-2. **Weights initializing**
+1. **Weights initializing**
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -47,7 +47,7 @@ graph LR
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-3. **Tokenizer initializing**
+2. **Tokenizer initializing**
     - Algorithm  
       - BPE ([Byte-pair encoding](https://github.com/tpn/pdfs/blob/master/A%20New%20Algorithm%20for%20Data%20Compression%20(1994).pdf))  
         ```mermaid
@@ -100,7 +100,7 @@ graph LR
       <br>
     - Vocabulary  
       - Training Data
-        - (subset of Raw data of base model training)
+        - Random sampling from  Raw data of base model training
       - Base of vocabulary
         - BBPE -> all possible 256 UFT-8 byte values
         - BPE ->  Unicode of alphabet,numbers etc. from Raw data
