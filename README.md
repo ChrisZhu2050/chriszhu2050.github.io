@@ -30,7 +30,7 @@ graph LR
    - Training Data of RW model
       - Prepared manually by people     
   <br>
-1. **Weights initializing**
+2. **Weights initializing**
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -47,7 +47,7 @@ graph LR
       - Xavier/Glorot/Kaiming
       - or shared with embedding   
    <br> 
-2. **Tokenizer initializing**
+3. **Tokenizer initializing**
     - Algorithm  
       - BPE ([Byte-pair encoding](https://github.com/tpn/pdfs/blob/master/A%20New%20Algorithm%20for%20Data%20Compression%20(1994).pdf))  
         ```mermaid
@@ -155,21 +155,23 @@ graph LR
     - Special Token Map
         > Explicitly register reserved tokens such as "<pad>" and their corresponding IDs to ensure that the model can recognize boundaries and unknown words, and align them with the dimension of the model's embedding layer  
     <br>
-    - Tool
-      - SentencePiece  
- <br> 
-    - Models' vocabulary info: 
-     
-        | Model | Company | Tokenizer | Vocabulary Size | Comments |
-        |:----:|:----:|:----:|:----:|:----:|
-        | GPT-4o | OpenAI | o200k_base(BBPE + regex-based pre-tokenization?) | ~199,998 | [>> link](https://github.com/tryAGI/Tiktoken/blob/main/data/README.md?utm_source=chatgpt.com) |
-        | Mixtral 7B| Mistral AI | SentencePiece BPE | ~32,000 | ?|
-        | LLaMA 3| Meta | tiktoken-based BPE | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
-        | Qwen3| Alibaba | BBPE | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
-        | DeepSeek-V3| DeepSeek | BBPE | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |  
-<br> 
+  
+    - SentencePiece  
+    <br> 
 
-1. **Training Forward Pass**
+    - Models' vocabulary info
+
+      | Model | Company | Tokenizer | Vocabulary Size | Comments |
+      |:----:|:----:|:----:|:----:|:----:|
+      | GPT-4o | OpenAI | o200k_base(BBPE + regex-based pre-tokenization?) | ~199,998 | [>> link](https://github.com/tryAGI/Tiktoken/blob/main/data/README.md?utm_source=chatgpt.com) |
+      | Mixtral 7B| Mistral AI | SentencePiece BPE | ~32,000 | ?|
+      | LLaMA 3| Meta | tiktoken-based BPE | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
+      | Qwen3| Alibaba | BBPE | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
+      | DeepSeek-V3| DeepSeek | BBPE | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |
+
+    <br> 
+
+4. **Training Forward Pass**
     - Tokenization
     - Transformer  
     <!-- <a id="section2"></a>   -->
@@ -196,7 +198,7 @@ graph LR
     - Output probabilities  
   <br>
 
-1. **Training Backward Pass**  
+5. **Training Backward Pass**  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
