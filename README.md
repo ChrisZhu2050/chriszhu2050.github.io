@@ -51,12 +51,13 @@ graph LR
 3. **Tokenizer initializing**
     
     - Normalizer    
-      > Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text  
-      Normally not perform the aggressively normalize because it cause the meaning losing on letters(e.g. Apple/apple/APPLE contain different info)
-      - NFC
-      - NFKC 
+      >Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
 
+      Normally LLM training was not performing the aggressively normalize because it cause the meaning losing on letters(e.g. Apple/apple/APPLE contain different info)
+      - NFC
+      - NFKC  
       <br>
+
     - Pre-tokenizer  
       > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit  
     <br>
