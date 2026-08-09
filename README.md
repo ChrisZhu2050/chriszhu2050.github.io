@@ -137,7 +137,7 @@ graph LR
             | ... | ... |
             | 500001| ▁tokenizer |
 
-      - Vocabulary size: 
+      - Models' vocabulary size: 
   
           | Model | Company | Tokenizer | Vocabulary Size |
           |:----:|:----:|:----:|:----:|
