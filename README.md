@@ -164,7 +164,8 @@ graph LR
         | 255 | 255 | FF | byte FF |
 
       - BPE   
-         Initialized with characters, numbers and so on from Raw data
+         Initialized with characters, numbers and so on from Raw data   
+
       - WordPiece  
          Initialized with basic letters and finalized with characters with/without **##**, numbers and so on from Raw data
 
