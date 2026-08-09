@@ -102,7 +102,8 @@ graph LR
       - Training Data
         - Random sampling from  Raw data of base model training(e.g. BookCorpus, Wikipedia)
     
-      - BBPE -> initialized with all possible 256 UFT-8 byte values and finalized with frequent bytes pair and so on
+      - BBPE
+        - initialized with all possible 256 UFT-8 byte values and finalized with frequent bytes pair and so on
 
         | TokenID | Byte | Hex | Meaning |
         |:----:|:----:|:----:|:----:|
