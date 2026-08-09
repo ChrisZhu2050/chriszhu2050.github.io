@@ -137,7 +137,7 @@ graph LR
             | ... | ... |
             | 500001| ▁tokenizer |
 
-      - Typical finalized vocabulary size: 
+      - Vocabulary size: 
   
           | Model | Company | Tokenizer | Vocabulary Size |
           |:----:|:----:|:----:|:----:|
