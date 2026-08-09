@@ -67,6 +67,12 @@ graph LR
           "NFD": [0.25, 0.25]
           "NFC": [0.75, 0.25]
       ```
+      > NFC: Normalization Form Canonical Composition  
+        NFD: Normalization Form Canonical Decomposition
+        NFKC: Normalization Form Compatibility Composition
+        NFKD: Normalization Form Compatibility Decomposition
+
+
       Normally LLM training was not performing the aggressively normalize because it cause the meaning losing on letters(e.g. Apple/apple/APPLE contain different info)  
       <br>
 
