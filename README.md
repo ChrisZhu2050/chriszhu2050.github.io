@@ -48,7 +48,14 @@ graph LR
       - or shared with embedding   
    <br> 
 3. **Tokenizer initializing**
-    - Algorithm  
+    
+    - Normalizer  
+      > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text  
+      <br>
+    - Pre-tokenizer
+      > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit  
+    <br>
+    - Subword Algorithm  
       - BPE ([Byte-pair encoding](https://github.com/tpn/pdfs/blob/master/A%20New%20Algorithm%20for%20Data%20Compression%20(1994).pdf))  
         ```mermaid
           graph LR
@@ -96,8 +103,8 @@ graph LR
           ```
           > It proceed from result(raw data) to reason(voca+probability) with big initial vocabulary.  
           Vocabulary pruning will be done with ME iteration and loss calculation.
-      
       <br>
+      
     - Vocabulary  
       - Training Data  
          Random sampling from  Raw data of base model training(e.g. BookCorpus, Wikipedia)
@@ -138,21 +145,12 @@ graph LR
           | ... | ... |
           | 500001| ▁tokenizer |
 
-      
         <br>
-    - Normalizer  
-      > Perform Unicode normalization (such as NFKC), case conversion, deduplication, or special symbol cleaning to ensure consistent formatting of input text  
-      <br>
-    - Pre-tokenizer
-        > Perform preliminary segmentation (such as segmentation by space or byte level) before the intervention of the algorithm model to define the basic processing unit  
-    <br>
+
     - Post-processor
         > Add special markers (such as [CLS], [SEP], <bos>, <eos>) and construct attention masks or paragraph type IDs to adapt to the Transformer input format  
     <br>
-    - Decoder
-        > Define the inverse rules for restoring original text from Token ID (such as byte-level decoding, removing prefix spaces), which are only necessary during the inference phase but need to be configured along with the trainer  
-    <br>
-    - Special Token Map
+    - Token ID Mapping
         > Explicitly register reserved tokens such as "<pad>" and their corresponding IDs to ensure that the model can recognize boundaries and unknown words, and align them with the dimension of the model's embedding layer  
     <br>
   
@@ -198,7 +196,7 @@ graph LR
     - Output probabilities  
   <br>
 
-5. **Training Backward Pass**  
+1. **Training Backward Pass**  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
