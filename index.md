@@ -240,7 +240,9 @@ graph LR
   <br>
 
   - Tokenizer Toolkit
-    - [SentencePiece](https://github.com/google/sentencepiece) vs [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) vs [tiktoken](https://github.com/openai/tiktoken)
+    - [SentencePiece](https://github.com/google/sentencepiece)
+    - [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) 
+    - [tiktoken](https://github.com/openai/tiktoken)
    
   
     ```mermaid
