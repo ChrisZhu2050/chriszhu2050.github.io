@@ -207,8 +207,27 @@ graph LR
       <br>
 
   - Post-processor
-      > Add special markers (such as [CLS], [SEP], <bos>, <eos>) and construct attention masks or paragraph type IDs to adapt to the Transformer input format  
+      
+      - Add structural mark to the token sequence (such as `<bos>`, `<eos>`)
+      - Add Chat Template marker likes <|user|>、<|assistant|>
+        | TokenID | Character |
+        |:----:|:----:|
+        | 111 | `<bos>` |
+        | 112 | `<eos>` |
+        | 113 | `<\|user\|>`|
+        | 114 | `<\|assistant\|>`|
+        | ... | ... |
+ 
+        ```mermaid
+          graph LR
+              A["`BBPE
+              [\xe4\xbd\xa0, \xe5\xa5\xbd]`"] --> B["Post-processor
+              [\xe4\xbd\xa0, \xe5\xa5\xbd, < bos >]
+              "] --> C["`Token ID Mapping`"] 
+        ```
+        Post-processor may also happen after the Token ID Mapping, depends on different mechanism of each model     
   <br>
+
   - Token ID Mapping
       > Explicitly register reserved tokens such as "<pad>" and their corresponding IDs to ensure that the model can recognize boundaries and unknown words, and align them with the dimension of the model's embedding layer  
   <br>
