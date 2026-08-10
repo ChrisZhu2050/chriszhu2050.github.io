@@ -1,10 +1,10 @@
 
 Outline:
 - [LLM Essential](README.md)
-- [LLM Fine-tune]({% post_url llm-fine-tune %})
-- [LLM Distillation]({% post_url llm-distillation %})
-- [Agent Framework]({% post_url agent-framework %})
-- [Data Flywheel]({% post_url data-flywheel %})
+- [LLM Fine-tune](docs/llm-fine-tune.md)
+- [LLM Distillation](docs/llm-distillation.md)
+- [Agent Framework](docs/agent-framework.md)
+- [Data Flywheel](docs/data-flywheel.md)
 
 ***
 
