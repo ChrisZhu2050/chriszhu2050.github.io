@@ -210,7 +210,7 @@ graph LR
       
       - Add structural mark to the token sequence (such as `<bos>`, `<eos>`)
   
-      - Add Chat Template marker likes <|user|>、<|assistant|>  
+      - Add Chat Template marker likes `<|user|>`、`<|assistant|>`    
   
         | TokenID | Character |
         |:----:|:----:|
