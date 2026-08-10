@@ -3,7 +3,7 @@ layout: page
 title: "LLM Distillation"
 # permalink: /llm-distillation/
 ---
-## LLM Distillation
+
 - [LLM Essential](/)
 - [LLM Fine-tune](llm-fine-tune.md)
 - [LLM Distillation](llm-distillation.md)

@@ -3,7 +3,7 @@ layout: page
 title: "Data Flywheel"
 # permalink: /data-flywheel/
 ---
-## Data Flywheel
+
 - [LLM Essential](/)
 - [LLM Fine-tune](llm-fine-tune.md)
 - [LLM Distillation](llm-distillation.md)
