@@ -234,9 +234,9 @@ graph LR
   - Token ID Mapping
     ```mermaid
         graph LR
-            A["`Token`"] --> B["`Vocabulary`"] --> C["`Token ID`"] 
+            A["`Token`"] --> B["`Vocabulary`"] --> C["`Token ID`"] --> D["`Transformer`"] 
     ```
-    
+
   <br>
 
   - SentencePiece  
