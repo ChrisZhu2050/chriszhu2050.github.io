@@ -16,7 +16,7 @@ GPT Training Process  ([State of GPT](https://karpathy.ai/))
 ```mermaid
 
 graph LR
-    A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
+    A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Pipeline] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```   
 <br>  
 
@@ -55,7 +55,7 @@ graph LR
     - or shared with embedding   
    <br> 
    
-### Tokenizer initializing  
+### Tokenizer Pipeline 
 
 ***    
   - Normalizer    
