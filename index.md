@@ -239,7 +239,20 @@ graph LR
 
   <br>
 
-  - SentencePiece  
+  - SentencePiece ([Link](https://github.com/google/sentencepiece))
+    - It's a tokenization Toolkit
+    ```mermaid
+        kanban
+        SentencePiece
+            [Normalizer]
+            [Pre-tokenizer]
+            [Pre-tokenizer]
+            [Subword Trainer / Algorithm]
+            [Vocabulary]
+            [Token-ID mapping]
+
+    ```
+  
   <br> 
 
   - Models' vocabulary info
