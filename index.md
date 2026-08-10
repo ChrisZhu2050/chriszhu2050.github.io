@@ -1,6 +1,7 @@
 ---
 layout: home
 ---
+
 ## LLM Essential
 
 Outline:
@@ -20,7 +21,7 @@ graph LR
 ```   
 <br>
 
-##### Training Data
+#### Training Data
 
 ***
    - Raw data of base model's training 
