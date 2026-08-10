@@ -224,8 +224,8 @@ graph LR
         ```mermaid
           graph LR
               A["`BBPE
-              [\xe4\xbd\xa0, \xe5\xa5\xbd]`"] --> B["Post-processor
-              [\xe4\xbd\xa0, \xe5\xa5\xbd, < bos >]
+              [e4 bd a0,  e5 a5 bd]`"] --> B["Post-processor
+              [ e4 bd a0,  e5 a5 bd, < bos >]
               "] --> C["`Token ID Mapping`"] 
         ```
         Post-processor may also happen after the Token ID Mapping, depends on different mechanism of models     
