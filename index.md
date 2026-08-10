@@ -239,8 +239,9 @@ graph LR
 
   <br>
 
-  - [SentencePiece](https://github.com/google/sentencepiece) vs [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) vs [tiktoken](https://github.com/openai/tiktoken)
-    - They are all tokenization Toolkit  
+  - Tokenizer Toolkit
+    - [SentencePiece](https://github.com/google/sentencepiece) vs [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) vs [tiktoken](https://github.com/openai/tiktoken)
+   
   
     ```mermaid
         kanban
