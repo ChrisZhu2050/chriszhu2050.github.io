@@ -275,7 +275,14 @@ graph LR
 ### Training Forward Pass
 
 ***
-  - Tokenization
+  - Tokenization  
+  
+    ```mermaid
+            graph LR
+                A["`Raw Data`"] --> B["`Tokenizer`"] --> C["`Transformer`"] 
+    ```
+
+
   - Transformer  
   <!-- <a id="section2"></a>   -->
       - Encoder  
