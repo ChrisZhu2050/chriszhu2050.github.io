@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "LLM Fine-tune"
 # permalink: /llm-fine-tune/
 ---

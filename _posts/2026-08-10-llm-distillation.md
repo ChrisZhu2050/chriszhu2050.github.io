@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: "LLM Distillation"
 # permalink: /llm-distillation/
 ---
