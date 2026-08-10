@@ -98,7 +98,7 @@ graph LR
       ```
 
     <br>
-    SentencePiece's pre-tokenizer, ▁ preset the space: 
+    SentencePiece's pre-tokenizer, ▁ present the space: 
     
     ```mermaid
           graph LR
