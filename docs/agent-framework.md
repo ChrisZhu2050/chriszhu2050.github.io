@@ -4,7 +4,7 @@ title: "Agent Framework"
 # permalink: /agent-framework/
 ---
 ## Agent Framework
-- [LLM Essential](\..\README.md)
+- [LLM Essential](/README.md)
 - [LLM Fine-tune](llm-fine-tune.md)
 - [LLM Distillation](llm-distillation.md)
 - [Agent Framework](agent-framework.md)

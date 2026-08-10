@@ -4,7 +4,7 @@ title: "Data Flywheel"
 # permalink: /data-flywheel/
 ---
 ## Data Flywheel
-- [LLM Essential](\..\README.md)
+- [LLM Essential](/README.md)
 - [LLM Fine-tune](llm-fine-tune.md)
 - [LLM Distillation](llm-distillation.md)
 - [Agent Framework](agent-framework.md)
