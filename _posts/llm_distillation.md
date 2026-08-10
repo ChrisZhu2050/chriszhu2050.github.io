@@ -1,3 +1,9 @@
+---
+layout: page
+title: "LLM Distillation"
+permalink: /llm-distillation/
+---
+
 ## LLM Distillation
 - [LLM Essential](..\README.md)
 - [LLM Fine-tune](llm_fine_tune.md)

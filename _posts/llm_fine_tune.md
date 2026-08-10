@@ -1,3 +1,8 @@
+---
+layout: page
+title: "LLM Fine-tune"
+permalink: /llm-fine-tune/
+---
 
 ## LLM Fine-tune
 - [LLM Essential](..\README.md)
