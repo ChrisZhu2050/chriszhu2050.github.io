@@ -6,6 +6,7 @@ Outline:
 - [Agent Framework](docs/agent-framework.md)
 - [Data Flywheel](docs/data-flywheel.md)  
 <br>
+
 GPT Training Process  ([State of GPT](https://karpathy.ai/))
 
 ```mermaid
