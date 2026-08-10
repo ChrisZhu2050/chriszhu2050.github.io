@@ -34,7 +34,7 @@ graph LR
       - Prepared manually by people     
   <br>
 
-**Weights initializing**
+### Weights initializing
 
 ***
   - FFN
@@ -54,7 +54,7 @@ graph LR
     - or shared with embedding   
    <br> 
    
- **Tokenizer initializing**  
+### Tokenizer initializing  
 
 ***    
   - Normalizer    
@@ -228,7 +228,7 @@ graph LR
 
   <br> 
 
- **Training Forward Pass**  
+ ### Training Forward Pass  
 
 ***
   - Tokenization
@@ -257,7 +257,7 @@ graph LR
   - Output probabilities  
 <br>
 
-**Training Backward Pass**  
+### Training Backward Pass  
 
 ***  
   - cross-entropy Loss computation  
