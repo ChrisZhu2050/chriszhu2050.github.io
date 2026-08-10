@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "Data Flywheel"
 # permalink: /data-flywheel/
 ---

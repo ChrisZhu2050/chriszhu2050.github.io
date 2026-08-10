@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: "Agent Framework"
 # permalink: /agent-framework/
 ---
