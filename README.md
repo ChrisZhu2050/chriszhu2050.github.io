@@ -18,7 +18,7 @@ graph LR
 ```  
 
 1. **Training Data**  
----
+***
    - Raw data of base model's training 
      - [Common Crawl](https://commoncrawl.org/)
      - C4/C4.EN (from April 2019 snapshot of Common Crawl)
@@ -32,7 +32,7 @@ graph LR
   <br>
 
 2. **Weights initializing**
----
+***
     - FFN
       - Xavier/Glorot
       - Kaiming/He
@@ -51,7 +51,7 @@ graph LR
    <br> 
    
 3. **Tokenizer initializing**
----    
+***    
     - Normalizer    
       Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
 
@@ -224,7 +224,7 @@ graph LR
     <br> 
 
 4. **Training Forward Pass**
----
+***
     - Tokenization
     - Transformer  
     <!-- <a id="section2"></a>   -->
@@ -252,7 +252,7 @@ graph LR
   <br>
 
 5. **Training Backward Pass**
----  
+***  
     - cross-entropy Loss computation  
         - logits --> softmax/sigmoid --> cross-entropy
 
