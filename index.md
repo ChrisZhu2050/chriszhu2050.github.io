@@ -240,7 +240,8 @@ graph LR
   <br>
 
   - SentencePiece ([Link](https://github.com/google/sentencepiece))
-    - It's a tokenization Toolkit
+    - It's a tokenization Toolkit  
+  
     ```mermaid
         kanban
         SentencePiece
