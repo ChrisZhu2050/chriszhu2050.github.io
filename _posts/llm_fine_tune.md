@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LLM Fine-tune"
-permalink: /llm-fine-tune/
+# permalink: /llm-fine-tune/
 ---
 
 ## LLM Fine-tune

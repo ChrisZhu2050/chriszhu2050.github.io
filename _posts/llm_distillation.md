@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "LLM Distillation"
-permalink: /llm-distillation/
+# permalink: /llm-distillation/
 ---
 
 ## LLM Distillation

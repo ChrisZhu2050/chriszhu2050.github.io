@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Agent Framework"
-permalink: /agent-framework/
+# permalink: /agent-framework/
 ---
 
 ## Agent Framework
