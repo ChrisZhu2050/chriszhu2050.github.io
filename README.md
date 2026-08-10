@@ -1,8 +1,6 @@
-
 ---
 layout: page
 title: "LLM Essential"
-<!-- permalink: /agent-framework/ -->
 ---
 Outline:
 - [LLM Essential](/)
