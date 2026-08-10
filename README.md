@@ -1,4 +1,9 @@
 
+---
+layout: page
+title: "LLM Essential"
+<!-- permalink: /agent-framework/ -->
+---
 Outline:
 - [LLM Essential](/)
 - [LLM Fine-tune](docs/llm-fine-tune.md)
