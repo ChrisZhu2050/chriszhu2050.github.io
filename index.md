@@ -2,8 +2,6 @@
 layout: home
 ---
 
-## LLM Essential
-
 Outline:
 - [LLM Essential](/)
 - [LLM Fine-tune](docs/llm-fine-tune.md)
@@ -19,9 +17,9 @@ GPT Training Process  ([State of GPT](https://karpathy.ai/))
 graph LR
     A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Initializing] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```   
-<br>
+<br>  
 
-#### Training Data
+### Training Data
 
 ***
    - Raw data of base model's training 
