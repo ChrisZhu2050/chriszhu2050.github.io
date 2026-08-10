@@ -250,6 +250,7 @@ graph LR
             [Pre-tokenizer]
             [Subword Trainer / Algorithm]
             [Vocabulary]
+            [Post Processor]
             [Token-ID mapping]
 
 
