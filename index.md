@@ -210,9 +210,9 @@ graph LR
       
       - Add structural mark to the token sequence (such as `<bos>`, `<eos>`)
   
-      - Add Chat Template marker likes `<|user|>`、`<|assistant|>`    
+      - Add Chat Template mark likes `<|user|>`、`<|assistant|>`    
   
-        | TokenID | Character |
+        | TokenID | Special mark |
         |:----:|:----:|
         | 111 | `<bos>` |
         | 112 | `<eos>` |
@@ -227,7 +227,7 @@ graph LR
               [\xe4\xbd\xa0, \xe5\xa5\xbd, < bos >]
               "] --> C["`Token ID Mapping`"] 
         ```
-        Post-processor may also happen after the Token ID Mapping, depends on different mechanism of each model     
+        Post-processor may also happen after the Token ID Mapping, depends on different mechanism of models     
   <br>
 
   - Token ID Mapping
