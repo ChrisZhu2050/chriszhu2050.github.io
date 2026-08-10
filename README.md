@@ -1,4 +1,5 @@
 ## LLM Essential
+
 Outline:
 - [LLM Essential](/)
 - [LLM Fine-tune](docs/llm-fine-tune.md)
@@ -16,8 +17,7 @@ graph LR
 ```   
 <br>
 
-**Training Data**  
-
+##### Training Data  
 ***
    - Raw data of base model's training 
      - [Common Crawl](https://commoncrawl.org/)
