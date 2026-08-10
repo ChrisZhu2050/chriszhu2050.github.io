@@ -1,5 +1,5 @@
 
 
-## [Blog Page](chriszhu2050.github.io)
+## [LLM Essential](chriszhu2050.github.io)
 
 <br>
