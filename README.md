@@ -1,8 +1,5 @@
 
-Outline:
-- [LLM Essential](/)
-- [LLM Fine-tune](docs/llm-fine-tune.md)
-- [LLM Distillation](docs/llm-distillation.md)
-- [Agent Framework](docs/agent-framework.md)
-- [Data Flywheel](docs/data-flywheel.md)  
+
+## [Blog Page](chriszhu2050.github.io)
+
 <br>
