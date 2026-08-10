@@ -239,18 +239,18 @@ graph LR
 
   <br>
 
-  - SentencePiece ([Link](https://github.com/google/sentencepiece))
-    - It's a tokenization Toolkit  
+  - [SentencePiece](https://github.com/google/sentencepiece) vs [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) vs [tiktoken](https://github.com/openai/tiktoken)
+    - They are all tokenization Toolkit  
   
     ```mermaid
         kanban
-        SentencePiece
+        [Tokenization Toolkit]
             [Normalizer]
-            [Pre-tokenizer]
             [Pre-tokenizer]
             [Subword Trainer / Algorithm]
             [Vocabulary]
             [Token-ID mapping]
+
 
     ```
   
@@ -260,11 +260,11 @@ graph LR
 
     | Model | Company | Tokenizer | Vocabulary Size | Comments |
     |:----:|:----:|:----:|:----:|:----:|
-    | GPT-4o | OpenAI | o200k_base(BBPE) | ~199,998 | [>> link](https://github.com/tryAGI/Tiktoken/blob/main/data/README.md?utm_source=chatgpt.com) |
-    | Mixtral 7B| Mistral AI | SentencePiece BPE | ~32,000 | ?|
-    | LLaMA 3| Meta | tiktoken-based BPE | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
-    | Qwen3| Alibaba | BBPE | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
-    | DeepSeek-V3| DeepSeek | BBPE | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |
+    | GPT-4o | OpenAI | tiktoken | ~199,998 | [>> link](https://github.com/tryAGI/Tiktoken/blob/main/data/README.md?utm_source=chatgpt.com) |
+    | Mixtral| Mistral AI | SentencePiece | ~32,000 | ?|
+    | LLaMA 3| Meta | tiktoken-based | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
+    | Qwen3| Alibaba | HuggingFace Tokenizers | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
+    | DeepSeek-V3| DeepSeek | SentencePiece/HF compatible implementation | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |
 
   <br> 
 
