@@ -228,7 +228,7 @@ graph LR
 
   <br> 
 
- ### Training Forward Pass  
+### Training Forward Pass
 
 ***
   - Tokenization
