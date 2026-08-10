@@ -1,4 +1,4 @@
-<!-- ## LLM Essential -->
+## LLM Essential
 Outline:
 - [LLM Essential](/)
 - [LLM Fine-tune](docs/llm-fine-tune.md)
