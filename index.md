@@ -232,7 +232,11 @@ graph LR
   <br>
 
   - Token ID Mapping
-      > Explicitly register reserved tokens such as "<pad>" and their corresponding IDs to ensure that the model can recognize boundaries and unknown words, and align them with the dimension of the model's embedding layer  
+    ```mermaid
+        graph LR
+            A["`Token`"] --> B["`Vocabulary`"] --> C["`Token ID`"] 
+    ```
+    
   <br>
 
   - SentencePiece  
