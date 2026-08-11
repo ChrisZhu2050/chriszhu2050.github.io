@@ -260,7 +260,7 @@ graph LR
   
   <br> 
 
-  - Models' vocabulary info
+  - Popular models' tokenizer and vocabulary info
 
     | Model | Company | Tokenizer | Vocabulary Size | Comments |
     |:----:|:----:|:----:|:----:|:----:|
