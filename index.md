@@ -239,6 +239,7 @@ graph LR
               A["`Token`"] --> B["`Vocabulary`"] --> C["`Token ID`"] --> D["`Transformer`"] 
       ```  
     <br>
+
   7. Tokenizer Toolkit  
       - [SentencePiece](https://github.com/google/sentencepiece)
       - [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) 
@@ -255,6 +256,7 @@ graph LR
               [Post Processor]
               [Token-ID mapping]
       ```  
+
     <br> 
 
   8. Popular models' tokenizer and vocabulary info  
