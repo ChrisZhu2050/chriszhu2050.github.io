@@ -20,7 +20,7 @@ graph LR
 ```   
 <br>  
 
-### Training Data
+## Training Data
 
 ***
    - Raw data of base model's training 
@@ -37,7 +37,7 @@ graph LR
   <br>
   <br>
 
-### Weights initializing of Transformer
+## Weights initializing of Transformer
 
 ***
   - Token embedding layer
@@ -63,7 +63,8 @@ graph LR
     <br> 
     <br>
     <br>
-### Tokenizer Pipeline 
+
+## Tokenizer Pipeline 
 
 ***    
   1. Normalizer    
@@ -276,7 +277,8 @@ graph LR
       <br> 
       <br>
       <br>
-### Training Forward Pass
+
+## Training Forward Pass
 
 ***
   - Tokenization  
@@ -314,7 +316,7 @@ graph LR
 <br>
 <br>
 
-### Training Backward Pass  
+## Training Backward Pass  
 
 ***  
   - cross-entropy Loss computation  
