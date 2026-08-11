@@ -116,6 +116,7 @@ graph LR
   <br>
 
   3. Subword Algorithm  
+
       - BPE ([Byte-pair encoding](https://github.com/tpn/pdfs/blob/master/A%20New%20Algorithm%20for%20Data%20Compression%20(1994).pdf))  
         ```mermaid
           graph LR
@@ -166,6 +167,7 @@ graph LR
   <br>
     
   4. Vocabulary  
+
       - Training Data  
         Subset of Raw data of base model training(e.g. BookCorpus, Wikipedia)
     
@@ -208,7 +210,7 @@ graph LR
 
       <br>
 
-  5. Post-processor
+  5. Post-processor  
       
         - Add structural mark to the token sequence (such as `<bos>`, `<eos>`)
     
@@ -232,7 +234,8 @@ graph LR
           Post-processor may also happen after the Token ID Mapping, depends on different mechanism of models     
   <br>
 
-  6. Token ID Mapping
+  6. Token ID Mapping  
+
       ```mermaid
           graph LR
               A["`Token`"] --> B["`Vocabulary`"] --> C["`Token ID`"] --> D["`Transformer`"] 
@@ -240,7 +243,8 @@ graph LR
 
   <br>
 
-  7. Tokenizer Toolkit
+  7. Tokenizer Toolkit  
+
       - [SentencePiece](https://github.com/google/sentencepiece)
       - [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) 
       - [tiktoken](https://github.com/openai/tiktoken)
@@ -261,7 +265,7 @@ graph LR
   
   <br> 
 
-  8. Popular models' tokenizer and vocabulary info
+  8. Popular models' tokenizer and vocabulary info  
 
       | Model | Company | Tokenizer | Vocabulary Size | Comments |
       |:----:|:----:|:----:|:----:|:----:|
