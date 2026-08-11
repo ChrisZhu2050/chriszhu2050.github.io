@@ -35,6 +35,7 @@ graph LR
       - Prepared manually by people     
   <br>
   <br>
+  <br>
 
 ### Weights initializing of Transformer
 
@@ -59,9 +60,9 @@ graph LR
     - or shared with embedding   
   - Bias
     - normally initial as 0  
-   <br> 
-   <br>
-
+    <br> 
+    <br>
+    <br>
 ### Tokenizer Pipeline 
 
 ***    
@@ -274,7 +275,7 @@ graph LR
 
       <br> 
       <br>
-
+      <br>
 ### Training Forward Pass
 
 ***
@@ -309,6 +310,7 @@ graph LR
 
   - Linear & Softmax
   - Output probabilities  
+<br>
 <br>
 <br>
 
