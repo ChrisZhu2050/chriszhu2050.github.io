@@ -210,8 +210,8 @@ graph LR
       - Unigram  
           Initialized with big vocabulary(>100k) and prune to target size(e.g. ~30k)
           Specific letter to indicate space:
-        **▁This ▁is ▁a ▁tokenizer** 
-
+        **▁This ▁is ▁a ▁tokenizer**  
+  
         | TokenID | Character |
           |:----:|:----:|
           | 0 | ▁This |
@@ -219,7 +219,7 @@ graph LR
           | 2 | Th|
           | ... | ... |
           | 500001| ▁tokenizer |  
-        <br>
+  <br>
 
   5. Post-processor  
       
