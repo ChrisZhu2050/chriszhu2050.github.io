@@ -166,9 +166,9 @@ graph LR
     
   - Vocabulary  
     - Training Data  
-       Random sampling from  Raw data of base model training(e.g. BookCorpus, Wikipedia)
+       Subset of Raw data of base model training(e.g. BookCorpus, Wikipedia)
   
-    - BBPE  
+    - BBPE(Byte-level BPE)  
        initialized with all possible 256 UFT-8 byte values and finalized with frequent bytes pair and so on
 
       | TokenID | Byte | Hex | Meaning |
