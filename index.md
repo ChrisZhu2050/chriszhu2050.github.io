@@ -97,7 +97,7 @@ graph LR
                 Ġlearning
                 ĠAI
                 !`"] 
-        ```
+        ```  
 
       <br>
       SentencePiece's pre-tokenizer, ▁ present the space: 
@@ -113,7 +113,7 @@ graph LR
             graph LR
                 A["`Chinese: 中`"] --> B["`UTF-8: E4 BD A0`"] 
       ```   
-    <br>
+      <br>
 
   3. Subword Algorithm  
 
