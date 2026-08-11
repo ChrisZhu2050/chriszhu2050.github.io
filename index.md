@@ -39,7 +39,6 @@ graph LR
 
 <br>
 <br>
-<br>
 
 ## Weights initializing of Transformer
 
@@ -67,7 +66,6 @@ graph LR
 
 ***  
 
-<br>
 <br>
 <br>
 
@@ -281,9 +279,8 @@ graph LR
       | Qwen3| Alibaba | HuggingFace Tokenizers | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
       | DeepSeek-V3| DeepSeek | SentencePiece/HF compatible implementation | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |   
 
-      ***  
+***  
 
-      <br>
       <br>
       <br>
 
@@ -326,7 +323,6 @@ graph LR
 
 <br>
 <br>
-<br>
 
 ## Training Backward Pass  
 
@@ -344,7 +340,6 @@ graph LR
   
 ***  
 
-<br>
 <br>
 <br>
 
