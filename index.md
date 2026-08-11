@@ -61,7 +61,7 @@ graph LR
   - Bias
     - normally initial as 0  
     <br> 
-     ***
+    ***
     <br>
     <br>
 
