@@ -219,7 +219,7 @@ graph LR
           | 2 | Th|
           | ... | ... |
           | 500001| ▁tokenizer |  
-  <br>
+    <br>
 
   5. Post-processor  
       
