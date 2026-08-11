@@ -1,3 +1,4 @@
+My blog:  [chriszhu2050.github.io](chriszhu2050.github.io)  
 
 Outline:
 - [LLM Essential](/index.md)
@@ -6,3 +7,4 @@ Outline:
 - [Agent Framework](docs/agent-framework.md)
 - [Data Flywheel](docs/data-flywheel.md)  
 <br>
+
