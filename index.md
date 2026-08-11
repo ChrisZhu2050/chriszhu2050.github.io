@@ -35,7 +35,7 @@ graph LR
       - Prepared manually by people     
   <br>
 
-### Weights initializing
+### Weights initializing of Transformer
 
 ***
   - FFN
