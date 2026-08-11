@@ -38,7 +38,7 @@ graph LR
 ### Weights initializing of Transformer
 
 ***
-  - FFN
+  - FFN (Feed Forward Neural Network)
     - Xavier/Glorot
     - Kaiming/He
   - Q/K/V/O
