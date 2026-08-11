@@ -33,7 +33,6 @@ graph LR
        - Prepared manually by people
    - Training Data of RW model
       - Prepared manually by people     
-  <br>
 
 ***  
 
@@ -63,7 +62,6 @@ graph LR
     - or shared with embedding   
   - Bias
     - normally initial as 0  
-    <br> 
 
 ***  
 
@@ -280,8 +278,6 @@ graph LR
       | Qwen3| Alibaba | HuggingFace Tokenizers | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
       | DeepSeek-V3| DeepSeek | SentencePiece/HF compatible implementation | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |   
 
-      <br> 
-
       ***  
 
       <br>
@@ -321,7 +317,6 @@ graph LR
 
   - Linear & Softmax
   - Output probabilities  
-<br>
 
 ***  
 
@@ -340,9 +335,12 @@ graph LR
       > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$
 
   - Weight update by Adam
-      > $$ W_n = W_o - η*\nabla L(W_o) $$     
+      > $$ W_n = W_o - η*\nabla L(W_o) $$       
   
-  <br>  
+***  
+
+<br>
+<br>
 
 
 <!-- [![](images\1.png)](https://chriszhu2050.github.io/images/1.png) -->
