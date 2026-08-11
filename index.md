@@ -38,7 +38,7 @@ graph LR
 ### Weights initializing of Transformer
 
 ***
-  - FFN (Feed Forward Network)
+  - FFN (Feed Forward Network) / MOE
     - two linear transformations
     - a ReLU activation in between.
       - Xavier/Glorot
