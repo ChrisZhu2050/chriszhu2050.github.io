@@ -39,8 +39,9 @@ graph LR
 
 ***
   - FFN (Feed Forward Neural Network)
-    - Xavier/Glorot
-    - Kaiming/He
+    - This contains two linear transformations with a ReLU activation in between.
+      - Xavier/Glorot
+      - Kaiming/He
   - Q/K/V/O
     - Xavier/Glorot
     - Kaiming/He
