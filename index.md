@@ -207,7 +207,7 @@ graph LR
           | 2 | Th|
           | ... | ... |
           | 500001| ▁tokenizer |  
-    <br>
+        <br>
 
   5. Post-processor  
       
@@ -239,7 +239,7 @@ graph LR
           graph LR
               A["`Token`"] --> B["`Vocabulary`"] --> C["`Token ID`"] --> D["`Transformer`"] 
       ```  
-    <br>
+      <br>
   7. Tokenizer Toolkit  
       - [SentencePiece](https://github.com/google/sentencepiece)
       - [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) 
@@ -256,7 +256,7 @@ graph LR
               [Post Processor]
               [Token-ID mapping]
       ```  
-    <br> 
+      <br> 
   8. Popular models' tokenizer and vocabulary info  
 
       | Model | Company | Tokenizer | Vocabulary Size | Comments |
@@ -266,7 +266,7 @@ graph LR
       | LLaMA 3| Meta | tiktoken-based | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
       | Qwen3| Alibaba | HuggingFace Tokenizers | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
       | DeepSeek-V3| DeepSeek | SentencePiece/HF compatible implementation | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |  
-    <br> 
+      <br> 
 ### Training Forward Pass
 
 ***
