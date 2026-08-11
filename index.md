@@ -240,7 +240,6 @@ graph LR
               A["`Token`"] --> B["`Vocabulary`"] --> C["`Token ID`"] --> D["`Transformer`"] 
       ```  
     <br>
-
   7. Tokenizer Toolkit  
       - [SentencePiece](https://github.com/google/sentencepiece)
       - [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) 
@@ -257,9 +256,7 @@ graph LR
               [Post Processor]
               [Token-ID mapping]
       ```  
-
     <br> 
-
   8. Popular models' tokenizer and vocabulary info  
 
       | Model | Company | Tokenizer | Vocabulary Size | Comments |
@@ -268,10 +265,8 @@ graph LR
       | Mixtral| Mistral AI | SentencePiece | ~32,000 | ?|
       | LLaMA 3| Meta | tiktoken-based | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
       | Qwen3| Alibaba | HuggingFace Tokenizers | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
-      | DeepSeek-V3| DeepSeek | SentencePiece/HF compatible implementation | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |
-
+      | DeepSeek-V3| DeepSeek | SentencePiece/HF compatible implementation | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |  
     <br> 
-
 ### Training Forward Pass
 
 ***
