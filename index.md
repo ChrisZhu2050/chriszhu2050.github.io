@@ -39,7 +39,8 @@ graph LR
 
 ***
   - FFN (Feed Forward Network)
-    - This contains two linear transformations with a ReLU activation in between.
+    - two linear transformations
+    - a ReLU activation in between.
       - Xavier/Glorot
       - Kaiming/He
   - Q/K/V/O
