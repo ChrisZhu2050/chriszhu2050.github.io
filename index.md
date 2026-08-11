@@ -17,8 +17,7 @@ GPT Training Process  ([State of GPT](https://karpathy.ai/))
 
 graph LR
     A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Pipeline] --> D[Training Forward Pass] --> E[Training Backward Pass]
-```   
-<br>  
+```     
 <br>  
 
 ## Training Data
@@ -281,8 +280,8 @@ graph LR
 
 ***  
 
-      <br>
-      <br>
+<br>
+<br>
 
 ## Training Forward Pass
 
