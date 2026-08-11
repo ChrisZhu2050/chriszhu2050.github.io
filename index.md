@@ -35,10 +35,10 @@ graph LR
       - Prepared manually by people     
   <br>
 
-***
+***  
 
-  <br>
-  <br>
+<br>
+<br>
 
 ## Weights initializing of Transformer
 
@@ -65,10 +65,10 @@ graph LR
     - normally initial as 0  
     <br> 
 
-***
+***  
 
-    <br>
-    <br>
+<br>
+<br>
 
 ## Tokenizer Pipeline 
 
@@ -281,6 +281,9 @@ graph LR
       | DeepSeek-V3| DeepSeek | SentencePiece/HF compatible implementation | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |   
 
       <br> 
+
+      ***  
+
       <br>
       <br>
 
@@ -319,6 +322,9 @@ graph LR
   - Linear & Softmax
   - Output probabilities  
 <br>
+
+***  
+
 <br>
 <br>
 
