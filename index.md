@@ -42,6 +42,11 @@ graph LR
 ## Weights initializing of Transformer
 
 ***
+  ```mermaid
+      graph LR
+          A["`Token Embedding`"] --> B["`Positional Encoding`"] --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
+  ```  
+
   - Token embedding layer
     - N(0,1)
   - Positional Encoding
