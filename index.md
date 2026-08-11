@@ -38,23 +38,26 @@ graph LR
 ### Weights initializing of Transformer
 
 ***
+  - Token embedding layer
+    - N(0,1)
+  - Positional Encoding
+  - Self-Attention 
+    - Q/K/V
+    - Output
+      - Xavier/Glorot
+      - Kaiming/He
   - FFN (Feed Forward Network) / MOE
     - two linear transformations
     - a ReLU activation in between.
       - Xavier/Glorot
       - Kaiming/He
-  - Q/K/V/O
-    - Xavier/Glorot
-    - Kaiming/He
-  - Bias
-    - normally initial as 0
   - LayerNorm
     - γ as 1 and β as 0
-  - Token & Position embedding
-    - N(0,1)
   - LM Head
     - Xavier/Glorot/Kaiming
     - or shared with embedding   
+  - Bias
+    - normally initial as 0  
    <br> 
    
 ### Tokenizer Pipeline 
