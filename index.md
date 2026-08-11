@@ -81,7 +81,7 @@ graph LR
         NFKC: Normalization Form Compatibility Composition (used by LLM training)  <==   
         NFKD: Normalization Form Compatibility Decomposition  
 
-    Normally LLM training was not performing the aggressively normalize because it cause the meaning losing on letters(e.g. Apple/apple/APPLE contain different info)  
+    Normally LLM training was not performing the most aggressive normalize because it cause the meaning losing on letters  
     <br>
 
   - Pre-tokenizer  
@@ -120,15 +120,15 @@ graph LR
         graph LR
             A[a b c d b c d] --> B["`a **X** d **X** d`"] --> C["`a **Y**`"]
       ```
-      > Above letters are sampled for illustrating, they're maybe unicode bytes.  
+      > Above letters are for illustrating, they're maybe unicode bytes in reality.  
       "a bcd" are the final 2 tokens, and "bcd" will be added to the vocabulary with token id.  
     - BBPE ([Byte-level BPE](https://arxiv.org/abs/1909.03341))  
       ```mermaid
         graph LR
-            A["`1 UTF-8 byte
+            A["`UTF-8 byte
             e.g. B8`"] --> B["8 Bit => 
             1 0 1 1 1 0 0 0"] --> C["`0/1 of each bit =>
-            2<sup>8</sup> = 256 possible byte values`"] --> D["`Decimal format for calculation
+            2<sup>8</sup> = 256 possible byte values`"] --> D["`Decimal/Hex just for reading more easier
             e.g. 184`"]
       ```
       > Initial vocabulary only have these 256 basic bytes.  
