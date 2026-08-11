@@ -34,9 +34,12 @@ graph LR
    - Training Data of RW model
       - Prepared manually by people     
   <br>
+
   ***
+  
   <br>
   <br>
+
 ## Weights initializing of Transformer
 
 ***
@@ -61,7 +64,9 @@ graph LR
   - Bias
     - normally initial as 0  
     <br> 
+
     ***
+
     <br>
     <br>
 
