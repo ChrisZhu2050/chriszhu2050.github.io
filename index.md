@@ -61,6 +61,7 @@ graph LR
     - normally initial as 0  
    <br> 
    <br>
+
 ### Tokenizer Pipeline 
 
 ***    
@@ -273,6 +274,7 @@ graph LR
 
       <br> 
       <br>
+
 ### Training Forward Pass
 
 ***
@@ -309,6 +311,7 @@ graph LR
   - Output probabilities  
 <br>
 <br>
+
 ### Training Backward Pass  
 
 ***  
