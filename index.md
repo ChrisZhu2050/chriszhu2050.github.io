@@ -171,7 +171,7 @@ graph LR
     - BBPE(Byte-level BPE)  
        initialized with all possible 256 UFT-8 byte values and finalized with frequent bytes pair and so on
 
-      | TokenID | Byte | Hex | Meaning |
+      | TokenID | Byte | Hex | Comments |
       |:----:|:----:|:----:|:----:|
       | 0 | 0 | 00 | byte 0 |
       | 1 | 1 | 01 | byte 1 |
