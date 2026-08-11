@@ -35,8 +35,8 @@ graph LR
       - Prepared manually by people     
   <br>
 
-  ***
-  
+***
+
   <br>
   <br>
 
@@ -65,7 +65,7 @@ graph LR
     - normally initial as 0  
     <br> 
 
-    ***
+***
 
     <br>
     <br>
