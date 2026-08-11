@@ -34,6 +34,7 @@ graph LR
    - Training Data of RW model
       - Prepared manually by people     
   <br>
+  <br>
 
 ### Weights initializing of Transformer
 
@@ -59,7 +60,7 @@ graph LR
   - Bias
     - normally initial as 0  
    <br> 
-   
+   <br>
 ### Tokenizer Pipeline 
 
 ***    
@@ -269,9 +270,9 @@ graph LR
       | LLaMA 3| Meta | tiktoken-based | ~128,256 | [>> link](https://github.com/meta-llama/llama-models/blob/main/README.md?utm_source=chatgpt.com) |
       | Qwen3| Alibaba | HuggingFace Tokenizers | ~151,669 | [>> link](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/concepts.md?utm_source=chatgpt.com) |
       | DeepSeek-V3| DeepSeek | SentencePiece/HF compatible implementation | ~128,000 | [>> link](https://arxiv.org/abs/2412.19437?utm_source=chatgpt.com) |   
-      
-      <br> 
 
+      <br> 
+      <br>
 ### Training Forward Pass
 
 ***
@@ -307,7 +308,7 @@ graph LR
   - Linear & Softmax
   - Output probabilities  
 <br>
-
+<br>
 ### Training Backward Pass  
 
 ***  
