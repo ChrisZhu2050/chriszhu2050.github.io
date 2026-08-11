@@ -47,8 +47,18 @@ graph LR
           A["`Token Embedding`"] --> B["`Positional Encoding`"] --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
   ```  
 
-  - Token embedding layer
-    - N(0,1)
+  - Token embedding  
+    Matrix: V × d<sub>model</sub>  
+    Default value: Truncated Normal Distribution(mean=0, std=0.02) 
+    $$
+    \begin{pmatrix}
+    v_{1} & d_{2} & ... & d_{model} \\
+    v_{2} & 0 & ... & 0 \\
+    ... & ... & ... & ...\\
+    v_{32000} & 0 & ... & 0 
+    \end{pmatrix}
+    $$
+
   - Positional Encoding
   - Self-Attention 
     - Q/K/V
