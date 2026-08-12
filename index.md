@@ -70,8 +70,6 @@ graph LR
     Data Range: [-0.04, 0.04]
 
     
-    e.g.  
-
     $$
     \begin{pmatrix}
     v_{1} & d_{2} & d_{3} & ... & d_{512} \\
