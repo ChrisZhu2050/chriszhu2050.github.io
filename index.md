@@ -58,28 +58,14 @@ graph LR
       d<sub>model</sub> = 512  
       <br>  
 
-    Initialize via **Truncated Normal Distribution**:    
+      Initialize via **Truncated Normal Distribution**:    
 
-    > mean = 0  
-    std = 0.02 or 
-    $\frac{1}{\sqrt d_{model}}$   
-    a: -2.0 * std  
-    b: 2.0 * std  
-    Data Range: [-0.04, 0.04]
-  
-    <br>  
-
-    > $$
-    \begin{pmatrix}
-    v_{1} & d_{2} & d_{3} & ... & d_{512} \\
-    v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
-    ... & ... & ... & ...& ...\\
-    v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
-    \end{pmatrix}
-    $$  
-    
-    <br>  
-    Validation after initialize:    
+      > mean = 0  
+      std = 0.02 or 
+      $\frac{1}{\sqrt d_{model}}$   
+      a: -2.0 * std  
+      b: 2.0 * std  
+      Data Range: [-0.04, 0.04]
     
       <br>  
 
@@ -91,13 +77,27 @@ graph LR
       v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
       \end{pmatrix}
       $$  
-      <br>  
-      Validation after initialize:  
       
-      > $$ 
-        mean \approx 0\\
-        std  \approx 0.02  
-      $$
+      <br>  
+      Validation after initialize:    
+      
+        <br>  
+
+        > $$
+        \begin{pmatrix}
+        v_{1} & d_{2} & d_{3} & ... & d_{512} \\
+        v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
+        ... & ... & ... & ...& ...\\
+        v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
+        \end{pmatrix}
+        $$  
+        <br>  
+        Validation after initialize:  
+        
+        > $$ 
+          mean \approx 0\\
+          std  \approx 0.02  
+        $$
 <br>
 
   - Positional Encoding
