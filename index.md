@@ -48,6 +48,7 @@ graph LR
   ```  
 
   - Token embedding layer  
+    
     Matrix:   
     > V × d<sub>model</sub>  
 
@@ -58,7 +59,7 @@ graph LR
     <br>
 
 
-    
+
     Initialize via **Truncated Normal Distribution**:   
      
     > mean = 0  
