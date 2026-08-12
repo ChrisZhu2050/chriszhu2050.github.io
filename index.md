@@ -86,7 +86,17 @@ graph LR
 
   2. Self-Attention  
        - W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
-        > W ~ N(0,0.002<sup>2</sup>)
+        > W ~ N(0,σ<sup>2</sup>)    
+        
+        | Model | σ | Residual |
+        |:----:|:----:|:----:|
+        | GPT 3 | 0.02 |  0 | 
+        | LLaMA 2 | 0.02 | 0 | 
+        | DeepSeek V3 | 0.006 | 0 | 
+
+
+
+        σ=0.02 (GPT 3/LLaMA)
         
      - W<sub>output</sub>  
 
