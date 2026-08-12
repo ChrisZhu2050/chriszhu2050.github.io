@@ -4,7 +4,7 @@ title: "LLM Essential"
 ---
 
 Outline:  
-- LLM Essential
+- *LLM Essential*
 - [LLM Fine-tune](docs/llm-fine-tune.md)
 - [LLM Distillation](docs/llm-distillation.md)
 - [Agent Framework](docs/agent-framework.md)
