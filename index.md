@@ -49,7 +49,7 @@ graph LR
 
   - Token embedding  
     Matrix: V × d<sub>model</sub>  
-    Default value: Truncated Normal Distribution(mean=0, std=0.02) 
+    Default value: Truncated Normal Distribution(mean=0, std=0.02)   
     $$
     \begin{pmatrix}
     v_{1} & d_{2} & ... & d_{model} \\
