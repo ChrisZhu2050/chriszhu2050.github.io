@@ -68,8 +68,9 @@ graph LR
     a: -2.0 * std  
     b: 2.0 * std  
     Data Range: [-0.04, 0.04]
+  
+    <br>  
 
-    
     $$
     \begin{pmatrix}
     v_{1} & d_{2} & d_{3} & ... & d_{512} \\
@@ -78,7 +79,9 @@ graph LR
     v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
     \end{pmatrix}
     $$  
+    <br>  
     Validation after initialize:  
+    
     $$ 
       mean \approx 0\\
       std  \approx 0.02  
