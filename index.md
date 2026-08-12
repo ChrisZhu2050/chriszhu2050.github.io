@@ -86,8 +86,7 @@ graph LR
 
   2. Self-Attention  
        - W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
-         - Xavier + Sigmoid‌
-         - Kaiming + ReLU  
+        > W ~ N(0,0.002<sup>2</sup>)
         
      - W<sub>output</sub>  
 
