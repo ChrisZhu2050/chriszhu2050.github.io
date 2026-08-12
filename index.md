@@ -87,7 +87,7 @@ graph LR
           std  \approx 0.02  
         $$  
 
-  <br>  
+    <br>  
 
   2. Positional Encoding
     
