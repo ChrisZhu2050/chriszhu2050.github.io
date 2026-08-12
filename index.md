@@ -53,8 +53,8 @@ graph LR
     > V × d<sub>model</sub>  
 
 
-    > e.g.  
-    V = 32000  
+    e.g.  
+    > V = 32000  
     d<sub>model</sub> = 512  
     <br>
 
