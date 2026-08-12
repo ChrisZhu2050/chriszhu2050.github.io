@@ -56,22 +56,10 @@ graph LR
       e.g.  
       > V = 32000  
       d<sub>model</sub> = 512  
-      <br>
+      <br>  
 
+    Initialize via **Truncated Normal Distribution**:    
 
-
-<<<<<<< HEAD
-      Initialize via **Truncated Normal Distribution**:   
-      
-      > mean = 0  
-      std = 0.02 or 
-      $\frac{1}{\sqrt d_{model}}$   
-      a: -2.0 * std  
-      b: 2.0 * std  
-      Data Range: [-0.04, 0.04]
-=======
-    Initialize via **Truncated Normal Distribution**:   
-     
     > mean = 0  
     std = 0.02 or 
     $\frac{1}{\sqrt d_{model}}$   
@@ -91,8 +79,7 @@ graph LR
     $$  
     
     <br>  
-    Validation after initialize:  
->>>>>>> 96aa0de83bd8ed0c206dfa05fdbdfb5706ca1446
+    Validation after initialize:    
     
       <br>  
 
