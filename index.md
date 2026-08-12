@@ -78,7 +78,7 @@ graph LR
     v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
     \end{pmatrix}
     $$  
-
+    Validation after initialize:  
     $$ 
       mean \approx 0\\
       std  \approx 0.02  
