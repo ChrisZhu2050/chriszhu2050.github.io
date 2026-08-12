@@ -50,14 +50,14 @@ graph LR
   - Token embedding layer
     Matrix: V × d<sub>model</sub>  
     Default value via Truncated Normal Distribution:   
-    ``` 
-    mean = 0  
+     
+    > mean = 0  
     std = 0.02 or 
-    $$ \frac{1}{\sqrt d_{model}} $$   
+    $\frac{1}{\sqrt d_{model}}$   
     a: -2.0*std  
     b: 2.0*std  
+
     
-    ```
 
     $$
     \begin{pmatrix}
