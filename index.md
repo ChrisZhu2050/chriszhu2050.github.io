@@ -14,8 +14,6 @@ graph LR
     A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Pipeline] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```     
 
-
-
 ***  
 ## Training Data
    - Raw data of base model's training 
@@ -30,7 +28,6 @@ graph LR
       - Prepared manually by people     
 
 ***  
-
 
 ## Weights initializing of Transformer
 
