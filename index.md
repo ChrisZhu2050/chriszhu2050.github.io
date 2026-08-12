@@ -89,23 +89,25 @@ graph LR
 
 <br>
 
-  - Positional Encoding
-  - Self-Attention 
+  2. Positional Encoding
+    
+
+  3. Self-Attention 
     - Q/K/V
     - Output
       - Xavier/Glorot
       - Kaiming/He
-  - FFN (Feed Forward Network) / MOE
+  4. FFN (Feed Forward Network) / MOE  
     - two linear transformations
     - a ReLU activation in between.
       - Xavier/Glorot
-      - Kaiming/He
-  - LayerNorm
+      - Kaiming/He  
+  5. LayerNorm  
     - γ as 1 and β as 0
-  - LM Head
+  6. LM Head  
     - Xavier/Glorot/Kaiming
     - or shared with embedding   
-  - Bias
+  7. Bias  
     - normally initial as 0  
 
 ***  
