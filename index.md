@@ -92,7 +92,7 @@ graph LR
     - W<sub>output</sub>  
       - Xavier
       - Kaiming 
-      <br>
+  <br>
 
   3. FFN (Feed Forward Network) / MOE    
     - two linear transformations  
