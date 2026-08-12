@@ -50,11 +50,11 @@ graph LR
   - Token embedding layer  
     Matrix:   
     <br>
-    V × d<sub>model</sub>  
-    <br>
-    e.g.  
-    V = 32000  
-    d<sub>model</sub> = 512  
+    > V × d<sub>model</sub>  
+        <br>
+      e.g.  
+      V = 32000  
+      d<sub>model</sub> = 512  
     <br>
     Default value via Truncated Normal Distribution:   
      
