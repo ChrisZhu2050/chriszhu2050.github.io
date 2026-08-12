@@ -86,7 +86,8 @@ graph LR
 
   2. Self-Attention  
        - W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
-        > W ~ N(0,σ<sup>2</sup>)    
+        > **W ~ N(0,σ<sup>2</sup>)**  
+        Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>
         
         | Model | σ | Residual |
         |:----:|:----:|:----:|
