@@ -52,10 +52,13 @@ graph LR
     > V × d<sub>model</sub>  
 
 
-    e.g.  
+    > e.g.  
     V = 32000  
     d<sub>model</sub> = 512  
     <br>
+
+
+    
     Initialize via **Truncated Normal Distribution**:   
      
     > mean = 0  
