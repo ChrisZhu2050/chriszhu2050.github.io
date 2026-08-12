@@ -80,7 +80,7 @@ graph LR
       
       <br>  
       
-        Validation after initialize:  
+      Validation after initialize:  
         
         > $$ 
           mean \approx 0\\
