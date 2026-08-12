@@ -85,29 +85,28 @@ graph LR
       <br>  
 
   2. Self-Attention  
-    W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
-      Xavier + Sigmoid‌
-      Kaiming + ReLU  
+       - W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
+         - Xavier + Sigmoid‌
+         - Kaiming + ReLU  
         
-       
-    W<sub>output</sub>  
+     - W<sub>output</sub>  
 
   <br>
 
-  3. FFN (Feed Forward Network) / MOE    
+  1. FFN (Feed Forward Network) / MOE    
     - two linear transformations  
     - a ReLU activation in between.
       - Xavier/Glorot
       - Kaiming/He  
     <br>
-  4. LayerNorm  
+  2. LayerNorm  
     - γ as 1 and β as 0  
     <br>
-  5. LM Head  
+  3. LM Head  
     - Xavier/Glorot/Kaiming  
     - or shared with embedding  
     <br>   
-  6. Bias  
+  4. Bias  
     - normally initial as 0  
 
 ***  
