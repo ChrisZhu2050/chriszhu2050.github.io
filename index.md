@@ -49,7 +49,6 @@ graph LR
 
   - Token embedding layer  
     Matrix:   
-    <br>
     > V × d<sub>model</sub>  
 
 
