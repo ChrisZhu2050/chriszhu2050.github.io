@@ -80,7 +80,8 @@ graph LR
       <br>  
 
   2. Self-Attention  
-       - W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub> /  W<sub>output</sub> 
+       - W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub> /  W<sub>output</sub>   
+
           - Normal Initialization:
             > W ~ N(0,σ<sup>2</sup>)    
             
@@ -105,7 +106,7 @@ graph LR
             \end{pmatrix}
             $$  
 
-          - Residual Depth Scaling
+          - Residual Depth Scaling:
             > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$   
 
             W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
