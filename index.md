@@ -91,11 +91,13 @@ graph LR
 
   2. Self-Attention  
     - W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
-      
+      - 1
     - W<sub>output</sub>  
       - Xavier/Glorot  
       - Kaiming/He  
+
     <br>
+
   3. FFN (Feed Forward Network) / MOE    
     - two linear transformations  
     - a ReLU activation in between.
