@@ -3,7 +3,8 @@ layout: home
 title: "LLM Essential"
 ---
 
-Outline:    
+*Outline*:    
+<br>  
  *LLM Essential* -> [[ LLM Fine-tune ]](docs/llm-fine-tune.md) -> [[ LLM Distillation ]](docs/llm-distillation.md) -> [[ Agent Framework ]](docs/agent-framework.md) -> [[ Data Flywhee l]](docs/data-flywheel.md)  
 <br>
 
