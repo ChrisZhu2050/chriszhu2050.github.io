@@ -57,7 +57,7 @@ graph LR
     V = 32000  
     d<sub>model</sub> = 512  
     <br>
-    Default value via Truncated Normal Distribution:   
+    Initialize via **Truncated Normal Distribution**:   
      
     > mean = 0  
     std = 0.02 or 
@@ -69,10 +69,10 @@ graph LR
 
     $$
     \begin{pmatrix}
-    v_{1} & d_{2} & ... & d_{model} \\
-    v_{2} & 0 & ... & 0 \\
-    ... & ... & ... & ...\\
-    v_{32000} & 0 & ... & 0 
+    v_{1} & d_{2} & d_{3} & ... & d_{model} \\
+    v_{2} & 0 & 0 & ... & 0 &\\
+    ... & ... & ... & ...& ...\\
+    v_{32000} & 0 & 0 & ... & 0 &
     \end{pmatrix}
     $$
 
