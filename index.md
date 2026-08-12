@@ -172,7 +172,7 @@ graph LR
             graph LR
                 A["`Chinese: 中`"] --> B["`UTF-8: E4 BD A0`"] 
       ```   
-      <br>
+        <br>
 
   3. Subword Algorithm  
 
@@ -224,7 +224,7 @@ graph LR
           > It proceed from result(raw data) to reason(voca+probability) with big initial vocabulary.  
           Vocabulary pruning will be done with ME iteration and loss calculation.  
 
-<br>
+        <br>
     
   4. Vocabulary  
 
@@ -268,7 +268,7 @@ graph LR
         | ... | ... |
         | 500001| ▁tokenizer |    
 
-<br>
+      <br>
 
   5. Post-processor  
       
@@ -292,7 +292,7 @@ graph LR
                 "] --> C["`Token ID Mapping`"] 
           ```
           Post-processor may also happen after the Token ID Mapping, depends on different mechanism of models     
-    <br>
+        <br>
 
   6. Token ID Mapping  
 
