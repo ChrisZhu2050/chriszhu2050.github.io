@@ -71,7 +71,7 @@ graph LR
   
     <br>  
 
-    $$
+    > $$
     \begin{pmatrix}
     v_{1} & d_{2} & d_{3} & ... & d_{512} \\
     v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
@@ -82,7 +82,7 @@ graph LR
     <br>  
     Validation after initialize:  
     
-    $$ 
+    > $$ 
       mean \approx 0\\
       std  \approx 0.02  
     $$
