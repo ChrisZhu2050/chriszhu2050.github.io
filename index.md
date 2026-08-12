@@ -92,6 +92,7 @@ graph LR
         \end{pmatrix}
         $$  
         <br>  
+        
         Validation after initialize:  
         
         > $$ 
