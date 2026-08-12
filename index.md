@@ -79,20 +79,7 @@ graph LR
       $$  
       
       <br>  
-      Validation after initialize:    
       
-        <br>  
-
-        > $$
-        \begin{pmatrix}
-        v_{1} & d_{2} & d_{3} & ... & d_{512} \\
-        v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
-        ... & ... & ... & ...& ...\\
-        v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
-        \end{pmatrix}
-        $$  
-        <br>  
-        
         Validation after initialize:  
         
         > $$ 
