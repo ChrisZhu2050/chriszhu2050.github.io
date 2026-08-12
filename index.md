@@ -54,8 +54,8 @@ graph LR
     > mean = 0  
     std = 0.02 or 
     $\frac{1}{\sqrt d_{model}}$   
-    a: -2.0*std  
-    b: 2.0*std  
+    a: -2.0 * std  
+    b: 2.0 * std  
 
     
 
