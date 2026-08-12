@@ -80,32 +80,37 @@ graph LR
       <br>  
 
   2. Self-Attention  
-       - W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub>   
+       - W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub> /  W<sub>output</sub> 
+          - Normal Initialization:
+            > W ~ N(0,σ<sup>2</sup>)    
+            
+            Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>
+            
+            | Model | σ | Residual Scaling |
+            |:----:|:----:|:----:|
+            | GPT 3 | 0.02 |  0 | 
+            | LLaMA 2 | 0.02 | 0 | 
+            | DeepSeek V3 | 0.006 | 0 | 
+        
+              <br> 
 
-          > W ~ N(0,σ<sup>2</sup>)    
-          
-          Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>
-          
-          | Model | σ | Residual Scaling |
-          |:----:|:----:|:----:|
-          | GPT 3 | 0.02 |  0 | 
-          | LLaMA 2 | 0.02 | 0 | 
-          | DeepSeek V3 | 0.006 | 0 | 
-      
-            <br> 
+            W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
 
-          W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
+            > $$
+            \begin{pmatrix}
+            d_{1} & d_{2} & d_{3} & ... & d_{512} \\
+            d_{2} & 0.0610 & -0.0521 & ... & 0.0289 &\\
+            ... & ... & ... & ...& ...\\
+            d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
+            \end{pmatrix}
+            $$  
 
-          > $$
-          \begin{pmatrix}
-          d_{1} & d_{2} & d_{3} & ... & d_{512} \\
-          d_{2} & 0.0610 & -0.0521 & ... & 0.0289 &\\
-          ... & ... & ... & ...& ...\\
-          d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
-          \end{pmatrix}
-          $$  
-          
-     - W<sub>output</sub>  
+          - Residual Depth Scaling
+            > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$   
+            W<sub>o</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
+
+
+    
 
       <br>
 
