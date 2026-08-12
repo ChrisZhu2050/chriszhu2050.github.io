@@ -82,7 +82,8 @@ graph LR
   2. Self-Attention  
        - W<sub>Q</sub>/W<sub>K</sub>/W<sub>v</sub>   
 
-          > **W ~ N(0,σ<sup>2</sup>)**  
+          > **W ~ N(0,σ<sup>2</sup>)**    
+          
           Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>
           
           | Model | σ | Residual Scaling |
@@ -106,22 +107,22 @@ graph LR
           
      - W<sub>output</sub>  
 
-  <br>
+      <br>
 
-  1. FFN (Feed Forward Network) / MOE    
+  3. FFN (Feed Forward Network) / MOE    
     - two linear transformations  
     - a ReLU activation in between.
       - Xavier/Glorot
       - Kaiming/He  
-    <br>
-  2. LayerNorm  
+      <br>
+  4. LayerNorm  
     - γ as 1 and β as 0  
-    <br>
-  3. LM Head  
+      <br>
+  5. LM Head  
     - Xavier/Glorot/Kaiming  
     - or shared with embedding  
-    <br>   
-  4. Bias  
+      <br>   
+  6. Bias  
     - normally initial as 0  
 
 ***  
