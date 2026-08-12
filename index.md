@@ -107,7 +107,8 @@ graph LR
 
           - Residual Depth Scaling
             > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$   
-            W<sub>o</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
+
+            W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
 
 
     
