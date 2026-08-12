@@ -67,6 +67,7 @@ graph LR
     $\frac{1}{\sqrt d_{model}}$   
     a: -2.0 * std  
     b: 2.0 * std  
+    Data Range: [-0.04, 0.04]
 
     
 
