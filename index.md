@@ -52,6 +52,10 @@ graph LR
     <br>
     V × d<sub>model</sub>  
     <br>
+    e.g.  
+    V = 32000  
+    d<sub>model</sub> = 512  
+    <br>
     Default value via Truncated Normal Distribution:   
      
     > mean = 0  
