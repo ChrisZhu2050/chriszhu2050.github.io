@@ -93,10 +93,6 @@ graph LR
         | GPT 3 | 0.02 |  0 | 
         | LLaMA 2 | 0.02 | 0 | 
         | DeepSeek V3 | 0.006 | 0 | 
-
-
-
-        σ=0.02 (GPT 3/LLaMA)
         
      - W<sub>output</sub>  
 
