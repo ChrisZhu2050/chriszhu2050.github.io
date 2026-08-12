@@ -90,7 +90,7 @@ graph LR
       <br>  
 
   2. Self-Attention  
-    - Q/K/V  
+    - W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
     - Output  
       - Xavier/Glorot  
       - Kaiming/He  
