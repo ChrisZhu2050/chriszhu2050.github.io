@@ -228,12 +228,13 @@ graph LR
         **▁This ▁is ▁a ▁tokenizer**  
   
         | TokenID | Character |
-          |:----:|:----:|
-          | 0 | ▁This |
-          | 1 | This |
-          | 2 | Th|
-          | ... | ... |
-          | 500001| ▁tokenizer |  
+        |:----:|:----:|
+        | 0 | ▁This |
+        | 1 | This |
+        | 2 | Th|
+        | ... | ... |
+        | 500001| ▁tokenizer |    
+
     <br>
 
   5. Post-processor  
