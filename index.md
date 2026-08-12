@@ -44,7 +44,7 @@ graph LR
 ***
   ```mermaid
       graph LR
-          A["`Token Embedding Layer`"] --> B["`Positional Encoding`"] --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
+          A["`Token Embedding Layer`"]  --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
   ```  
 
   1. Token embedding layer  
