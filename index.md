@@ -80,7 +80,7 @@ graph LR
       <br>  
 
   2. Self-Attention  
-       - W<sub>Q</sub>/W<sub>K</sub>/W<sub>v</sub>   
+       - W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub>   
 
           > **W ~ N(0,σ<sup>2</sup>)**    
           
@@ -94,7 +94,7 @@ graph LR
       
             <br> 
 
-          W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub> example:  
+          W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
 
           > $$
           \begin{pmatrix}
