@@ -85,11 +85,10 @@ graph LR
       <br>  
 
   2. Self-Attention  
-    - W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
-      - Xavier  
-      - Kaiming  
-        
-    - W<sub>output</sub>  
+    W<sub>Q</sub>/W<sub>K</sub>/W<sub>V</sub>  
+      Xavier  
+      Kaiming  
+    W<sub>output</sub>  
 
   <br>
 
