@@ -90,8 +90,7 @@ graph LR
       - Kaiming  
         
     - W<sub>output</sub>  
-      - Xavier
-      - Kaiming 
+
   <br>
 
   3. FFN (Feed Forward Network) / MOE    
