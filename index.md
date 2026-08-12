@@ -47,7 +47,7 @@ graph LR
           A["`Token Embedding Layer`"]  --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
   ```  
 
-  1. Token embedding layer  
+  1. Token Embedding Layer  
       
       Matrix:   
       > V × d<sub>model</sub>  
