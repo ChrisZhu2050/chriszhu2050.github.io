@@ -4,7 +4,7 @@ title: "LLM Essential"
 ---
   *LLM Essential* => [[  LLM Fine-tune  ]](docs/llm-fine-tune.md) => [[  LLM Distillation  ]](docs/llm-distillation.md) => [[  Agent Framework  ]](docs/agent-framework.md) => [[  Data Flywheel  ]](docs/data-flywheel.md) 
  
-<br>
+***  
 
 GPT Training Process  ([State of GPT](https://karpathy.ai/))
 
@@ -13,11 +13,11 @@ GPT Training Process  ([State of GPT](https://karpathy.ai/))
 graph LR
     A[Training Data] --> B[Weight Initializing] --> C[Tokenizer Pipeline] --> D[Training Forward Pass] --> E[Training Backward Pass]
 ```     
-<br>  
 
+
+
+***  
 ## Training Data
-
-***
    - Raw data of base model's training 
      - [Common Crawl](https://commoncrawl.org/)
      - C4/C4.EN (from April 2019 snapshot of Common Crawl)
@@ -31,12 +31,10 @@ graph LR
 
 ***  
 
-<br>
-<br>
 
 ## Weights initializing of Transformer
 
-***
+
   ```mermaid
       graph LR
           A["`Token Embedding Layer`"]  --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
@@ -131,12 +129,9 @@ graph LR
 
 ***  
 
-<br>
-<br>
 
 ## Tokenizer Pipeline 
-
-***    
+  
   1. Normalizer    
       Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
 
@@ -348,12 +343,8 @@ graph LR
 
 ***  
 
-<br>
-<br>
-
 ## Training Forward Pass
 
-***
   - Tokenization  
   
     ```mermaid
@@ -387,13 +378,8 @@ graph LR
   - Output probabilities  
 
 ***  
-
-<br>
-<br>
-
 ## Training Backward Pass  
-
-***  
+  
   - cross-entropy Loss computation  
       - logits --> softmax/sigmoid --> cross-entropy
 
