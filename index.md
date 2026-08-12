@@ -235,7 +235,7 @@ graph LR
         | ... | ... |
         | 500001| ▁tokenizer |    
 
-    <br>
+<br>
 
   5. Post-processor  
       
