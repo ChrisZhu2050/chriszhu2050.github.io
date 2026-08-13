@@ -72,7 +72,7 @@ graph LR
       <br>  
       
       Validation after initialize:  
-        > $ 
+        > $  
           mean \approx 0\\    
           std  \approx 0.02  
           $  
@@ -111,8 +111,9 @@ graph LR
         d_{2} & 0.0610 & -0.0521 & ... & 0.0289 &\\
         ... & ... & ... & ...& ...\\
         d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
-        \end{pmatrix}
+        \end{pmatrix}  
         $$   
+
         <br>  
 
       Residual Depth Scaling:  
@@ -133,6 +134,7 @@ graph LR
         <br>
 
   3. FFN (Feed Forward Network)  
+   
       ```mermaid
       graph LR
           G["`Input
@@ -146,8 +148,6 @@ graph LR
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
     
           > d<sub>ffn</sub> = d<sub>model</sub>*4  
-
-          <br>  
 
           W<sub>1</sub>:  
           Matrix shape:     
