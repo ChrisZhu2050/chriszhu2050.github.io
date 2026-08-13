@@ -99,9 +99,9 @@ graph LR
 
       | Model | σ | Residual Scaling |
       |:----:|:----:|:----:|
-      | GPT 3 | 0.02 |  0 | 
-      | LLaMA 2 | 0.02 | 0 | 
-      | DeepSeek V3 | 0.006 | 0 | 
+      | GPT 3 | 0.02 |  ? | 
+      | LLaMA 2 | 0.02 | ? | 
+      | DeepSeek V3 | 0.006 | ? | 
 
         <br> 
 
