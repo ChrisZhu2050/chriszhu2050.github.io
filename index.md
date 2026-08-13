@@ -6,7 +6,7 @@ title: "LLM Essential"
  
 ***  
 
-GPT Training Process  ([State of GPT](https://karpathy.ai/))
+GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))
 
 ```mermaid
 
@@ -29,7 +29,7 @@ graph LR
 
 ***  
 
-## Weights initializing of Transformer
+## Weights initialization
 
 
   ```mermaid
@@ -80,7 +80,7 @@ graph LR
   
       <br>  
 
-  2.  W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub> /  W<sub>output</sub>   
+  2.  W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>   
     Matrix Shape:   
       > d<sub>model</sub>  × d<sub>model</sub>    
 
