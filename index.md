@@ -149,19 +149,21 @@ graph LR
 
           <br>  
 
-          W<sub>1</sub> Matrix shape:   
-          > d<sub>model</sub>  × d<sub>ff</sub>  
+          W<sub>1</sub>:  
+            Matrix shape:     
+            > d<sub>model</sub>  × d<sub>ff</sub>  
 
-          W<sub>1</sub> Initialization:  
-          > W<sub>1</sub> ~ N(0,$\sqrt \frac{2}{d_{model}}$)   
+            Initialization:  
+            > W<sub>1</sub> ~ N(0,$\sqrt \frac{2}{d_{model}}$)   
 
-          <br>
+            <br>
 
-          W<sub>2</sub> Matrix shape:  
-          > d<sub>ff</sub> × d<sub>model</sub>  
+          W<sub>2</sub>:  
+            Matrix shape:  
+            > d<sub>ff</sub> × d<sub>model</sub>  
 
-          W<sub>2</sub> Initialization:  
-          > W<sub>2</sub> ~ N(0,$\sqrt \frac{2}{d_{ff}}$) 
+            Initialization:    
+            > W<sub>2</sub> ~ N(0,$\sqrt \frac{2}{d_{ff}}$) 
 
       - an activation in between.
         - Xavier/Glorot
