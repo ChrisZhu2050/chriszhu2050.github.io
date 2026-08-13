@@ -72,7 +72,6 @@ graph LR
       <br>  
       
       Validation after initialize:  
-        
         > $ 
           mean \approx 0\\  
           std  \approx 0.02  
@@ -134,7 +133,16 @@ graph LR
         <br>
 
   3. FFN (Feed Forward Network)
-  - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>) 
+  - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
+
+    ```mermaid
+      graph LR
+          A["`W<sub>1</sub>
+          dff=512*4`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
+          dff=512*4
+          `"]
+    ```  
+
   - an activation in between.
     - Xavier/Glorot
     - Kaiming/He  
