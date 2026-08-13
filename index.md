@@ -29,7 +29,7 @@ graph LR
 
 ***  
 
-## Weights initialization
+## Weights Initialization
 
 
   ```mermaid
