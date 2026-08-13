@@ -146,9 +146,10 @@ graph LR
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
     
           > d<sub>ff</sub> = d<sub>model</sub>*4  
-          <br>  
 
-          W<sub>1</sub> Matrix shape:  
+          <br>  
+          
+          W<sub>1</sub> Matrix shape:   
           > d<sub>model</sub>  × d<sub>ff</sub>  
 
           W<sub>1</sub> Initialization:  
