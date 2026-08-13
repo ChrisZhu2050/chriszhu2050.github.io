@@ -134,7 +134,6 @@ graph LR
 
   3. FFN (Feed Forward Network)
   - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
-
     ```mermaid
       graph LR
           G["`Input
