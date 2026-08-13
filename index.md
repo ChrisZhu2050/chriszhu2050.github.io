@@ -75,6 +75,7 @@ graph LR
         
         > $ 
           mean \approx 0\\  
+            
           std  \approx 0.02  
         $  
   
