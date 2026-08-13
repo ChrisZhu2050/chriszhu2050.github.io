@@ -134,12 +134,13 @@ graph LR
 
         <br>
 
-  3. FFN (Feed Forward Network) / MOE    
-    - two linear transformations  
-    - a ReLU activation in between.
-      - Xavier/Glorot
-      - Kaiming/He  
-      <br>
+  3. FFN (Feed Forward Network)    
+  - two linear transformations  
+  - a ReLU activation in between.
+    - Xavier/Glorot
+    - Kaiming/He  
+  - MOE  
+  <br> 
   4. LayerNorm  
     - γ as 1 and β as 0  
       <br>
