@@ -180,9 +180,13 @@ graph LR
       ```mermaid
       flowchart LR
           
-          G["`Attention
-          (d<sub>model</sub>,d<sub>model</sub>)`"]  --> 
-          A["`Router`"]  --> B["`Expert 1
+          G["`token x1
+          (Hidden State)
+          `"]  --> 
+          A["`Router
+          (g<sub>i</sug>=x<sub>i</sub>W<sup>R</sup>)
+          [1.2, 0.4, 2.8,...]
+          `"]  --> B["`Expert 1
           *(GPU 1)*
           `"] & B1["`Expert 2
           *(GPU 6)*
@@ -190,8 +194,9 @@ graph LR
           *(GPU ...)*
           `"] &  B3["`Expert n
           *(GPU n)*
-          `"] --> D["`Routed Experts (1~n)
-          `"] --> E["`s`"]
+          `"] --> D["`Routed Experts (e.g. 1,3)
+            Top2(g1​)={E1,E3}
+          `"] --> E["`Expert 1`"] & E1["`Expert 3`"] & E2["`Expert 5`"]
       ```   
 
   <br> 
