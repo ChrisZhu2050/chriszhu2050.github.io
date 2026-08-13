@@ -205,7 +205,8 @@ graph LR
           SwiGLU
           `"] --> F["`Combine
           y1​=p<sub>1</sub>E1​(x1​)+p<sub>3</sub>E3​(x1​)
-          `"] --> H["`y1,y2,y3,...`"]
+          （y1,y2,y3,...）
+          `"] 
       ```   
       Weight initialization of FNN of each experts is same as normal FNN:
       > W~N(0, σ<sup>2</sup>)  
