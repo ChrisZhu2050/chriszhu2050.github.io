@@ -141,7 +141,7 @@ graph LR
 
       ```mermaid
       graph LR
-          G["`Input
+          G["`Attention
           (d<sub>model</sub>,d<sub>model</sub>)`"]  --> 
           A["`W<sub>1</sub>
           (d<sub>model</sub>,d<sub>ffn</sub>)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
@@ -177,7 +177,14 @@ graph LR
         <br> 
 
   4. MoE (Mixture of Expert)
-
+      ```mermaid
+      graph LR
+          G["`Attention
+          (d<sub>model</sub>,d<sub>model</sub>)`"]  --> 
+          A["`Router`"]  --> B["`Shared Expert`"] --> D["`Routed Expert(1~n)
+          `"] --> E["`Output
+          (d<sub>model</sub>,d<sub>model</sub>)`"]
+      ```   
 
   <br> 
 
