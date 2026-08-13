@@ -73,10 +73,10 @@ graph LR
       
       Validation after initialize:  
         
-        > $$ 
+        > $ 
           mean \approx 0\\
           std  \approx 0.02  
-        $$  
+        $  
   
       <br>  
 
@@ -116,7 +116,7 @@ graph LR
       \end{pmatrix}
       $$   
         <br>  
-        
+
       W<sub>Output</sub> Residual Depth Scaling:  
 
       W<sub>Output</sub> Matrix Shape:     
@@ -124,7 +124,7 @@ graph LR
       
         <br>  
 
-      > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$  
+      > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$    
       *N => number of transformer layers*  
 
       <br>  
