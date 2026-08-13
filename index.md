@@ -103,7 +103,6 @@ graph LR
       | LLaMA 2 | 0.02 | ? | 
       | DeepSeek V3 | 0.006 | ? | 
 
-        <br> 
 
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
 
@@ -114,7 +113,7 @@ graph LR
         ... & ... & ... & ...& ...\\
         d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
         \end{pmatrix}
-      $$   
+        $$   
         <br>  
 
       Residual Depth Scaling:  
@@ -139,7 +138,7 @@ graph LR
   - a ReLU activation in between.
     - Xavier/Glorot
     - Kaiming/He  
-  - MOE  
+
   <br> 
 
   4. MoE (Mixture of Expert)
@@ -147,7 +146,7 @@ graph LR
   - a ReLU activation in between.
     - Xavier/Glorot
     - Kaiming/He  
-  - MOE  
+
   <br> 
 
   5. LayerNorm  
