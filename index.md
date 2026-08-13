@@ -81,7 +81,7 @@ graph LR
       <br>  
 
   2.  W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>   
-    Matrix Shape:    
+    W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:    
       IF head = 1:  
       > d<sub>model</sub>  × d<sub>model</sub>   
 
@@ -90,7 +90,7 @@ graph LR
 
 
         <br>
-      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Normal Initialization:  
+      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub>  Normal Initialization:  
 
       > W ~ N(0,σ<sup>2</sup>)  
         
@@ -116,6 +116,8 @@ graph LR
       $$  
 
       Residual Depth Scaling:  
+      W<sub>Output</sub> Matrix Shape:     
+      > d<sub>model</sub>  × d<sub>model</sub>  
 
       > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$  
       *N => number of transformer layers*  
