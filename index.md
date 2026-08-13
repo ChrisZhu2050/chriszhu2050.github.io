@@ -207,8 +207,9 @@ graph LR
           y1​=p<sub>1</sub>E1​(x1​)+p<sub>3</sub>E3​(x1​)
           `"] --> H["`y1,y2,y3,...`"]
       ```   
-
-  <br> 
+      Weight initialization of FNN of each experts is same as normal FNN:
+      > W~N(0, σ<sup>2</sup>)  
+  <br>   
 
   5. LayerNorm  
   - γ as 1 and β as 0  
