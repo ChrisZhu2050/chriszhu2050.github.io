@@ -81,6 +81,7 @@ graph LR
       <br>  
 
   2.  W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>   
+    <br>
     W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:    
       IF head = 1:  
       > d<sub>model</sub>  × d<sub>model</sub>   
@@ -113,12 +114,14 @@ graph LR
       ... & ... & ... & ...& ...\\
       d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
       \end{pmatrix}
-      $$  
+      $$   
         <br>
-      Residual Depth Scaling:  
-      
+      W<sub>Output</sub> Residual Depth Scaling:  
+
       W<sub>Output</sub> Matrix Shape:     
       > d<sub>model</sub>  × d<sub>model</sub>  
+      
+        <br>  
 
       > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$  
       *N => number of transformer layers*  
