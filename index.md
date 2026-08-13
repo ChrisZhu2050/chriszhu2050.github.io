@@ -134,7 +134,7 @@ graph LR
 
         <br>
 
-  3. FFN (Feed Forward Network)    
+  3. FFN (Feed Forward Network) / MoE (Mixture of Expert)
   - two linear transformations  
   - a ReLU activation in between.
     - Xavier/Glorot
