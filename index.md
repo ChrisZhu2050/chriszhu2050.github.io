@@ -37,7 +37,8 @@ graph LR
           A["`Token Embedding Layer`"]  --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
   ```  
 
-  1. Token Embedding Layer  
+  1. Token Embedding Layer 
+      > One model one shared Token Embedding weight 
       
       Matrix Shape:   
       > V × d<sub>model</sub> 
@@ -171,21 +172,18 @@ graph LR
         <br> 
 
   4. MoE (Mixture of Expert)
-  - two linear transformations  
-  - a ReLU activation in between.
-    - Xavier/Glorot
-    - Kaiming/He  
+
 
   <br> 
 
-  5. LayerNorm  
+  1. LayerNorm  
     - γ as 1 and β as 0  
       <br>
-  6. LM Head  
+  2. LM Head  
     - Xavier/Glorot/Kaiming  
     - or shared with embedding  
       <br>   
-  7. Bias  
+  3. Bias  
     - normally initial as 0  
 
 ***  
