@@ -115,7 +115,8 @@ graph LR
       d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
       \end{pmatrix}
       $$   
-        <br>
+        <br>  
+        
       W<sub>Output</sub> Residual Depth Scaling:  
 
       W<sub>Output</sub> Matrix Shape:     
