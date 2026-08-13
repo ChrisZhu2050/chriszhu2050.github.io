@@ -165,6 +165,11 @@ graph LR
 
 ## Tokenizer Pipeline 
   
+  ```mermaid
+      graph LR
+          A["`Normalizer`"]  --> B["`Pre-tokenizer`"] --> C["`Subword Algorithm`"] --> D["`Vocabulary`"] --> E["`Post-processor`"] --> F["`Token ID Mapping`"]
+  ```   
+  
   1. Normalizer    
       Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
 
