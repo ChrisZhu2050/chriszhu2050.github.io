@@ -138,20 +138,20 @@ graph LR
           G["`Input
           (d<sub>model</sub>,d<sub>model</sub>)`"]  --> 
           A["`W<sub>1</sub>
-          (d<sub>model</sub>,d<sub>ff</sub>)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
-          (d<sub>ff</sub>,d<sub>model</sub>)
+          (d<sub>model</sub>,d<sub>ffn</sub>)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
+          (d<sub>ffn</sub>,d<sub>model</sub>)
           `"] --> E["`Output
           (d<sub>model</sub>,d<sub>model</sub>)`"]
       ``` 
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
     
-          > d<sub>ff</sub> = d<sub>model</sub>*4  
+          > d<sub>ffn</sub> = d<sub>model</sub>*4  
 
           <br>  
 
           W<sub>1</sub>:  
           Matrix shape:     
-          > d<sub>model</sub>  × d<sub>ff</sub>  
+          > d<sub>model</sub>  × d<sub>ffn</sub>  
 
           Initialization:  
           > W<sub>1</sub> ~ N(0,$\sqrt \frac{2}{d_{model}}$)   
@@ -160,14 +160,13 @@ graph LR
 
           W<sub>2</sub>:  
           Matrix shape:  
-          > d<sub>ff</sub> × d<sub>model</sub>  
+          > d<sub>ffn</sub> × d<sub>model</sub>  
 
           Initialization:    
           > W<sub>2</sub> ~ N(0,$\sqrt \frac{2}{d_{ff}}$) 
 
-      - an activation in between.
-        - Xavier/Glorot
-        - Kaiming/He  
+      - an activation in between  
+        - ReLU/GELU
 
         <br> 
 
