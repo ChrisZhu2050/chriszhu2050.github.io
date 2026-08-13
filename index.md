@@ -149,7 +149,7 @@ graph LR
           `"] --> E["`Output
           (d<sub>model</sub>,d<sub>model</sub>)`"]
       ```   
-        > Each layer has one!
+        > Each layer has one!!
 
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
     
