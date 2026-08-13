@@ -135,16 +135,16 @@ graph LR
   3. FFN (Feed Forward Network)
   - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
 
-  ```mermaid
-    graph LR
-        G["`Input
-        (d<sub>model</sub>)`"]  --> 
-        A["`W<sub>1</sub>
-        (d<sub>ff</sub>=d<sub>model</sub>*4)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
-        (d<sub>ff</sub>=d<sub>model</sub>*4)
-        `"] --> E["`Output
-        (d<sub>model</sub>)`"]
-  ```  
+    ```mermaid
+      graph LR
+          G["`Input
+          (d<sub>model</sub>)`"]  --> 
+          A["`W<sub>1</sub>
+          (d<sub>ff</sub>=d<sub>model</sub>*4)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
+          (d<sub>ff</sub>=d<sub>model</sub>*4)
+          `"] --> E["`Output
+          (d<sub>model</sub>)`"]
+    ```  
 
   - an activation in between.
     - Xavier/Glorot
