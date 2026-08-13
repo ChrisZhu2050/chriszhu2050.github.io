@@ -40,8 +40,9 @@ graph LR
   1. Token Embedding Layer  
       
       Matrix Shape:   
-      > V × d<sub>model</sub>  
-
+      > V × d<sub>model</sub> 
+         
+      *V => Vocabulary size*
 
       e.g.  
       > V = 32000  
@@ -82,7 +83,7 @@ graph LR
   2.  W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub> /  W<sub>output</sub>   
     Matrix Shape:   
       > d<sub>model</sub>  × d<sub>model</sub>    
-      
+
         <br>
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Normal Initialization:  
 
