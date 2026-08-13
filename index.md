@@ -142,7 +142,8 @@ graph LR
         A["`W<sub>1</sub>
         (d<sub>ff</sub>=d<sub>model</sub>*4)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
         (d<sub>ff</sub>=d<sub>model</sub>*4)
-        `"]
+        `"] --> E["`Output
+        (d<sub>model</sub>)`"]
   ```  
 
   - an activation in between.
