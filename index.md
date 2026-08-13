@@ -39,7 +39,7 @@ graph LR
 
   1. Token Embedding Layer  
       
-      Matrix:   
+      Matrix Shape:   
       > V × d<sub>model</sub>  
 
 
@@ -79,43 +79,43 @@ graph LR
   
       <br>  
 
-  2. Self-Attention  
-       - W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub> /  W<sub>output</sub>   
+  2.  W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub> /  W<sub>output</sub>   
+    Matrix Shape:   
+      > d<sub>model</sub>  × d<sub>model</sub>  
 
-          - Normal Initialization:
-            > W ~ N(0,σ<sup>2</sup>)    
-            
-            Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>
-            
-            | Model | σ | Residual Scaling |
-            |:----:|:----:|:----:|
-            | GPT 3 | 0.02 |  0 | 
-            | LLaMA 2 | 0.02 | 0 | 
-            | DeepSeek V3 | 0.006 | 0 | 
+      Normal Initialization:  
+
+      > W ~ N(0,σ<sup>2</sup>)  
         
-              <br> 
+      Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>  
 
-            W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
+      | Model | σ | Residual Scaling |
+      |:----:|:----:|:----:|
+      | GPT 3 | 0.02 |  0 | 
+      | LLaMA 2 | 0.02 | 0 | 
+      | DeepSeek V3 | 0.006 | 0 | 
 
-            > $$
-            \begin{pmatrix}
-            d_{1} & d_{2} & d_{3} & ... & d_{512} \\
-            d_{2} & 0.0610 & -0.0521 & ... & 0.0289 &\\
-            ... & ... & ... & ...& ...\\
-            d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
-            \end{pmatrix}
-            $$  
+        <br> 
 
-          - Residual Depth Scaling:
-            > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$  
-            *N => number of transformer layers* 
+      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
 
-            W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
+      > $$
+      \begin{pmatrix}
+      d_{1} & d_{2} & d_{3} & ... & d_{512} \\
+      d_{2} & 0.0610 & -0.0521 & ... & 0.0289 &\\
+      ... & ... & ... & ...& ...\\
+      d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
+      \end{pmatrix}
+      $$  
 
+      Residual Depth Scaling:  
 
-    
+      > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$  
+      *N => number of transformer layers*  
 
-      <br>
+      W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
+
+        <br>
 
   3. FFN (Feed Forward Network) / MOE    
     - two linear transformations  
