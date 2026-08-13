@@ -37,7 +37,8 @@ graph LR
           A["`Token Embedding Layer`"]  --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
   ```  
 
-  1. Token Embedding Layer 
+  1. Token Embedding Layer   
+       <br>
       > One model one shared Token Embedding weight 
       
       Matrix Shape:   
@@ -81,58 +82,60 @@ graph LR
       <br>  
 
   2.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
-    <br>
-    W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:    
-      IF head = 1:  
-      > d<sub>model</sub>  × d<sub>model</sub>   
+      <br>
+      > One layer, one copy:exclamation:
 
-      IF head>1:  
-      > d<sub>model</sub>  ×  $\frac{d_{model} }{head}$   
+      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:    
+        IF head = 1:  
+        > d<sub>model</sub>  × d<sub>model</sub>   
+
+        IF head>1:  
+        > d<sub>model</sub>  ×  $\frac{d_{model} }{head}$   
 
 
-        <br>
-      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub>  Normal Initialization:  
+          <br>
+        W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub>  Normal Initialization:  
 
-      > W ~ N(0,σ<sup>2</sup>)  
+        > W ~ N(0,σ<sup>2</sup>)  
+          
+        Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>  
+
+        | Model | σ | Residual Scaling |
+        |:----:|:----:|:----:|
+        | GPT 3 | 0.02 |  ? | 
+        | LLaMA 2 | 0.02 | ? | 
+        | DeepSeek V3 | 0.006 | ? | 
+
+
+        W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
+
+        > $$
+          \begin{pmatrix}
+          d_{1} & d_{2} & d_{3} & ... & d_{512} \\
+          d_{2} & 0.0610 & -0.0521 & ... & 0.0289 &\\
+          ... & ... & ... & ...& ...\\
+          d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
+          \end{pmatrix}  
+          $$   
+
+          <br>  
+
+        Residual Depth Scaling:  
+
+        W<sub>Output</sub> Matrix Shape:     
+        > d<sub>model</sub>  × d<sub>model</sub>  
         
-      Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>  
+          <br>  
 
-      | Model | σ | Residual Scaling |
-      |:----:|:----:|:----:|
-      | GPT 3 | 0.02 |  ? | 
-      | LLaMA 2 | 0.02 | ? | 
-      | DeepSeek V3 | 0.006 | ? | 
-
-
-      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
-
-      > $$
-        \begin{pmatrix}
-        d_{1} & d_{2} & d_{3} & ... & d_{512} \\
-        d_{2} & 0.0610 & -0.0521 & ... & 0.0289 &\\
-        ... & ... & ... & ...& ...\\
-        d_{512} & -0.0312 & 0.0008 & ... & 0.0156 &
-        \end{pmatrix}  
-        $$   
+        > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$    
+        *N => number of transformer layers*  
 
         <br>  
 
-      Residual Depth Scaling:  
+        W<sub>output</sub> Initialization:  
+        > W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
 
-      W<sub>Output</sub> Matrix Shape:     
-      > d<sub>model</sub>  × d<sub>model</sub>  
-      
-        <br>  
-
-      > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$    
-      *N => number of transformer layers*  
-
-      <br>  
-
-      W<sub>output</sub> Initialization:  
-      > W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
-
-        <br>
+          <br>
 
   3. FFN (Feed Forward Network)  
    
