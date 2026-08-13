@@ -151,10 +151,13 @@ graph LR
           > d<sub>model</sub>  × d<sub>ff</sub>  
 
           W<sub>1</sub> Initialization:  
-          > W<sub>1</sub> ~ N(0,$\sqrt \frac{2}{d_{model}}$)     
+          > W<sub>1</sub> ~ N(0,$\sqrt \frac{2}{d_{model}}$)   
 
+            <br>
+            
           W<sub>2</sub> Matrix shape:  
-          > d<sub>ff</sub> × d<sub>model</sub>   
+          > d<sub>ff</sub> × d<sub>model</sub>  
+
           W<sub>2</sub> Initialization:  
           > W<sub>1</sub> ~ N(0,$\sqrt \frac{2}{d_{ff}}$) 
 
