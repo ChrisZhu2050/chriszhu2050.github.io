@@ -134,21 +134,30 @@ graph LR
 
         <br>
 
-  3. FFN (Feed Forward Network) / MoE (Mixture of Expert)
+  3. FFN (Feed Forward Network)
   - two linear transformations  
   - a ReLU activation in between.
     - Xavier/Glorot
     - Kaiming/He  
   - MOE  
   <br> 
-  4. LayerNorm  
+
+  4. MoE (Mixture of Expert)
+  - two linear transformations  
+  - a ReLU activation in between.
+    - Xavier/Glorot
+    - Kaiming/He  
+  - MOE  
+  <br> 
+
+  5. LayerNorm  
     - γ as 1 and β as 0  
       <br>
-  5. LM Head  
+  6. LM Head  
     - Xavier/Glorot/Kaiming  
     - or shared with embedding  
       <br>   
-  6. Bias  
+  7. Bias  
     - normally initial as 0  
 
 ***  
