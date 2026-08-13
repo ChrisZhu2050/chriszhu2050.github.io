@@ -117,7 +117,7 @@ graph LR
       $$   
         <br>  
 
-      W<sub>Output</sub> Residual Depth Scaling:  
+      Residual Depth Scaling:  
 
       W<sub>Output</sub> Matrix Shape:     
       > d<sub>model</sub>  × d<sub>model</sub>  
