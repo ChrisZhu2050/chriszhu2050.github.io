@@ -178,12 +178,20 @@ graph LR
 
   4. MoE (Mixture of Expert)
       ```mermaid
-      graph LR
+      flowchart LR
+          
           G["`Attention
           (d<sub>model</sub>,d<sub>model</sub>)`"]  --> 
-          A["`Router`"]  --> B["`Shared Expert`"] --> D["`Routed Expert(1~n)
-          `"] --> E["`Output
-          (d<sub>model</sub>,d<sub>model</sub>)`"]
+          A["`Router`"]  --> B["`Expert 1
+          *(GPU 1)*
+          `"] & B1["`Expert 2
+          *(GPU 6)*
+          `"] & B2["`Expert ...
+          *(GPU ...)*
+          `"] &  B3["`Expert n
+          *(GPU n)*
+          `"] --> D["`Routed Experts (1~n)
+          `"] --> E["`s`"]
       ```   
 
   <br> 
