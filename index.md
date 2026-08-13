@@ -181,7 +181,7 @@ graph LR
       flowchart LR
           
           G["`token x1
-          (Hidden State)
+          (Hidden State x1,x2,x3,...)
           `"]  --> 
           A["`Router
           (g<sub>i</sug>=x<sub>i</sub>W<sup>R</sup>)
@@ -197,12 +197,15 @@ graph LR
           *(GPU n)*
           `"] --> D["`Routed Experts
             Top2(g1​)={E1,E3}
-             (e.g. 1,3)
           `"] --> E["`Expert 1
           *(FFN -> W<sub>1.1</sub>,W<sub>2.1</sub>,W<sub>3.1</sub>)*
+          SwiGLU
           `"] & E1["`Expert 3
           *(FFN -> W<sub>1.3</sub>,W<sub>2.3</sub>,W<sub>3.3</sub>)*
-          `"] -->F
+          SwiGLU
+          `"] --> F["`Combine
+          y1​=p<sub>1</sub>E1​(x1​)+p<sub>3</sub>E3​(x1​)
+          `"] --> H["`y1,y2,y3,...`"]
       ```   
 
   <br> 
