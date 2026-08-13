@@ -39,7 +39,7 @@ graph LR
 
   1. Token Embedding Layer   
        <br>
-      > One model one shared Token Embedding weight 
+      > Only one shared in model! 
       
       Matrix Shape:   
       > V × d<sub>model</sub> 
@@ -83,7 +83,7 @@ graph LR
 
   2.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
       <br>
-      > One layer, one copy:exclamation:
+      > Each layer has one!
 
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:    
         IF head = 1:  
@@ -138,7 +138,7 @@ graph LR
           <br>
 
   3. FFN (Feed Forward Network)  
-   
+
       ```mermaid
       graph LR
           G["`Input
@@ -148,7 +148,9 @@ graph LR
           (d<sub>ffn</sub>,d<sub>model</sub>)
           `"] --> E["`Output
           (d<sub>model</sub>,d<sub>model</sub>)`"]
-      ``` 
+      ```   
+        > Each layer has one!
+
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
     
           > d<sub>ffn</sub> = d<sub>model</sub>*4  
