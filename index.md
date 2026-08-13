@@ -136,19 +136,19 @@ graph LR
       ```mermaid
       graph LR
           G["`Input
-          (d<sub>model</sub>)`"]  --> 
+          (d<sub>model</sub>,d<sub>model</sub>)`"]  --> 
           A["`W<sub>1</sub>
-          (d<sub>ff</sub>)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
-          (d<sub>ff</sub>)
+          (d<sub>model</sub>,d<sub>ff</sub>)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
+          (d<sub>ff</sub>,d<sub>model</sub>)
           `"] --> E["`Output
-          (d<sub>model</sub>)`"]
+          (d<sub>model</sub>,d<sub>model</sub>)`"]
       ``` 
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
     
           > d<sub>ff</sub> = d<sub>model</sub>*4  
 
           <br>  
-          
+
           W<sub>1</sub> Matrix shape:   
           > d<sub>model</sub>  × d<sub>ff</sub>  
 
