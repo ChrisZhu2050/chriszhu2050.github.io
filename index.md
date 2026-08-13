@@ -139,7 +139,7 @@ graph LR
             G["`Input
             (d<sub>model</sub>)`"]  --> 
             A["`W<sub>1</sub>
-            (d<sub>ff</sub>`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
+            (d<sub>ff</sub>)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
             (d<sub>ff</sub>)
             `"] --> E["`Output
             (d<sub>model</sub>)`"]
