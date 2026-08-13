@@ -39,7 +39,7 @@ graph LR
 
   1. Token Embedding Layer   
        <br>
-      > Only one shared in model! 
+      > Only one shared in model!! 
       
       Matrix Shape:   
       > V × d<sub>model</sub> 
@@ -83,7 +83,7 @@ graph LR
 
   2.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
       <br>
-      > Each layer has one!
+      > Each layer has one!!
 
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:    
         IF head = 1:  
@@ -177,19 +177,19 @@ graph LR
         <br> 
 
   4. MoE (Mixture of Expert)
-
+    
 
   <br> 
 
-  1. LayerNorm  
-    - γ as 1 and β as 0  
-      <br>
-  2. LM Head  
-    - Xavier/Glorot/Kaiming  
-    - or shared with embedding  
-      <br>   
-  3. Bias  
-    - normally initial as 0  
+  5. LayerNorm  
+  - γ as 1 and β as 0  
+    <br>
+  6. LM Head  
+  - Xavier/Glorot/Kaiming  
+  - or shared with embedding  
+    <br>   
+  7. Bias  
+  - normally initial as 0  
 
 ***  
 
