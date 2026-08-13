@@ -81,9 +81,10 @@ graph LR
 
   2.  W<sub>Q</sub> / W<sub>K</sub> / W<sub>v</sub> /  W<sub>output</sub>   
     Matrix Shape:   
-      > d<sub>model</sub>  × d<sub>model</sub>  
-
-      Normal Initialization:  
+      > d<sub>model</sub>  × d<sub>model</sub>    
+      
+        <br>
+      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Normal Initialization:  
 
       > W ~ N(0,σ<sup>2</sup>)  
         
