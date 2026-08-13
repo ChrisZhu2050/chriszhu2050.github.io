@@ -81,8 +81,13 @@ graph LR
       <br>  
 
   2.  W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>   
-    Matrix Shape:   
-      > d<sub>model</sub>  × d<sub>model</sub>    
+    Matrix Shape:  
+      IF head = 1:  
+      > d<sub>model</sub>  × d<sub>model</sub>   
+
+      IF head>1:  
+      > d<sub>model</sub>  ×  $\frac{d_{model} }{head}$   
+
 
         <br>
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Normal Initialization:  
