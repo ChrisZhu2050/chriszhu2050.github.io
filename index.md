@@ -126,7 +126,10 @@ graph LR
       > σ<sub>residual</sub> = $\frac{σ}{\sqrt 2N}$  
       *N => number of transformer layers*  
 
-      W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
+      <br>  
+
+      W<sub>output</sub> Initialization:  
+      > W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
 
         <br>
 
