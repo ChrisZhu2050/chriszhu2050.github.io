@@ -185,7 +185,8 @@ graph LR
           `"]  --> 
           A["`Router
           (g<sub>i</sug>=x<sub>i</sub>W<sup>R</sup>)
-          [1.2, 0.4, 2.8,...]
+          p<sub>i​</sub>=Softmax(g<sub>i</sub>)
+          [0.05,0.02,0.38,...]
           `"]  --> B["`Expert 1
           *(GPU 1)*
           `"] & B1["`Expert 2
@@ -194,9 +195,14 @@ graph LR
           *(GPU ...)*
           `"] &  B3["`Expert n
           *(GPU n)*
-          `"] --> D["`Routed Experts (e.g. 1,3)
+          `"] --> D["`Routed Experts
             Top2(g1​)={E1,E3}
-          `"] --> E["`Expert 1`"] & E1["`Expert 3`"] & E2["`Expert 5`"]
+             (e.g. 1,3)
+          `"] --> E["`Expert 1
+          *(FFN -> W<sub>1.1</sub>,W<sub>2.1</sub>,W<sub>3.1</sub>)*
+          `"] & E1["`Expert 3
+          *(FFN -> W<sub>1.3</sub>,W<sub>2.3</sub>,W<sub>3.3</sub>)*
+          `"] -->F
       ```   
 
   <br> 
