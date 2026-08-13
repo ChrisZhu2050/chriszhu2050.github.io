@@ -138,8 +138,8 @@ graph LR
     ```mermaid
       graph LR
           A["`W<sub>1</sub>
-          dff=512*4`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
-          dff=512*4
+          (d<sub>ff</sub>=512*4)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
+          (d<sub>ff</sub>=512*4)
           `"]
     ```  
 
