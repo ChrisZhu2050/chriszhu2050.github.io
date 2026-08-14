@@ -43,9 +43,9 @@ graph LR
 
         | Question | Answer | Rank |
         |:----:|:----:|:----:|
-        | **Prompt 1** | Response from LLM 1 | <\|Reward\|> |
-        | **Prompt 1** | Response from LLM 2 | <\|Reward\|> |
-        | **Prompt 1** | Response from LLM 3 | <\|Reward\|> |
+        | **Prompt 1** | Response 1 from LLM | <\|Reward\|> |
+        | **Prompt 1** | Response 2 from LLM | <\|Reward\|> |
+        | **Prompt 1** | Response 3 from LLM | <\|Reward\|> |
         | ... | ... | ... |  
 
    
