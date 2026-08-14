@@ -6,7 +6,7 @@ permalink: /about/
 
 You talk to public LLM, you are helpping to train it.  
 
-You talk to private LLM, you are building the personal advantage.  
+You talk to private LLM, you are building the private advantages.  
 
 Of course firstly you need a private LLM!
 
