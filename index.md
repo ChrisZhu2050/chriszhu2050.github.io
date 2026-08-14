@@ -183,37 +183,37 @@ graph LR
 
         <br> 
 
-  4. MoE (Mixture of Expert)
+  4. MoE (Mixture of Expert)  
       ```mermaid
       flowchart LR
           
-          G["`token x1
+          G("`token x1
           (Hidden State x1,x2,x3,...)
-          `"]  --> 
-          A["`Router
+          `")  --> 
+          A("`Router
           (g<sub>i</sug>=x<sub>i</sub>W<sup>R</sup>)
           p<sub>i​</sub>=Softmax(g<sub>i</sub>)
           [0.05,0.02,0.38,...]
-          `"]  --> B["`Expert 1
+          `")  --> B("`Expert 1
           *(GPU 1)*
-          `"] & B1["`Expert 2
+          `") & B1("`Expert 2
           *(GPU 6)*
-          `"] & B2["`Expert ...
+          `") & B2("`Expert ...
           *(GPU ...)*
-          `"] &  B3["`Expert n
+          `") &  B3("`Expert n
           *(GPU n)*
-          `"] --> D["`Routed Experts
+          `") --> D("`Routed Experts
             Top2(g1​)={E1,E3}
-          `"] --> E["`Expert 1
+          `") --> E("`Expert 1
           *(FFN -> W<sub>1.1</sub>,W<sub>2.1</sub>,W<sub>3.1</sub>)*
           SwiGLU
-          `"] & E1["`Expert 3
+          `") & E1("`Expert 3
           *(FFN -> W<sub>1.3</sub>,W<sub>2.3</sub>,W<sub>3.3</sub>)*
           SwiGLU
-          `"] --> F["`Combine
+          `") --> F("`Combine
           y1​=p<sub>1</sub>E1​(x1​)+p<sub>3</sub>E3​(x1​)
           （y1,y2,y3,...）
-          `"] 
+          `") 
       ```   
       Weight initialization of FNN of each experts is same as normal FNN:
       > W~N(0, σ<sup>2</sup>)  
