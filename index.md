@@ -39,8 +39,7 @@ graph LR
 
   1. Token Embedding  
       <br>
-      > Only one in a model!!  
-
+      > Only one in a model!  
       <br>  
       Matrix Shape:  
 
