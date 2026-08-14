@@ -36,7 +36,6 @@ graph LR
         | Prompt 2 | Expected Response 2 |
         | Prompt 3 | Expected Response 3 |
         | ... | ... |  
-        
       <br>  
    - Training Data of RW model  
       Manually prepared and rank by people  
