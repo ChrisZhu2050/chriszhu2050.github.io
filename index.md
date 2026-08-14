@@ -26,7 +26,7 @@ graph LR
      - C4/C4.EN (from April 2019 snapshot of Common Crawl)
      - Github/Wikipedia/ArXiv/Stack Exchange
      - Books 1/2/3(digital books with undeclared source)  
-      
+    <br>  
    - Training Data of SFT model  
 
         | Question | Answer |
@@ -37,7 +37,7 @@ graph LR
         | ... | ... |  
         
       Manual prepared by people  
-
+      <br>  
    - Training Data of RW model  
 
         | Question | Answer | Rank |
