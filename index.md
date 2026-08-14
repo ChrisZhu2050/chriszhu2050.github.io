@@ -84,14 +84,15 @@ graph LR
   2.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
       <br>
       > Each layer has one!  
-
       <br>
-      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:    
-        IF head = 1:  
-        > d<sub>model</sub>  × d<sub>model</sub>   
+      W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:  
 
-        IF head>1:  
-        > d<sub>model</sub>  ×  $\frac{d_{model} }{head}$   
+      IF head = 1:  
+      
+      > d<sub>model</sub>  × d<sub>model</sub>   
+
+      IF head>1:  
+      > d<sub>model</sub>  ×  $\frac{d_{model} }{head}$   
 
 
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub>  Normal Initialization:  
@@ -149,7 +150,7 @@ graph LR
           `"] --> E["`Output
           (d<sub>model</sub>,d<sub>model</sub>)`"]
       ```   
-        > Each layer has one!  
+        > Each layer has one!
 
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
     
