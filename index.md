@@ -25,24 +25,27 @@ graph LR
      - [Common Crawl](https://commoncrawl.org/)
      - C4/C4.EN (from April 2019 snapshot of Common Crawl)
      - Github/Wikipedia/ArXiv/Stack Exchange
-     - Books 1/2/3(digital books with undeclared source)
+     - Books 1/2/3(digital books with undeclared source)  
       
-   - Training Data of SFT model
+   - Training Data of SFT model  
+
       | Question | Answer |
       |:----:|:----:|
       | Prompt 1 | Response 1 |
       | Prompt 2 | Response 2 |
       | Prompt 3 | Response 3 |
       | ... | ... |
-      Manual prepared by people
-   - Training Data of RW model
+      Manual prepared by people  
+
+   - Training Data of RW model  
+
       | Question | Answer | Rank |
       |:----:|:----:|:----:|
       | Prompt 1 | Response 1 | <\|Reward\|> |
       | Prompt 1 | Response 2 | <\|Reward\|> |
       | Prompt 1 | Response 3 | <\|Reward\|> |
       | ... | ... | ... |
-      Manual prepared by people   
+      Manual prepared by people     
 
 ***  
 
