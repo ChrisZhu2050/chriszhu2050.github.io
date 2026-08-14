@@ -2,7 +2,7 @@
 layout: home
 title: "LLM Essential"
 ---
-  *LLM Essential* => [[  LLM Fine-tune  ]](docs/llm-fine-tune.md) => [[  LLM Distillation  ]](docs/llm-distillation.md) => [[  Agent Framework  ]](docs/agent-framework.md) => [[  Data Flywheel  ]](docs/data-flywheel.md) 
+  *LLM Essential* /  [  LLM Fine-tune  ](docs/llm-fine-tune.md) /  [  LLM Distillation  ](docs/llm-distillation.md) / [  Agent Framework  ](docs/agent-framework.md) / [  Data Flywheel  ](docs/data-flywheel.md) 
  
 ***  
 
