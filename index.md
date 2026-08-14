@@ -72,8 +72,7 @@ graph LR
       \end{pmatrix}
       $$  
       
-      <br>  
-      
+
       After initialize:  
         > $  
           mean \approx 0\\    
