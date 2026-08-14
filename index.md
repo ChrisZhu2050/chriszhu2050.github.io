@@ -221,6 +221,7 @@ graph LR
 
   5. LM Head  
       > logits = h*W<sub>head</sub><sup>T</sup>  
+      *head is hidden state and W<sub>head</sub> is weight*
 
       - Share Weight with Token Embedding or independent initialize via W~N(0, σ<sup>2</sup>)
   
