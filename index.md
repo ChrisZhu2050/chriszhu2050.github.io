@@ -514,11 +514,8 @@ graph LR
 
   - Weight update by Adam
       > $$ W_n = W_o - η*\nabla L(W_o) $$       
-  
-***  
+   
 
-<br>
-<br>
 
 
 <!-- [![](images\1.png)](https://chriszhu2050.github.io/images/1.png) -->
