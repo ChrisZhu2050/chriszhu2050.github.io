@@ -4,4 +4,10 @@ title: About
 permalink: /about/
 ---
 
-This is the Chris's blog
+You talk to public LLM, you are helpping to train it.  
+
+You talk to private LLM, you are building the personal advantage.  
+
+Of course firstly you need a personal LLM!
+
+
