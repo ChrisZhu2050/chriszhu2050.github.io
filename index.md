@@ -28,7 +28,12 @@ graph LR
      - Books 1/2/3(digital books with undeclared source)
       
    - Training Data of SFT model
-       - Prepared manually by people
+      | Question | Answer |
+      |:----:|:----:|
+      | Prompt 1 | Response 1 |
+      | Prompt 2 | Response 2 |
+      | ... | ... |
+      Manual prepared by people
    - Training Data of RW model
       - Prepared manually by people     
 
@@ -104,11 +109,11 @@ graph LR
           
       Above expression means: W follows a normal distribution with mean 0 and variance σ<sup>2</sup>  
 
-      | Model | σ | Residual Scaling |
-      |:----:|:----:|:----:|
-      | GPT 3 | 0.02 |  ? | 
-      | LLaMA 2 | 0.02 | ? | 
-      | DeepSeek V3 | 0.006 | ? | 
+        | Model | σ | Residual Scaling |
+        |:----:|:----:|:----:|
+        | GPT 3 | 0.02 |  ? | 
+        | LLaMA 2 | 0.02 | ? | 
+        | DeepSeek V3 | 0.006 | ? | 
 
 
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> example:  
