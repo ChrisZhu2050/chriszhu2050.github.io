@@ -39,7 +39,7 @@ graph LR
 
   ```mermaid
       graph LR
-          A["`Token Embedding`"]  --> C["`Self-Attention`"] --> D["`FFN`"] --> E["`LayerNorm`"] --> F["`LM Head`"]
+          A("`Token Embedding`")  --> C("`Self-Attention`") --> D("`FFN`") --> E("`LayerNorm`") --> F("`LM Head`")
   ```  
 
   1. Token Embedding  
@@ -146,13 +146,13 @@ graph LR
 
       ```mermaid
       graph LR
-          G["`Attention
-          (d<sub>model</sub>,d<sub>model</sub>)`"]  --> 
-          A["`W<sub>1</sub>
-          (d<sub>model</sub>,d<sub>ffn</sub>)`"]  --> B["`Activation`"] --> D["`W<sub>2</sub>
+          G("`Attention
+          (d<sub>model</sub>,d<sub>model</sub>)`")  --> 
+          A("`W<sub>1</sub>
+          (d<sub>model</sub>,d<sub>ffn</sub>)`")  --> B("`Activation`") --> D("`W<sub>2</sub>
           (d<sub>ffn</sub>,d<sub>model</sub>)
-          `"] --> E["`Output
-          (d<sub>model</sub>,d<sub>model</sub>)`"]
+          `") --> E("`Output
+          (d<sub>model</sub>,d<sub>model</sub>)`")
       ```   
         > Each layer has one!
 
@@ -236,7 +236,7 @@ graph LR
   
   ```mermaid
       graph LR
-          A["`Normalizer`"]  --> B["`Pre-tokenizer`"] --> C["`Subword Algorithm`"] --> D["`Vocabulary`"] --> E["`Post-processor`"] --> F["`Token ID Mapping`"]
+          A("`Normalizer`")  --> B("`Pre-tokenizer`") --> C("`Subword Algorithm`") --> D("`Vocabulary`") --> E("`Post-processor`") --> F("`Token ID Mapping`")
   ```   
   
   1. Normalizer    
