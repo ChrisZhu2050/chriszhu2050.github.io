@@ -220,12 +220,12 @@ graph LR
   <br>   
 
   5. LM Head  
-  -  Share Weight with Token Embedding or independent initialize via W~N(0, σ<sup>2</sup>)
+    logits = h*W<sub>head</sub><sup>T</sup>  
+    
+    - Share Weight with Token Embedding or independent initialize via W~N(0, σ<sup>2</sup>)
   
   <br>   
-
-  7. Bias  
-  - normally initial as 0  
+ 
 
 ***  
 
