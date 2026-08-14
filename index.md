@@ -82,7 +82,8 @@ graph LR
   2.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
       <br>
       > Each layer has one!  
-      <br>
+
+      <br>  
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:  
 
       IF head = 1:  
