@@ -41,8 +41,6 @@ graph LR
       <br>
       > Only one in a model!  
 
-      <br>  
-
       Matrix Shape:  
       > V × d<sub>model</sub>  
 
@@ -88,7 +86,7 @@ graph LR
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:  
 
       IF head = 1:  
-      
+
       > d<sub>model</sub>  × d<sub>model</sub>   
 
       IF head>1:  
