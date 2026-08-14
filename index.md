@@ -40,7 +40,7 @@ graph LR
  
       <br>  
    - Training Data of RW model  
-      Manually prepared by people  
+      Manually prepared and rank by people  
 
         | Question | Answer | Rank |
         |:----:|:----:|:----:|
