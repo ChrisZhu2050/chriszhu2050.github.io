@@ -219,12 +219,9 @@ graph LR
       > W~N(0, σ<sup>2</sup>)  
   <br>   
 
-  5. LayerNorm  
-  - γ as 1 and β as 0  
-    <br>
-  6. LM Head  
-  - Xavier/Glorot/Kaiming  
-  - or shared with embedding  
+  5. LM Head  
+  -  Share Weight with Token Embedding
+  
     <br>   
   7. Bias  
   - normally initial as 0  
