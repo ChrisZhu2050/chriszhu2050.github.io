@@ -41,8 +41,8 @@ graph LR
       <br>
       > Only one in a model!  
       <br>  
-      Matrix Shape:  
 
+      Matrix Shape:  
       > V × d<sub>model</sub>  
 
       (*V for Vocabulary size*)
