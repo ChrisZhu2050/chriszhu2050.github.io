@@ -223,10 +223,10 @@ graph LR
             Top2(g1​)={E1,E3}
           `") --> E("`Expert 1
           *(FFN -> W<sub>1.1</sub>,W<sub>2.1</sub>,W<sub>3.1</sub>)*
-          SwiGLU
+          SwiGLU(?)
           `") & E1("`Expert 3
           *(FFN -> W<sub>1.3</sub>,W<sub>2.3</sub>,W<sub>3.3</sub>)*
-          SwiGLU
+          SwiGLU(?)
           `") --> F("`Combine
           y1​=p<sub>1</sub>E1​(x1​)+p<sub>3</sub>E3​(x1​)
           （y1,y2,y3,...）
