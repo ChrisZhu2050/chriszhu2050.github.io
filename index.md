@@ -32,10 +32,17 @@ graph LR
       |:----:|:----:|
       | Prompt 1 | Response 1 |
       | Prompt 2 | Response 2 |
+      | Prompt 3 | Response 3 |
       | ... | ... |
       Manual prepared by people
    - Training Data of RW model
-      - Prepared manually by people     
+      | Question | Answer | Rank |
+      |:----:|:----:|:----:|
+      | Prompt 1 | Response 1 | <\|Reward\|> |
+      | Prompt 1 | Response 2 | <\|Reward\|> |
+      | Prompt 1 | Response 3 | <\|Reward\|> |
+      | ... | ... | ... |
+      Manual prepared by people   
 
 ***  
 
