@@ -11,7 +11,7 @@ GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))
 ```mermaid
 
 graph LR
-    A[Training Data]  --> B[Weights Initialization] --> C[Tokenizer Pipeline] --> D[Training Forward Pass] --> E[Training Backward Pass]
+    A(Training Data)  --> B(Weights Initialization) --> C(Tokenizer Pipeline) --> D(Training Forward Pass) --> E(Training Backward Pass)
     click A "#training-data"
     click B "#weights-initialization"
     click C "#tokenizer-pipeline"
