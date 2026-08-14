@@ -23,7 +23,7 @@ graph LR
 ## Training Data  
    - Raw data of base model's training 
      - [Common Crawl](https://commoncrawl.org/)
-     - C4/C4.EN (from April 2019 snapshot of Common Crawl)
+     - [C4/C4.EN](https://github.com/google-research/text-to-text-transfer-transformer/tree/main#c4) (from April 2019 snapshot of Common Crawl)
      - Github/Wikipedia/ArXiv/Stack Exchange
      - Books 1/2/3(digital books with undeclared source)  
     <br>  
