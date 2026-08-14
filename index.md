@@ -88,7 +88,6 @@ graph LR
       <br>
       > Each layer has one!  
 
-      <br>  
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:  
 
       IF head = 1:  
