@@ -76,7 +76,7 @@ graph LR
       
       <br>  
       
-      Validation after initialize:  
+      After initialize:  
         > $  
           mean \approx 0\\    
           std  \approx 0.02  
