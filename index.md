@@ -30,12 +30,12 @@ graph LR
    - Training Data of SFT model  
       Manually prepared by people  
 
-        | Question | Answer |
-        |:----:|:----:|
-        | Prompt 1 | Expected Response 1 |
-        | Prompt 2 | Expected Response 2 |
-        | Prompt 3 | Expected Response 3 |
-        | ... | ... |  
+      | Question | Answer |
+      |:----:|:----:|
+      | Prompt 1 | Expected Response 1 |
+      | Prompt 2 | Expected Response 2 |
+      | Prompt 3 | Expected Response 3 |
+      | ... | ... |  
       <br>  
    - Training Data of RW model  
       Manually prepared and rank by people  
