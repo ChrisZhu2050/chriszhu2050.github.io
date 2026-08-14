@@ -40,7 +40,7 @@ graph LR
   1. Token Embedding  
       <br>
       > Only one in a model!  
-      
+
       <br>  
 
       Matrix Shape:  
@@ -51,8 +51,6 @@ graph LR
       e.g.  
       > V = 32000  
       d<sub>model</sub> = 512  
-
-      <br>  
 
       Initialize via **Truncated Normal Distribution**:    
 
