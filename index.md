@@ -32,9 +32,9 @@ graph LR
 
         | Question | Answer |
         |:----:|:----:|
-        | Prompt 1 | Response 1 |
-        | Prompt 2 | Response 2 |
-        | Prompt 3 | Response 3 |
+        | Prompt 1 | Expected Response 1 |
+        | Prompt 2 | Expected Response 2 |
+        | Prompt 3 | Expected Response 3 |
         | ... | ... |  
         
       <br>  
@@ -43,9 +43,9 @@ graph LR
 
         | Question | Answer | Rank |
         |:----:|:----:|:----:|
-        | **Prompt 1** | Response 1 | <\|Reward\|> |
-        | **Prompt 1** | Response 2 | <\|Reward\|> |
-        | **Prompt 1** | Response 3 | <\|Reward\|> |
+        | **Prompt 1** | Response from LLM 1 | <\|Reward\|> |
+        | **Prompt 1** | Response from LLM 2 | <\|Reward\|> |
+        | **Prompt 1** | Response from LLM 3 | <\|Reward\|> |
         | ... | ... | ... |  
 
    
