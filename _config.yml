@@ -13,6 +13,7 @@ minima:
   skin: classic
   nav_pages:
     - about.md
+    - portfolio.md
 
   # social_links:
   #   - title: Jekyll repository at GitHub
