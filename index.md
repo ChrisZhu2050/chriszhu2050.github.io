@@ -29,22 +29,24 @@ graph LR
       
    - Training Data of SFT model  
 
-      | Question | Answer |
-      |:----:|:----:|
-      | Prompt 1 | Response 1 |
-      | Prompt 2 | Response 2 |
-      | Prompt 3 | Response 3 |
-      | ... | ... |
+        | Question | Answer |
+        |:----:|:----:|
+        | Prompt 1 | Response 1 |
+        | Prompt 2 | Response 2 |
+        | Prompt 3 | Response 3 |
+        | ... | ... |  
+        
       Manual prepared by people  
 
    - Training Data of RW model  
 
-      | Question | Answer | Rank |
-      |:----:|:----:|:----:|
-      | Prompt 1 | Response 1 | <\|Reward\|> |
-      | Prompt 1 | Response 2 | <\|Reward\|> |
-      | Prompt 1 | Response 3 | <\|Reward\|> |
-      | ... | ... | ... |
+        | Question | Answer | Rank |
+        |:----:|:----:|:----:|
+        | Prompt 1 | Response 1 | <\|Reward\|> |
+        | Prompt 1 | Response 2 | <\|Reward\|> |
+        | Prompt 1 | Response 3 | <\|Reward\|> |
+        | ... | ... | ... |  
+
       Manual prepared by people     
 
 ***  
