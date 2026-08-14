@@ -221,10 +221,11 @@ graph LR
 
   5. LM Head  
       > logits = h*W<sub>head</sub><sup>T</sup>  
+
       *head is hidden state and W<sub>head</sub> is LM Head's weight*
 
-      - Share Weight with Token Embedding or independent initialize via W~N(0, σ<sup>2</sup>)
-  
+      - Independent initialize via W~N(0, σ<sup>2</sup>)(e.g. GPT-3, LLaMA)
+      - Share Weight with Token Embedding for save parameter purpose?(e.g. Bert, GPT-2)  
   <br>   
  
 
