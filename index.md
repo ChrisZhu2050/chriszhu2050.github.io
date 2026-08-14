@@ -94,7 +94,6 @@ graph LR
         > d<sub>model</sub>  ×  $\frac{d_{model} }{head}$   
 
 
-        <br>
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub>  Normal Initialization:  
 
       > W ~ N(0,σ<sup>2</sup>)  
@@ -150,7 +149,7 @@ graph LR
           `"] --> E["`Output
           (d<sub>model</sub>,d<sub>model</sub>)`"]
       ```   
-        > Each layer has one!!
+        > Each layer has one!  
 
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
     
