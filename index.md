@@ -28,7 +28,8 @@ graph LR
      - Books 1/2/3 (digital books)  
     <br>  
    - Training Data of SFT model  
-      Manual prepared by people 
+      Manual prepared by people  
+
         | Question | Answer |
         |:----:|:----:|
         | Prompt 1 | Response 1 |
@@ -40,6 +41,7 @@ graph LR
       <br>  
    - Training Data of RW model  
       Manual prepared by people  
+       
         | Question | Answer | Rank |
         |:----:|:----:|:----:|
         | Prompt 1 | Response 1 | <\|Reward\|> |
