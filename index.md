@@ -220,9 +220,10 @@ graph LR
   <br>   
 
   5. LM Head  
-  -  Share Weight with Token Embedding
+  -  Share Weight with Token Embedding or independent initialize via W~N(0, σ<sup>2</sup>)
   
-    <br>   
+  <br>   
+
   7. Bias  
   - normally initial as 0  
 
