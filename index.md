@@ -38,17 +38,20 @@ graph LR
   ```  
 
   1. Token Embedding Layer   
-       <br>
-      > Only one in a model!! 
-      
-      Matrix Shape:   
-      > V × d<sub>model</sub> 
-         
-      *V => Vocabulary size*
+      <br>
+      > Only one in a model!!  
 
+      <br>  
+      Matrix Shape:  
+
+      > V × d<sub>model</sub>  
+
+      (*V for Vocabulary size*)
+         
       e.g.  
       > V = 32000  
       d<sub>model</sub> = 512  
+
       <br>  
 
       Initialize via **Truncated Normal Distribution**:    
@@ -59,8 +62,8 @@ graph LR
       a: -2.0 * std  
       b: 2.0 * std  
       Data Range: [-0.04, 0.04]
-    
-      <br>  
+     
+      Example:  
 
       > $$
       \begin{pmatrix}
@@ -84,7 +87,7 @@ graph LR
   2.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
       <br>
       > Each layer has one!!
-
+      <br>
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> Matrix Shape:    
         IF head = 1:  
         > d<sub>model</sub>  × d<sub>model</sub>   
