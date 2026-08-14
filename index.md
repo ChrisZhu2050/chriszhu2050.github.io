@@ -44,9 +44,9 @@ graph LR
 
         | Question | Answer | Rank |
         |:----:|:----:|:----:|
-        | Prompt 1 | Response 1 | <\|Reward\|> |
-        | Prompt 1 | Response 2 | <\|Reward\|> |
-        | Prompt 1 | Response 3 | <\|Reward\|> |
+        | **Prompt 1** | Response 1 | <\|Reward\|> |
+        | **Prompt 1** | Response 2 | <\|Reward\|> |
+        | **Prompt 1** | Response 3 | <\|Reward\|> |
         | ... | ... | ... |  
 
    
