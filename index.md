@@ -468,6 +468,7 @@ graph LR
 
 ## Training Forward Pass
 
+
   - Tokenization  
   
     ```mermaid
@@ -499,17 +500,18 @@ graph LR
 
   - Linear & Softmax
   - Output probabilities  
+  - cross-entropy Loss computation  
+    - logits --> softmax/sigmoid --> cross-entropy
+
+    > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$
+
+- Gradient computation
+    > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$
 
 ***  
 ## Training Backward Pass  
   
-  - cross-entropy Loss computation  
-      - logits --> softmax/sigmoid --> cross-entropy
 
-      > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$
-
-  - Gradient computation
-      > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$
 
   - Weight update by Adam
       > $$ W_n = W_o - η*\nabla L(W_o) $$       
