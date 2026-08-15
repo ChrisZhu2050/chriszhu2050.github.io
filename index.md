@@ -500,8 +500,12 @@ graph LR
       > Training Sequence Length T = 4096  
       Micro Batch Size = B = 8  
 
-      Then one forward will process => 8 × 4096 =32768 *Tokens*  
-      GPU is the limitation of batch size  
+      Then **one GPU one forward** will process => 8 × 4096 =32768 *Tokens*  
+      GPU is the limitation of batch size 
+      If we want 
+      > Effective Batch Size=32   
+      means after 32 batch then update the weight, then 
+      > Gradient Accumulation Steps = 3
 
 
 
