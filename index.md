@@ -476,9 +476,25 @@ graph LR
   
     ```mermaid
             graph LR
-                A("`Raw Data`") --> B("`Tokenizer`") --> C("`Transformer`") 
+                A("`Raw Data`") --> B("`Tokenizer`")--> D("`Sequence Packing`") --> C("`Transformer`") 
     ```
+    - Sequence Packing:  
+      Training Sequence Length = 4096  
 
+    ```mermaid
+            graph TD
+                A("`Doc A
+                (2000 Tokens)
+                `") --> C("`Sequence 4096
+                [A1 A2 A3... *< EOS >*] + [B1 B2 B3... *< EOS >*] + [C1, C2, C3...] = 4096
+                `")
+                B("`Doc B
+                (1000 Tokens)
+                `")--> C
+                D("`Doc C
+                (2000 Tokens)
+                `")--> C
+    ```
 
   - Transformer  
   <!-- <a id="section2"></a>   -->
