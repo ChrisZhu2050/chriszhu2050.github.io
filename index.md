@@ -468,7 +468,10 @@ graph LR
 
 ## Training Forward Pass
 
-
+  ```mermaid
+        graph LR
+            A("`Tokenization`") --> B("`Token Embedding`")  --> C("`Position Information`")--> D("`Transformer`") --> E("`LayerNorm`") --> F("`LM Head`") --> G("`Logits`") --> J("`Causal Mask`") --> H("`Next-token prediction`") --> I("`Cross Entropy Loss`") 
+  ```
   - Tokenization  
   
     ```mermaid
