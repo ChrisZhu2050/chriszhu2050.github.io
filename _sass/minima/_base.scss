@@ -311,7 +311,7 @@ table {
    ======================================== */
 
 .sidebar {
-  width: 300px;
+  width: 300px!important;
   flex-shrink: 0;
 
   padding: 30px 20px;
@@ -340,7 +340,7 @@ table {
 }
 
 .content-wrapper {
-  width: min(80%, 1100px);
+  width: min(100%, 1200px);
   margin-left: auto;
   margin-right: auto;
 
