@@ -311,7 +311,7 @@ table {
    ======================================== */
 
 .sidebar {
-  width: 380px!important;
+  width: 336px;
   
   flex-shrink: 0;
 
@@ -356,12 +356,17 @@ table {
    ======================================== */
 
 .sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 25px;
 }
 
 .sidebar-header a {
+  display: inline-block;
+  text-align: center;
   text-decoration: none;
 }
 
