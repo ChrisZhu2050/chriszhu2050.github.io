@@ -470,7 +470,7 @@ graph LR
 
   ```mermaid
         graph LR
-            A("`Tokenization`") --> B("`Token Embedding`")  --> C("`Position Information`")--> D("`Transformer`") --> E("`LayerNorm`") --> F("`LM Head`") --> G("`Logits`") --> J("`Causal Mask`") --> H("`Next-token prediction`") --> I("`Cross Entropy Loss`") 
+            A("`Tokenization`") --> B("`Token Embedding`") --> D("`Transformer`")  --> F("`LM Head`")   --> H("`Next-token prediction`") --> I("`Cross Entropy Loss`") 
   ```
   - Tokenization  
   
