@@ -470,7 +470,7 @@ graph LR
 
   ```mermaid
         graph LR
-            A("`Tokenization`") --> B("`Token Embedding`") --> D("`Transformer`")  --> F("`LM Head`")   --> H("`Next-token prediction`") --> I("`Cross Entropy Loss`") 
+            A("`Tokenization`") --> D("`Transformer`")  --> F("`LM Head`")   --> H("`Next-token prediction`") --> I("`Cross Entropy Loss`") 
   ```
   - Tokenization  
   
@@ -483,7 +483,7 @@ graph LR
   - Transformer  
   <!-- <a id="section2"></a>   -->
       - Encoder  
-        1. data input & embedding
+        1. Token embedding
         2. positional encoding
         3. multi-head attention
         4. add & normalize
