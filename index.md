@@ -522,22 +522,22 @@ graph LR
 
 
 
-  2. GPT's transformer  
-     - Decoder  
-       1.  output embedding
-       2.  positional encoding
-       3.  LayerNorm
-       4.  masked multi-head attention
-       5.  LayerNorm
-       6.  feed forward neural network
-       7.  Linear & Softmax  
-       8.  Output probabilities  
+  2. GPT's Decoder only Transformer  
+     1.  Output embedding
+     2.  Positional encoding
+     3.  LayerNorm
+     4.  Masked multi-head attention
+     5.  LayerNorm
+     6.  Feed forward neural network
+     7.  Final LayerNorm
+     8.  Linear & Softmax  
+     9.  Output probabilities  
      
-     - Encoder (*not used by GPT*)  
+  - Encoder (*not used by GPT*)  
   <br>
 
 
-  3. cross-entropy Loss  
+  1. cross-entropy Loss  
     - logits --> softmax/sigmoid --> cross-entropy
 
       > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$  
