@@ -513,7 +513,8 @@ graph LR
 
       and finally:  
 
-      > Global Batch Size = GPU number * Effective Batch Size
+      > B<sub>global</sub> = B<sub>micro</sub> × N<sub>GPU</sub> × GAS
+      
 
 
   - Transformer  
