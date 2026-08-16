@@ -478,7 +478,7 @@ graph LR
               graph LR
                   A("`Raw Data`") --> B("`Tokenizer`")--> D("`Sequence Packing`")  
       ```  
-      > *Refer => [Raw Data](#training-data) and [Tokenizer](#tokenizer-pipeline)*  
+      > *Refer to => [Raw Data](#training-data) and [Tokenizer](#tokenizer-pipeline)*  
 
         Sequence Packing:  
           Training Sequence Length = 4096  
@@ -534,11 +534,13 @@ graph LR
      - Positional embedding
      - LayerNorm
      - Masked multi-head attention
+     - Add
      - LayerNorm
      - Feed forward neural network
+     - Add
      - Final LayerNorm
-     - Linear & Softmax  
-     - Output probabilities  
+     - Linear / LM Head  
+     - Logits  
      
   - Encoder (*not used by GPT*)  
 
