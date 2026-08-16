@@ -505,7 +505,7 @@ graph LR
       IF we set:
       > Effective Batch Size=32  
 
-      means after 32 batch then update the weight.  
+      means after 32 batches then update the weight.  
       So we need to set: 
       > Gradient Accumulation Steps = 4  
 
