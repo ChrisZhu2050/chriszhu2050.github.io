@@ -472,48 +472,48 @@ graph LR
         graph LR
             A("`Tokenization`") --> D("`Transformer`")  --> F("`LM Head`")   --> H("`Next-token prediction`") --> I("`Cross Entropy Loss`") 
   ```
-  - Tokenization  
+  1. Tokenization  
   
-    ```mermaid
-            graph LR
-                A("`Raw Data`") --> B("`Tokenizer`")--> D("`Sequence Packing`") --> C("`Transformer`") 
-    ```
-    - Sequence Packing:  
-      Training Sequence Length = 4096  
+      ```mermaid
+              graph LR
+                  A("`Raw Data`") --> B("`Tokenizer`")--> D("`Sequence Packing`") --> C("`Transformer`") 
+      ```  
+        Sequence Packing:  
+          Training Sequence Length = 4096  
 
-    ```mermaid
-            graph TD
-                A("`Doc A
-                (2000 Tokens)
-                `") --> C("`Sequence 4096
-                [A1 A2 A3... *< EOS >*] + [B1 B2 B3... *< EOS >*] + [C1, C2, C3...] = 4096
-                `")
-                B("`Doc B
-                (1000 Tokens)
-                `")--> C
-                D("`Doc C
-                (2000 Tokens)
-                `")--> C
-    ```
-    - Batch Size:  
+      ```mermaid
+              graph TD
+                  A("`Doc A
+                  (2000 Tokens)
+                  `") --> C("`Sequence 4096
+                  [A1 A2 A3... *< EOS >*] + [B1 B2 B3... *< EOS >*] + [C1, C2, C3...] = 4096
+                  `")
+                  B("`Doc B
+                  (1000 Tokens)
+                  `")--> C
+                  D("`Doc C
+                  (2000 Tokens)
+                  `")--> C
+      ```
+     Batch Size:  
       > GPU's capacity limit the batch size!
-        
+
       Example:  
       > Training Sequence Length T = 4096  
       Micro Batch Size = B = 8  
 
-      Then **one GPU one forward** will process => 8 × 4096 =32768 *Tokens*  
+      Then **one GPU per one forward** will process => 8 × 4096 =32768 *Tokens*  
         
-      IF we set:
+      IF we want:
       > Effective Batch Size=32  
 
-      means after 32 batches then update the weight.  
+      Means after 32 batches then update the weight.  
       So we need to set: 
       > Gradient Accumulation Steps = 4  
 
-      Finally:  
+      and finally:  
 
-      > Global Batch Size = GPU number * Micro Batch Size * Effective Batch Size
+      > Global Batch Size = GPU number * Effective Batch Size
 
 
   - Transformer  
