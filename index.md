@@ -522,25 +522,31 @@ graph LR
 
 
 
-  2. GPT's Decoder only Transformer  
-     1.  Output embedding
-     2.  Positional encoding
-     3.  LayerNorm
-     4.  Masked multi-head attention
-     5.  LayerNorm
-     6.  Feed forward neural network
-     7.  Final LayerNorm
-     8.  Linear & Softmax  
-     9.  Output probabilities  
+  2. GPT's Decoder-only Transformer  
+      Differences with original Transformer:  
+        > a. No encoder  
+        b. No 2nd Multiple-head attention(Cross Attention)  
+        c. Post-LN instead of Pre-LN
+
+
+     - Token embedding
+     - Positional embedding
+     - LayerNorm
+     - Masked multi-head attention
+     - LayerNorm
+     - Feed forward neural network
+     - Final LayerNorm
+     - Linear & Softmax  
+     - Output probabilities  
      
   - Encoder (*not used by GPT*)  
-  <br>
+
 
 
   1. cross-entropy Loss  
-    - logits --> softmax/sigmoid --> cross-entropy
+  - logits --> softmax/sigmoid --> cross-entropy
 
-      > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$  
+    > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$  
 
   - Gradient computation  
     > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$  
@@ -549,10 +555,8 @@ graph LR
 ***  
 ## Training Backward Pass  
   
-
-
-  - Weight update by Adam
-      > $$ W_n = W_o - η*\nabla L(W_o) $$       
+- Weight update by Adam
+    > $$ W_n = W_o - η*\nabla L(W_o) $$       
    
 
 
