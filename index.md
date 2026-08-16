@@ -470,7 +470,7 @@ graph LR
 
   ```mermaid
         graph LR
-            A("`Tokenization`") --> D("`Transformer`")  --> F("`LM Head`")   --> H("`Next-token prediction`") --> I("`Cross Entropy Loss`") 
+            A("`Tokenization`") --> D("`Transformer`") --> I("`Cross Entropy Loss`") 
   ```
   1. Tokenization  
   
@@ -500,7 +500,7 @@ graph LR
 
       Example:  
       > Training Sequence Length T = 4096  
-      Micro Batch Size = B = 8  
+      Micro Batch Size B = 8  
 
       Then **one GPU per one forward** will process => 8 × 4096 =32768 *Tokens*  
         
@@ -541,13 +541,13 @@ graph LR
 
   - Linear & Softmax
   - Output probabilities  
-  - cross-entropy Loss computation  
+  - cross-entropy Loss  
     - logits --> softmax/sigmoid --> cross-entropy
 
-    > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$
+      > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$
 
-- Gradient computation
-    > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$
+    - Gradient computation
+        > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$
 
 ***  
 ## Training Backward Pass  
