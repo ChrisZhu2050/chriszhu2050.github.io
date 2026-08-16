@@ -527,7 +527,12 @@ graph LR
         Differences with original Transformer:  
         > a. No encoder  
         b. No 2nd Multiple-head attention(Cross Attention)  
-        c. Post-LN instead of Pre-LN
+        c. Post-LN instead of Pre-LN 
+
+      ```mermaid
+          graph LR
+            A("`Token embedding`") --> B("`Positional embedding`") --> C("`Cross Entropy Loss`") 
+      ```
 
 
      - Token embedding
