@@ -501,12 +501,17 @@ graph LR
       Micro Batch Size = B = 8  
 
       Then **one GPU one forward** will process => 8 × 4096 =32768 *Tokens*  
-      GPU is the limitation of batch size 
-      If we want 
-      > Effective Batch Size=32   
-      means after 32 batch then update the weight, then 
-      > Gradient Accumulation Steps = 4
+      GPU's capacity limit the batch size  
+      IF we set:
+      > Effective Batch Size=32  
 
+      means after 32 batch then update the weight.  
+      So we need to set: 
+      > Gradient Accumulation Steps = 4  
+
+      Finally:  
+
+      > Global Batch Size = GPU number * Micro Batch Size * Effective Batch Size
 
 
   - Transformer  
