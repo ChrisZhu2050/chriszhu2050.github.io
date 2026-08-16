@@ -524,8 +524,8 @@ graph LR
 
   2. GPT's Decoder-only Transformer  
    <br>
-        > Differences with original Transformer:  
-        a. No encoder  
+        Differences with original Transformer:  
+        > a. No encoder  
         b. No 2nd Multiple-head attention(Cross Attention)  
         c. Post-LN instead of Pre-LN
 
