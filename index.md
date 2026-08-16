@@ -476,8 +476,10 @@ graph LR
   
       ```mermaid
               graph LR
-                  A("`Raw Data`") --> B("`Tokenizer`")--> D("`Sequence Packing`") --> C("`Transformer`") 
+                  A("`Raw Data`") --> B("`Tokenizer`")--> D("`Sequence Packing`")  
       ```  
+      > *Refer => [Raw Data](#training-data) and [Tokenizer](#tokenizer-pipeline)*  
+
         Sequence Packing:  
           Training Sequence Length = 4096  
 
