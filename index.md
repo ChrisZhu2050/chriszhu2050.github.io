@@ -526,7 +526,7 @@ graph LR
   <!-- <a id="section2"></a>   -->
 
       - Decoder  
-        1. output embedding
+        1.  output embedding
         2.  positional encoding
         3.  masked multi-head attention
         4.  add & normalize
@@ -534,8 +534,10 @@ graph LR
         6.  add & normalize
         7.  feed forward neural network
         8.  add & normalize
+        9.  Linear & Softmax  
+        10. Output probabilities  
    
-
+  
     - Encoder  
         1. Token embedding
         2. positional encoding
@@ -543,10 +545,9 @@ graph LR
         4. add & normalize
         5. feed forward neural network
         6. add & normalize
-        7. multiple encoder
+        7. multiple encoder  
 
-  - Linear & Softmax
-  - Output probabilities  
+  
   - cross-entropy Loss  
     - logits --> softmax/sigmoid --> cross-entropy
 
