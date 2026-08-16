@@ -535,13 +535,6 @@ graph LR
      
      - Encoder (*not used by GPT*)  
   <br>
-       <!-- 1. Token embedding
-       1. positional encoding
-       2. multi-head attention
-       3. add & normalize
-       4. feed forward neural network
-       5. add & normalize
-       6. multiple encoder   -->
 
 
   3. cross-entropy Loss  
@@ -549,8 +542,8 @@ graph LR
 
       > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$  
 
-    - Gradient computation  
-      > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$  
+  - Gradient computation  
+    > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$  
 
 
 ***  
