@@ -496,12 +496,14 @@ graph LR
                 `")--> C
     ```
     - Batch Size:  
+      > GPU's capacity limit the batch size!
+        
       Example:  
       > Training Sequence Length T = 4096  
       Micro Batch Size = B = 8  
 
       Then **one GPU one forward** will process => 8 × 4096 =32768 *Tokens*  
-      GPU's capacity limit the batch size  
+        
       IF we set:
       > Effective Batch Size=32  
 
