@@ -544,12 +544,12 @@ graph LR
 
 
   1. cross-entropy Loss  
-  - logits --> softmax/sigmoid --> cross-entropy
+     - logits --> softmax/sigmoid --> cross-entropy
 
-    > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$  
+       > $$ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $$  
 
-  - Gradient computation  
-    > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$  
+     - Gradient computation  
+       > $$ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $$  
 
 
 ***  
