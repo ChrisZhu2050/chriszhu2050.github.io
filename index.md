@@ -513,7 +513,8 @@ graph LR
 
       and finally:  
 
-      > B<sub>global</sub> = B<sub>micro</sub> × N<sub>GPU</sub> × GAS
+      > B<sub>global</sub> = B<sub>micro</sub> × N<sub>GPU</sub> × GAS  
+      Tokens<sub>step</sub> = B<sub>global</sub> × T
       
 
 
