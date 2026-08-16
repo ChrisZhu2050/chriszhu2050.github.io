@@ -516,13 +516,27 @@ graph LR
       and finally:  
 
       > B<sub>global</sub> = B<sub>micro</sub> × N<sub>GPU</sub> × GAS  
-      Tokens<sub>step</sub> = B<sub>global</sub> × T
-      
+      Tokens<sub>step</sub> = B<sub>global</sub> × T  
+
+      <br>  
 
 
-  - Transformer  
+
+  2. Transformer  
   <!-- <a id="section2"></a>   -->
-      - Encoder  
+
+      - Decoder  
+        1. output embedding
+        2.  positional encoding
+        3.  masked multi-head attention
+        4.  add & normalize
+        5.  multi-head attention
+        6.  add & normalize
+        7.  feed forward neural network
+        8.  add & normalize
+   
+
+    - Encoder  
         1. Token embedding
         2. positional encoding
         3. multi-head attention
@@ -530,16 +544,6 @@ graph LR
         5. feed forward neural network
         6. add & normalize
         7. multiple encoder
-      - Decoder  
-        1. outputs
-        2. output embedding
-        3.  positional encoding
-        4.  masked multi-head attention
-        5.  add & normalize
-        6.  multi-head attention
-        7.  add & normalize
-        8.  feed forward neural network
-        9.  add & normalize
 
   - Linear & Softmax
   - Output probabilities  
