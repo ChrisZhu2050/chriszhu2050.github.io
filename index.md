@@ -553,8 +553,8 @@ graph LR
           block:group4:1
             columns 1
             f["Final LayerNorm"] space
-            g["Linear / LM Head"] space
-            g1["Add"]
+            g["Linear / LM Head"] 
+
           end
           block:group5:1
             columns 1
@@ -566,7 +566,7 @@ graph LR
           d --> e
           e --> h
           f --> g
-          g --> g1
+
           group1 --> group2
           group2 --> group3
           group3 --> group4
