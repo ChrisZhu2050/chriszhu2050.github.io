@@ -56,7 +56,7 @@ graph LR
 
   ```mermaid
       graph LR
-          A("`Token Embedding`")  --> C("`Self-Attention`") --> D("`FFN`") --> E("`LayerNorm`") --> F("`LM Head`")
+          A("`Token Embedding`")  --> C("`Self-Attention`") --> D("`FFN`") --> F("`LM Head`")
   ```  
 
   1. Token Embedding  
