@@ -625,7 +625,7 @@ graph LR
           > θ<sub>p,i</sub> ​= p*ω<sub>i</sub>​  
           $$
           \omega_i=\frac{1}{\theta^{2i/d}}
-          $$
+          $$  
           ω<sub>i</sub> => Rotary frequency  
           d => Attention head dimension  
           i => 0,1,2,…,d/2−1  
