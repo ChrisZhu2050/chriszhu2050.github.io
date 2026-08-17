@@ -549,7 +549,7 @@ graph LR
      - Linear / LM Head  
      - Logits  
      
-    - Encoder (*not used by GPT*)  
+      > *Encoder is not used by GPT*  
 
 
 
