@@ -628,7 +628,7 @@ graph LR
           $$  
           ω<sub>i</sub> => Rotary frequency  
           d => Attention head dimension  
-          i => 0,1,2,…,d/2−1  
+          i => A certain two-dimensional dimension of Q/K  => 0,1,2,…,d/2−1  
           θ => RoPE Base => normally the value is 10000
 
           Finally:
