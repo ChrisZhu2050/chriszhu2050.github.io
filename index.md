@@ -531,7 +531,7 @@ graph LR
 
       ```mermaid
           block
-          columns 4
+          columns 5
           block:group1:1
             columns 1
             a["Token embedding"]
