@@ -589,7 +589,22 @@ graph LR
      - Positional embedding
         > Original transformer's sin/cos method is almost deprecated  
         X = TokenEmbedding + PositionEmbedding
-        - RoPE(Rotary Position Embedding)
+        - RoPE(Rotary Position Embedding)  
+          Where RoPE happens:
+          > X = TokenEmbedding  
+          Q = XW<sub>Q​</sub>   
+          K = XW<sub>K</sub>​  
+          Q′= RoPE(Q)  
+          K′= RoPE(K)  
+          $$
+          \mathrm{Attention}
+          =
+          \mathrm{Softmax}
+          \left(
+          \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}
+          \right)V
+          $$
+          
 
         
      - LayerNorm
