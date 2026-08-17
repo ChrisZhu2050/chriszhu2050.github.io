@@ -6,7 +6,7 @@ title: "LLM Essential"
   
 ***  
   
-GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))
+GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))  
 
 ```mermaid
 
@@ -574,6 +574,8 @@ graph LR
       ```
 
      - Token embedding
+        > Refer to [weight of token embedding](#weights-initialization)
+        
      - Positional embedding
      - LayerNorm
      - Masked multi-head attention
