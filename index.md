@@ -587,7 +587,8 @@ graph LR
           ```  
 
      - Positional embedding
-        > Original transformer's sin/cos method is deprecated
+        > Original transformer's sin/cos method is almost deprecated  
+        X = TokenEmbedding + PositionEmbedding
         - RoPE(Rotary Position Embedding)
 
         
