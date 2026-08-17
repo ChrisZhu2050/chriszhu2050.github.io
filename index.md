@@ -574,8 +574,9 @@ graph LR
       ```
 
      - Token embedding
-        > Refer to [weight of token embedding](#weights-initialization)
+        > About Weight, refer to [Weight initialization](#weights-initialization)
         
+
      - Positional embedding
      - LayerNorm
      - Masked multi-head attention
