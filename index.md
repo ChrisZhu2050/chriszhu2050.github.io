@@ -534,32 +534,31 @@ graph LR
           columns 5
           block:group1:1
             columns 1
-            a["Token embedding"] space
-            b["Positional embedding"]
+            a("Token embedding") space
+            b("Positional embedding")
             
           end
           block:group2:1
             columns 1
-            c1["LayerNorm"] space
-            c2["Masked multi-head attention"] space
-            c3["Add"]
+            c1("LayerNorm") space
+            c2("Masked multi-head attention") space
+            c3("Add")
           end
           block:group3:1
             columns 1
-            d["LayerNorm"] space
-            e["Feed forward neural network"] space
-            h["Add"]
+            d("LayerNorm") space
+            e("Feed forward neural network") space
+            h("Add")
           end
           block:group4:1
             columns 1
-            f["Final LayerNorm"] space
-            g["Linear / LM Head"]
+            f("Final LayerNorm") space
+            g("Linear / LM Head")
 
           end
-          block:group5:1
-            columns 1
-            Logits
-          end
+          
+            z("Logits")
+          
           a --> b
           c1 --> c2
           c2 --> c3
@@ -570,7 +569,7 @@ graph LR
           group1 --> group2
           group2 --> group3
           group3 --> group4
-          group4 --> group5
+          group4 --> z
 
       ```
 
