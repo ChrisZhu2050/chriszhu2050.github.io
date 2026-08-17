@@ -536,12 +536,13 @@ graph LR
             columns 1
             a["Token embedding"]
             b["Positional embedding"]
+            
           end
           block:group2:1
             columns 1
-            LayerNorm
-            c["Masked multi-head attention"]
-            Add
+            c1["LayerNorm"]
+            c2["Masked multi-head attention"]
+            c3["Add"]
           end
           block:group3:1
             columns 1
@@ -553,12 +554,19 @@ graph LR
             columns 1
             f["Final LayerNorm"]
             g["Linear / LM Head"]
-            Add
+            g1["Add"]
           end
           block:group5:1
             columns 1
             Logits
           end
+          a --> b
+          c1 --> c2
+          c2 --> c3
+          d --> e
+          e --> h
+          f --> g
+          g --> g1
           group1 --> group2
           group2 --> group3
           group3 --> group4
