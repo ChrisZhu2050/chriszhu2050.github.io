@@ -335,14 +335,15 @@ table {
 
 .page-content {
   flex: 1 0 auto;
-  min-width: 0;
+  // min-width: 0;
   display: flex;
   justify-content: center;
   padding: $spacing-unit 0;
 }
 
 .content-wrapper {
-  width: min(100%, 1100px);
+  // width: min(100%, 1100px);
+  width: calc(100vw - 336px);
   margin-left: auto;
   margin-right: auto;
 
