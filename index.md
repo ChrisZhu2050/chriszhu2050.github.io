@@ -545,17 +545,24 @@ graph LR
           end
           block:group3:1
             columns 1
-            d["Final LayerNorm"]
-            e["Linear / LM Head"]
-            Add
+            d["LayerNorm"]
+            e["Feed forward neural network"]
+            h["Add"]
           end
           block:group4:1
+            columns 1
+            f["Final LayerNorm"]
+            g["Linear / LM Head"]
+            Add
+          end
+          block:group5:1
             columns 1
             Logits
           end
           group1 --> group2
           group2 --> group3
           group3 --> group4
+          group4 --> group5
 
       ```
 
