@@ -621,7 +621,7 @@ graph LR
           y′= xsinθ + ycosθ  
 
           Where θ from?   
-          (*above θ is below θ<sub>p,i</sub>, don't confuse with the below RoPE Base*) 
+          (*all above θ is below θ<sub>p,i</sub>, don't confuse with the below RoPE Base*) 
           > θ<sub>p,i</sub> ​= p*ω<sub>i</sub>​  
           $$
           \omega_i=\frac{1}{\theta^{2i/d}}
