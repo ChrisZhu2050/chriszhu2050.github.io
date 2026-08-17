@@ -587,16 +587,53 @@ graph LR
           ```  
 
      - Positional embedding
-        > Original transformer's sin/cos method is almost deprecated  
+        > Original transformer's Sinusoidal Positional Encoding is almost deprecated:  
         X = TokenEmbedding + PositionEmbedding
         - RoPE(Rotary Position Embedding)  
           Where RoPE happens:
           > X = TokenEmbedding  
           Q = XW<sub>Q​</sub>   
-          K = XW<sub>K</sub>​  
-          Q′= RoPE(Q)  
-          K′= RoPE(K)  
+          K = XW<sub>K</sub>  
+          <br>  
+
+          Then:  ​  
+            > Q′= RoPE(Q)  
+            K′= RoPE(K)  
+  
+
+          What's RoPE？
+          > $$
+              \begin{bmatrix}
+              x' \\
+              y'
+              \end{bmatrix}
+              =
+              \begin{bmatrix}
+              \cos\theta & -\sin\theta \\
+              \sin\theta & \cos\theta
+              \end{bmatrix}
+              \begin{bmatrix}
+              x \\
+              y
+              \end{bmatrix}
+            $$  
+          > x′= xcosθ − ysinθ  
+          y′= xsinθ + ycosθ  
+
+          Where θ from?   
+          (*above θ is below θ<sub>p,i</sub>, don't confuse with the below RoPE Base*) 
+          > θ<sub>p,i</sub> ​= p*ω<sub>i</sub>​  
           $$
+          \omega_i=\frac{1}{\theta^{2i/d}}
+          $$
+          ω<sub>i</sub> => Rotary frequency  
+          d => Attention head dimension  
+          i => 0,1,2,…,d/2−1  
+          θ => RoPE Base => normally the value is 10000
+
+          Finally:
+
+          >$$
           \mathrm{Attention}
           =
           \mathrm{Softmax}
@@ -604,7 +641,7 @@ graph LR
           \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}
           \right)V
           $$
-          
+
 
         
      - LayerNorm
