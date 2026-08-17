@@ -534,26 +534,26 @@ graph LR
           columns 5
           block:group1:1
             columns 1
-            a["Token embedding"]
+            a["Token embedding"] space
             b["Positional embedding"]
             
           end
           block:group2:1
             columns 1
-            c1["LayerNorm"]
-            c2["Masked multi-head attention"]
+            c1["LayerNorm"] space
+            c2["Masked multi-head attention"] space
             c3["Add"]
           end
           block:group3:1
             columns 1
-            d["LayerNorm"]
-            e["Feed forward neural network"]
+            d["LayerNorm"] space
+            e["Feed forward neural network"] space
             h["Add"]
           end
           block:group4:1
             columns 1
-            f["Final LayerNorm"]
-            g["Linear / LM Head"]
+            f["Final LayerNorm"] space
+            g["Linear / LM Head"] space
             g1["Add"]
           end
           block:group5:1
