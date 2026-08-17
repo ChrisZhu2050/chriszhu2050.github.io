@@ -575,9 +575,22 @@ graph LR
 
      - Token embedding
         > About Weight, refer to [Weight initialization](#weights-initialization)
-        
+          ```mermaid
+              graph LR
+                  A("`Input
+                  (*Token IDs*)
+                  `") --> B("`Search token in Weight and return the row vector
+                  (*Weight: V x d<sub>model</sub>*)
+                  `")--> D("`Output
+                  *[seq_len, d<sub>model</sub>]*
+                  `")  
+          ```  
 
      - Positional embedding
+        > Original transformer's sin/cos method is deprecated
+        - RoPE(Rotary Position Embedding)
+
+        
      - LayerNorm
      - Masked multi-head attention
      - Add
