@@ -529,7 +529,13 @@ graph LR
         b. No 2nd Multiple-head attention(Cross Attention)  
         c. Post-LN instead of Pre-LN 
 
-
+      <!-- ```mermaid
+              swimlane-beta
+                subgraph Sales
+                  lead[Qualify lead]
+                  quote[Prepare quote]
+                end 
+      ```  -->
 
      - Token embedding
      - Positional embedding

@@ -334,10 +334,11 @@ table {
    ======================================== */
 
 .page-content {
-  flex: 1;
+  flex: 1 0 auto;
   min-width: 0;
   display: flex;
   justify-content: center;
+  padding: $spacing-unit 0;
 }
 
 .content-wrapper {
