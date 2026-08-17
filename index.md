@@ -529,10 +529,9 @@ graph LR
         b. No 2nd Multiple-head attention(Cross Attention)  
         c. Post-LN instead of Pre-LN 
 
-      ```mermaid
-          graph LR
-            A("`Token embedding`") --> B("`Positional embedding`") --> C("`Cross Entropy Loss`") 
-      ```
+        ```mermaid
+            
+        ```
 
 
      - Token embedding
