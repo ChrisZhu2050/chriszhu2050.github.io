@@ -529,13 +529,35 @@ graph LR
         b. No 2nd Multiple-head attention(Cross Attention)  
         c. Post-LN instead of Pre-LN 
 
-      <!-- ```mermaid
-              swimlane-beta
-                subgraph Sales
-                  lead[Qualify lead]
-                  quote[Prepare quote]
-                end 
-      ```  -->
+      ```mermaid
+          block
+          columns 4
+          block:group1:1
+            columns 1
+            a["Token embedding"]
+            b["Positional embedding"]
+          end
+          block:group2:1
+            columns 1
+            LayerNorm
+            c["Masked multi-head attention"]
+            Add
+          end
+          block:group3:1
+            columns 1
+            d["Final LayerNorm"]
+            e["Linear / LM Head"]
+            Add
+          end
+          block:group4:1
+            columns 1
+            Logits
+          end
+          group1 --> group2
+          group2 --> group3
+          group3 --> group4
+
+      ```
 
      - Token embedding
      - Positional embedding
