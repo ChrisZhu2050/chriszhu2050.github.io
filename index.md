@@ -532,15 +532,15 @@ graph LR
       ```mermaid
           block
           columns 5
-          block:group1:1
-            columns 1
-            a("Token embedding") space
-            b("Positional embedding")
+
+            a("Token embedding")
             
-          end
+
           block:group2:1
             columns 1
             c1("LayerNorm") space
+            b1("Q/K/V") space
+            b("Positional embedding") space
             c2("Masked multi-head attention") space
             c3("Add")
           end
@@ -559,19 +559,22 @@ graph LR
           
             z("Logits")
           
-          a --> b
-          c1 --> c2
+
+          c1 --> b1
+          b1 --> b
+          b --> c2
           c2 --> c3
           d --> e
           e --> h
           f --> g
 
-          group1 --> group2
+          a --> group2
           group2 --> group3
           group3 --> group4
           group4 --> z
 
-      ```
+      ```  
+      <br>  
 
      - Token embedding
         > About Weight, refer to [Weight initialization](#weights-initialization)  
@@ -585,65 +588,8 @@ graph LR
                   *[seq_len, d<sub>model</sub>]*
                   `")  
           ```  
-
-     - Positional embedding
-        > Original transformer's Sinusoidal Positional Encoding is almost deprecated:  
-        X = TokenEmbedding + PositionEmbedding
-        - RoPE(Rotary Position Embedding)  
-          Where RoPE happens:
-          > X = TokenEmbedding  
-          Q = XW<sub>Q​</sub>   
-          K = XW<sub>K</sub>  
-          <br>  
-
-          Then:  ​  
-            > Q′= RoPE(Q)  
-            K′= RoPE(K)  
-  
-
-          What's RoPE？
-          > $$
-              \begin{bmatrix}
-              x' \\
-              y'
-              \end{bmatrix}
-              =
-              \begin{bmatrix}
-              \cos\theta & -\sin\theta \\
-              \sin\theta & \cos\theta
-              \end{bmatrix}
-              \begin{bmatrix}
-              x \\
-              y
-              \end{bmatrix}
-            $$  
-          > x′= xcosθ − ysinθ  
-          y′= xsinθ + ycosθ  
-
-          Where θ from?   
-          (*all above θ is below θ<sub>p,i</sub>, don't confuse with the below RoPE Base*) 
-          > θ<sub>p,i</sub> ​= p*ω<sub>i</sub>​  
-          $$
-          \omega_i=\frac{1}{\theta^{2i/d}}
-          $$  
-          ω<sub>i</sub> => Rotary frequency  
-          d => Attention head dimension  
-          i => A certain two-dimensional dimension of Q/K  => 0,1,2,…,d/2−1  
-          θ => RoPE Base => normally the value is 10000
-
-          Finally:
-
-          >$$
-          \mathrm{Attention}
-          =
-          \mathrm{Softmax}
-          \left(
-          \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}
-          \right)V
-          $$
-
-
-        
+      <br>
+     
      - LayerNorm
           ```mermaid
               graph LR
@@ -671,9 +617,9 @@ graph LR
          output y≈[−1.2247,0,1.2247]  
 
          Final Output:
-         >  $$Y \in \mathbb R^{N\times D}$$
-
-     - Masked multi-head attention
+         >  $$Y \in \mathbb R^{N\times D}$$  
+         <br> 
+      - Q/K/V Calculation
         ```mermaid
               graph LR
                   A("`Input                   x ∈ R<sup>N×D</sup>
@@ -683,14 +629,7 @@ graph LR
                   V = xW<sub>V</sub>
                   (W<sub>Q,K,V</sub> ∈ R<sup>D×D</sup>)
                   
-                  `")--> 
-                  C("`?
-
-                  `")--> 
-                  D("?
-                    
-
-                  ")  
+                  `") 
           ```  
           >  
 
@@ -708,17 +647,77 @@ graph LR
         q<sub>i1</sub> = 1 * W<sub>Q,11</sub> + 2 * W<sub>Q,21</sub> + 0 * W<sub>Q,31</sub> + (-1) * W<sub>Q,41</sub>  
         >$$q_i \in \mathbb R^{D}$$
         
-       > Q= 
-       >$$
-        \begin{pmatrix}
-        q_{1}\\
-        q_{2}\\
-        ... \\
-        q_{N}
-        \end{pmatrix}  
-        $$ 
-        What's multi-head?
-        
+        > Q= 
+        >$$
+          \begin{pmatrix}
+          q_{1}\\
+          q_{2}\\
+          ... \\
+          q_{N}
+          \end{pmatrix}  
+          $$   
+
+        <br>
+      - Positional embedding
+          > Original transformer's Sinusoidal Positional Encoding is almost deprecated:  
+          X = TokenEmbedding + PositionEmbedding
+          - RoPE(Rotary Position Embedding)  
+            Where RoPE happens:
+            > X = TokenEmbedding  
+            Q = XW<sub>Q​</sub>   
+            K = XW<sub>K</sub>  
+            <br>  
+
+            Then:  ​  
+              > Q′= RoPE(Q)  
+              K′= RoPE(K)  
+
+
+            What's RoPE？
+            > $$
+                \begin{bmatrix}
+                x' \\
+                y'
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \cos\theta & -\sin\theta \\
+                \sin\theta & \cos\theta
+                \end{bmatrix}
+                \begin{bmatrix}
+                x \\
+                y
+                \end{bmatrix}
+              $$  
+            > x′= xcosθ − ysinθ  
+            y′= xsinθ + ycosθ  
+
+            Where θ from?   
+            (*all above θ is below θ<sub>p,i</sub>, don't confuse with the below RoPE Base*) 
+            > θ<sub>p,i</sub> ​= p*ω<sub>i</sub>​  
+            $$
+            \omega_i=\frac{1}{\theta^{2i/d}}
+            $$  
+            ω<sub>i</sub> => Rotary frequency  
+            d => Attention head dimension  
+            i => A certain two-dimensional dimension of Q/K  => 0,1,2,…,d/2−1  
+            θ => RoPE Base => normally the value is 10000
+
+            Finally:
+
+            >$$
+            \mathrm{Attention}
+            =
+            \mathrm{Softmax}
+            \left(
+            \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}
+            \right)V
+            $$
+
+
+          
+
+     
 
      - Add
      - 2nd LayerNorm
