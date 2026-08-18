@@ -720,7 +720,7 @@ graph LR
 
      - Masked multi-head attention  
         $$
-        Q'K'^T = 
+        Q'K'^T = T \times T
         $$
 
      - Add
