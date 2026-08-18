@@ -6,7 +6,7 @@ title: "LLM Essential"
   
 ***  
   
-GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))  
+GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))           [[>>>]](#whereami)
 
 ```mermaid
 
@@ -722,7 +722,7 @@ graph LR
         $$
         Q'K'^T = T \times T
         $$
-
+      <a href="" id="whereami"/>
      - Add
      - 2nd LayerNorm
      - Feed forward neural network
