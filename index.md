@@ -698,9 +698,10 @@ graph LR
         >$$
         q_i = x_i \cdot W_Q = \left[ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k1},\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k2},\ \dots,\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,kD} \right]
         $$  
+
         > Q, K, V ∈ R<sup>N×D</sup>  
-        x<sub>ik</sub>: The k-th value of the i-th row vector of X  
-        W<sub>Q,kj</sub>: the parameter in the k-th row and j-th column of the weight matrix  
+        x<sub>ik</sub> => The k-th value of the i-th row vector of X  
+        W<sub>Q,kj</sub> => the parameter in the k-th row and j-th column of the weight matrix  
 
         e.g.
         > D=4, x=[1,2,0,−1], W<sub>Q</sub> = 4*4 matrix  
@@ -716,6 +717,8 @@ graph LR
         q_{N}
         \end{pmatrix}  
         $$ 
+        What's multi-head?
+        
 
      - Add
      - 2nd LayerNorm
