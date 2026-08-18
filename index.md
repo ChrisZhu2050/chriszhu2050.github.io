@@ -684,13 +684,10 @@ graph LR
                   (W<sub>Q,K,V</sub> ∈ R<sup>D×D</sup>)
                   
                   `")--> 
-                  C("`Standalization  
-
-                  $$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^{2} + \epsilon}}$$
+                  C("`?
 
                   `")--> 
-                  D("Output:  
-                    $$y_i = \gamma \cdot \hat{x}_i + \beta$$
+                  D("?
                     
 
                   ")  
@@ -700,7 +697,7 @@ graph LR
         What happened in Q = xW<sub>Q</sub> ?
         >$$
         q_i = x_i \cdot W_Q = \left[ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k1},\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k2},\ \dots,\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,kD} \right]
-        $$
+        $$  
         > Q, K, V ∈ R<sup>N×D</sup>  
         x<sub>ik</sub>: The k-th value of the i-th row vector of X  
         W<sub>Q,kj</sub>: the parameter in the k-th row and j-th column of the weight matrix  
@@ -710,7 +707,7 @@ graph LR
         q<sub>i1</sub> = 1 * W<sub>Q,11</sub> + 2 * W<sub>Q,21</sub> + 0 * W<sub>Q,31</sub> + (-1) * W<sub>Q,41</sub>  
         >$$q_i \in \mathbb R^{D}$$
         
-       > Q=> 
+       > Q= 
        >$$
         \begin{pmatrix}
         q_{1}\\
