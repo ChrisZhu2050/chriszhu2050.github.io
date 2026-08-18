@@ -576,8 +576,9 @@ graph LR
       ```  
       <br>  
 
-     - Token embedding
+     - Token embedding  
         > About Weight, refer to [Weight initialization](#weights-initialization)  
+        
           ```mermaid
               graph LR
                   A("`Input
