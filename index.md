@@ -682,7 +682,7 @@ graph LR
                   K = xW<sub>K</sub>
                   V = xW<sub>V</sub>
                   (W<sub>Q,K,V</sub> ∈ R<sup>D×D</sup>)
-                  (Q,K,V ∈ R<sup>N×D</sup>)
+                  
                   `")--> 
                   C("`Standalization  
 
@@ -696,6 +696,19 @@ graph LR
                   ")  
           ```  
           > 
+        What happened in Q = xW<sub>Q</sub> ?
+        >$$
+        q_i = x_i \cdot W_Q = \left[ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k1},\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k2},\ \dots,\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,kD} \right]
+        $$
+        > Q, K, V ∈ R<sup>N×D</sup>  
+        x<sub>ik</sub>: The k-th value of the i-th row vector of X  
+        W<sub>Q,kj</sub>: the parameter in the k-th row and j-th column of the weight matrix  
+
+        e.g.
+        > D=4, x=[1,2,0,−1], W<sub>Q</sub> = 4*4 matrix  
+        q<sub>i1</sub> = 1 * W<sub>Q,11</sub> + 2 * W<sub>Q,21</sub> + 0 * W<sub>Q,31</sub> + (-1) * W<sub>Q,41</sub>  
+        >$$q_i \in \mathbb R^{D}$$
+
      - Add
      - 2nd LayerNorm
      - Feed forward neural network
