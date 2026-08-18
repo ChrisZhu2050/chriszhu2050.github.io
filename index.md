@@ -578,7 +578,7 @@ graph LR
 
      - Token embedding  
         > About Weight, refer to [Weight initialization](#weights-initialization)  
-        
+
           ```mermaid
               graph LR
                   A("`Input
@@ -619,7 +619,8 @@ graph LR
 
          Final Output:
          >  $$Y \in \mathbb R^{N\times D}$$  
-         <br> 
+         <br>  
+         
       - Q/K/V Calculation
         ```mermaid
               graph LR
@@ -715,10 +716,9 @@ graph LR
             \right)V
             $$
 
+      <br>  
 
-          
-
-     
+     - Masked multi-head attention  
 
      - Add
      - 2nd LayerNorm
