@@ -574,7 +574,7 @@ graph LR
       ```
 
      - Token embedding
-        > About Weight, refer to [Weight initialization](#weights-initialization)
+        > About Weight, refer to [Weight initialization](#weights-initialization)  
           ```mermaid
               graph LR
                   A("`Input
@@ -645,9 +645,59 @@ graph LR
 
         
      - LayerNorm
+          ```mermaid
+              graph LR
+                  A("`Input x<sub>i</sub>  
+                    
+                  ( $$X \in \mathbb R^{N\times D}$$)
+                  `") --> B("`Calculate average(μ) & σ<sup>2</sup>
+
+                  `")--> C("`Standalization  
+
+                  $$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^{2} + \epsilon}}$$
+
+                  `")--> D("Output:  
+                    $$y_i = \gamma \cdot \hat{x}_i + \beta$$
+                    
+
+                  ")  
+          ```  
+          > N = Batch size × Seq len  
+          Normally ϵ = 10 <sup>-5</sup>  
+          Initialy γ=1,β=0 and $γ,β \in \mathbb R^{D}$, will be optimized during training  
+
+          e.g.   
+         > original x=[3,4,5]  
+         output y≈[−1.2247,0,1.2247]  
+
+         Final Output:
+         >  $$Y \in \mathbb R^{N\times D}$$
+
      - Masked multi-head attention
+        ```mermaid
+              graph LR
+                  A("`Input                   x ∈ R<sup>N×D</sup>
+                  `") --> 
+                  B("`Q = xW<sub>Q</sub> 
+                  K = xW<sub>K</sub>
+                  V = xW<sub>V</sub>
+                  (W<sub>Q,K,V</sub> ∈ R<sup>D×D</sup>)
+                  (Q,K,V ∈ R<sup>N×D</sup>)
+                  `")--> 
+                  C("`Standalization  
+
+                  $$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^{2} + \epsilon}}$$
+
+                  `")--> 
+                  D("Output:  
+                    $$y_i = \gamma \cdot \hat{x}_i + \beta$$
+                    
+
+                  ")  
+          ```  
+          > 
      - Add
-     - LayerNorm
+     - 2nd LayerNorm
      - Feed forward neural network
      - Add
      - Final LayerNorm
