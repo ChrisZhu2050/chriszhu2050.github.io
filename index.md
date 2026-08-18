@@ -695,7 +695,8 @@ graph LR
 
                   ")  
           ```  
-          > 
+          >  
+
         What happened in Q = xW<sub>Q</sub> ?
         >$$
         q_i = x_i \cdot W_Q = \left[ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k1},\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k2},\ \dots,\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,kD} \right]
@@ -708,6 +709,16 @@ graph LR
         > D=4, x=[1,2,0,−1], W<sub>Q</sub> = 4*4 matrix  
         q<sub>i1</sub> = 1 * W<sub>Q,11</sub> + 2 * W<sub>Q,21</sub> + 0 * W<sub>Q,31</sub> + (-1) * W<sub>Q,41</sub>  
         >$$q_i \in \mathbb R^{D}$$
+        
+       > Q=> 
+       >$$
+        \begin{pmatrix}
+        q_{1}\\
+        q_{2}\\
+        ... \\
+        q_{N}
+        \end{pmatrix}  
+        $$ 
 
      - Add
      - 2nd LayerNorm
