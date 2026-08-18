@@ -620,7 +620,7 @@ graph LR
          Final Output:
          >  $$Y \in \mathbb R^{N\times D}$$  
          <br>  
-         
+
       - Q/K/V Calculation
         ```mermaid
               graph LR
@@ -719,6 +719,9 @@ graph LR
       <br>  
 
      - Masked multi-head attention  
+        $$
+        Q'K'^T = 
+        $$
 
      - Add
      - 2nd LayerNorm
