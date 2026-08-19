@@ -784,7 +784,8 @@ graph LR
         Scaling:  
         >$$
         \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}
-        $$
+        $$  
+        
         Causal Mask:  
         > Shape:[T × T]  
 
