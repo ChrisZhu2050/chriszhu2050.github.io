@@ -670,7 +670,7 @@ graph LR
             > X = TokenEmbedding  
             Q = XW<sub>Q​</sub>   
             K = XW<sub>K</sub>  
-            
+
             <br>  
 
             Then:  ​  
@@ -873,12 +873,39 @@ graph LR
           $$  
         > ***O<sub>change</sub> ​= 0.245V<sub>I</sub> ​+ 0.090V<sub>believe</sub> ​+ 0.665V<sub>change</sub>*** 
 
-        Attention weights determine how much the V of each token contributes to the current output.
+        >One of heads output like this:  
+        $$
+        O_i=
+        \begin{bmatrix}
+        O_I \\
+        O_{believe} \\
+        O_{change} \\
+        O_{is} \\
+        O_{happening}
+        \end{bmatrix}
+        $$
 
+        Attention weights determine how much the V of each token contributes to the current output.  
+        Final Output:  
 
-      <a href="" id="whereami"/>  
-
+        ```mermaid
+            graph TD
+                Z("Input from pre-LN") -->A
+                Z-->B
+                Z-->D
+                A("`Head1
+                Output<sub>1</sub>
+                `") --> C("`O<sub>MHA</sub>=Concat(Output<sub>1</sub>, O<sub>2</sub>...,O<sub>h</sub>)*W<sub>O</sub>
+                `")
+                B("`Head2
+                O<sub>2</sub>
+                `")--> C
+                D("`Head3
+                O<sub>3</sub>
+                `")--> C
+        ```
      - Add
+     <a href="" id="whereami"/>  
      - 2nd LayerNorm
      - Feed forward neural network
      - Add
