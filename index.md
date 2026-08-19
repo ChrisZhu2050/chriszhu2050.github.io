@@ -904,12 +904,12 @@ graph LR
                 O<sub>3</sub>
                 `")--> C
         ```
-        >Concat example:
-        $$d_{head}=4$$
-        $$h=2$$
-        $$O_1 \in R^{5\times4}$$
-        $$O_2 \in R^{5\times4}$$
-        $$Concat(O_1​,O_2​)\in R^{5\times8}$$  
+        >Concat example:  
+        $$d_{head}=4$$  
+        $$h=2$$  
+        $$O_1 \in R^{5\times4}$$  
+        $$O_2 \in R^{5\times4}$$  
+        $$Concat(O_1​,O_2​)\in R^{5\times8}$$    
 
         >$$
         \operatorname{Concat}(O_1,\ldots,O_h)
@@ -917,7 +917,10 @@ graph LR
         \mathbb{R}^{T\times d_{\mathrm{model}}}
         $$
 
-        
+        Why need W<sub>O</sub>?  
+        >concat combine all the heads outputs.    
+        W<sub>O</sub> responsible for reunion the info via projection to W<sub>O</sub> weights.
+
      - Add
      <a href="" id="whereami"/>  
      - 2nd LayerNorm
