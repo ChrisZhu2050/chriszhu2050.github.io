@@ -846,7 +846,7 @@ graph LR
         $$  
       
         > $$ 
-        A=
+        A=Softmax(S_{masked}) = 
         \begin{bmatrix}
         1.000 & 0     & 0     & 0     & 0 \\
         0.269 & 0.731 & 0     & 0     & 0 \\
