@@ -670,6 +670,7 @@ graph LR
             > X = TokenEmbedding  
             Q = XW<sub>Q​</sub>   
             K = XW<sub>K</sub>  
+            
             <br>  
 
             Then:  ​  
@@ -791,31 +792,28 @@ graph LR
 
         e.g. T = 4  
         
-        $$mask\_bool =  
+        >$$mask\_bool =  
         \begin{pmatrix}
         F & T & T & T\\
         F & F & T & T\\
         F & F & F & T\\
         F & F & F & F\\
-
         \end{pmatrix}  
         $$
 
-        $$M(causal\_scores) = 
+        >$$M(causal\_scores) = 
         \begin{pmatrix}
         0 & −∞ & −∞ & −∞\\
         0 & 0 & −∞ & −∞\\
         0 & 0 & 0 & −∞\\
         0 & 0 & 0 & 0\\
-
         \end{pmatrix}  
         $$  
 
         > S<sub>masked</sub> = Score + causal_scores 
 
-        $$
+        >$$
         S_{masked}=
-        
         \left(
         \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}+M
         \right)
@@ -834,8 +832,8 @@ graph LR
         > Since: $e^{−∞} →0$ 
         > $$A = Softmax(S_{masked})$$  
         
-        > e.g.   
-        Tokens: ***I   believe  change   is   happening***    
+        e.g.   
+        Tokens: ***I   believe  change   is   happening***     
         >$$  
         S_{masked}=
         \begin{bmatrix}
@@ -858,21 +856,21 @@ graph LR
         \end{bmatrix}
         $$  
 
-        > for example: ***A<sub>change</sub> ​= [0.245,0.090,0.665,0,0]***
+        for example: ***A<sub>change</sub> ​= [0.245,0.090,0.665,0,0]***
        
 
         Why the above attention weights A need to multiply V?
-        > Attention = A x V  
-        > $$
-        V=
-        \begin{bmatrix}
-        V_I \\
-        V_{believe} \\
-        V_{change} \\
-        V_{is} \\
-        V_{happening}
-        \end{bmatrix}
-        $$  
+          > Attention = A x V  
+          > $$
+          V=
+          \begin{bmatrix}
+          V_I \\
+          V_{believe} \\
+          V_{change} \\
+          V_{is} \\
+          V_{happening}
+          \end{bmatrix}
+          $$  
         > ***O<sub>change</sub> ​= 0.245V<sub>I</sub> ​+ 0.090V<sub>believe</sub> ​+ 0.665V<sub>change</sub>*** 
 
         Attention weights determine how much the V of each token contributes to the current output.
