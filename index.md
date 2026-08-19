@@ -835,9 +835,9 @@ graph LR
         > $$A = Softmax(S_{masked})$$  
         
         > e.g.   
-        Tokens: ***I   believe  change   is   happening***  
+        Tokens: ***I   believe  change   is   happening***    
         >$$  
-         S_{masked}=
+        S_{masked}=
         \begin{bmatrix}
         2.0 & -\infty & -\infty & -\infty & -\infty \\
         1.0 & 2.0 & -\infty & -\infty & -\infty \\
