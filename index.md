@@ -858,7 +858,7 @@ graph LR
         \end{bmatrix}
         $$  
 
-        > for example: A<sub>change</sub> ​= [0.245,0.090,0.665,0,0]
+        > for example: ***A<sub>change</sub> ​= [0.245,0.090,0.665,0,0]***
        
 
         Why the above attention weights A need to multiply V?
@@ -874,7 +874,7 @@ graph LR
           V_{happening}
           \end{bmatrix}
           $$  
-        > O<sub>change</sub> ​= 0.245V<sub>I</sub> ​+ 0.090V<sub>love</sub> ​+ 0.665V<sub>AI</sub>​ 
+        > ***O<sub>change</sub> ​= 0.245V<sub>I</sub> ​+ 0.090V<sub>believe</sub> ​+ 0.665V<sub>change</sub>*** 
 
         Attention weights determine how much the V of each token contributes to the current output.
 
