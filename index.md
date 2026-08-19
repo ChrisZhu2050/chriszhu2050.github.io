@@ -863,17 +863,16 @@ graph LR
 
         Why the above attention weights A need to multiply V?
         > Attention = A x V  
-
-          $$
-          V=
-          \begin{bmatrix}
-          V_I \\
-          V_{believe} \\
-          V_{change} \\
-          V_{is} \\
-          V_{happening}
-          \end{bmatrix}
-          $$  
+        > $$
+        V=
+        \begin{bmatrix}
+        V_I \\
+        V_{believe} \\
+        V_{change} \\
+        V_{is} \\
+        V_{happening}
+        \end{bmatrix}
+        $$  
         > ***O<sub>change</sub> ​= 0.245V<sub>I</sub> ​+ 0.090V<sub>believe</sub> ​+ 0.665V<sub>change</sub>*** 
 
         Attention weights determine how much the V of each token contributes to the current output.
