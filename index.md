@@ -6,7 +6,7 @@ title: "LLM Essential"
   
 ***  
   
-GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))           [[>>>]](#whereami)
+GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))           [[>>]](#whereami)
 
 ```mermaid
 
