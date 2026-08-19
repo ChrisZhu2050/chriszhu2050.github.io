@@ -829,8 +829,8 @@ graph LR
         $$  
 
         What Softmax will do on S<sub>masked</sub>?
-        > Since: $e^{−∞} →0$ 
-        > $$A = Softmax(S_{masked})$$  
+        > Since: $e^{−∞} →0$   
+        $$A = Softmax(S_{masked})$$  
         
         e.g.   
         Tokens: ***I   believe  change   is   happening***     
