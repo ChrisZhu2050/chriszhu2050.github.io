@@ -801,7 +801,7 @@ graph LR
         \end{pmatrix}  
         $$
 
-        $$causal\_scores = 
+        $$M(causal\_scores) = 
         \begin{pmatrix}
         0 & −∞ & −∞ & −∞\\
         0 & 0 & −∞ & −∞\\
@@ -810,12 +810,73 @@ graph LR
 
         \end{pmatrix}  
         $$  
+
         > S<sub>masked</sub> = Score + causal_scores 
-         
+
+        $$
+        S_{masked}=
         
-        Softmax:  
-        > $$Softmax(S_{masked})$$  
-          $$e^{−∞} →0$$
+        \left(
+        \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}+M
+        \right)
+        $$
+        
+        What's Softmax?  
+        > For x=[x1​,x2​,…,xn​]
+        $$
+        \operatorname{Softmax}(x_i)
+        =
+        \frac{e^{x_i}}
+        {\sum_{j=1}^{n}e^{x_j}}
+        $$  
+
+        What Softmax will do on S<sub>masked</sub>?
+        > Since: $e^{−∞} →0$ 
+        > $$A = Softmax(S_{masked})$$  
+        
+        > e.g.   
+        Tokens: ***I   love   AI   very   much***
+        >$$
+         S_{masked}=
+        \begin{bmatrix}
+        2.0 & -\infty & -\infty & -\infty & -\infty \\
+        1.0 & 2.0 & -\infty & -\infty & -\infty \\
+        2.0 & 1.0 & 3.0 & -\infty & -\infty \\
+        1.0 & 2.0 & 3.0 & 4.0 & -\infty \\
+        2.0 & 1.0 & 3.0 & 4.0 & 5.0
+        \end{bmatrix}
+        $$  
+      
+        > $$ 
+        A=
+        \begin{bmatrix}
+        1.000 & 0     & 0     & 0     & 0 \\
+        0.269 & 0.731 & 0     & 0     & 0 \\
+        0.245 & 0.090 & 0.665 & 0     & 0 \\
+        0.032 & 0.087 & 0.237 & 0.644 & 0 \\
+        0.032 & 0.012 & 0.032 & 0.087 & 0.837
+        \end{bmatrix}
+        $$  
+
+        > for example: A<sub>AI</sub> ​= [0.245,0.090,0.665,0,0]
+       
+
+        Why the above attention weights A need to multiply V?
+        > Attention = A x V  
+
+          $$
+          V=
+          \begin{bmatrix}
+          V_I \\
+          V_{love} \\
+          V_{AI} \\
+          V_{very} \\
+          V_{much}
+          \end{bmatrix}
+          $$  
+        > O<sub>AI</sub> ​= 0.245V<sub>I</sub> ​+ 0.090V<sub>love</sub> ​+ 0.665V<sub>AI</sub>​ 
+
+        Attention weights determine how much the V of each token contributes to the current output.
 
 
       <a href="" id="whereami"/>  
