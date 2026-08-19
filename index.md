@@ -835,8 +835,8 @@ graph LR
         > $$A = Softmax(S_{masked})$$  
         
         > e.g.   
-        Tokens: ***I   love   AI   very   much***
-        >$$
+        Tokens: ***I   believe  change   is   happening***  
+        >$$  
          S_{masked}=
         \begin{bmatrix}
         2.0 & -\infty & -\infty & -\infty & -\infty \\
@@ -858,7 +858,7 @@ graph LR
         \end{bmatrix}
         $$  
 
-        > for example: A<sub>AI</sub> ​= [0.245,0.090,0.665,0,0]
+        > for example: A<sub>change</sub> ​= [0.245,0.090,0.665,0,0]
        
 
         Why the above attention weights A need to multiply V?
@@ -868,13 +868,13 @@ graph LR
           V=
           \begin{bmatrix}
           V_I \\
-          V_{love} \\
-          V_{AI} \\
-          V_{very} \\
-          V_{much}
+          V_{believe} \\
+          V_{change} \\
+          V_{is} \\
+          V_{happening}
           \end{bmatrix}
           $$  
-        > O<sub>AI</sub> ​= 0.245V<sub>I</sub> ​+ 0.090V<sub>love</sub> ​+ 0.665V<sub>AI</sub>​ 
+        > O<sub>change</sub> ​= 0.245V<sub>I</sub> ​+ 0.090V<sub>love</sub> ​+ 0.665V<sub>AI</sub>​ 
 
         Attention weights determine how much the V of each token contributes to the current output.
 
