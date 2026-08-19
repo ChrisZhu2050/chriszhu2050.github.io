@@ -618,7 +618,9 @@ graph LR
          output y≈[−1.2247,0,1.2247]  
 
          Final Output:
-         >  $$Y \in \mathbb R^{N\times D}$$  
+         >  $$
+            Y \in \mathbb R^{N\times D}
+            $$  
          <br>  
 
       - Q/K/V Calculation
@@ -719,10 +721,100 @@ graph LR
       <br>  
 
      - Masked multi-head attention  
+        
+        How to reshap to *h* heads?  
+        > $$
+        d_k = \frac {d_{model}}{h}
         $$
-        Q'K'^T = T \times T
+        > [B, T, d<sub>model</sub>]==>[B, T, h, d<sub>k</sub>]  
+        > *The calculation happened on [N, d<sub>k</sub>] dimention!*   
+
+        Why need to do transpose?  
+        e.g. t=3, h=2, d<sub>k</sub>=3
+        here's the sequence of tensor in memory:
+        > $$
+        \begin{pmatrix}
+        p0_{T} & h{0} & C{0} \\
+        p0_{T} & h{0} & C{1} \\
+        p0_{T} & h{0} & C{2} \\
+        p0_{T} & h{1} & C{0} \\
+        p0_{T} & h{1} & C{1} \\
+        p0_{T} & h{1} & C{2} \\
+        p1_{T} & h{0} & C{0} \\
+        p1_{T} & h{0} & C{1} \\
+        ... & ... & ... &\\
+        p2_{T} & h{1} & C{2} & 
+        \end{pmatrix}  
+        $$  
+        > *C==>Component of the tensor* 
+
+        When we caculate on h0, need gather the data of h0 from different blocks.
+
+        > Transpose: [B, T, h, d<sub>k</sub>] => [B, h, T, d<sub>k</sub>]  
+
+        > $$
+        \begin{pmatrix}
+        h{0} & p0_{T} & C{0} \\
+        h{0} & p0_{T} & C{1} \\
+        h{0} & p0_{T} & C{2} \\
+        h{0} & p1_{T} & C{0} \\
+        h{0} & p1_{T} & C{1} \\
+        h{1} & p0_{T} & C{0} \\
+        h{1} & p0_{T} & C{1} \\
+        h{1} & p0_{T} & C{2} \\
+        ... & ... & ... &\\
+        p2_{T} & h{1} & C{2} & 
+        \end{pmatrix}  
+        $$  
+        After transpose, continues data for each heads and more efficient for calculation.  
+
+        ***Break-down of attention calculation:***
+        > $$
+        Score = Q'K'^T = [seq\_len, seq\_len]
         $$
-      <a href="" id="whereami"/>
+        What's dot-product?
+        >$$
+        Score_{ij} = \sum_{k=1}^{d_k} (Q_{ik} \cdot K_{jk})
+        $$ 
+
+        Scaling:
+        >$$
+        \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}
+        $$
+        Causal Mask:  
+        > Shape:[T × T]  
+
+        e.g. T = 4  
+        
+        $$mask\_bool =  
+        \begin{pmatrix}
+        F & T & T & T\\
+        F & F & T & T\\
+        F & F & F & T\\
+        F & F & F & F\\
+
+        \end{pmatrix}  
+        $$
+
+        $$causal\_scores = 
+        \begin{pmatrix}
+        0 & −∞ & −∞ & −∞\\
+        0 & 0 & −∞ & −∞\\
+        0 & 0 & 0 & −∞\\
+        0 & 0 & 0 & 0\\
+
+        \end{pmatrix}  
+        $$  
+        > S<sub>masked</sub> = Score + causal_scores 
+         
+        
+        Softmax:  
+        > $$Softmax(S_{masked})$$
+        > $$e^{−∞} →0
+
+
+      <a href="" id="whereami"/>  
+
      - Add
      - 2nd LayerNorm
      - Feed forward neural network
