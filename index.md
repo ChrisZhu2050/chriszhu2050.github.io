@@ -904,12 +904,12 @@ graph LR
                 O<sub>3</sub>
                 `")--> C
         ```
-        >Concat example:  
-        $$d_{head}=4$$  
-        $$h=2$$  
-        $$O_1 \in R^{5\times4}$$  
-        $$O_2 \in R^{5\times4}$$  
-        $$Concat(O_1​,O_2​)\in R^{5\times8}$$    
+        Concat example:    
+        >$$d_{head}=4$$  
+        >$$h=2$$  
+        >$$O_1 \in R^{5\times4}$$  
+        >$$O_2 \in R^{5\times4}$$  
+        >$$Concat(O_1​,O_2​)\in R^{5\times8}$$    
 
         >$$
         \operatorname{Concat}(O_1,\ldots,O_h)
