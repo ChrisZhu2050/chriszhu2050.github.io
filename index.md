@@ -547,7 +547,7 @@ graph LR
           block:group3:1
             columns 1
             d("LayerNorm") space
-            e("Feed forward neural network") space
+            e("Feed-forward neural network") space
             h("Add")
           end
           block:group4:1
@@ -936,16 +936,25 @@ graph LR
         W<sub>O</sub> responsible for reunion the info via projection to W<sub>O</sub> weights.
 
      - Add  
-        > $$ X_{out} = X_{in} + O_{MHA} $$
-        > $$ X_{in} \in \mathbb R^{(N \times D)} $$
-        > $$ O_{MHA} \in \mathbb R^{(N \times D)} $$
+        > $$ 
+        X_{out} = X_{in} + O_{MHA} 
+        $$  
+        > $$ 
+        X_{in} \in \mathbb R^{(N \times D)} 
+        $$  
+        > $$
+         O_{MHA} \in \mathbb R^{(N \times D)} 
+         $$  
 
      <a href="" id="whereami"/>   
 
-     - 2nd LayerNorm  
-        > [[Refer to layerNorm]](#layernorm)
-     - Feed forward neural network
-        > 1
+     - 2nd LayerNorm 
+        >Above Add's X<sub>out</sub> is input  
+        >The Process may [[Refer to layerNorm]](#layernorm)
+     - Feed-forward neural network
+        > $$
+        FFN(x) = W_2 \times activation(W_1 \times x + b_1) + b_2
+        $$
      - Add
      - Final LayerNorm
      - Linear / LM Head  
