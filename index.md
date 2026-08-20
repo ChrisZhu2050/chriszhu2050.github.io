@@ -159,7 +159,7 @@ graph LR
       <br>
 
   3. FFN (Feed Forward Network)  
-
+      (*Below shows the traditional linear FNN, you may refer to latest [SwiGLU](#swiglu)*)
       ```mermaid
       graph LR
           G("`Attention
@@ -546,9 +546,9 @@ graph LR
           end
           block:group3:1
             columns 1
-            d("LayerNorm") space
+            d("2nd LayerNorm") space
             e("Feed-forward neural network") space
-            h("Add")
+            h("2nd Add")
           end
           block:group4:1
             columns 1
@@ -946,20 +946,70 @@ graph LR
          O_{MHA} \in \mathbb R^{(N \times D)} 
          $$  
 
-     <a href="" id="whereami"/>   
 
      - 2nd LayerNorm 
-        >Above Add's X<sub>out</sub> is input  
+        >The input is from above Add's X<sub>out</sub>  
         >The Process may [[Refer to layerNorm]](#layernorm)
-     - Feed-forward neural network
-        > $$
-        FFN(x) = W_2 \cdot activation(x \cdot W_1  + b_1) + b_2
+     - Feed-forward neural network  
+        <a href="" id="swiglu"/>
+        Most popular sturcture at this moment: SwiGLU  
+        > $SwiGLU\_FFN(x) = (\text{SiLU}(xW_1) \odot (xW_2))W_3$
+
+      
+
+        ```mermaid
+        flowchart LR
+            
+            A("`LayerNorm Output 
+            (x ∈ R<sup>NxD</sup>)
+            `")  --> B("`Gate Path
+            (W1 ∈ R<sup>Nxd<sub>ff</sub></sup>)
+            `") & B1("`Value Path
+            (W2 ∈ R<sup>Nxd<sub>ff</sub></sup>)
+            `")
+            B1 --$$v=x\cdot W_2$$--> E
+            B --$$a=x\cdot W_1$$--> D("`SiLU
+            g=SiLU(a)=a⋅σ(a)
+            σ = Sigmoid()
+            `") --> 
+            E("`$$h^{N\times d_{ff}} = g \odot v$$
+            `") --> F("`$$out^{N\times d_{model}} = h\cdot W_3$$
+            `") 
+        ```   
+        > $ d_{ff} = 8/3\times d_{model} $  
+
+        >W<sub>1</sub>,W<sub>2</sub>,W<sub>3</sub>' shape: [N, d<sub>ff</sub>]  
+        W<sub>1</sub>,W<sub>2</sub>,W<sub>3</sub>  ~ N(0,σ<sup>2</sup>)  
+        
+
+        > $Sigmoid(x) = \frac {1}{1+e^{-x}} $  
+        *For converting the input to (0, 1)*  
+
+        > ⊙=> Hadamard product => $c_{ij} = a_{ij} \times b_{ij} $
+
+ 
+
+     - 2nd Add
+        > $$ 
+        X_{out} = X_{in} + O_{SwiGLU} 
+        $$  
+        > $$ 
+        X_{in}, X_{out},O_{SwiGLU} \in \mathbb R^{(N \times D)} 
         $$
-     - Add
-     - Final LayerNorm
-     - Linear / LM Head  
-     - Logits  
-     
+     - Final LayerNorm  
+        Same mechanism with previous layerNorm, only the position is different.
+     - LM Head and Logits 
+        > $logits = h_{final} \cdot W_{lm\_head}^T + b$  
+
+        > $h_{final} \in \mathbb R^{(N \times D)}$  
+
+        > $W_{lm\_head} \in \mathbb R^{(vocab\_size \times D)}$  
+
+        > $logits \in \mathbb R^{(D \times vocab\_size)}$
+ 
+
+      <a href="" id="whereami"/> 
+
       > *Encoder is not used by GPT*  
 
 
@@ -980,21 +1030,4 @@ graph LR
   
 - Weight update by Adam
     > $ W_n = W_o - η*\nabla L(W_o) $       
-   
-
-
-
-<!-- [![](images\1.png)](https://chriszhu2050.github.io/images/1.png) -->
-<!-- ![](https://chriszhu2050.github.io/images/1.png) -->
-<!-- <br> -->
-
-<!-- ## LLM Fine-tune  
-***
-## LLM Distillation  
-***
-## Agent Framework  
-***
-
-## Data Flywheel
-*** -->
-
+  
