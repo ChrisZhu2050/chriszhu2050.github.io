@@ -590,7 +590,8 @@ graph LR
                   `")  
           ```  
       <br>
-     
+     <a href="" id="layernorm"/>  
+
      - LayerNorm
           ```mermaid
               graph LR
@@ -609,6 +610,7 @@ graph LR
 
                   ")  
           ```  
+          
           > N = Batch size × Seq len  
           Normally ϵ = 10 <sup>-5</sup>  
           Initialy γ=1,β=0 and $γ,β \in \mathbb R^{D}$, will be optimized during training  
@@ -830,7 +832,9 @@ graph LR
 
         What Softmax will do on S<sub>masked</sub>?
         > Since: $e^{−∞} →0$   
-        $$A = Softmax(S_{masked})$$  
+        $$
+        A = Softmax(S_{masked}) 
+        $$  
         
         e.g.   
         Tokens: ***I   believe  change   is   happening***     
@@ -905,11 +909,21 @@ graph LR
                 `")--> C
         ```
         Concat example:    
-        >$$d_{head}=4$$  
-        >$$h=2$$  
-        >$$O_1 \in R^{5\times4}$$  
-        >$$O_2 \in R^{5\times4}$$  
-        >$$Concat(O_1​,O_2​)\in R^{5\times8}$$    
+        >$$
+        d_{head}=4
+        $$  
+        >$$
+        h=2
+        $$  
+        >$$
+        O_1 \in R^{5\times4}
+        $$  
+        >$$
+        O_2 \in R^{5\times4}
+        $$  
+        >$$
+        Concat(O_1​,O_2​)\in R^{5\times8}
+        $$    
 
         >$$
         \operatorname{Concat}(O_1,\ldots,O_h)
@@ -921,10 +935,17 @@ graph LR
         >concat combine all the heads outputs.    
         W<sub>O</sub> responsible for reunion the info via projection to W<sub>O</sub> weights.
 
-     - Add
-     <a href="" id="whereami"/>  
-     - 2nd LayerNorm
+     - Add  
+        > $$ X_{out} = X_{in} + O_{MHA} $$
+        > $$ X_{in} \in \mathbb R^{(N \times D)} $$
+        > $$ O_{MHA} \in \mathbb R^{(N \times D)} $$
+
+     <a href="" id="whereami"/>   
+
+     - 2nd LayerNorm  
+        > [[Refer to layerNorm]](#layernorm)
      - Feed forward neural network
+        > 1
      - Add
      - Final LayerNorm
      - Linear / LM Head  
