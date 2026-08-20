@@ -953,7 +953,7 @@ graph LR
         >The Process may [[Refer to layerNorm]](#layernorm)
      - Feed-forward neural network
         > $$
-        FFN(x) = W_2 \times activation(W_1 \times x + b_1) + b_2
+        FFN(x) = W_2 \cdot activation(W_1 \cdot x + b_1) + b_2
         $$
      - Add
      - Final LayerNorm
