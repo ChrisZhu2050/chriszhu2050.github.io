@@ -1048,8 +1048,6 @@ graph LR
         $$
   
 
-      <a href="" id="whereami"></a> 
-
       > *Encoder is not used by GPT*  
 
 
@@ -1079,6 +1077,7 @@ graph LR
 
 ***  
 ## Training Backward Pass  
+<a href="" id="whereami"></a>  
 - Gradient computation  
 
   > $ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $ 
