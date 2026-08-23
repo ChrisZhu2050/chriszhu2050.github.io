@@ -59,7 +59,7 @@ graph LR
           A("`Token Embedding`")  --> C("`Self-Attention`") --> D("`FFN`") --> F("`LM Head`")
   ```  
 
-  1. Token Embedding  
+  1. ***Token Embedding***  
       <br>
       > Only one in a model!  
 
@@ -72,7 +72,7 @@ graph LR
       > V = 32000  
       d<sub>model</sub> = 512  
 
-      Initialize via **Truncated Normal Distribution**:    
+      Initialize via Truncated Normal Distribution:    
 
       > mean = 0  
       std = 0.02 or 
@@ -101,7 +101,7 @@ graph LR
   
       <br>  
 
-  2.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
+  2.  ***Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)***   
       <br>
       > Each layer has one!  
 
@@ -158,7 +158,7 @@ graph LR
 
       <br>
 
-  3. FFN (Feed Forward Network)  
+  3. ***FFN (Feed Forward Network)***  
       (*Below shows the traditional linear FNN, you may refer to latest [SwiGLU](#swiglu)*)
       ```mermaid
       graph LR
@@ -199,7 +199,7 @@ graph LR
 
         <br> 
 
-  4. MoE (Mixture of Expert)  
+  4. ***MoE (Mixture of Expert)***  
       ```mermaid
       flowchart LR
           
@@ -235,7 +235,7 @@ graph LR
       > W~N(0, σ<sup>2</sup>)  
   <br>   
 
-  5. LM Head  
+  5. ***LM Head***  
       > logits = h*W<sub>head</sub><sup>T</sup>  
 
       *head is hidden state and W<sub>head</sub> is LM Head's weight*
@@ -255,7 +255,7 @@ graph LR
           A("`Normalizer`")  --> B("`Pre-tokenizer`") --> C("`Subword Algorithm`") --> D("`Vocabulary`") --> E("`Post-processor`") --> F("`Token ID Mapping`")
   ```   
   
-  1. Normalizer    
+  1. ***Normalizer***    
       Perform Unicode normalization,  deduplication, or special symbol cleaning to ensure consistent formatting of input text
 
       ```mermaid
@@ -281,7 +281,7 @@ graph LR
       Normally LLM training was not performing the most aggressive normalize because it cause the meaning losing on letters  
     <br>
 
-  2. Pre-tokenizer  
+  2. ***Pre-tokenizer***  
       It's for transferring the corpus to initial chunks for calculating token.  
 
       Regex-based pre-tokenization (GPT used), Ġ present the space:   
@@ -310,7 +310,7 @@ graph LR
       ```   
         <br>
 
-  3. Subword Algorithm  
+  3. ***Subword Algorithm***  
 
       - BPE ([Byte-pair encoding](https://github.com/tpn/pdfs/blob/master/A%20New%20Algorithm%20for%20Data%20Compression%20(1994).pdf))  
         ```mermaid
@@ -362,7 +362,7 @@ graph LR
 
         <br>
     
-  4. Vocabulary  
+  4. ***Vocabulary***  
 
       - Training Data  
         Subset of Raw data of base model training(e.g. BookCorpus, Wikipedia)
@@ -406,7 +406,7 @@ graph LR
 
       <br>
 
-  5. Post-processor  
+  5. ***Post-processor***  
       
         - Add structural mark to the token sequence (such as `<bos>`, `<eos>`)
     
@@ -430,14 +430,14 @@ graph LR
           Post-processor may also happen after the Token ID Mapping, depends on different mechanism of models     
         <br>
 
-  6. Token ID Mapping  
+  6. ***Token ID Mapping***  
 
       ```mermaid
           graph LR
               A("`Token`") --> B("`Vocabulary`") --> C("`Token ID`") --> D("`Transformer`") 
       ```  
       <br>
-  7. Tokenizer Toolkit  
+  7. ***Tokenizer Toolkit***  
       - [SentencePiece](https://github.com/google/sentencepiece)
       - [HuggingFace Tokenizers](https://github.com/huggingface/tokenizers) 
       - [tiktoken](https://github.com/openai/tiktoken)
@@ -454,7 +454,7 @@ graph LR
               [Token-ID mapping]
       ```  
       <br> 
-  8. Popular models' tokenizer and vocabulary info  
+  8. ***Popular models' tokenizer and vocabulary info***  
 
       | Model | Company | Tokenizer | Vocabulary Size | Comments |
       |:----:|:----:|:----:|:----:|:----:|
@@ -472,7 +472,7 @@ graph LR
         graph LR
             A("`Tokenization`") --> D("`Transformer`") --> I("`Cross Entropy Loss`") 
   ```
-  1. Tokenization  
+  1. ***Tokenization***  
   
       ```mermaid
               graph LR
@@ -522,7 +522,7 @@ graph LR
 
 
 
-  2. GPT's Decoder-only Transformer  
+  2. ***GPT's Decoder-only Transformer***  
    <br>
         Differences with original Transformer:  
         > a. No encoder  
@@ -1054,7 +1054,7 @@ graph LR
 
 
 
-  3. cross-entropy Loss  
+  3. ***cross-entropy Loss***  
       - logits --> softmax/sigmoid --> cross-entropy  
 
         > $ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $  
