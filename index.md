@@ -1055,7 +1055,7 @@ graph LR
 
   3. **Comparision**  
     For example if the real 5th word is "happening" and if the output of P5(happening) is:  
-    > P5(happening) = 0.9 => means the loss is relatively small
+    > P5(happening) = 0.9 => means the loss is relatively small  
     > P5(happening) = 0.01 => means the loss is relatively big
 
    
