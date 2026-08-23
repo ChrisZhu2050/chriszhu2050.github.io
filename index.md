@@ -1072,16 +1072,16 @@ graph LR
       > $$
           L_i=-\log p_i(y_i)
         $$
-
-      - Gradient computation  
-
-        > $ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $ 
-
+      An example:  
+      > P(happening)=0.01  
+      $L=−log(0.01)\approx 4.605$ 
 
 
 ***  
 ## Training Backward Pass  
-  
+- Gradient computation  
+
+  > $ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $ 
 - Weight update by Adam
     > $ W_n = W_o - η*\nabla L(W_o) $       
   
