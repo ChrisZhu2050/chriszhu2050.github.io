@@ -59,49 +59,49 @@ graph LR
           A("`Token Embedding`")  --> C("`Self-Attention`") --> D("`FFN`") --> F("`LM Head`")
   ```  
 
-  1. Token Embedding  
-      <br>
-      > Only one in a model!  
+  #### Token Embedding  
 
-      Matrix Shape:  
-      > V × d<sub>model</sub>  
+  > Only one in a model!  
 
-      (*V for Vocabulary size*)
-         
-      e.g.  
-      > V = 32000  
-      d<sub>model</sub> = 512  
+  Matrix Shape:  
+  > V × d<sub>model</sub>  
 
-      Initialize via **Truncated Normal Distribution**:    
+  (*V for Vocabulary size*)
+    
+  e.g.  
+  > V = 32000  
+  d<sub>model</sub> = 512  
 
-      > mean = 0  
-      std = 0.02 or 
-      $\frac{1}{\sqrt d_{model}}$   
-      a: -2.0 * std  
-      b: 2.0 * std  
-      Data Range: [-0.04, 0.04]
-     
-      Example:  
+  Initialize via **Truncated Normal Distribution**:    
 
-      > $$
-      \begin{pmatrix}
-      v_{1} & d_{2} & d_{3} & ... & d_{512} \\
-      v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
-      ... & ... & ... & ...& ...\\
-      v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
-      \end{pmatrix}
-      $$  
-      
+  > mean = 0  
+  std = 0.02 or 
+  $\frac{1}{\sqrt d_{model}}$   
+  a: -2.0 * std  
+  b: 2.0 * std  
+  Data Range: [-0.04, 0.04]
 
-      After initialize:  
-        > $  
-          mean \approx 0\\    
-          std  \approx 0.02  
-          $  
+  Example:  
+
+  > $$
+  \begin{pmatrix}
+  v_{1} & d_{2} & d_{3} & ... & d_{512} \\
+  v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
+  ... & ... & ... & ...& ...\\
+  v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
+  \end{pmatrix}
+  $$  
   
-      <br>  
 
-  2.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
+  After initialize:  
+    > $  
+      mean \approx 0\\    
+      std  \approx 0.02  
+      $  
+
+  <br>  
+
+  1.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
       <br>
       > Each layer has one!  
 
@@ -1013,6 +1013,7 @@ graph LR
         > $Z = logits \in \mathbb R^{(D \times vocab)}$  
 
         e.g.  
+
         >$
         Z_5=
         \begin{bmatrix}
@@ -1021,7 +1022,7 @@ graph LR
         $
 
 
-        The logits will be hte input of Next Layer input, if it's the final layer, then:  
+        The logits will be hte input of Next Layer input, if it's the final layer, then implement the LM Softmax:  
 
         $$
         P_{t,j}
@@ -1035,7 +1036,7 @@ graph LR
         $$p \in \mathbb R ^{T \times V}$$  
         
         e.g.  
-        
+
         $$
         P=
         \begin{bmatrix}
