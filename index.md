@@ -775,7 +775,7 @@ graph LR
 
         After transpose, continues data for each heads and more efficient for calculation.  
 
-        ***Break-down of attention calculation:***  
+        Break-down of attention calculation:  
         > $$
         Score = Q'K'^T = [seq\_len, seq\_len]
         $$
@@ -890,7 +890,7 @@ graph LR
         $$
 
         Attention weights determine how much the V of each token contributes to the current output.  
-        ***Final Output:***  
+        MHA Final Output:  
 
         ```mermaid
             graph TD
