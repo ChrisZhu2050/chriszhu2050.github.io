@@ -999,13 +999,13 @@ graph LR
      - Final LayerNorm  
         Same mechanism with previous layerNorm, only the position is different.
      - LM Head and Logits 
-        > $logits = h_{final} \cdot W_{lm_head}^T + b$  
+        > $logits = h_{final} \cdot W_{lm\_head}^T + b$  
 
         > $h_{final} \in \mathbb R^{(N \times D)}$  
 
-        > $W_{lm\_head} \in \mathbb R^{(vocab_size \times D)}$  
+        > $W_{lm\_head} \in \mathbb R^{(vocab\_size \times D)}$  
 
-        > $logits \in \mathbb R^{(D \times vocab_size)}$
+        > $logits \in \mathbb R^{(D \times vocab\_size)}$
  
 
       <a href="" id="whereami"></a> 
