@@ -531,7 +531,7 @@ graph LR
 
       ```mermaid
           block
-          columns 5
+          columns 6
 
             a("Token embedding")
             
@@ -558,6 +558,8 @@ graph LR
           end
           
             z("Logits")
+            y("Next Layer Input
+            or Softmax")
           
 
           c1 --> b1
@@ -572,6 +574,7 @@ graph LR
           group2 --> group3
           group3 --> group4
           group4 --> z
+          z --> y
 
       ```  
       <br>  
@@ -997,13 +1000,15 @@ graph LR
         X_{in}, X_{out},O_{SwiGLU} \in \mathbb R^{(N \times D)} 
         $$
      - Final LayerNorm  
-        Same mechanism with previous layerNorm, only the position is different.
+        Same mechanism with previous layerNorm, only the position is different.  
+        Output is $h_{final} \in \mathbb R^{(N \times D)}$  
+
      - LM Head and Logits 
         > $logits = h_{final} \cdot W_{head}^T + b$  
 
         > $h_{final} \in \mathbb R^{(N \times D)}$  
 
-        > $W_{lm\_head} \in \mathbb R^{(vocab \times D)}$  
+        > $W_{head} \in \mathbb R^{(vocab \times D)}$  
 
         > $logits \in \mathbb R^{(D \times vocab)}$
  
