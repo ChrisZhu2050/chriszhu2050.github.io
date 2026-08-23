@@ -1022,7 +1022,7 @@ graph LR
 
 
         The logits will be hte input of Next Layer input, if it's the final layer, then:  
-        
+
         $$
         P_{t,j}
         =
@@ -1035,6 +1035,7 @@ graph LR
         $$p \in \mathbb R ^{T \times V}$$  
         
         e.g.  
+        
         $$
         P=
         \begin{bmatrix}
