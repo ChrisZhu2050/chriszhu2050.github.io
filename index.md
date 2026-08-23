@@ -59,47 +59,47 @@ graph LR
           A("`Token Embedding`")  --> C("`Self-Attention`") --> D("`FFN`") --> F("`LM Head`")
   ```  
 
-  ### Token Embedding  
+#### Token Embedding  
 
-  > Only one in a model!  
+> Only one in a model!  
 
-  Matrix Shape:  
-  > V × d<sub>model</sub>  
+Matrix Shape:  
+> V × d<sub>model</sub>  
 
-  (*V for Vocabulary size*)
-    
-  e.g.  
-  > V = 32000  
-  d<sub>model</sub> = 512  
-
-  Initialize via **Truncated Normal Distribution**:    
-
-  > mean = 0  
-  std = 0.02 or 
-  $\frac{1}{\sqrt d_{model}}$   
-  a: -2.0 * std  
-  b: 2.0 * std  
-  Data Range: [-0.04, 0.04]
-
-  Example:  
-
-  > $$
-  \begin{pmatrix}
-  v_{1} & d_{2} & d_{3} & ... & d_{512} \\
-  v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
-  ... & ... & ... & ...& ...\\
-  v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
-  \end{pmatrix}
-  $$  
+(*V for Vocabulary size*)
   
+e.g.  
+> V = 32000  
+d<sub>model</sub> = 512  
 
-  After initialize:  
-    > $  
-      mean \approx 0\\    
-      std  \approx 0.02  
-      $  
+Initialize via **Truncated Normal Distribution**:    
 
-  <br>  
+> mean = 0  
+std = 0.02 or 
+$\frac{1}{\sqrt d_{model}}$   
+a: -2.0 * std  
+b: 2.0 * std  
+Data Range: [-0.04, 0.04]
+
+Example:  
+
+> $$
+\begin{pmatrix}
+v_{1} & d_{2} & d_{3} & ... & d_{512} \\
+v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
+... & ... & ... & ...& ...\\
+v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
+\end{pmatrix}
+$$  
+
+
+After initialize:  
+  > $  
+    mean \approx 0\\    
+    std  \approx 0.02  
+    $  
+
+<br>  
 
   1.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
       <br>
