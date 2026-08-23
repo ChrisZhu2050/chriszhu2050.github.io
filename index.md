@@ -60,46 +60,46 @@ graph LR
   ```  
 
 ### Token Embedding  
-
-> Only one in a model!  
-
-Matrix Shape:  
-> V × d<sub>model</sub>  
-
-(*V for Vocabulary size*)
   
-e.g.  
-> V = 32000  
-d<sub>model</sub> = 512  
+  > Only one in a model!  
 
-Initialize via **Truncated Normal Distribution**:    
+  Matrix Shape:  
+  > V × d<sub>model</sub>  
 
-> mean = 0  
-std = 0.02 or 
-$\frac{1}{\sqrt d_{model}}$   
-a: -2.0 * std  
-b: 2.0 * std  
-Data Range: [-0.04, 0.04]
+  (*V for Vocabulary size*)
+    
+  e.g.  
+  > V = 32000  
+  d<sub>model</sub> = 512  
 
-Example:  
+  Initialize via **Truncated Normal Distribution**:    
 
-> $$
-\begin{pmatrix}
-v_{1} & d_{2} & d_{3} & ... & d_{512} \\
-v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
-... & ... & ... & ...& ...\\
-v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
-\end{pmatrix}
-$$  
+  > mean = 0  
+  std = 0.02 or 
+  $\frac{1}{\sqrt d_{model}}$   
+  a: -2.0 * std  
+  b: 2.0 * std  
+  Data Range: [-0.04, 0.04]
+
+  Example:  
+
+  > $$
+  \begin{pmatrix}
+  v_{1} & d_{2} & d_{3} & ... & d_{512} \\
+  v_{2} & 0.0123 & -0.0045 & ... & 0.0289 &\\
+  ... & ... & ... & ...& ...\\
+  v_{32000} & -0.0312 & 0.0008 & ... & 0.0156 &
+  \end{pmatrix}
+  $$  
 
 
-After initialize:  
-  > $  
-    mean \approx 0\\    
-    std  \approx 0.02  
-    $  
+  After initialize:  
+    > $  
+      mean \approx 0\\    
+      std  \approx 0.02  
+      $  
 
-<br>  
+  <br>  
 
   1.  Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)   
       <br>
