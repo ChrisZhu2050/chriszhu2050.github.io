@@ -1010,8 +1010,41 @@ graph LR
 
         > $W_{head} \in \mathbb R^{(vocab \times D)}$  
 
-        > $logits \in \mathbb R^{(D \times vocab)}$
- 
+        > $Z = logits \in \mathbb R^{(D \times vocab)}$  
+
+        e.g.  
+        >$
+        Z_5=
+        \begin{bmatrix}
+        1.2 & 0.5 & 4.8 & 0.7 & -0.3 & 1.1 & 0.2 & -1.0
+        \end{bmatrix}
+        $
+
+
+        The logits will be hte input of Next Layer input, if it's the final layer, then:  
+      $$
+      P_{t,j}
+      =
+      \operatorname{Softmax}(Z_{t,j})
+      =
+      \frac{e^{Z_{t,j}}}
+      {\sum_{k=1}^{V}e^{Z_{t,k}}}
+      $$
+
+      $$p \in \mathbb R ^{T \times V}$$  
+      
+      e.g.  
+      $$
+      P=
+      \begin{bmatrix}
+      P_{1,1} & P_{1,2} & P_{1,3} & \cdots & P_{1,vocab}\\
+      P_{2,1} & P_{2,2} & P_{2,3} & \cdots & P_{2,vocab}\\
+      P_{3,1} & P_{3,2} & P_{3,3} & \cdots & P_{3,vocab}\\
+      ... & ... & ... & \cdots & ...\\
+      P_{T,1} & P_{T,2} & P_{T,3} & \cdots & P_{T,vocab}
+      \end{bmatrix}
+      $$
+  
 
       <a href="" id="whereami"></a> 
 
