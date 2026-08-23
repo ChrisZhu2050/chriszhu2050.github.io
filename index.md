@@ -999,7 +999,7 @@ graph LR
      - Final LayerNorm  
         Same mechanism with previous layerNorm, only the position is different.
      - LM Head and Logits 
-        > $logits = h_{final} \cdot W_{lm\_head}^T + b$  
+        > $logits = h_{final} \cdot W_{lm_head}^T + b$  
 
         > $h_{final} \in \mathbb R^{(N \times D)}$  
 
