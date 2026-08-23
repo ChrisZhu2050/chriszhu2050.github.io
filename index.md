@@ -470,7 +470,7 @@ graph LR
 
   ```mermaid
         graph LR
-            A("`Tokenization`") --> D("`Transformer`") --> B(Comparison) --> I("`Cross Entropy Loss`") 
+            A("`Tokenization`") --> D("`Transformer`") --> I("`Cross Entropy Loss`") 
   ```
   1. **Tokenization**  
   
@@ -1053,14 +1053,11 @@ graph LR
       > *Encoder is not used by GPT*  
 
 
-  3. **Comparision**  
-    For example if the real 5th word is "happening" and if the output of P5(happening) is:  
-    > P5(happening) = 0.9 => means the loss is relatively small  
-    > P5(happening) = 0.01 => means the loss is relatively big
 
-   
-  4. **cross-entropy Loss**  
-  
+  3. **cross-entropy Loss**  
+      For example if the real 5th word is "happening" and if the output of P5(happening) is:  
+      > P5(happening) = 0.9 => means the loss is relatively small  
+      > P5(happening) = 0.01 => means the loss is relatively big
 
         > $ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $  
 
