@@ -1057,9 +1057,21 @@ graph LR
   3. **cross-entropy Loss**  
       For example if the real 5th word is "happening" and if the output of P5(happening) is:  
       > P5(happening) = 0.9 => means the loss is relatively small  
-      > P5(happening) = 0.01 => means the loss is relatively big
+      > P5(happening) = 0.01 => means the loss is relatively big  
 
-        > $ L(y, \hat{y}) = - \frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right] $  
+      Loss calculation:  
+      > $$
+        L=-\sum_{i=1}^{V}
+        y_i\log(p_i)
+      $$  
+      > V：Vocabulary Size
+      > y<sub>i</sub> is real target's one-shot
+      > p<sub>i</sub> is probility of i from essimation of current model
+
+      Since y<sub>i</sub> is a one-shot like y<sub>i</sub>​=[0,0,1,0,0,…,0], so the formular is simplified as:  
+      > $$
+          L_i=-\log p_i(y_i)
+        $$
 
       - Gradient computation  
 
