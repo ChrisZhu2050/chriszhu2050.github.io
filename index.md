@@ -590,7 +590,7 @@ graph LR
                   `")  
           ```  
       <br>
-     <a href="" id="layernorm"/>  
+      <a href="" id="layernorm"></a>  
 
      - LayerNorm
           ```mermaid
@@ -775,7 +775,7 @@ graph LR
 
         After transpose, continues data for each heads and more efficient for calculation.  
 
-        Break-down of attention calculation:  
+        Break-down of attention calculation:   
         > $$
         Score = Q'K'^T = [seq\_len, seq\_len]
         $$
@@ -951,7 +951,7 @@ graph LR
         >The input is from above Add's X<sub>out</sub>  
         >The Process may [[Refer to layerNorm]](#layernorm)
      - Feed-forward neural network  
-        <a href="" id="swiglu"/>
+        <a href="" id="swiglu"></a>
         Most popular sturcture at this moment: SwiGLU  
         > $SwiGLU\_FFN(x) = (\text{SiLU}(xW_1) \odot (xW_2))W_3$
 
@@ -1008,7 +1008,7 @@ graph LR
         > $logits \in \mathbb R^{(D \times vocab_size)}$
  
 
-      <a href="" id="whereami"/> 
+      <a href="" id="whereami"></a> 
 
       > *Encoder is not used by GPT*  
 
