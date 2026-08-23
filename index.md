@@ -1003,9 +1003,9 @@ graph LR
 
         > $h_{final} \in \mathbb R^{(N \times D)}$  
 
-        > $W_{lm\_head} \in \mathbb R^{(vocab\_size \times D)}$  
+        > $W_{lm\_head} \in \mathbb R^{(vocab_size \times D)}$  
 
-        > $logits \in \mathbb R^{(D \times vocab\_size)}$
+        > $logits \in \mathbb R^{(D \times vocab_size)}$
  
 
       <a href="" id="whereami"/> 
