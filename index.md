@@ -59,7 +59,7 @@ graph LR
           A("`Token Embedding`")  --> C("`Self-Attention`") --> D("`FFN`") --> F("`LM Head`")
   ```  
 
-  #### Token Embedding  
+  ### Token Embedding  
 
   > Only one in a model!  
 
