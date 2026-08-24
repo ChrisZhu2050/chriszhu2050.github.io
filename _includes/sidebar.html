@@ -8,7 +8,7 @@
 
   <nav class="sidebar-nav">
 
-    <a href="{{ "/" | relative_url }}">
+    <a href="{{ "/" | relative_url }}" class="active">
       LLM Essential
     </a>
 
@@ -29,5 +29,13 @@
     </a>
 
   </nav>
+<script>
+  document.querySelectorAll('.sidebar-nav a').forEach(link => {
+  link.addEventListener('click', function () {
+    document.querySelectorAll('.sidebar-nav a').forEach(item => item.classList.remove('active'));
+      this.classList.add('active');
+      });
+      });
+</script>
 
 </aside>
