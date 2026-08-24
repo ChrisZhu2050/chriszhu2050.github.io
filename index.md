@@ -558,8 +558,8 @@ graph LR
           end
           
             z("Logits")
-            y("Next Layer Input
-            or Softmax")
+            y("Input Of Next Layer
+            or Softmax for final output")
           
 
           c1 --> b1
@@ -1069,7 +1069,7 @@ graph LR
       Since y<sub>i</sub> is a one-shot like y<sub>i</sub>​=[0,0,1,0,0,…,0], so the formular is simplified as:  
       > $$
           L_i=-\log p_i(y_i)
-        $$
+        $$  
       An example:  
       > P(happening)=0.01  
       $L=−log(0.01)\approx 4.605$ 
