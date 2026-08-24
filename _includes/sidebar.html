@@ -8,34 +8,27 @@
 
   <nav class="sidebar-nav">
 
-    <a href="{{ "/" | relative_url }}" class="active">
+    <a href="{{ "/" | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">
       LLM Essential
     </a>
 
-    <a href="{{ "/docs/llm-fine-tune/" | relative_url }}">
+    <a href="{{ "/docs/llm-fine-tune/" | relative_url }} class="{% if page.url contains 'llm-fine-tune' %}active{% endif %}"">
       LLM Fine-tune
     </a>
 
-    <a href="{{ "/docs/llm-distillation/" | relative_url }}">
+    <a href="{{ "/docs/llm-distillation/" | relative_url }}" class="{% if page.url contains 'llm-distillation' %}active{% endif %}">
       LLM Distillation
     </a>
 
-    <a href="{{ "/docs/agent-framework/" | relative_url }}">
+    <a href="{{ "/docs/agent-framework/" | relative_url }}" class="{% if page.url contains 'agent-framework' %}active{% endif %}">
       Agent Framework
     </a>
 
-    <a href="{{ "/docs/data-flywheel/" | relative_url }}">
+    <a href="{{ "/docs/data-flywheel/" | relative_url }}" class="{% if page.url contains 'data-flywheel' %}active{% endif %}">
       Data Flywheel
     </a>
 
   </nav>
-<script>
-  document.querySelectorAll('.sidebar-nav a').forEach(link => {
-  link.addEventListener('click', function () {
-    document.querySelectorAll('.sidebar-nav a').forEach(item => item.classList.remove('active'));
-      this.classList.add('active');
-      });
-      });
-</script>
+
 
 </aside>
