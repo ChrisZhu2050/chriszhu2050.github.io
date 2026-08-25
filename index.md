@@ -1079,7 +1079,7 @@ graph LR
       > P(happening)=0.01  
       $L=−log(0.01)\approx 4.605$   
 
-      About loss reduction, normally use Mean, here'san example:     
+      About loss reduction, normally use Mean, here's an example:     
       > If Batch size=4,Token=5, then  
       $$
         L_{\mathrm{batch 1}}
@@ -1097,7 +1097,7 @@ graph LR
 
 ***  
 ## Training Backward Pass  
-> When got the Loss of the batch, then calculate all the Gradient with learnable Parameters([Initialized Weights](#weights-initialization)) 
+> When got the Loss of the batch, then calculate all the Gradient with learnable Parameters ( [Initialized Weights](#weights-initialization) ) 
 
   ```mermaid
         block
