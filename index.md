@@ -1087,7 +1087,7 @@ graph LR
         \sum_{b=1}^{4}
         \sum_{t=1}^{5}
         L_{b,t}
-      $$
+      $$  
       $L_{batch1}$ is input of a Backforwad, 
 
 
