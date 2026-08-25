@@ -640,7 +640,7 @@ graph LR
                   
                   `") 
           ```  
-          >  
+            
 
         What happened in Q = xW<sub>Q</sub> ?
         >$$
@@ -1051,7 +1051,7 @@ graph LR
   
 
       > *Encoder is not used by GPT*   
-      
+
       <br>
 
 
@@ -1097,6 +1097,34 @@ graph LR
 
 ***  
 ## Training Backward Pass  
+
+```mermaid
+    graph LR
+        A("`LM Head 
+        `") --> 
+        B("`Transformer Final Layer
+        `")  --> 
+        C("`Layer N → ... → Layer 1
+        `")  --> 
+        D("`Attention Backward
+        `")  --> 
+        E("`FFN / MoE Backward
+        `")  --> 
+        F("`Embedding
+        `")  --> 
+        G("`Embedding
+        `")
+``` 
+
+```mermaid
+      graph LR
+          A("`Gradient
+          `") --> 
+          B("`Optimizer
+          `")  --> 
+          C("`Weight Update
+          `")
+  ``` 
 <a href="" id="whereami"></a>  
 - Gradient computation  
 
