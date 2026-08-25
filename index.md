@@ -1097,7 +1097,7 @@ graph LR
 
 ***  
 ## Training Backward Pass  
-
+> When got the Loss of the batch, then calculate all the Gradient with learnable Parameters([Initialized Weights](#weights-initialization)) 
 
   ```mermaid
         block
