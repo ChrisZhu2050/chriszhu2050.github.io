@@ -1032,7 +1032,9 @@ graph LR
         {\sum_{k=1}^{V}e^{Z_{t,k}}}
         $$
 
-        $$p \in \mathbb R ^{T \times V}$$  
+        $$
+        p\in \mathbb R ^{T \times V}
+        $$  
         
         e.g.  
 
