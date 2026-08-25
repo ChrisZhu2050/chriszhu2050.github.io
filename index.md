@@ -1108,8 +1108,11 @@ graph LR
 
         block:group2:1
           columns 1
-          c1("LM Head → Transformer Final Layer") space
-          b1("Transformer Layer N → Layer N-1 → ... → Layer 1")
+          c1("LM Head → 
+          Transformer Final Layer") space
+          b1("Transformer Layer N → 
+          Layer N-1 → ... →
+           Layer 1")
           
         end
         block:group3:1
