@@ -702,7 +702,7 @@ graph LR
             > x′= xcosθ − ysinθ  
             y′= xsinθ + ycosθ  
 
-            Where θ from?   
+            Where's θ from?   
             (*all above θ is below θ<sub>p,i</sub>, don't confuse with the below RoPE Base*) 
             > θ<sub>p,i</sub> ​= p*ω<sub>i</sub>​  
             $$
