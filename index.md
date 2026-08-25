@@ -1045,7 +1045,7 @@ graph LR
         ... & ... & ... & \cdots & ...\\
         P_{T,1} & P_{T,2} & P_{T,3} & \cdots & P_{T,vocab}
         \end{bmatrix}
-        $$
+        $$  
   
 
       > *Encoder is not used by GPT*  
@@ -1070,6 +1070,7 @@ graph LR
       > $$
           L_i=-\log p_i(y_i)
         $$  
+      
       An example:  
       > P(happening)=0.01  
       $L=−log(0.01)\approx 4.605$ 
