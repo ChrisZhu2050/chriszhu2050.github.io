@@ -1070,13 +1070,22 @@ graph LR
       > p<sub>i</sub> is probility of i from essimation of current model
 
       Since y<sub>i</sub> is a one-shot like y<sub>i</sub>​=[0,0,1,0,0,…,0], so the formular is simplified as:  
-      > $$
+      > $
           L_i=-\log p_i(y_i)
-        $$  
+        $  
       
       An example:  
       > P(happening)=0.01  
-      $L=−log(0.01)\approx 4.605$ 
+      $L=−log(0.01)\approx 4.605$   
+
+      There're 2 types of reduction on loss calculation:    
+      Mean:  
+      > Mean of all the lost within each batch as the input of Backward Pass  
+
+      Matrix: 
+      > One loss value per token, the loss matrix shap is:[Batch_size, seq_len]
+
+
 
 
 ***  
