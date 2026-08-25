@@ -1078,12 +1078,17 @@ graph LR
       > P(happening)=0.01  
       $L=−log(0.01)\approx 4.605$   
 
-      There're 2 types of reduction on loss calculation:    
-      Mean:  
-      > Mean of all the lost within each batch as the input of Backward Pass  
-
-      Matrix: 
-      > One loss value per token, the loss matrix shap is:[Batch_size, seq_len]
+      About loss reduction, normally use Mean, here'san example:     
+      > If Batch size=4,Token=5, then  
+      $$
+        L_{\mathrm{batch 1}}
+        =
+        \frac{1}{4\times5}
+        \sum_{b=1}^{4}
+        \sum_{t=1}^{5}
+        L_{b,t}
+      $$
+      $L_{batch1}$ is input of a Backforwad, 
 
 
 
