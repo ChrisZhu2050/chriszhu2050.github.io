@@ -1103,15 +1103,16 @@ graph LR
         block
         columns 6
 
-          a("Loss → LM Head")
+          a("Loss ->
+           LM Head")
           
 
         block:group2:1
           columns 1
-          c1("LM Head → 
+          c1("LM Head -> 
           Transformer Final Layer") space
-          b1("Transformer Layer N → 
-          Layer N-1 → ... →
+          b1("Transformer Layer N -> 
+          Layer N-1 -> ... ->
            Layer 1")
           
         end
