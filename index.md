@@ -1131,14 +1131,9 @@ graph LR
           z("Optimizer Step")
           y("Update Weights")
         
-
         c1 --> b1
-       
-        
         d --> e
-      
         f --> g
-
         a --> group2
         group2 --> group3
         group3 --> group4
