@@ -1098,33 +1098,51 @@ graph LR
 ***  
 ## Training Backward Pass  
 
-```mermaid
-    graph LR
-        A("`LM Head 
-        `") --> 
-        B("`Transformer Final Layer
-        `")  --> 
-        C("`Layer N → ... → Layer 1
-        `")  --> 
-        D("`Attention Backward
-        `")  --> 
-        E("`FFN / MoE Backward
-        `")  --> 
-        F("`Embedding
-        `")  --> 
-        G("`Embedding
-        `")
-``` 
 
-```mermaid
-      graph LR
-          A("`Gradient
-          `") --> 
-          B("`Optimizer
-          `")  --> 
-          C("`Weight Update
-          `")
-  ``` 
+  ```mermaid
+        block
+        columns 6
+
+          a("Loss → LM Head")
+          
+
+        block:group2:1
+          columns 1
+          c1("LM Head → Transformer Final Layer") space
+          b1("Transformer Layer N → Layer N-1 → ... → Layer 1")
+          
+        end
+        block:group3:1
+          columns 1
+          d("Attention Backward") space
+          e("FFN / MoE Backward") 
+        end
+        block:group4:1
+          columns 1
+          f("Embedding Backward") space
+          g("Gradients")
+
+        end
+        
+          z("Optimizer Step")
+          y("Update Weights")
+        
+
+        c1 --> b1
+       
+        
+        d --> e
+      
+        f --> g
+
+        a --> group2
+        group2 --> group3
+        group3 --> group4
+        group4 --> z
+        z --> y
+
+  ```  
+ 
 <a href="" id="whereami"></a>  
 - Gradient computation  
 
