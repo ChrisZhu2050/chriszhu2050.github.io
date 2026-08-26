@@ -1010,7 +1010,7 @@ graph LR
 
         > $W_{head} \in \mathbb R^{(vocab \times D)}$  
 
-        > $Z = logits \in \mathbb R^{(D \times vocab)}$  
+        > $Z = logits \in \mathbb R^{(T \times vocab)}$  
 
         e.g.   
         >$
