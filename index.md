@@ -1141,11 +1141,12 @@ graph LR
         z --> y
 
   ```  
- 
-<a href="" id="whereami"></a>  
-- Gradient computation  
+  1. Loss -> LM Head
+    
+  <a href="" id="whereami"></a>  
+  - Gradient computation  
 
-  > $ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $ 
-- Weight update by Adam
-    > $ W_n = W_o - η*\nabla L(W_o) $       
+    > $ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $ 
+  - Weight update by Adam
+      > $ W_n = W_o - η*\nabla L(W_o) $       
   
