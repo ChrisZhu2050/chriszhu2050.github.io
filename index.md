@@ -1153,6 +1153,8 @@ graph LR
           P_i-y_i
           $$
         > y is a one-shot, then the y<sub>i</sub>=1 here
+
+        
     
 
 
