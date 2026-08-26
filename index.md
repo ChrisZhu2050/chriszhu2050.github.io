@@ -1142,9 +1142,9 @@ graph LR
 
   ```  
   1. Loss -> LM Head  
-    originally 2 steps within these progress:  
-      > 1st:  $ \frac {dL}{dP_j} $==>Derivative of loss calcualtion fuction   
-      2nd: $ \frac {dP_j}{dZ_i} $==>Derivative of softmax funcion(too complex for calculation, Jacobian Matrix?)  
+      Refer to Forward Pass, there should be 2 derivation steps :  
+      > 1<sup>st</sup>:  $ \frac {dL}{dP_j} $ ( Derivative of loss calcualtion fuction )  
+      2<sup>nd</sup>: $ \frac {dP_j}{dZ_i} $ ( Derivative of softmax funcion. too complex for calculation, Jacobian Matrix ??)  
 
       After simplified via joint derivation:  
         > $ \frac {dL}{dz_i} = p_i - y_i $  
