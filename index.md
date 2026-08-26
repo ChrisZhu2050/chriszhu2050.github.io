@@ -1152,16 +1152,39 @@ graph LR
           =
           P_i-y_i
           $$
-        > y is a one-shot, then the y<sub>i</sub>=1 here
+        > y is a one-shot, then the y<sub>i</sub>=1 here  
 
-        
-    
+      $\frac{\partial L}{\partial Z_i}$ is the gradient of Softmax + Cross-Entropy, it's a scalar(e.g. -0.09).
+      Nagetive means increase the logits(i) will reduce the loss, meanwhile should decrease other logits, vice versa.  
+
+      Contine the Backward Pass as below:
+      > $$
+        L
+        \rightarrow
+        \frac{\partial L}{\partial Z}
+        \rightarrow
+        \left\{
+        \begin{aligned}
+        \frac{\partial L}{\partial H}
+        &=
+        \frac{\partial L}{\partial Z}
+        W_{\mathrm{LM}}^T
+        \\
+        \frac{\partial L}{\partial W_{\mathrm{LM}}}
+        &=
+        H^T
+        \frac{\partial L}{\partial Z}
+        \end{aligned}
+        \right.
+      $$  
+      **$\frac{\partial L}{\partial H}$ is for passing loss to transformer**  
+      **$\frac{\partial L}{\partial W_{LM}}$ is for updating the Weights of LM.**  
 
 
   <a href="" id="whereami"></a>  
-  - Gradient computation  
+  - Gradient computation (?) 
 
     > $ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $ 
-  - Weight update by Adam
+  - Weight update by Adam (?)
       > $ W_n = W_o - η*\nabla L(W_o) $       
   
