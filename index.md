@@ -1072,7 +1072,7 @@ graph LR
 
       Since y<sub>i</sub> is a one-shot like y<sub>i</sub>​=[0,0,1,0,0,…,0], so the formular is simplified as:  
       > $
-          L_i=-\log p_i(y_i)
+          L_i=-y_i\log p_i
         $  
       
       An example:  
@@ -1141,8 +1141,17 @@ graph LR
         z --> y
 
   ```  
-  1. Loss -> LM Head
+  1. Loss -> LM Head  
+    originally 2 steps within these progress:  
+      > 1st:  $ \frac {dL}{dP_j} $==>Derivative of loss calcualtion fuction   
+      2nd: $ \frac {dP_j}{dZ_i} $==>Derivative of softmax funcion(too complex for calculation, Jacobian Matrix?)  
+
+      After simplified via joint derivation:  
+        > $ \frac {dL}{dz_i} = p_i - y_i $  
+      y is a one-shot, then the y<sub>i</sub>=1 here
     
+
+
   <a href="" id="whereami"></a>  
   - Gradient computation  
 
