@@ -236,9 +236,9 @@ graph LR
   <br>   
 
   5. **LM Head**  
-      > logits = h*W<sub>head</sub><sup>T</sup>  
+      > logits = h*W<sub>LM</sub><sup>T</sup>  
 
-      *head is hidden state and W<sub>head</sub> is LM Head's weight*
+      *head is hidden state and W<sub>LM</sub> is LM Head's weight*
 
       - Independent initialize via W~N(0, σ<sup>2</sup>)(e.g. GPT-3, LLaMA)
       - Share Weight with Token Embedding for save parameter purpose?(e.g. Bert, GPT-2)  
@@ -1008,7 +1008,7 @@ graph LR
 
         > $h_{final} \in \mathbb R^{(N \times D)}$  
 
-        > $W_{head} \in \mathbb R^{(vocab \times D)}$  
+        > $W_{LM} \in \mathbb R^{(vocab \times D)}$  
 
         > $Z = logits \in \mathbb R^{(T \times vocab)}$  
 
@@ -1143,12 +1143,16 @@ graph LR
   ```  
   1. Loss -> LM Head  
       Refer to Forward Pass, there should be 2 derivation steps :  
-      > 1<sup>st</sup>:  $ \frac {dL}{dP_j} $ ( Derivative of loss calcualtion fuction )  
-      2<sup>nd</sup>: $ \frac {dP_j}{dZ_i} $ ( Derivative of softmax funcion. too complex for calculation, Jacobian Matrix ??)  
+      > 1<sup>st</sup>:  $ \frac {\partial L}{\partial P_j} $ ( Derivative of loss calcualtion fuction )  
+      2<sup>nd</sup>: $ \frac {\partial P_j}{\partial Z_i} $ ( Derivative of softmax funcion. too complex for calculation, Jacobian Matrix ??)  
 
       After simplified via joint derivation:  
-        > $ \frac {dL}{dz_i} = p_i - y_i $  
-      y is a one-shot, then the y<sub>i</sub>=1 here
+        > $$
+          \frac{\partial L}{\partial Z_i}
+          =
+          P_i-y_i
+          $$
+        > y is a one-shot, then the y<sub>i</sub>=1 here
     
 
 
