@@ -1177,6 +1177,7 @@ graph LR
         \end{aligned}
         \right.
       $$  
+        
       **$\frac{\partial L}{\partial H}$ is for passing loss to transformer**  
       **$\frac{\partial L}{\partial W_{LM}}$ is for updating the Weights of LM.**  
 
