@@ -12,15 +12,9 @@
 }
 
 .site-header > .wrapper {
-
  max-width: 100%;
  margin: 0;
  padding: 0 55px;
- display: flex;
- align-items: center;
- justify-content: space-between;
- gap: 12px;
- 
 }
 
 .site-title {
@@ -31,7 +25,7 @@
   float: left;
 
   @include media-query($on-palm) {
-   padding-right: 45px;
+    padding-right: 45px;
   }
 
   &,
