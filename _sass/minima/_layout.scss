@@ -54,9 +54,9 @@
     position: absolute;
     top: 9px;
     right: $spacing-unit * 0.6;
-    background-color: $background-color;
-    border: 0px solid $border-color-01;
-    border-radius: 5px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
     text-align: right;
 
     label[for="nav-trigger"] {
