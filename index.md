@@ -1176,15 +1176,16 @@ graph LR
         \\
         \frac{\partial L}{\partial W_{\mathrm{LM}}}
         &=
-        H^T
-        \frac{\partial L}{\partial Z}
+        H\cdot
+        (\frac{\partial L}{\partial Z})^T
         \end{aligned}
         \right.
       $$  
         
       $\frac{\partial L}{\partial H}$ is for passing loss to transformer  
+      $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head$
       <br>   
-      How can we update the Weights of LM Head?     
+           
       > $\frac{\partial L}{\partial W_{LM}} = 
       (\frac{\partial L}{\partial Z})^T \cdot
       H
@@ -1195,9 +1196,13 @@ graph LR
         Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
 
         Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
-      Once above gradient is ready, next will perform the weight udpating:  
+      Once above gradient is ready, next will perform the weight udpating
+      > $ W_n = W_o - η*\nabla L(W_o) $  
+      *This is traditional way which is not used any more*  
+      
+       Most popular way:  
       - Gradient Clipping:  
-      > $ W_n = W_o - η*\nabla L(W_o) $    
+        
       - AdamW Updating
       - Parameters' updating + Weight Decay
 
