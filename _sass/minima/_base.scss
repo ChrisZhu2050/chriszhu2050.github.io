@@ -402,7 +402,11 @@ table {
    ======================================== */
 
 @media screen and (max-width: 800px) {
-
+  .page-content {
+    width: auto;
+    max-width: 100%;
+    padding: 0;
+  }
   .site-layout {
     display: block;
   }
@@ -420,6 +424,7 @@ table {
   }
 
   .content-wrapper {
+    width: 100%;
     max-width: none;
 
     padding: 25px 20px;
