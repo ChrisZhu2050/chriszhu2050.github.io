@@ -25,7 +25,13 @@
   float: left;
 
   @include media-query($on-palm) {
-    padding-right: 45px;
+    // padding-right: 45px;
+      display: inline-block;
+      max-width: 55%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
   }
 
   &,
@@ -132,6 +138,23 @@
 .site-footer {
   border-top: 1px solid $border-color-01;
   padding: $spacing-unit 0;
+  @include media-query($on-palm) {
+    .site-footer {
+      .footer-col-wrapper,
+      .footer-col,
+      .footer-col a {
+        white-space: nowrap;
+      }
+
+      // ensure columns stack but do not collapse link text too early
+      .footer-col-1,
+      .footer-col-2,
+      .footer-col-3 {
+        width: 100%;
+      }
+    }
+  }
+
 }
 
 .footer-heading {
