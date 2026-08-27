@@ -240,7 +240,7 @@ graph LR
       Used by logits like below:
       > logits = h*W<sub>LM</sub><sup>T</sup>  
 
-      *head is hidden state*  
+      *h is hidden state*  
       About W<sub>LM</sub>:
       - [Independent] => initialize via W~N(0, σ<sup>2</sup>)(e.g. GPT-3, LLaMA)
       - [Share Weight with Token Embedding] => for saving parameter purpose?(e.g. Bert, GPT-2)  
@@ -626,14 +626,14 @@ graph LR
 
          Final Output:
          >  $$
-            Y \in \mathbb R^{N\times D}
+            Y \in \mathbb R^{(B,T, d)}
             $$  
          <br>  
 
       - Q/K/V Calculation
         ```mermaid
               graph LR
-                  A("`Input                   x ∈ R<sup>N×D</sup>
+                  A("`Input                   x ∈ R<sup>(B, T, d)</sup>
                   `") --> 
                   B("`Q = xW<sub>Q</sub> 
                   K = xW<sub>K</sub>
@@ -649,7 +649,7 @@ graph LR
         q_i = x_i \cdot W_Q = \left[ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k1},\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k2},\ \dots,\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,kD} \right]
         $$  
 
-        > Q, K, V ∈ R<sup>N×D</sup>  
+        > Q, K, V ∈ R<sup>(B, T, d)</sup>  
         x<sub>ik</sub> => The k-th value of the i-th row vector of X  
         W<sub>Q,kj</sub> => the parameter in the k-th row and j-th column of the weight matrix  
 
@@ -1191,18 +1191,18 @@ graph LR
         $  
 
         This is for updating the Weights of LM.  
-        Shape of H is => [$B, T, d]  
+        Shape of H is => [B, T, d]  
 
         Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
 
         Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
-
-
+      Once above gradient is ready, next will perform the weight udpating:  
+      - Gradient Clipping:  
+      > $ W_n = W_o - η*\nabla L(W_o) $    
+      - AdamW Updating
+      - Parameters' updating + Weight Decay
 
   <a href="" id="whereami"></a>  
-  - Gradient computation (?) 
 
-    > $ \nabla L = [\frac{\partial L}{\partial w_1} + \frac{\partial L}{\partial w_2} +..... \frac{\partial L}{\partial w_n}] $ 
-  - Weight update by Adam (?)
-      > $ W_n = W_o - η*\nabla L(W_o) $       
+    
   
