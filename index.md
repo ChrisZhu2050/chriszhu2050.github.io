@@ -235,13 +235,15 @@ graph LR
       > W~N(0, σ<sup>2</sup>)  
   <br>   
 
-  5. **LM Head**  
+  5. **LM Head**   
+      W<sub>LM</sub> is LM Head's weight and the shape of W<sub>LM</sub> is **$[V \times d]$**.  
+      Used by logits like below:
       > logits = h*W<sub>LM</sub><sup>T</sup>  
 
-      *head is hidden state and W<sub>LM</sub> is LM Head's weight*
-
-      - Independent initialize via W~N(0, σ<sup>2</sup>)(e.g. GPT-3, LLaMA)
-      - Share Weight with Token Embedding for save parameter purpose?(e.g. Bert, GPT-2)  
+      *head is hidden state*  
+      About W<sub>LM</sub>:
+      - [Independent] => initialize via W~N(0, σ<sup>2</sup>)(e.g. GPT-3, LLaMA)
+      - [Share Weight with Token Embedding] => for saving parameter purpose?(e.g. Bert, GPT-2)  
   <br>   
  
 
@@ -997,20 +999,20 @@ graph LR
         X_{out} = X_{in} + O_{SwiGLU} 
         $$  
         > $$ 
-        X_{in}, X_{out},O_{SwiGLU} \in \mathbb R^{(N \times D)} 
+        X_{in}, X_{out},O_{SwiGLU} \in \mathbb R^{(B,T, D)} 
         $$
      - Final LayerNorm  
         Same mechanism with previous layerNorm, only the position is different.  
-        Output is $h_{final} \in \mathbb R^{(N \times D)}$  
+        Output is $h_{final} \in \mathbb R^{(B, T, d)}$  
 
      - LM Head and Logits 
-        > $logits = h_{final} \cdot W_{head}^T + b$  
+        > $logits = h_{final} \cdot W_{LM}^T + b$  
 
-        > $h_{final} \in \mathbb R^{(N \times D)}$  
+        > $h_{final} \in \mathbb R^{(B,T,D)}$  
 
-        > $W_{LM} \in \mathbb R^{(vocab \times D)}$  
+        > $W_{LM} \in \mathbb R^{(V \times D)}$  
 
-        > $Z = logits \in \mathbb R^{(T \times vocab)}$  
+        > $Z = logits \in \mathbb R^{(B, T, V )}$  
 
         e.g.   
         >$
@@ -1021,7 +1023,7 @@ graph LR
         $
 
 
-        The logits will be hte input of Next Layer input, if it's the final layer, then implement the LM Softmax:  
+        The logits will be the input of Next Layer input, if it's the final layer, then implement the LM Softmax:  
 
         $$
         P_{t,j}
@@ -1041,11 +1043,11 @@ graph LR
         $$
         P=
         \begin{bmatrix}
-        P_{1,1} & P_{1,2} & P_{1,3} & \cdots & P_{1,vocab}\\
-        P_{2,1} & P_{2,2} & P_{2,3} & \cdots & P_{2,vocab}\\
-        P_{3,1} & P_{3,2} & P_{3,3} & \cdots & P_{3,vocab}\\
+        P_{1,1} & P_{1,2} & P_{1,3} & \cdots & P_{1,V}\\
+        P_{2,1} & P_{2,2} & P_{2,3} & \cdots & P_{2,V}\\
+        P_{3,1} & P_{3,2} & P_{3,3} & \cdots & P_{3,V}\\
         ... & ... & ... & \cdots & ...\\
-        P_{T,1} & P_{T,2} & P_{T,3} & \cdots & P_{T,vocab}
+        P_{T,1} & P_{T,2} & P_{T,3} & \cdots & P_{T,V}
         \end{bmatrix}
         $$  
   
@@ -1154,10 +1156,12 @@ graph LR
           $$
         > y is a one-shot, then the y<sub>i</sub>=1 here  
 
+        Shape of $\frac{\partial L}{\partial Z}$ is same as Z=> ($T \times V$)
+
       $\frac{\partial L}{\partial Z_i}$ is the gradient of Softmax + Cross-Entropy, it's a scalar(e.g. -0.09).
       Nagetive means increase the logits(i) will reduce the loss, meanwhile should decrease other logits, vice versa.  
 
-      Contine the Backward Pass as below:
+      Move on the Backward Pass as below:
       > $$
         L
         \rightarrow
@@ -1178,8 +1182,21 @@ graph LR
         \right.
       $$  
         
-      **$\frac{\partial L}{\partial H}$ is for passing loss to transformer**  
-      **$\frac{\partial L}{\partial W_{LM}}$ is for updating the Weights of LM.**  
+      $\frac{\partial L}{\partial H}$ is for passing loss to transformer  
+      <br>   
+      How can we update the Weights of LM Head?     
+      > $\frac{\partial L}{\partial W_{LM}} = 
+      (\frac{\partial L}{\partial Z})^T \cdot
+      H
+        $  
+
+        This is for updating the Weights of LM.  
+        Shape of H is => [$B, T, d]  
+
+        Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
+
+        Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
+
 
 
   <a href="" id="whereami"></a>  
