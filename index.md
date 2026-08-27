@@ -1189,8 +1189,7 @@ graph LR
       (\frac{\partial L}{\partial Z})^T \cdot
       H
         $  
-
-        This is for updating the Weights of LM.  
+ 
         Shape of H is => [B, T, d]  
 
         Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
