@@ -1196,7 +1196,8 @@ graph LR
         Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
 
         Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
-      Once above gradient is ready, next will perform the weight of LM Head udpating
+      Once above gradient is ready, next will perform the weight of LM Head udpating  
+
       > $W_n = W_o - η*\nabla L(W_o)$  
       *This is traditional way which is not used any more*  
       
@@ -1211,7 +1212,8 @@ graph LR
 
           *(For SFT/RHDL, may have different approach)*
 
-      - Weight Updating with AdamW
+      - LM Head Weight Updating with AdamW  
+
 
 
   <a href="" id="whereami"></a>  
