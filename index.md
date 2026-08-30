@@ -1143,7 +1143,7 @@ graph LR
         z --> y
 
   ```  
-  1. Loss -> LM Head  
+  1. **Loss -> LM Head**   
       Refer to Forward Pass, there should be 2 derivation steps :  
       > 1<sup>st</sup>:  $ \frac {\partial L}{\partial P_j} $ ( Derivative of loss calcualtion fuction )  
       2<sup>nd</sup>: $ \frac {\partial P_j}{\partial Z_i} $ ( Derivative of softmax funcion. too complex for calculation, Jacobian Matrix ??)  
