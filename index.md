@@ -1183,7 +1183,7 @@ graph LR
       $$  
         
       $\frac{\partial L}{\partial H}$ is for passing loss to transformer  
-      $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head$
+      $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head
       <br>   
            
       > $\frac{\partial L}{\partial W_{LM}} = 
@@ -1196,15 +1196,23 @@ graph LR
         Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
 
         Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
-      Once above gradient is ready, next will perform the weight udpating
-      > $ W_n = W_o - η*\nabla L(W_o) $  
+      Once above gradient is ready, next will perform the weight of LM Head udpating
+      > $W_n = W_o - η*\nabla L(W_o)$  
       *This is traditional way which is not used any more*  
       
        Most popular way:  
-      - Gradient Clipping:  
-        
-      - AdamW Updating
-      - Parameters' updating + Weight Decay
+      - Global L2 Norm Clipping (max_norm = 1.0)  
+        no independent clipping for gradiant of LM Head's weight during pre-training, because it will impact the relevance with weights of transformer.  
+        An example:
+          > Gradient of LM Head: [3,4] and  layer gradient: [1,2,2]  
+          Global L2 Norm = $\sqrt {3^2+4^2+1^2+2^2+2^2}=\sqrt{34} \approx 5.83 $  
+          Since 5.83 over the max_norm = 1.0,    
+          then every gradient elements need to $\times \frac {1.0}{5.83}\approx 0,172$ to do Global Clipping   
+
+          *(For SFT/RHDL, may have different approach)*
+
+      - Weight Updating with AdamW
+
 
   <a href="" id="whereami"></a>  
 
