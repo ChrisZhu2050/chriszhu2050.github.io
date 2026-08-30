@@ -1210,9 +1210,22 @@ graph LR
           Since 5.83 over the max_norm = 1.0,    
           then every gradient elements need to $\times \frac {1.0}{5.83}\approx 0,172$ to do Global Clipping   
 
-          *(For SFT/RHDL, may have different approach)*
+          *(For SFT/RHDL, may have different approach)*  
+
 
       - LM Head Weight Updating with AdamW  
+        Hyper Paramer example:  
+        > η = 0.9 (Learning rate)  
+        β1 = 0.9 (Firt moment decay coefficient)  
+        β2=0.999  (Second  moment decay coefficient)  
+        ϵ=10<sup>-8</sup> (Numerical stability constant)  
+        λ = 0.01(Weight decay coefficient)
+
+​
+ 
+
+        - First Moment
+        >  
 
 
 
