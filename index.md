@@ -1219,7 +1219,7 @@ graph LR
         β1 = 0.9 (Firt moment decay coefficient)  
         β2=0.999  (Second  moment decay coefficient)  
         ϵ=10<sup>-8</sup> (Numerical stability constant)  
-        λ = 0.01(Weight decay coefficient)
+        λ = 0.01(Weight decay coefficient)  
 
 ​
  
