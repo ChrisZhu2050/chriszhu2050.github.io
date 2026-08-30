@@ -1221,11 +1221,19 @@ graph LR
         ϵ=10<sup>-8</sup> (Numerical stability constant)  
         λ = 0.01(Weight decay coefficient)  
 
-​
- 
+        First Moment m:  
+        > $
+          m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t  
+          $  
+        Shape of m is same as W<sub>LM</sub> = [V, d]
 
-        - First Moment
-        >  
+        Second Moment v:
+        > $
+          v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2
+          $  
+        Shape of v is same as W<sub>LM</sub> = [V, d]  
+
+        > *Above caculation method is EMA: Exponential Moving Average,  instead of arithmetic mean*
 
 
 
