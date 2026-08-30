@@ -1215,7 +1215,7 @@ graph LR
 
       - LM Head Weight Updating with AdamW  
         Hyper Paramer example:  
-        > η = 0.9 (Learning rate)  
+        > η = 0.001 (Learning rate)  
         β1 = 0.9 (Firt moment decay coefficient)  
         β2=0.999  (Second  moment decay coefficient)  
         ϵ=10<sup>-8</sup> (Numerical stability constant)  
