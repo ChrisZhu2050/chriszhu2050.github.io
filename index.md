@@ -1198,7 +1198,7 @@ graph LR
         Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
       Once above gradient is ready, next will perform the weight of LM Head udpating  
 
-      > $W_n = W_o - η*\nabla L(W_o)$  
+      > $W_n=W_o - η*\nabla L(W_o)$  
       *This is traditional way which is not used any more*  
       
        Most popular way:  
