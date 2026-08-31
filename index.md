@@ -1184,16 +1184,16 @@ graph LR
 
 <br>  
 
-  - $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head  
+  - $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head, the shape is  $[V \times d]$   
+
     > $
       \frac{\partial L}{\partial W_{LM}} = (\frac{\partial L}{\partial Z})^T \cdot H
       $  
 
       Shape of H is => [B, T, d]  
 
-      Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
+      Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)  
 
-      Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
     Once above gradient is ready, next will perform the weight of LM Head udpating  
 
     > $W_n=W_o - η*\nabla L(W_o)$  
@@ -1253,7 +1253,8 @@ graph LR
         Everytime $\lambda$ pull Weight to 0 a little bit, it affects Weight straightly in AdamW, insteadly it affects Gradiant in Adam, that's the major different between AdamW and Adam.  
         *(It's possible to skip the LM Head Weight updating by setting to FALSE)*  
         <br>  
-  - $\frac{\partial L}{\partial H}$ is for passing loss to transformer  
+
+  - $\frac{\partial L}{\partial H}$ is for passing loss to transformer, the shape is $[L \times d]$   
     
 
 
