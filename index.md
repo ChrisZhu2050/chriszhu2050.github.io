@@ -1182,79 +1182,80 @@ graph LR
       \right.
     $$   
 
-<br>  
+    <br>  
 
-  - $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head, the shape is  $[V \times d]$   
+     - $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head, the shape is  $[V \times d]$   
 
-    > $
-      \frac{\partial L}{\partial W_{LM}} = (\frac{\partial L}{\partial Z})^T \cdot H
-      $  
+       > $
+         \frac{\partial L}{\partial W_{LM}} = (\frac{\partial L}{\partial Z})^T \cdot H
+         $  
 
-      Shape of H is => [B, T, d]  
+         Shape of H is => [B, T, d]  
 
-      Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)  
+         Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)  
 
-    Once above gradient is ready, next will perform the weight of LM Head udpating  
+       Once above gradient is ready, next will perform the weight of LM Head udpating  
 
-    > $W_n=W_o - η*\nabla L(W_o)$  
-    *This is traditional way which is not used any more*  
-    
-      Most popular way:  
-    - Global L2 Norm Clipping (max_norm = 1.0)  
-      no independent clipping for gradiant of LM Head's weight during pre-training, because it will impact the relevance with weights of transformer.  
-      An example:
-        > Gradient of LM Head: [3,4] and  layer gradient: [1,2,2]  
-        Global L2 Norm = $\sqrt {3^2+4^2+1^2+2^2+2^2}=\sqrt{34} \approx 5.83 $  
-        Since 5.83 over the max_norm = 1.0,    
-        then every gradient elements need to $\times \frac {1.0}{5.83}\approx 0,172$ to do Global Clipping   
+       > $W_n=W_o - η*\nabla L(W_o)$  
+       *This is traditional way which is not used any more*  
+       
+         Most popular way:  
+       - Global L2 Norm Clipping (max_norm = 1.0)  
+         no independent clipping for gradiant of LM Head's weight during pre-training, because it will impact the relevance with weights of transformer.  
+         An example:
+           > Gradient of LM Head: [3,4] and  layer gradient: [1,2,2]  
+           Global L2 Norm = $\sqrt {3^2+4^2+1^2+2^2+2^2}=\sqrt{34} \approx 5.83 $  
+           Since 5.83 over the max_norm = 1.0,    
+           then every gradient elements need to $\times \frac {1.0}{5.83}\approx 0,172$ to do Global Clipping   
 
-        *(For SFT/RHDL, may have different approach)*  
+           *(For SFT/RHDL, may have different approach)*  
 
 
-    - LM Head Weight Updating with AdamW  
-      Hyper Param example:  
-      > η = 0.001 (Learning rate)  
-      β1 = 0.9 (Firt moment decay coefficient)  
-      β2=0.999  (Second  moment decay coefficient)  
-      ϵ=10<sup>-8</sup> (Numerical stability constant)  
-      λ = 0.01(Weight decay coefficient)  
+       - LM Head Weight Updating with AdamW  
+         Hyper Param example:  
+         > η = 0.001 (Learning rate)  
+         β1 = 0.9 (Firt moment decay coefficient)  
+         β2=0.999  (Second  moment decay coefficient)  
+         ϵ=10<sup>-8</sup> (Numerical stability constant)  
+         λ = 0.01(Weight decay coefficient)  
 
-      First Moment m:  
-      > $
-        m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t  
-        $  
-      Shape of m is same as W<sub>LM</sub> = [V, d]
+         First Moment m:  
+         > $
+           m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t  
+           $  
+         Shape of m is same as W<sub>LM</sub> = [V, d]
 
-      Second Moment v:
-      > $
-        v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2
-        $  
-      Shape of v is same as W<sub>LM</sub> = [V, d]  
+         Second Moment v:
+         > $
+           v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2
+           $  
+         Shape of v is same as W<sub>LM</sub> = [V, d]  
 
-      > *Above caculation method is EMA: Exponential Moving Average,  instead of arithmetic mean*  
+         > *Above caculation method is EMA: Exponential Moving Average,  instead of arithmetic mean*  
 
-      Since *m* intiliazed with 0, caused the m<sub>t</sub> is too small at the begining, for example:  
-      > Step 1: m<sub>1</sub>=0.9×0+0.1×g<sub>1</sub>=0.1g<sub>1</sub>  
-      ​Step 2: m<sub>2</sub>=0.9×0.1g<sub>1</sub>+0.1×g<sub>2</sub>≈0.19g  
+         Since *m* intiliazed with 0, caused the m<sub>t</sub> is too small at the begining, for example:  
+         > Step 1: m<sub>1</sub>=0.9×0+0.1×g<sub>1</sub>=0.1g<sub>1</sub>  
+         ​Step 2: m<sub>2</sub>=0.9×0.1g<sub>1</sub>+0.1×g<sub>2</sub>≈0.19g  
 
-      So here's the adjustment formular for m and v:  
-      > $  
-      \hat{m}_t = \frac{m_t}{1 - \beta_1^t}
-      $  
-      $
-      \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
-      $  
+         So here's the adjustment formular for m and v:  
+         > $  
+         \hat{m}_t = \frac{m_t}{1 - \beta_1^t}
+         $  
+         $
+         \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
+         $  
 
-      Weight updating:    
-      > $
-        W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
-        $  
+         Weight updating:    
+         > $
+           W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
+           $  
 
-        Everytime $\lambda$ pull Weight to 0 a little bit, it affects Weight straightly in AdamW, insteadly it affects Gradiant in Adam, that's the major different between AdamW and Adam.  
-        *(It's possible to skip the LM Head Weight updating by setting to FALSE)*  
-        <br>  
+           Everytime $\lambda$ pull Weight to 0 a little bit, it affects Weight straightly in AdamW, insteadly it affects Gradiant in Adam, that's the major different between AdamW and Adam.  
+           *(It's possible to skip the LM Head Weight updating by setting to FALSE)*  
+           <br>  
 
-   - $\frac{\partial L}{\partial H_{norm}}$ is for passing loss to transformer, the shape is $[B, T, d]$   
+      - $\frac{\partial L}{\partial H_{norm}}$ is for passing loss to transformer, the shape is $[B, T, d]$   
+      <br>  
     
 2. **LM Head -> Transformer Final Laye**  
    - Gradiant to β  
