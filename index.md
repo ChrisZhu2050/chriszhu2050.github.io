@@ -343,7 +343,7 @@ graph LR
                 `")
           ```
 
-        > $$\text{score}(a, b) = \frac{\text{freq}(a, b)}{\text{freq}(a) \times \text{freq}(b)}$$
+        > $\text{score}(a, b) = \frac{\text{freq}(a, b)}{\text{freq}(a) \times \text{freq}(b)}$
         
           > Used in BERT (Encoder Only).  
           Advantage in search / RAG /Edge LLM(Size is smaller)   
@@ -618,7 +618,7 @@ graph LR
           
           > N = Batch size × Seq len  
           Normally ϵ = 10 <sup>-5</sup>  
-          Initialy γ=1,β=0 and $γ,β \in \mathbb R^{D}$, will be optimized during training  
+          Initially $γ_i=1$ and $β_i=0$ and $γ,β \in \mathbb R^{d}$, will be optimized during training  
 
           e.g.   
          > original x=[3,4,5]  
