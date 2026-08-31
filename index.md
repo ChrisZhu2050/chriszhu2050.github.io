@@ -1254,7 +1254,7 @@ graph LR
         *(It's possible to skip the LM Head Weight updating by setting to FALSE)*  
         <br>  
 
-  - $\frac{\partial L}{\partial H}$ is for passing loss to transformer, the shape is $[L \times d]$   
+  - $\frac{\partial L}{\partial H}$ is for passing loss to transformer, the shape is $[B, T, d]$   
     
 
 
