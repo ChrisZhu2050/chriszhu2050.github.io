@@ -1143,98 +1143,118 @@ graph LR
         z --> y
 
   ```  
-  1. **Loss -> LM Head**   
-      Refer to Forward Pass, there should be 2 derivation steps :  
-      > 1<sup>st</sup>:  $ \frac {\partial L}{\partial P_j} $ ( Derivative of loss calcualtion fuction )  
-      2<sup>nd</sup>: $ \frac {\partial P_j}{\partial Z_i} $ ( Derivative of softmax funcion. too complex for calculation, Jacobian Matrix ??)  
+1. **Loss -> LM Head**   
+    Refer to Forward Pass, there should be 2 derivation steps :  
+    > 1<sup>st</sup>:  $ \frac {\partial L}{\partial P_j} $ ( Derivative of loss calcualtion fuction )  
+    2<sup>nd</sup>: $ \frac {\partial P_j}{\partial Z_i} $ ( Derivative of softmax funcion. too complex for calculation, Jacobian Matrix ??)  
 
-      After simplified via joint derivation:  
-        > $$
-          \frac{\partial L}{\partial Z_i}
-          =
-          P_i-y_i
-          $$
-        > y is a one-shot, then the y<sub>i</sub>=1 here  
-
-        Shape of $\frac{\partial L}{\partial Z}$ is same as Z=> ($T \times V$)
-
-      $\frac{\partial L}{\partial Z_i}$ is the gradient of Softmax + Cross-Entropy, it's a scalar(e.g. -0.09).
-      Nagetive means increase the logits(i) will reduce the loss, meanwhile should decrease other logits, vice versa.  
-
-      Move on the Backward Pass as below:
+    After simplified via joint derivation:  
       > $$
-        L
-        \rightarrow
-        \frac{\partial L}{\partial Z}
-        \rightarrow
-        \left\{
-        \begin{aligned}
-        \frac{\partial L}{\partial H}
-        &=
-        \frac{\partial L}{\partial Z}
-        W_{\mathrm{LM}}^T
-        \\
-        \frac{\partial L}{\partial W_{\mathrm{LM}}}
-        &=
-        H\cdot
-        (\frac{\partial L}{\partial Z})^T
-        \end{aligned}
-        \right.
-      $$  
-        
-      $\frac{\partial L}{\partial H}$ is for passing loss to transformer  
-      $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head
-      <br>   
-           
-      > $\frac{\partial L}{\partial W_{LM}} = 
-      (\frac{\partial L}{\partial Z})^T \cdot
-      H
+        \frac{\partial L}{\partial Z_i}
+        =
+        P_i-y_i
+        $$
+      > y is a one-shot, then the y<sub>i</sub>=1 here  
+
+      Shape of $\frac{\partial L}{\partial Z}$ is same as Z=> ($T \times V$)
+
+    $\frac{\partial L}{\partial Z_i}$ is the gradient of Softmax + Cross-Entropy, it's a scalar(e.g. -0.09).
+    Nagetive means increase the logits(i) will reduce the loss, meanwhile should decrease other logits, vice versa.  
+
+    Move on the Backward Pass as below:
+    > $$
+      L
+      \rightarrow
+      \frac{\partial L}{\partial Z}
+      \rightarrow
+      \left\{
+      \begin{aligned}
+      \frac{\partial L}{\partial H}
+      &=
+      \frac{\partial L}{\partial Z}
+      W_{\mathrm{LM}}^T
+      \\
+      \frac{\partial L}{\partial W_{\mathrm{LM}}}
+      &=
+      H\cdot
+      (\frac{\partial L}{\partial Z})^T
+      \end{aligned}
+      \right.
+    $$   
+
+<br>  
+
+  - $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head  
+    > $
+      \frac{\partial L}{\partial W_{LM}} = (\frac{\partial L}{\partial Z})^T \cdot H
+      $  
+
+      Shape of H is => [B, T, d]  
+
+      Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
+
+      Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
+    Once above gradient is ready, next will perform the weight of LM Head udpating  
+
+    > $W_n=W_o - η*\nabla L(W_o)$  
+    *This is traditional way which is not used any more*  
+    
+      Most popular way:  
+    - Global L2 Norm Clipping (max_norm = 1.0)  
+      no independent clipping for gradiant of LM Head's weight during pre-training, because it will impact the relevance with weights of transformer.  
+      An example:
+        > Gradient of LM Head: [3,4] and  layer gradient: [1,2,2]  
+        Global L2 Norm = $\sqrt {3^2+4^2+1^2+2^2+2^2}=\sqrt{34} \approx 5.83 $  
+        Since 5.83 over the max_norm = 1.0,    
+        then every gradient elements need to $\times \frac {1.0}{5.83}\approx 0,172$ to do Global Clipping   
+
+        *(For SFT/RHDL, may have different approach)*  
+
+
+    - LM Head Weight Updating with AdamW  
+      Hyper Param example:  
+      > η = 0.001 (Learning rate)  
+      β1 = 0.9 (Firt moment decay coefficient)  
+      β2=0.999  (Second  moment decay coefficient)  
+      ϵ=10<sup>-8</sup> (Numerical stability constant)  
+      λ = 0.01(Weight decay coefficient)  
+
+      First Moment m:  
+      > $
+        m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t  
         $  
- 
-        Shape of H is => [B, T, d]  
+      Shape of m is same as W<sub>LM</sub> = [V, d]
 
-        Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)
+      Second Moment v:
+      > $
+        v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2
+        $  
+      Shape of v is same as W<sub>LM</sub> = [V, d]  
 
-        Shape of $\frac{\partial L}{\partial W_{LM}}$  is same as LM Head's weights: $[V \times d]$  
-      Once above gradient is ready, next will perform the weight of LM Head udpating  
+      > *Above caculation method is EMA: Exponential Moving Average,  instead of arithmetic mean*  
 
-      > $W_n=W_o - η*\nabla L(W_o)$  
-      *This is traditional way which is not used any more*  
-      
-       Most popular way:  
-      - Global L2 Norm Clipping (max_norm = 1.0)  
-        no independent clipping for gradiant of LM Head's weight during pre-training, because it will impact the relevance with weights of transformer.  
-        An example:
-          > Gradient of LM Head: [3,4] and  layer gradient: [1,2,2]  
-          Global L2 Norm = $\sqrt {3^2+4^2+1^2+2^2+2^2}=\sqrt{34} \approx 5.83 $  
-          Since 5.83 over the max_norm = 1.0,    
-          then every gradient elements need to $\times \frac {1.0}{5.83}\approx 0,172$ to do Global Clipping   
+      Since *m* intiliazed with 0, caused the m<sub>t</sub> is too small at the begining, for example:  
+      > Step 1: m<sub>1</sub>=0.9×0+0.1×g<sub>1</sub>=0.1g<sub>1</sub>  
+      ​Step 2: m<sub>2</sub>=0.9×0.1g<sub>1</sub>+0.1×g<sub>2</sub>≈0.19g  
 
-          *(For SFT/RHDL, may have different approach)*  
+      So here's the adjustment formular for m and v:  
+      > $  
+      \hat{m}_t = \frac{m_t}{1 - \beta_1^t}
+      $  
+      $
+      \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
+      $  
 
+      Weight updating:  
+      > $
+        W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
+        $  
 
-      - LM Head Weight Updating with AdamW  
-        Hyper Paramer example:  
-        > η = 0.001 (Learning rate)  
-        β1 = 0.9 (Firt moment decay coefficient)  
-        β2=0.999  (Second  moment decay coefficient)  
-        ϵ=10<sup>-8</sup> (Numerical stability constant)  
-        λ = 0.01(Weight decay coefficient)  
-
-        First Moment m:  
-        > $
-          m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t  
-          $  
-        Shape of m is same as W<sub>LM</sub> = [V, d]
-
-        Second Moment v:
-        > $
-          v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2
-          $  
-        Shape of v is same as W<sub>LM</sub> = [V, d]  
-
-        > *Above caculation method is EMA: Exponential Moving Average,  instead of arithmetic mean*
-
+        Everytime $\lambda$ pull Weight to 0 a little bit, it affects Weight straightly in AdamW, insteadly it affects Gradiant in Adam, that's the major different between AdamW and Adam.  
+        *(It's possible to skip the LM Head Weight updating by setting to FALSE)*  
+        <br>  
+  - $\frac{\partial L}{\partial H}$ is for passing loss to transformer  
+    
 
 
   <a href="" id="whereami"></a>  
