@@ -1169,7 +1169,7 @@ graph LR
       \rightarrow
       \left\{
       \begin{aligned}
-      \frac{\partial L}{\partial H}
+      \frac{\partial L}{\partial H_{norm}}
       &=
       \frac{\partial L}{\partial Z}
       W_{\mathrm{LM}}^T
@@ -1254,10 +1254,17 @@ graph LR
         *(It's possible to skip the LM Head Weight updating by setting to FALSE)*  
         <br>  
 
-  - $\frac{\partial L}{\partial H}$ is for passing loss to transformer, the shape is $[B, T, d]$   
+   - $\frac{\partial L}{\partial H_{norm}}$ is for passing loss to transformer, the shape is $[B, T, d]$   
     
-
-
+2. **LM Head -> Transformer Final Laye**  
+   - Gradiant to β  
+    $
+    \frac{\partial \mathcal{L}}{\partial \beta_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}}
+    $
+   - Gradiant to γ  
+    $
+    \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
+    $
   <a href="" id="whereami"></a>  
 
     
