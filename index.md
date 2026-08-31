@@ -1245,7 +1245,7 @@ graph LR
       \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
       $  
 
-      Weight updating:  
+      Weight updating:    
       > $
         W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
         $  
