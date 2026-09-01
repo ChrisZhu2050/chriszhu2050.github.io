@@ -12,8 +12,10 @@
       LLM Essential
     </a> -->
     <details class="sidebar-group">
-      <summary class="sidebar-group-title {% if page.url == '/' %}active{% endif %}">
-        <span class="sidebar-group-label">LLM Essential</span>
+      <summary class="sidebar-group-title">
+        <a href="{{ "/" | relative_url }}" class="sidebar-group-link {% if page.url == '/' %}active{% endif %}" onclick="event.stopPropagation();">
+          LLM Essential
+        </a>
         <span class="sidebar-toggle" aria-hidden="true"></span>
       </summary>
 
