@@ -600,24 +600,16 @@ graph LR
      - LayerNorm
           ```mermaid
               graph LR
-                  A("`Input x<sub>i</sub>  
-                    
-                  ( $$X \in \mathbb R^{N\times D}$$)
-                  `") --> B("`Calculate average(μ) & σ<sup>2</sup>
-
-                  `")--> C("`Standalization  
-
-                  $$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^{2} + \epsilon}}$$
-
-                  `")--> D("Output:  
-                    $$y_i = \gamma \cdot \hat{x}_i + \beta$$
-                    
-
-                  ")  
+                  A("`Input x<sub>i</sub>($$X \in \mathbb R^{B,T,d}$$)`")
+                   --> 
+                  B("`Calculate average(μ) & σ<sup>2</sup>`")
+                  --> 
+                  C("`Standalization $$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^{2} + \epsilon}}$$`")
+                  --> 
+                  D("`Output:$$y_i = \gamma_i \cdot \hat{x}_i + \beta_i$$`")  
           ```  
           
-          > N = Batch size × Seq len  
-          Normally ϵ = 10 <sup>-5</sup>  
+          >Normally ϵ = 10 <sup>-5</sup>  
           Initially $γ_i=1$ and $β_i=0$ and $γ,β \in \mathbb R^{d}$, will be optimized during training  
 
           e.g.   
@@ -1246,6 +1238,7 @@ graph LR
          $  
 
          Weight updating:    
+
          > $
            W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
            $  
@@ -1257,15 +1250,20 @@ graph LR
       - $\frac{\partial L}{\partial H_{norm}}$ is for passing loss to transformer, the shape is $[B, T, d]$   
       <br>  
     
-2. **LM Head -> Transformer Final Laye**  
-   - Gradiant to β  
+2. **LM Head -> Transformer Final Layer**  
+
+   - Gradiant to γ (Scale Param)  
+      > $
+      \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
+      $  
+      Shape of $\hat{x}$ is [B,T,d]  
+      $
+      \frac{\partial \mathcal{L}}{\partial \gamma_i}$ Shape is [d], it's from Sum operation(Compare to the Broadcast in Forward Pass)
+
+   - Gradiant to β (Shift Param - not used in RMSNorm)  
     $
     \frac{\partial \mathcal{L}}{\partial \beta_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}}
-    $
-   - Gradiant to γ  
-    $
-    \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
-    $
+    $  
   <a href="" id="whereami"></a>  
 
     
