@@ -387,6 +387,69 @@ table {
   border-radius: 4px;
 }
 
+.sidebar-nav .sidebar-group {
+  margin-bottom: 8px;
+}
+
+.sidebar-nav .sidebar-group-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 35px;
+  margin: 3px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.sidebar-nav .sidebar-group-title::-webkit-details-marker {
+  display: none;
+}
+
+.sidebar-nav .sidebar-group-title::marker {
+  display: none;
+}
+
+.sidebar-nav .sidebar-group-label {
+  flex: 1;
+}
+
+.sidebar-toggle {
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  font-weight: 700;
+  color: #5b5b5b;
+}
+
+.sidebar-toggle::before {
+  content: "+";
+}
+
+.sidebar-group[open] .sidebar-toggle::before {
+  content: "−";
+}
+
+.sidebar-subnav {
+  margin-top: 4px;
+  margin-left: 18px;
+  padding-left: 10px;
+  border-left: 1px solid #e5e5e5;
+}
+
+.sidebar-subnav a {
+  font-size: 14px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #5b5b5b;
+}
+
+.sidebar-subnav a.active {
+  font-weight: 600;
+  background: #f0f0f0;
+}
 .sidebar-nav a:hover {
   background: #f0f0f0;
 }

@@ -11,7 +11,20 @@
     <a href="{{ "/" | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">
       LLM Essential
     </a>
+    <details class="sidebar-group">
+      <summary class="sidebar-group-title {% if page.url == '/' %}active{% endif %}">
+        <span class="sidebar-group-label">LLM Essential</span>
+        <span class="sidebar-toggle" aria-hidden="true"></span>
+      </summary>
 
+      <div class="sidebar-subnav">
+        <a href="{{ '/#training-data' | relative_url }}">Training Data</a>
+        <a href="{{ '/#weights-initialization' | relative_url }}">Weights Initialization</a>
+        <a href="{{ '/#tokenizer-pipeline' | relative_url }}">Tokenizer Pipeline</a>
+        <a href="{{ '/#training-forward-pass' | relative_url }}">Training Forward Pass</a>
+        <a href="{{ '/#training-backward-pass' | relative_url }}">Training Backward Pass</a>
+      </div>
+    </details>
     
 
     <a href="{{ "/docs/llm-fine-tune/" | relative_url }}" class="{% if page.url contains 'llm-fine-tune' %}active{% endif %}">
