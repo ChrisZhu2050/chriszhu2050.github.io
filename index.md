@@ -1264,9 +1264,7 @@ graph LR
 
          Weight updating:    
 
-         > $
-           W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
-           $  
+         > $W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)$  
 
            Everytime $\lambda$ pull Weight to 0 a little bit, it affects Weight straightly in AdamW, insteadly it affects Gradiant in Adam, that's the major different between AdamW and Adam.  
            *(It's possible to skip the LM Head Weight updating by setting to FALSE)*  
@@ -1275,22 +1273,25 @@ graph LR
       - $\frac{\partial L}{\partial H_{norm}}$ is for passing loss to transformer, the shape is $[B, T, d]$   
       <br>  
     
-2. **LM Head -> Transformer Final Layer**  
-    - $γ \in R^{(d)}$ weight updating  
-    - Gradiant to γ (Scale Param)  
-        > $
-        \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
-        $  
-        Shape of $\hat{x}$ is [B,T,d]  
-        $
-        \frac{\partial \mathcal{L}}{\partial \gamma_i}$ Shape is [d], it's from Sum operation(Compare to the Broadcast in Forward Pass)  
+2. **LM Head -> Transformer Final Layer**   
+    - Gradiant to $γ \in R^{(d)}$ (Scale Param)  
+          > $
+          \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
+          $  
+          Shape of $\hat{x}$ is [B,T,d]  
+          $\frac{\partial \mathcal{L}}{\partial \gamma_i}$ Shape is [d], it's from Sum operation(Compare to the Broadcast in Forward Pass)  
 
-        S
 
-    - Gradiant to β (Shift Param - not used in RMSNorm)  
+    - Gradiant to $β \in R^{(d)}$ (Shift Param - not used in RMSNorm)  
       $
       \frac{\partial \mathcal{L}}{\partial \beta_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}}
       $  
+    - Global L2 Norm Clipping  
+      γ and β will not lead the Clipping Since they are only have [d] elements.  
+      $
+      \|g\|_{global} = \sqrt{\|g_{W_{head}}\|_2^2 + \|g_{\gamma}\|_2^2 + \|g_{body}\|_2^2 + \cdots}
+      $
+    - AdamW  
   <a href="" id="whereami"></a>  
 
     
