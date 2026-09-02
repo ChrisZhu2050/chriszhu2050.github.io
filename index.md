@@ -56,10 +56,20 @@ graph LR
 
   ```mermaid
       graph LR
-          A("`Token Embedding`")  --> C("`Self-Attention`") --> D("`FFN`") --> F("`LM Head`")
+          A("`Token Embedding`")  --> B("`LayerNorm/RMSNorm`")  --> C("`Self-Attention`") --OR--> D("`FFN`") --> F("`LM Head`")
+          G("`MoE`")
+          C --OR--> G
+          G --> F
+          click A "#Weights-Token-Embedding"
+          click B "#Weights-LayerNorm"
+          click C "#Weights-Self-Attention"
+          click D "#Weights-FFN"
+          click F "#Weights-LM-Head"
+          click G "#Weights-MoE"
   ```  
 
   1. **Token Embedding**  
+    <a href="" id="Weights-Token-Embedding"></a>  
       <br>
       > Only one in a model!  
 
@@ -100,8 +110,20 @@ graph LR
           $  
   
       <br>  
+  2. **LayerNorm/RMSNorm**  
+      <a href="" id="Weights-LayerNorm"></a> 
+      > $γ,β \in R^{(d)} $ are learnable weights  
+      *γ: Scale Param*  
+      *β: Shift Param*
 
-  2.  **Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)**   
+      Initial:  
+      > γ = [1,1,...d]  
+      β = [0,0,...d]  
+      
+      *Normally β will not needed in RMSNorm*  
+      <br>    
+  3.  **Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)**   
+      <a href="" id="Weights-Self-Attention"></a>
       <br>
       > Each layer has one!  
 
@@ -158,8 +180,9 @@ graph LR
 
       <br>
 
-  3. **FFN (Feed Forward Network)**  
+  4. **FFN (Feed Forward Network)**  
       (*Below shows the traditional linear FNN, you may refer to latest [SwiGLU](#swiglu)*)
+      <a href="" id="Weights-FFN"></a>
       ```mermaid
       graph LR
           G("`Attention
@@ -199,7 +222,8 @@ graph LR
 
         <br> 
 
-  4. **MoE (Mixture of Expert)**  
+  5. **MoE (Mixture of Expert)**  
+      <a href="" id="Weights-MoE"></a>
       ```mermaid
       flowchart LR
           
@@ -235,7 +259,8 @@ graph LR
       > W~N(0, σ<sup>2</sup>)  
   <br>   
 
-  5. **LM Head**   
+  6. **LM Head**   
+      <a href="" id="Weights-LM-Head"></a>
       W<sub>LM</sub> is LM Head's weight and the shape of W<sub>LM</sub> is **$[V \times d]$**.  
       Used by logits like below:
       > logits = h*W<sub>LM</sub><sup>T</sup>  
@@ -1251,19 +1276,21 @@ graph LR
       <br>  
     
 2. **LM Head -> Transformer Final Layer**  
+    - $γ \in R^{(d)}$ weight updating  
+    - Gradiant to γ (Scale Param)  
+        > $
+        \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
+        $  
+        Shape of $\hat{x}$ is [B,T,d]  
+        $
+        \frac{\partial \mathcal{L}}{\partial \gamma_i}$ Shape is [d], it's from Sum operation(Compare to the Broadcast in Forward Pass)  
 
-   - Gradiant to γ (Scale Param)  
-      > $
-      \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
-      $  
-      Shape of $\hat{x}$ is [B,T,d]  
+        S
+
+    - Gradiant to β (Shift Param - not used in RMSNorm)  
       $
-      \frac{\partial \mathcal{L}}{\partial \gamma_i}$ Shape is [d], it's from Sum operation(Compare to the Broadcast in Forward Pass)
-
-   - Gradiant to β (Shift Param - not used in RMSNorm)  
-    $
-    \frac{\partial \mathcal{L}}{\partial \beta_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}}
-    $  
+      \frac{\partial \mathcal{L}}{\partial \beta_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}}
+      $  
   <a href="" id="whereami"></a>  
 
     
