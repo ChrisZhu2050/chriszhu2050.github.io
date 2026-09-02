@@ -1147,7 +1147,7 @@ graph LR
         a --> c1
         c1 --> d
         c1 --> b1
-        b1 --> d1
+        b1 -- ∂L/∂H<sup>N</sup>--> d1
         d --> d1
         d1 --> e
         e --> f
