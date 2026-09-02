@@ -1131,45 +1131,30 @@ graph LR
 > When got the Loss of the batch, then calculate all the Gradient with learnable Parameters ( [Initialized Weights](#weights-initialization) ) 
 
   ```mermaid
-        block
-        columns 6
+        flowchart LR
 
-          a("Loss ->
-           LM Head")
-          
-
-        block:group2:1
-          columns 1
-          c1("LM Head -> 
-          Final RMSNorm") space
-          b1("Transformer Layer N -> 
-          Layer N-1 -> ... ->
-           Layer 1")
-          
-        end
-        block:group3:1
-          columns 1
-          d("FFN / MoE Backward") space
+          a("Loss ->LM Head")
+          c1("Final RMSNorm")
+          b1("Residual")
+          d("FFN + RMSNorm")
+          d1("Sum of Gradiant")
           e("Attention Backward") 
-        end
-        block:group4:1
-          columns 1
-          f("Embedding Backward") space
+          f("Embedding Backward")
           g("Gradients")
-
-        end
-        
           z("Optimizer Step")
           y("Update Weights")
         
+        a --> c1
+        c1 --> d
         c1 --> b1
-        d --> e
+        b1 --> d1
+        d --> d1
+        d1 --> e
+        e --> f
         f --> g
-        a --> group2
-        group2 --> group3
-        group3 --> group4
-        group4 --> z
+        g --> z
         z --> y
+        
 
   ```  
 1. **Loss -> LM Head**   
