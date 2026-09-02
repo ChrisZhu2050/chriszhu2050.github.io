@@ -1288,10 +1288,13 @@ graph LR
       $  
     - Global L2 Norm Clipping  
       γ and β will not lead the Clipping Since they are only have [d] elements.  
-      $
-      \|g\|_{global} = \sqrt{\|g_{W_{head}}\|_2^2 + \|g_{\gamma}\|_2^2 + \|g_{body}\|_2^2 + \cdots}
-      $
+      $\|g\|_{global} = \sqrt{\|g_{W_{head}}\|_2^2 + \|g_{\gamma}\|_2^2 + \|g_{body}\|_2^2 + \cdots}$  
     - AdamW  
+      > $\gamma_t = \gamma_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}  \right)$  
+      m and v need to be FP32
+
+      For γ, we will not perform Weight decay, that's why there's no $\lambda\cdot\gamma_{t-1}$ in above formular, because pull γ to 0 will block the gradiant(?).  
+      RMSNorm will not use β, it will follow the same approach as γ in layerNorm.
   <a href="" id="whereami"></a>  
 
     
