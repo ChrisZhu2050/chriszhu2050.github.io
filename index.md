@@ -1270,7 +1270,7 @@ graph LR
       - $\frac{\partial L}{\partial H_{norm}}$ is for passing loss to transformer, the shape is $[B, T, d]$   
       <br>  
     
-2. **LM Head -> Final RMSNorm**   
+2. **Final RMSNorm**   
     - Gradiant to $γ \in R^{(d)}$ (Scale Param)  
           > $
           \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
