@@ -120,7 +120,7 @@ graph LR
       > γ = [1,1,...d]  
       β = [0,0,...d]  
       
-      *Normally β will not needed in RMSNorm*  
+      *Normally β is not needed in RMSNorm*  
       <br>    
   3.  **Self-Attention (W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub> /  W<sub>output</sub>)**   
       <a href="" id="Weights-Self-Attention"></a>
@@ -565,7 +565,7 @@ graph LR
 
           block:group2:1
             columns 1
-            c1("LayerNorm") space
+            c1("RMSNorm") space
             b1("Q/K/V") space
             b("Positional embedding") space
             c2("Masked multi-head attention") space
@@ -573,13 +573,13 @@ graph LR
           end
           block:group3:1
             columns 1
-            d("2nd LayerNorm") space
+            d("2nd RMSNorm") space
             e("Feed-forward neural network") space
             h("2nd Add")
           end
           block:group4:1
             columns 1
-            f("Final LayerNorm") space
+            f("Final RMSNorm") space
             g("Linear / LM Head")
 
           end
@@ -622,14 +622,14 @@ graph LR
       <br>
       <a href="" id="layernorm"></a>  
 
-     - LayerNorm
+     - LayerNorm 
           ```mermaid
               graph LR
                   A("`Input x<sub>i</sub>($$X \in \mathbb R^{B,T,d}$$)`")
                    --> 
                   B("`Calculate average(μ) & σ<sup>2</sup>`")
                   --> 
-                  C("`Standalization $$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^{2} + \epsilon}}$$`")
+                  C("`Normalization $$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^{2} + \epsilon}}$$`")
                   --> 
                   D("`Output:$$y_i = \gamma_i \cdot \hat{x}_i + \beta_i$$`")  
           ```  
@@ -646,7 +646,19 @@ graph LR
             Y \in \mathbb R^{(B,T, d)}
             $$  
          <br>  
+      <a href="" id="Forward-RMSNorm"></a>  
+      - RMSNorm  
+        ```mermaid
+              graph LR
+                  A("`Input x<sub>i</sub>($$X \in \mathbb R^{B,T,d}$$)`")
+                  --> 
+                  C("`Normalization $$\hat{x}_i = \frac{x_i}{RMS(x)+ \epsilon}$$`")
+                  --> 
+                  D("`Output:$$y_i = \gamma_i \cdot \hat{x}_i $$`")  
+          ```  
+          > $\text{RMS}(x) = \sqrt{\frac{1}{d}\sum_{j=1}^{d} x_j^2}$  
 
+          RMSNorm removed the $x_i - \mu$, because centralization is not impactting the result, only scale part will do.
       - Q/K/V Calculation
         ```mermaid
               graph LR
@@ -969,9 +981,9 @@ graph LR
          $$  
 
 
-     - 2nd LayerNorm 
+     - 2nd RMSNorm 
         >The input is from above Add's X<sub>out</sub>  
-        >The Process may [[Refer to layerNorm]](#layernorm)
+        >The Process may [[Refer to RMSNorm]](#Forward-RMSNorm)
      - Feed-forward neural network  
         <a href="" id="swiglu"></a>
         Most popular sturcture at this moment: SwiGLU  
@@ -982,7 +994,7 @@ graph LR
         ```mermaid
         flowchart LR
             
-            A("`LayerNorm Output 
+            A("`RMSNorm Output 
             (x ∈ R<sup>NxD</sup>)
             `")  --> B("`Gate Path
             (W1 ∈ R<sup>Nxd<sub>ff</sub></sup>)
@@ -1018,8 +1030,8 @@ graph LR
         > $$ 
         X_{in}, X_{out},O_{SwiGLU} \in \mathbb R^{(B,T, D)} 
         $$
-     - Final LayerNorm  
-        Same mechanism with previous layerNorm, only the position is different.  
+     - Final RMSNorm  
+        Same mechanism with previous RMSNorm, only the position is different.  
         Output is $h_{final} \in \mathbb R^{(B, T, d)}$  
 
      - LM Head and Logits 
@@ -1129,7 +1141,7 @@ graph LR
         block:group2:1
           columns 1
           c1("LM Head -> 
-          Transformer Final Layer") space
+          Final RMSNorm") space
           b1("Transformer Layer N -> 
           Layer N-1 -> ... ->
            Layer 1")
@@ -1137,8 +1149,8 @@ graph LR
         end
         block:group3:1
           columns 1
-          d("Attention Backward") space
-          e("FFN / MoE Backward") 
+          d("FFN / MoE Backward") space
+          e("Attention Backward") 
         end
         block:group4:1
           columns 1
@@ -1273,28 +1285,32 @@ graph LR
       - $\frac{\partial L}{\partial H_{norm}}$ is for passing loss to transformer, the shape is $[B, T, d]$   
       <br>  
     
-2. **LM Head -> Transformer Final Layer**   
+2. **LM Head -> Final RMSNorm**   
     - Gradiant to $γ \in R^{(d)}$ (Scale Param)  
           > $
           \frac{\partial \mathcal{L}}{\partial \gamma_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}} \cdot \hat{x}_i
-          $  
-          Shape of $\hat{x}$ is [B,T,d]  
+          $    
+          $\hat{x}$ is output of standalization of final RMSNorm, the Shape of $\hat{x}$ is [B,T,d]  
           $\frac{\partial \mathcal{L}}{\partial \gamma_i}$ Shape is [d], it's from Sum operation(Compare to the Broadcast in Forward Pass)  
 
 
-    - Gradiant to $β \in R^{(d)}$ (Shift Param - not used in RMSNorm)  
+    - Gradiant to $β \in R^{(d)}$ (Shift Param - only used in LayerNorm)  
       $
       \frac{\partial \mathcal{L}}{\partial \beta_i} = \frac{\partial \mathcal{L}}{\partial H_{norm}}
       $  
     - Global L2 Norm Clipping  
-      γ and β will not lead the Clipping Since they are only have [d] elements.  
+      γ and β will not lead the Clipping because they only have [d] elements.  
       $\|g\|_{global} = \sqrt{\|g_{W_{head}}\|_2^2 + \|g_{\gamma}\|_2^2 + \|g_{body}\|_2^2 + \cdots}$  
     - AdamW  
       > $\gamma_t = \gamma_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}  \right)$  
       m and v need to be FP32
 
       For γ, we will not perform Weight decay, that's why there's no $\lambda\cdot\gamma_{t-1}$ in above formular, because pull γ to 0 will block the gradiant(?).  
-      RMSNorm will not use β, it will follow the same approach as γ in layerNorm.
+
+      RMSNorm will not use β, it will follow the same approach as γ in layerNorm.  
+    - Gradiant to $x \in R^{(B,T,d)}$, x is the output of 2nd Add. (?) 
+      ∂L/∂h_N = RMSNormBackward(∂L/∂h_norm)?
+
   <a href="" id="whereami"></a>  
 
     
