@@ -1308,8 +1308,10 @@ graph LR
       For γ, we will not perform Weight decay, that's why there's no $\lambda\cdot\gamma_{t-1}$ in above formular, because pull γ to 0 will block the gradiant(?).  
 
       RMSNorm will not use β, it will follow the same approach as γ in layerNorm.  
-    - Gradiant to $x \in R^{(B,T,d)}$, x is the output of 2nd Add. (?) 
-      ∂L/∂h_N = RMSNormBackward(∂L/∂h_norm)?
+    - Gradiant to $x \in R^{(B,T,d)}$, x is the output of last layer.    
+    $$
+    \frac{\partial \mathcal{L}}{\partial x_{ij}} = \frac{1}{\text{RMS}(x_i)} \left( g_{ij} - \frac{\hat{x}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{x}_{ik} \right)
+    $$
 
   <a href="" id="whereami"></a>  
 
