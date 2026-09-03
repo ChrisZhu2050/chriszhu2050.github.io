@@ -180,20 +180,19 @@ graph LR
 
       <br>  
 
-  <a href="" id="Weights-FFN"></a>
+      <a href="" id="Weights-FFN"></a>
   4. **FFN (Feed Forward Network)**  
-      (*Below shows the traditional linear FNN, you may refer to latest [SwiGLU](#swiglu)*)
-
-      ```mermaid
-      graph LR
-          G("`Attention
-          (d<sub>model</sub>,d<sub>model</sub>)`")  --> 
-          A("`W<sub>1</sub>
-          (d<sub>model</sub>,d<sub>ffn</sub>)`")  --> B("`Activation`") --> D("`W<sub>2</sub>
-          (d<sub>ffn</sub>,d<sub>model</sub>)
-          `") --> E("`Output
-          (d<sub>model</sub>,d<sub>model</sub>)`")
-      ```   
+      (*Below shows the traditional linear FNN, you may refer to latest [SwiGLU](#swiglu)*)  
+        ```mermaid
+            graph LR
+            G("`Attention
+            (d<sub>model</sub>,d<sub>model</sub>)`")  --> 
+            A("`W<sub>1</sub>
+            (d<sub>model</sub>,d<sub>ffn</sub>)`")  --> B("`Activation`") --> D("`W<sub>2</sub>
+            (d<sub>ffn</sub>,d<sub>model</sub>)
+            `") --> E("`Output
+            (d<sub>model</sub>,d<sub>model</sub>)`")
+        ```   
         > Each layer has one!
 
       - Two linear transformation (W<sub>1</sub>, W<sub>2</sub>)   
@@ -549,7 +548,7 @@ graph LR
       Tokens<sub>step</sub> = B<sub>global</sub> × T   
 
       <br>  
-      <a href="" id="Foward-Transformer"></a>
+      <a href="" id="Forward-Transformer"></a>
   2. **GPT's Decoder-only Transformer**  
    <br>
         Differences with original Transformer:  
