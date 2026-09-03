@@ -1006,11 +1006,12 @@ graph LR
             g=SiLU(a)=a⋅σ(a)
             σ = Sigmoid()
             `") --> 
-            E("`$$h^{L\times d_{ff}} = g \odot v$$
-            `") --> F("`$$out^{L\times d_{model}} = h\cdot W_{down}$$
+            E("`$$act^{L\times d_{ff}} = g \odot v$$
+            `") --> F("`$$out^{L\times d_{model}} = act\cdot W_{down}$$
             `") 
         ```   
-        > $ d_{ff} = 8/3\times d_{model} $  
+        > act => activation  
+        $ d_{ff} = 8/3\times d_{model} $  
 
         >Shape of W<sub>gate</sub>,W<sub>up</sub> : [ d<sub>ff</sub>, d]  
         Shape of W<sub>down</sub>: [d, d<sub>ff</sub>]  
@@ -1219,7 +1220,7 @@ graph LR
 
            *(For SFT/RHDL, may have different approach)*  
 
-
+        <a href="" id="Backward-LM-Head-Weight"></a>
        - LM Head Weight Updating with AdamW  
          Hyper Param example:  
          > η = 0.001 (Learning rate)  
@@ -1280,7 +1281,7 @@ graph LR
       $  
     - Global L2 Norm Clipping  
       γ and β will not lead the Clipping because they only have [d] elements.  
-      $\|g\|_{global} = \sqrt{\|g_{W_{head}}\|_2^2 + \|g_{\gamma}\|_2^2 + \|g_{body}\|_2^2 + \cdots}$  
+        $\|g\|_{global} = \sqrt{\|g_{W_{head}}\|_2^2 + \|g_{\gamma}\|_2^2 + \|g_{body}\|_2^2 + \cdots}$  
     - AdamW  
       > $\gamma_t = \gamma_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon}  \right)$  
       m and v need to be FP32
@@ -1290,13 +1291,44 @@ graph LR
       RMSNorm will not use β, it will follow the same approach as γ in layerNorm.  
     - Gradiant to $x \in R^{(B,T,d)}$, x is the output of last layer.    
     $$
-    \frac{\partial \mathcal{L}}{\partial x_{ij}} = \frac{1}{\text{RMS}(x_i)} \left( g_{ij} - \frac{\hat{x}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{x}_{ik} \right)
+    \frac{\partial \mathcal{L}}{\partial h^N_{ij}} = \frac{1}{\text{RMS}(h_i)} \left( g_{ij} - \frac{\hat{h}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{h}_{ik} \right)
     $$  
 
 3. **FFN + RMSNorm**   
     - $W_{down}$  
+      > $
+      \frac{\partial \mathcal{L}}{\partial W_{down}} = \frac{\partial \mathcal{L}}{\partial h^N} \cdot act^\top
+      $  
 
-    - SiLU(gate)⊙v
+      $act => activation \in R^{L \times d}$  
+      $\frac{\partial \mathcal{L}}{\partial h^N}$ is from above Final RMSNorm's output  
+      
+      Shape of $\frac{\partial \mathcal{L}}{\partial W_{down}}$ is [d, d<sub>ff</sub>]
+
+      For update the W<sub>down</sub>:  
+      - Global L2 Norm Clipping  
+        $
+        \|g\|_{global} = \sqrt{\|g_{W_{down}}\|_2^2 + \|g_{W_{gate}}\|_2^2 + \|g_{W_{up}}\|_2^2 + \|g_{W_{head}}\|_2^2 + \cdots}
+        $
+      - AdamW  
+        HyperParam example:
+        > η = same as the attention's  
+        λ =0.1 (Weight Decay)  
+        β<sub>1</sub> = 0.9  
+        β<sub>2</sub> = 0.95  
+        ϵ = 1e-8  
+
+        Weight updating process is same as [LM Head Weight's updating](#Backward-LM-Head-Weight)    
+        <br>
+      > $
+      \frac{\partial \mathcal{L}}{\partial act} = W_{down}^\top \cdot \frac{\partial \mathcal{L}}{\partial h^N}
+      $  
+
+      Shape of $\frac{\partial \mathcal{L}}{\partial act}$ is [B, T, d<sub>ff</sub>]  
+      $\frac{\partial \mathcal{L}}{\partial act}$ is for passing the gradiant to 
+
+    - SiLU(gate)⊙v  
+      
     - SiLU(gate)
     - W<sub>gate</sub> and W<sub>up</sub>
     - RMSNorm  
