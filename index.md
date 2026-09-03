@@ -974,10 +974,10 @@ graph LR
         X_{out} = X_{in} + O_{MHA} 
         $$  
         > $$ 
-        X_{in} \in \mathbb R^{(N \times D)} 
+        X_{in} \in \mathbb R^{(L \times D)} 
         $$  
         > $$
-         O_{MHA} \in \mathbb R^{(N \times D)} 
+         O_{MHA} \in \mathbb R^{(L \times D)} 
          $$  
 
 
@@ -987,7 +987,7 @@ graph LR
      - Feed-forward neural network  
         <a href="" id="swiglu"></a>
         Most popular sturcture at this moment: SwiGLU  
-        > $SwiGLU\_FFN(x) = (\text{SiLU}(xW_1) \odot (xW_2))W_3$
+        > $SwiGLU\_FFN(x) = (\text{SiLU}(xW_{gate}) \odot (xW_{up}))W_{down}$  
 
       
 
@@ -995,25 +995,26 @@ graph LR
         flowchart LR
             
             A("`RMSNorm Output 
-            (x ∈ R<sup>NxD</sup>)
+            (x ∈ R<sup>LxD</sup>)
             `")  --> B("`Gate Path
-            (W1 ∈ R<sup>Nxd<sub>ff</sub></sup>)
+            (W<sub>gate</sub> ∈ R<sup>Lxd<sub>ff</sub></sup>)
             `") & B1("`Value Path
-            (W2 ∈ R<sup>Nxd<sub>ff</sub></sup>)
+            (W<sub>up</sub> ∈ R<sup>Lxd<sub>ff</sub></sup>)
             `")
-            B1 --$$v=x\cdot W_2$$--> E
-            B --$$a=x\cdot W_1$$--> D("`SiLU
+            B1 --$$v=x\cdot W_{up}$$--> E
+            B --$$a=x\cdot W_{gate}$$--> D("`SiLU
             g=SiLU(a)=a⋅σ(a)
             σ = Sigmoid()
             `") --> 
-            E("`$$h^{N\times d_{ff}} = g \odot v$$
-            `") --> F("`$$out^{N\times d_{model}} = h\cdot W_3$$
+            E("`$$h^{L\times d_{ff}} = g \odot v$$
+            `") --> F("`$$out^{L\times d_{model}} = h\cdot W_{down}$$
             `") 
         ```   
         > $ d_{ff} = 8/3\times d_{model} $  
 
-        >W<sub>1</sub>,W<sub>2</sub>,W<sub>3</sub>' shape: [N, d<sub>ff</sub>]  
-        W<sub>1</sub>,W<sub>2</sub>,W<sub>3</sub>  ~ N(0,σ<sup>2</sup>)  
+        >Shape of W<sub>gate</sub>,W<sub>up</sub> : [ d<sub>ff</sub>, d]  
+        Shape of W<sub>down</sub>: [d, d<sub>ff</sub>]  
+        W<sub>gate</sub>,W<sub>up</sub>,W<sub>down</sub>  ~ N(0,σ<sup>2</sup>)  
         
 
         > $Sigmoid(x) = \frac {1}{1+e^{-x}} $  
@@ -1028,7 +1029,7 @@ graph LR
         X_{out} = X_{in} + O_{SwiGLU} 
         $$  
         > $$ 
-        X_{in}, X_{out},O_{SwiGLU} \in \mathbb R^{(B,T, D)} 
+        X_{in}, X_{out},O_{SwiGLU} \in \mathbb R^{(B,T, d)} 
         $$
      - Final RMSNorm  
         Same mechanism with previous RMSNorm, only the position is different.  
@@ -1137,12 +1138,9 @@ graph LR
           c1("Final RMSNorm")
           b1("Residual")
           d("FFN + RMSNorm")
-          d1("Sum of Gradiant")
+          d1("Gradient Accumulation")
           e("Attention Backward") 
-          f("Embedding Backward")
-          g("Gradients")
-          z("Optimizer Step")
-          y("Update Weights")
+
         
         a --> c1
         c1 --> d
@@ -1150,10 +1148,7 @@ graph LR
         b1 -- ∂L/∂H<sup>(N)</sup>--> d1
         d --> d1
         d1 --> e
-        e --> f
-        f --> g
-        g --> z
-        z --> y
+
         
 
   ```  
@@ -1296,9 +1291,15 @@ graph LR
     - Gradiant to $x \in R^{(B,T,d)}$, x is the output of last layer.    
     $$
     \frac{\partial \mathcal{L}}{\partial x_{ij}} = \frac{1}{\text{RMS}(x_i)} \left( g_{ij} - \frac{\hat{x}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{x}_{ik} \right)
-    $$
+    $$  
+
+3. **FFN + RMSNorm**   
+    - $W_{down}$  
+
+    - SiLU(gate)⊙v
+    - SiLU(gate)
+    - W<sub>gate</sub> and W<sub>up</sub>
+    - RMSNorm  
+4. **Gradient Accumulation**
 
   <a href="" id="whereami"></a>  
-
-    
-  
