@@ -178,11 +178,12 @@ graph LR
       W<sub>output</sub> Initialization:  
       > W<sub>output</sub> ~ N(0,($\frac{σ}{\sqrt 2N}$)<sup>2</sup>) 
 
-      <br>
+      <br>  
 
+  <a href="" id="Weights-FFN"></a>
   4. **FFN (Feed Forward Network)**  
       (*Below shows the traditional linear FNN, you may refer to latest [SwiGLU](#swiglu)*)
-      <a href="" id="Weights-FFN"></a>
+
       ```mermaid
       graph LR
           G("`Attention
@@ -498,6 +499,8 @@ graph LR
   ```mermaid
         graph LR
             A("`Tokenization`") --> D("`Transformer`") --> I("`Cross Entropy Loss`") 
+            click D "#Forward-Transformer"
+            click I "#Forward-Cross-Entropy-Loss"
   ```
   1. **Tokenization**  
   
@@ -543,12 +546,10 @@ graph LR
       and finally:  
 
       > B<sub>global</sub> = B<sub>micro</sub> × N<sub>GPU</sub> × GAS  
-      Tokens<sub>step</sub> = B<sub>global</sub> × T  
+      Tokens<sub>step</sub> = B<sub>global</sub> × T   
 
       <br>  
-
-
-
+      <a href="" id="Foward-Transformer"></a>
   2. **GPT's Decoder-only Transformer**  
    <br>
         Differences with original Transformer:  
@@ -1086,7 +1087,7 @@ graph LR
 
       <br>
 
-
+      <a href="" id="Forward-Cross-Entropy-Loss"></a>
   3. **Cross-entropy Loss**  
       For example if the real 5th word is "happening" and if the output of P5(happening) is:  
       > P5(happening) = 0.9 => means the loss is relatively small  
