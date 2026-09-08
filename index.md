@@ -1307,9 +1307,9 @@ graph LR
 
       For update the W<sub>down</sub>:  
       - Global L2 Norm Clipping  
-        $
-        \|g\|_{global} = \sqrt{\|g_{W_{down}}\|_2^2 + \|g_{W_{gate}}\|_2^2 + \|g_{W_{up}}\|_2^2 + \|g_{W_{head}}\|_2^2 + \cdots}
-        $
+          $
+          \|g\|_{global} = \sqrt{\|g_{W_{down}}\|_2^2 + \|g_{W_{gate}}\|_2^2 + \|g_{W_{up}}\|_2^2 + \|g_{W_{head}}\|_2^2 + \cdots}
+          $
       - AdamW  
         HyperParam example:
         > η = same as the attention's  
