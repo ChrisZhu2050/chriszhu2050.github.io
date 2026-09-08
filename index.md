@@ -995,18 +995,18 @@ graph LR
         flowchart LR
             
             A("`RMSNorm Output 
-            (x ∈ R<sup>LxD</sup>)
+            (x ∈ R<sup>Lxd</sup>)
             `")  --> B("`Gate Path
-            (W<sub>gate</sub> ∈ R<sup>Lxd<sub>ff</sub></sup>)
+            (W<sub>gate</sub> ∈ R<sup>d<sub>ff</sub>xd</sup>)
             `") & B1("`Value Path
-            (W<sub>up</sub> ∈ R<sup>Lxd<sub>ff</sub></sup>)
+            (W<sub>up</sub> ∈ R<sup>d<sub>ff</sub>xd</sup>)
             `")
-            B1 --$$v=x\cdot W_{up}$$--> E
+            B1 --$$up=x\cdot W_{up}$$--> E
             B --$$a=x\cdot W_{gate}$$--> D("`SiLU
             g=SiLU(a)=a⋅σ(a)
             σ = Sigmoid()
             `") --> 
-            E("`$$act^{L\times d_{ff}} = g \odot v$$
+            E("`$$act^{L\times d_{ff}} = g \odot up$$
             `") --> F("`$$out^{L\times d_{model}} = act\cdot W_{down}$$
             `") 
         ```   
@@ -1325,12 +1325,34 @@ graph LR
       $  
 
       Shape of $\frac{\partial \mathcal{L}}{\partial act}$ is [B, T, d<sub>ff</sub>]  
-      $\frac{\partial \mathcal{L}}{\partial act}$ is for passing the gradiant to 
+      $\frac{\partial \mathcal{L}}{\partial act}$ is for passing the gradiant to SiLU(gate)⊙up
 
-    - SiLU(gate)⊙v  
-      
-    - SiLU(gate)
-    - W<sub>gate</sub> and W<sub>up</sub>
+    - SiLU(gate)⊙up  
+      $
+      \frac{\partial \mathcal{L}}{\partial \text{SiLU}(gate)} = \frac{\partial \mathcal{L}}{\partial act} \odot up
+      $  
+
+      $
+      \frac{\partial \mathcal{L}}{\partial up} = \frac{\partial \mathcal{L}}{\partial act} \odot \text{SiLU}(gate)
+      $  
+      Refer to the [Forward Pass](#swiglu) for these 2 branches  
+
+    - Up and W<sub>up</sub>  
+      > $
+      \frac{\partial \mathcal{L}}{\partial h_{norm}} = W_{up}^\top \cdot \frac{\partial \mathcal{L}}{\partial up}
+      $  
+      For passing backward, will plus gate's grandiant  
+
+      > $
+      \frac{\partial \mathcal{L}}{\partial W_{up}} = \frac{\partial \mathcal{L}}{\partial up} \cdot h_{norm}^\top
+      $  
+      For updating the W<sub>up</sub>, the updating process is exactly same as W<sub>down</sub>
+
+    - SiLU(gate) and W<sub>gate</sub>  
+      > $
+      \frac{\partial \mathcal{L}}{\partial gate} = \frac{\partial \mathcal{L}}{\partial \text{SiLU}(gate)} \odot \text{SiLU}'(gate)
+      $  
+      SiLU′(z)=σ(z)+z⋅σ(z)⋅(1−σ(z))=σ(z)⋅(1+z⋅(1−σ(z)))
     - RMSNorm  
 4. **Gradient Accumulation**
 
