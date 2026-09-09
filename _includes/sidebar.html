@@ -11,7 +11,7 @@
     <!-- <a href="{{ "/" | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">
       LLM Essential
     </a> -->
-    <details class="sidebar-group" {% if page.url == '/' %}open{% endif %}>
+    <details class="sidebar-group" {% if page.url == '/' or page.url contains 'llm-essential' %}open{% endif %}>
       <summary class="sidebar-group-title {% if page.url == '/' or page.url contains 'llm-essential' %}active{% endif %}">
         <a href="{{ "/" | relative_url }}" class="sidebar-group-link {% if page.url == '/' or page.url contains 'llm-essential' %}active{% endif %}" onclick="event.stopPropagation();">
           LLM Essential
