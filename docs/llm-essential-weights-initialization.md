@@ -3,10 +3,6 @@ layout: page
 title: "Weights Initialization"
 # permalink: /llm-distillation/
 ---
-***  
-
-## Weights Initialization
-
 
   ```mermaid
       graph LR
