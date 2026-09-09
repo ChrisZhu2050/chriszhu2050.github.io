@@ -346,7 +346,8 @@ table {
 }
 
 .content-wrapper {
-  // width: min(100%, 1100px);
+  width: 100%;
+  max-width: $content-width;
   
   margin-left: auto;
   margin-right: auto;
