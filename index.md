@@ -1389,6 +1389,7 @@ graph LR
       > $
       \frac{\partial \mathcal{L}}{\partial h_{mid,i}} = \frac{\gamma_{2,i}}{r} \left[ \frac{\partial \mathcal{L}}{\partial h_{norm,i}} - \frac{h_{mid,i}}{d \cdot r^2} \sum_{j=1}^d \frac{\partial \mathcal{L}}{\partial h_{norm,j}} \cdot h_{mid,j} \right]
       $  
+
       $
       \frac{\partial \mathcal{L}}{\partial h_{mid}} \in \mathbb R^{B, T, d}$  
       r=RMS(h<sub>mid</sub>)  
@@ -1396,11 +1397,11 @@ graph LR
       <br>  
 
 4. **Gradient Accumulation**  
-    $
+    > $
     \frac{\partial \mathcal{L}}{\partial h_{mid}}^{total} = \frac{\partial \mathcal{L}}{\partial h_N} + \frac{\partial \mathcal{L}}{\partial h_{mid}}\bigg|_{FFN}
     $  
-    $
-    \frac{\partial \mathcal{L}}{\partial h_{mid}} \in \mathbb R ^{[B, T, d]}$ as the inpurt of Attention's backpropagation.  
+
+    $\frac{\partial \mathcal{L}}{\partial h_{mid}} \in \mathbb R ^{[B, T, d]}$ as the inpurt of Attention's backpropagation.  
       <br>  
 
 5. **Attention Backward**  
