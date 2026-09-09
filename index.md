@@ -1039,9 +1039,9 @@ graph LR
      - LM Head and Logits 
         > $logits = h_{final} \cdot W_{LM}^T + b$  
 
-        > $h_{final} \in \mathbb R^{(B,T,D)}$  
+        > $h_{final} \in \mathbb R^{(B,T,d)}$  
 
-        > $W_{LM} \in \mathbb R^{(V \times D)}$  
+        > $W_{LM} \in \mathbb R^{(V \times d)}$  
 
         > $Z = logits \in \mathbb R^{(B, T, V )}$  
 
@@ -1140,15 +1140,22 @@ graph LR
           b1("Residual")
           d("FFN + RMSNorm")
           d1("Gradient Accumulation")
-          e("Attention Backward") 
-
+          e("Attention + RMSNorm")  
+          e1("Residual") 
+          f("Gradient Accumulation")
+          g("Layer N-1")
         
         a --> c1
         c1 --> d
         c1 --> b1
-        b1 -- ∂L/∂H<sup>(N)</sup>--> d1
-        d --> d1
+        b1 -- ∂L/∂H<sub>N</sub>--> d1
+        d --∂L/∂H<sub>mid</sub>--> d1
+        d1 --> e1
         d1 --> e
+        e1 --> f
+        e --> f
+        f --> g
+
 
         
 
@@ -1265,7 +1272,8 @@ graph LR
 
       - $\frac{\partial L}{\partial H_{norm}}$ is for passing loss to transformer, the shape is $[B, T, d]$   
       <br>  
-    
+
+    <a href="" id="Backward-RMSNorm"></a>
 2. **Final RMSNorm**   
     - Gradiant to $γ \in R^{(d)}$ (Scale Param)  
           > $
@@ -1293,7 +1301,7 @@ graph LR
     $$
     \frac{\partial \mathcal{L}}{\partial h^N_{ij}} = \frac{1}{\text{RMS}(h_i)} \left( g_{ij} - \frac{\hat{h}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{h}_{ik} \right)
     $$  
-
+      <br>  
 3. **FFN + RMSNorm**   
     - $W_{down}$  
       > $
@@ -1339,7 +1347,7 @@ graph LR
 
     - Up and W<sub>up</sub>  
       > $
-      \frac{\partial \mathcal{L}}{\partial h_{norm}} = W_{up}^\top \cdot \frac{\partial \mathcal{L}}{\partial up}
+      \frac{\partial \mathcal{L}}{\partial h_{norm}^{up}} = W_{up}^\top \cdot \frac{\partial \mathcal{L}}{\partial up}
       $  
       For passing backward, will plus gate's grandiant  
 
@@ -1352,8 +1360,50 @@ graph LR
       > $
       \frac{\partial \mathcal{L}}{\partial gate} = \frac{\partial \mathcal{L}}{\partial \text{SiLU}(gate)} \odot \text{SiLU}'(gate)
       $  
-      SiLU′(z)=σ(z)+z⋅σ(z)⋅(1−σ(z))=σ(z)⋅(1+z⋅(1−σ(z)))
+      SiLU′(z)=σ(z)+z⋅σ(z)⋅(1−σ(z))=σ(z)⋅(1+z⋅(1−σ(z)))  
+
+
+      > $
+      \frac{\partial \mathcal{L}}{\partial h_{norm}^{gate}} = W_{gate}^\top \cdot \frac{\partial \mathcal{L}}{\partial gate}
+      $  
+
+
+      > $
+      \frac{\partial \mathcal{L}}{\partial W_{gate}} = \frac{\partial \mathcal{L}}{\partial gate} \cdot h_{norm}^\top
+      $  
+
+      W<sub>gate</sub> updating process is same as [LM Head Weight's updating](#Backward-LM-Head-Weight) 
+    - Sum of Up and Gate's grandiant as input of RMSNorm2's backpropagation  
+      $
+      \frac{\partial \mathcal{L}}{\partial h_{norm}} = \frac{\partial \mathcal{L}}{\partial h_{norm}}\bigg|_{gate} + \frac{\partial \mathcal{L}}{\partial h_{norm}}\bigg|_{up}
+      $  
+      $\frac{\partial \mathcal{L}}{\partial h_{norm}} \in \mathbb R^{[B, T, d]}$  
     - RMSNorm  
-4. **Gradient Accumulation**
+      > $
+      \frac{\partial \mathcal{L}}{\partial \gamma_{2,i}} = \sum_{b,t} \frac{\partial \mathcal{L}}{\partial h_{norm,b,t,i}} \cdot \hat{x}_{b,t,i}
+      $  
+
+      $\frac{\partial \mathcal{L}}{\partial \gamma_{2}} \in \mathbb R ^{[d]}$ compressioned from [B,T,d] to [d] by sum on B and T dimention.  
+      Update $\gamma_{2}$ by AdamW, same process as the [Final RMSNorm](#Backward-RMSNorm)  
+
+      > $
+      \frac{\partial \mathcal{L}}{\partial h_{mid,i}} = \frac{\gamma_{2,i}}{r} \left[ \frac{\partial \mathcal{L}}{\partial h_{norm,i}} - \frac{h_{mid,i}}{d \cdot r^2} \sum_{j=1}^d \frac{\partial \mathcal{L}}{\partial h_{norm,j}} \cdot h_{mid,j} \right]
+      $  
+      $
+      \frac{\partial \mathcal{L}}{\partial h_{mid}} \in \mathbb R^{B, T, d}$  
+      r=RMS(h<sub>mid</sub>)  
+
+      <br>  
+
+4. **Gradient Accumulation**  
+    $
+    \frac{\partial \mathcal{L}}{\partial h_{mid}}^{total} = \frac{\partial \mathcal{L}}{\partial h_N} + \frac{\partial \mathcal{L}}{\partial h_{mid}}\bigg|_{FFN}
+    $  
+    $
+    \frac{\partial \mathcal{L}}{\partial h_{mid}} \in \mathbb R ^{[B, T, d]}$ as the inpurt of Attention's backpropagation.  
+      <br>  
+
+5. **Attention Backward**  
+  
 
   <a href="" id="whereami"></a>  
