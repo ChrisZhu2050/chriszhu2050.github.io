@@ -86,19 +86,20 @@ title: "Training Backward Pass"
 
          Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)  
 
-       Once above gradient is ready, next will perform the weight of LM Head udpating  
-
+       Once above gradient is ready, next will perform the weight of LM Head updating  
        > $W_n=W_o - η*\nabla L(W_o)$  
+
        *This is traditional way which is not used any more*  
        
-         Most popular way:  
+         Now most popular way:  
        - Global L2 Norm Clipping (max_norm = 1.0)  
-         no independent clipping for gradiant of LM Head's weight during pre-training, because it will impact the relevance with weights of transformer.  
+         no independent clipping for gradient of LM Head's weight during pre-training, because it will impact the relevance with weights of transformer.  
          An example:
            > Gradient of LM Head: [3,4] and  layer gradient: [1,2,2]  
            Global L2 Norm = $\sqrt {3^2+4^2+1^2+2^2+2^2}=\sqrt{34} \approx 5.83 $  
+
            Since 5.83 over the max_norm = 1.0,    
-           then every gradient elements need to $\times \frac {1.0}{5.83}\approx 0,172$ to do Global Clipping   
+           then every gradient elements need to $\times \frac {1.0}{5.83}\approx 0.172$ to do Global Clipping   
 
            *(For SFT/RHDL, may have different approach)*  
 
@@ -139,7 +140,9 @@ title: "Training Backward Pass"
 
          Weight updating:    
 
-         > $W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)$  
+         > $
+            W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
+          $  
 
            Everytime $\lambda$ pull Weight to 0 a little bit, it affects Weight straightly in AdamW, insteadly it affects Gradiant in Adam, that's the major different between AdamW and Adam.  
            *(It's possible to skip the LM Head Weight updating by setting to FALSE)*  
