@@ -12,7 +12,7 @@
       LLM Essential
     </a> -->
     <details class="sidebar-group" {% if page.url == '/' %}open{% endif %}>
-      <summary class="sidebar-group-title {% if page.url == '/' %}active{% endif %}">
+      <summary class="sidebar-group-title {% if page.url == '/' or page.url contains 'llm-essential' %}active{% endif %}">
         <a href="{{ "/" | relative_url }}" class="sidebar-group-link {% if page.url == '/' %}active{% endif %}" onclick="event.stopPropagation();">
           LLM Essential
         </a>
