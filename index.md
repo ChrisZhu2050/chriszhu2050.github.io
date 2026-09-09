@@ -710,8 +710,8 @@ graph LR
             <br>  
 
             Then:  ​  
-              > Q′= RoPE(Q)  
-              K′= RoPE(K)  
+              > Q<sub>rot</sub>= RoPE(Q)  
+              K<sub>rot</sub>= RoPE(K)  
 
 
             What's RoPE？
@@ -751,7 +751,7 @@ graph LR
             =
             \mathrm{Softmax}
             \left(
-            \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}
+            \frac{Q_{rot}K_{rot}^T}{\sqrt{d_{\mathrm{head}}}}
             \right)V
             $$
 
@@ -811,7 +811,7 @@ graph LR
 
         Break-down of attention calculation:   
         > $$
-        Score = Q'K'^T = [seq\_len, seq\_len]
+        Score = Q_{rot}K_{rot}^T = [seq\_len, seq\_len]
         $$
         What's dot-product?
         >$$
@@ -820,7 +820,7 @@ graph LR
 
         Scaling:  
         >$$
-        \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}
+        \frac{Q_{rot}K_{rot}^T}{\sqrt{d_{\mathrm{head}}}}
         $$  
         
         Causal Mask:  
@@ -851,7 +851,7 @@ graph LR
         >$$
         S_{masked}=
         \left(
-        \frac{Q'K'^T}{\sqrt{d_{\mathrm{head}}}}+M
+        \frac{Q_{rot}K_{rot}^T}{\sqrt{d_{\mathrm{head}}}}+M
         \right)
         $$
         
@@ -933,7 +933,7 @@ graph LR
                 Z-->D
                 A("`Head1
                 Output<sub>1</sub>
-                `") --> C("`O<sub>MHA</sub>=Concat(Output<sub>1</sub>, O<sub>2</sub>...,O<sub>h</sub>)*W<sub>O</sub>
+                `") --> C("`out_attn=Concat(Output<sub>1</sub>, O<sub>2</sub>...,O<sub>h</sub>)*W<sub>O</sub>
                 `")
                 B("`Head2
                 O<sub>2</sub>
@@ -943,42 +943,42 @@ graph LR
                 `")--> C
         ```
         Concat example:    
-        >$$
+        >$
         d_{head}=4
-        $$  
-        >$$
+        $  
+        >$
         h=2
-        $$  
-        >$$
+        $  
+        >$
         O_1 \in R^{5\times4}
-        $$  
-        >$$
+        $  
+        >$
         O_2 \in R^{5\times4}
-        $$  
-        >$$
+        $  
+        >$
         Concat(O_1​,O_2​)\in R^{5\times8}
-        $$    
+        $    
 
-        >$$
-        \operatorname{Concat}(O_1,\ldots,O_h)
+        >$
+        attn = \operatorname{Concat}(O_1,\ldots,O_h)
         \in
         \mathbb{R}^{T\times d_{\mathrm{model}}}
-        $$
+        $
 
         Why need W<sub>O</sub>?  
         >concat combine all the heads outputs.    
         W<sub>O</sub> responsible for reunion the info via projection to W<sub>O</sub> weights.
 
      - Add  
-        > $$ 
-        X_{out} = X_{in} + O_{MHA} 
-        $$  
-        > $$ 
-        X_{in} \in \mathbb R^{(L \times D)} 
-        $$  
-        > $$
-         O_{MHA} \in \mathbb R^{(L \times D)} 
-         $$  
+        > $ 
+        X_{out} = X_{in} + out\_attn
+        $  
+        > $ 
+        X_{in} \in \mathbb R^{(L \times d)} 
+        $  
+        > $
+         out\_attn \in \mathbb R^{(L \times d)} 
+         $  
 
 
      - 2nd RMSNorm 
@@ -1139,10 +1139,12 @@ graph LR
           c1("Final RMSNorm")
           b1("Residual")
           d("FFN + RMSNorm")
-          d1("Gradient Accumulation")
+          d1("1st Gradient 
+          Accumulation")
           e("Attention + RMSNorm")  
           e1("Residual") 
-          f("Gradient Accumulation")
+          f("2nd Gradient
+           Accumulation")
           g("Layer N-1")
         
         a --> c1
@@ -1315,9 +1317,9 @@ graph LR
 
       For update the W<sub>down</sub>:  
       - Global L2 Norm Clipping  
-          $
-          \|g\|_{global} = \sqrt{\|g_{W_{down}}\|_2^2 + \|g_{W_{gate}}\|_2^2 + \|g_{W_{up}}\|_2^2 + \|g_{W_{head}}\|_2^2 + \cdots}
-          $
+        $
+        \|g\|_{global} = \sqrt{\|g_{W_{down}}\|_2^2 + \|g_{W_{gate}}\|_2^2 + \|g_{W_{up}}\|_2^2 + \|g_{W_{head}}\|_2^2 + \cdots}
+        $
       - AdamW  
         HyperParam example:
         > η = same as the attention's  
@@ -1396,15 +1398,76 @@ graph LR
 
       <br>  
 
-4. **Gradient Accumulation**  
+4. **1st Gradient Accumulation**  
     > $
     \frac{\partial \mathcal{L}}{\partial h_{mid}}^{total} = \frac{\partial \mathcal{L}}{\partial h_N} + \frac{\partial \mathcal{L}}{\partial h_{mid}}\bigg|_{FFN}
     $  
 
-    $\frac{\partial \mathcal{L}}{\partial h_{mid}} \in \mathbb R ^{[B, T, d]}$ as the inpurt of Attention's backpropagation.  
+    $\frac{\partial \mathcal{L}}{\partial h_{mid}} \in \mathbb R ^{[B, T, d]}$ as the input of Attention's backpropagation.  
       <br>  
 
-5. **Attention Backward**  
+5. **Attention + RMSNorm**  
+    - W<sub>O</sub>  
+      > $
+      \frac{\partial \mathcal{L}}{\partial W_O} = \left(\frac{\partial \mathcal{L}}{\partial h_{mid}}\right)^\top \cdot out\_attn
+      $  
+
+      $\frac{\partial \mathcal{L}}{\partial W_O}\in \mathbb R^{[d,d]}$ and updating process is same as [LM Head Weight's updating](#Backward-LM-Head-Weight) 
+
+      > $
+      \frac{\partial \mathcal{L}}{\partial out\_attn} = W_O^\top \cdot \frac{\partial \mathcal{L}}{\partial h_{mid}}
+      $  
+      $\frac{\partial \mathcal{L}}{\partial out\_attn} \in \mathbb R^{[B, T, d]}$
+
+
+    - V & attn  
+      $
+      \frac{\partial \mathcal{L}}{\partial V} = attn^\top \cdot \frac{\partial \mathcal{L}}{\partial out\_attn}
+      $  
+      $
+      \frac{\partial \mathcal{L}}{\partial attn} = \frac{\partial \mathcal{L}}{\partial out\_attn} \cdot V^\top
+      $  
+    - Softmax  
+      $
+      \frac{\partial \mathcal{L}}{\partial scores} = attn \odot \left( \frac{\partial \mathcal{L}}{\partial attn} - \text{rowsum}\left(\frac{\partial \mathcal{L}}{\partial attn} \odot attn\right) \right)
+      $  
+
+    - Q<sub>rot</sub> & K<sub>rot</sub>  
+      > $
+      \frac{\partial \mathcal{L}}{\partial Q_{rot}} = \frac{\partial \mathcal{L}}{\partial scores} \cdot K_{rot} / \sqrt{d_k}
+      $  
+
+      > $
+      \frac{\partial \mathcal{L}}{\partial K_{rot}} = \left(\frac{\partial \mathcal{L}}{\partial scores}\right)^\top \cdot Q_{rot} / \sqrt{d_k}
+      $  
+    - RoPE  
+      > $
+      \frac{\partial \mathcal{L}}{\partial Q} = \text{RoPE}^{-1}\left(\frac{\partial \mathcal{L}}{\partial Q_{rot}}, pos\right)
+      $  
+
+      > $
+      \frac{\partial \mathcal{L}}{\partial K} = \text{RoPE}^{-1}\left(\frac{\partial \mathcal{L}}{\partial K_{rot}}, pos\right)
+      $  
+
+    - Q & K & V  
+      > $
+      \frac{\partial \mathcal{L}}{\partial x\_norm} = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}
+      $  
+
+      $\frac{\partial \mathcal{L}}{\partial x\_norm} \in \mathbb R^{[B, T, d]}$
+
+      > $
+      \frac{\partial \mathcal{L}}{\partial W_Q} = \left(\frac{\partial \mathcal{L}}{\partial Q}\right)^\top \cdot x\_norm
+      $  
+      $
+      \frac{\partial \mathcal{L}}{\partial W_K} = \left(\frac{\partial \mathcal{L}}{\partial K}\right)^\top \cdot x\_norm
+      $  
+      $
+      \frac{\partial \mathcal{L}}{\partial W_V} = \left(\frac{\partial \mathcal{L}}{\partial V}\right)^\top \cdot x\_norm
+      $  
+
+      $\frac{\partial \mathcal{L}}{\partial W_Q},\frac{\partial \mathcal{L}}{\partial W_K},\frac{\partial \mathcal{L}}{\partial W_V} \in \mathbb R^{[d,d]}$
+    - RMSNorm
   
 
   <a href="" id="whereami"></a>  
