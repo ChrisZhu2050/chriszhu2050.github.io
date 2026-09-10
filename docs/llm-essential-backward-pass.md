@@ -285,21 +285,26 @@ title: "Training Backward Pass"
 5. **Attention + RMSNorm**  
     - W<sub>O</sub>  
       > $
-      \frac{\partial \mathcal{L}}{\partial W_O} = \left(\frac{\partial \mathcal{L}}{\partial h_{mid}}\right)^\top \cdot out\_attn
+      \frac{\partial \mathcal{L}}{\partial W_O} = \left(\frac{\partial \mathcal{L}}{\partial h_{mid}}\right)^\top \cdot out\_attn\_merged
       $  
 
-      $\frac{\partial \mathcal{L}}{\partial W_O}\in \mathbb R^{[d,d]}$ and updating process is same as [LM Head Weight's updating](#Backward-LM-Head-Weight) 
+      $\frac{\partial \mathcal{L}}{\partial W_O}\in \mathbb R^{[d,d]}$ and updating process of $W_O$ is same as [LM Head Weight's updating](#Backward-LM-Head-Weight) 
 
       > $
-      \frac{\partial \mathcal{L}}{\partial out\_attn} = W_O^\top \cdot \frac{\partial \mathcal{L}}{\partial h_{mid}}
+      \frac{\partial \mathcal{L}}{\partial out\_attn\_merged} = W_O^\top \cdot \frac{\partial \mathcal{L}}{\partial h_{mid}}
       $  
-      $\frac{\partial \mathcal{L}}{\partial out\_attn} \in \mathbb R^{[B, T, d]}$
+      
+      $\frac{\partial \mathcal{L}}{\partial out\_attn\_merged} \in \mathbb R^{[B, T, d]}$
 
 
     - V & attn  
-      $
+      > $
       \frac{\partial \mathcal{L}}{\partial V} = attn^\top \cdot \frac{\partial \mathcal{L}}{\partial out\_attn}
       $  
+
+      $\frac{\partial \mathcal{L}}{\partial V} \in \mathbb R^{[B,H,T,d_k]}
+      $, means gradient of V within one head  
+
       $
       \frac{\partial \mathcal{L}}{\partial attn} = \frac{\partial \mathcal{L}}{\partial out\_attn} \cdot V^\top
       $  
@@ -308,7 +313,7 @@ title: "Training Backward Pass"
       \frac{\partial \mathcal{L}}{\partial scores} = attn \odot \left( \frac{\partial \mathcal{L}}{\partial attn} - \text{rowsum}\left(\frac{\partial \mathcal{L}}{\partial attn} \odot attn\right) \right)
       $  
 
-    - Q<sub>rot</sub> & K<sub>rot</sub>  
+    - Score(Q<sub>rot</sub> & K<sub>rot</sub>)  
       > $
       \frac{\partial \mathcal{L}}{\partial Q_{rot}} = \frac{\partial \mathcal{L}}{\partial scores} \cdot K_{rot} / \sqrt{d_k}
       $  
@@ -316,7 +321,7 @@ title: "Training Backward Pass"
       > $
       \frac{\partial \mathcal{L}}{\partial K_{rot}} = \left(\frac{\partial \mathcal{L}}{\partial scores}\right)^\top \cdot Q_{rot} / \sqrt{d_k}
       $  
-    - RoPE  
+    - Inverse RoPE  
       > $
       \frac{\partial \mathcal{L}}{\partial Q} = \text{RoPE}^{-1}\left(\frac{\partial \mathcal{L}}{\partial Q_{rot}}, pos\right)
       $  
@@ -325,6 +330,7 @@ title: "Training Backward Pass"
       \frac{\partial \mathcal{L}}{\partial K} = \text{RoPE}^{-1}\left(\frac{\partial \mathcal{L}}{\partial K_{rot}}, pos\right)
       $  
 
+      *V is not needed since V didn't do the RoPE in the Forward Pass*
     - Q & K & V  
       > $
       \frac{\partial \mathcal{L}}{\partial x\_norm} = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}

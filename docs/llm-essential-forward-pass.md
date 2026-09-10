@@ -262,10 +262,15 @@ title: "Training Forward Pass"
             \frac{Q_{rot}K_{rot}^T}{\sqrt{d_{\mathrm{head}}}}
             \right)V
             $$
-
+          
       <br>  
 
-     - Masked multi-head attention  
+      - Independent $Q_{rot}$, $K_{rot}$ and V in each head  
+        - $Q_{rot}$, $K_{rot}$ and V will be reshaped from [B,T,d] to [B, T, H, $d_k$]  
+        - Transpose from [B, T, H, $d_k$] to [B, H, T, $d_k$]  
+        $Q_{rot}, K_{rot}, V \in \mathbb R^{[B,H,T,d_k]}$
+
+      - Masked multi-head attention  
         
         How to reshap to *h* heads?  
 
@@ -273,8 +278,8 @@ title: "Training Forward Pass"
         d_k = \frac {d_{model}}{h}
         $$  
 
-        > [B, T, d<sub>model</sub>]==>[B, T, h, d<sub>k</sub>]  
-        *The calculation happened on [N, d<sub>k</sub>] dimention!*   
+        > [B, T, d<sub>model</sub>]==>[B, H, T, d<sub>k</sub>]  
+        *The calculation happened on [B, H, T, d<sub>k</sub>] dimention!*   
 
         Why need to do transpose?   
         e.g. t=3, h=2, d<sub>k</sub>=3
@@ -375,7 +380,7 @@ title: "Training Forward Pass"
         What Softmax will do on S<sub>masked</sub>?
         > Since: $e^{−∞} →0$   
         $$
-        A = Softmax(S_{masked}) 
+        attn = Softmax(S_{masked}) 
         $$  
         
         e.g.   
@@ -392,7 +397,7 @@ title: "Training Forward Pass"
         $$  
       
         > $$ 
-        A=Softmax(S_{masked}) = 
+        attn=Softmax(S_{masked}) = 
         \begin{bmatrix}
         1.000 & 0     & 0     & 0     & 0 \\
         0.269 & 0.731 & 0     & 0     & 0 \\
@@ -402,11 +407,11 @@ title: "Training Forward Pass"
         \end{bmatrix}
         $$  
 
-        for example: ***A<sub>change</sub> ​= [0.245,0.090,0.665,0,0]***
-       
+        for example: ***attn<sub>change</sub> ​= [0.245,0.090,0.665,0,0]***
+        
 
-        Why the above attention weights A need to multiply V?
-          > Attention = A x V  
+        Why the above attn need to multiply V?
+          > out_attn = attn x V  
           > $$
           V=
           \begin{bmatrix}
@@ -436,18 +441,32 @@ title: "Training Forward Pass"
 
         ```mermaid
             graph TD
-                Z("Input from pre-LN") -->A
-                Z-->B
-                Z-->D
-                A("`Head1
+                Z("Input from pre-LN") -->A1
+                Z-->B1
+                Z-->D1
+                A1-->A2
+                B1-->B2
+                D1-->D2
+                A2-->A
+                B2-->B
+                D2-->D
+                A1("Head<sub>1</sub>
+                attn<sub>1</sub>=softMax(...)")
+                B1("Head<sub>2</sub>
+                attn<sub>2</sub>=softMax(...)")
+                D1("Head<sub>N</sub>
+                attn<sub>N</sub>=softMax(...)")
+                A2("out_attn<sub>1</sub>=attn<sub>1</sub>*V<sub>1</sub>")
+                B2("out_attn<sub>2</sub>=attn<sub>2</sub>*V<sub>2</sub>")
+                D2("out_attn<sub>N</sub>=attn<sub>N</sub>*V<sub>N</sub>")
+                A("`
                 Output<sub>1</sub>
-                `") --> C("`out_attn=Concat(Output<sub>1</sub>, O<sub>2</sub>...,O<sub>h</sub>)*W<sub>O</sub>
+                `") --> C("`out=Concat(Output<sub>1</sub>, O<sub>2</sub>...,O<sub>N</sub>)*W<sub>O</sub>
                 `")
-                B("`Head2
+                B("`
                 O<sub>2</sub>
                 `")--> C
-                D("`Head3
-                O<sub>3</sub>
+                D("`O<sub>N</sub>
                 `")--> C
         ```
         Concat example:    
@@ -468,7 +487,7 @@ title: "Training Forward Pass"
         $    
 
         >$
-        attn = \operatorname{Concat}(O_1,\ldots,O_h)
+        out\_attn\_merged = \operatorname{Concat}(O_1,\ldots,O_N)
         \in
         \mathbb{R}^{T\times d_{\mathrm{model}}}
         $
@@ -479,7 +498,7 @@ title: "Training Forward Pass"
 
      - Add  
         > $ 
-        X_{out} = X_{in} + out\_attn
+        X_{out} = X_{in} + out\_attn\_merged
         $  
         > $ 
         X_{in} \in \mathbb R^{(L \times d)} 
