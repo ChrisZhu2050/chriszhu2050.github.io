@@ -6,7 +6,7 @@ permalink: /about/
 
 We talk to public LLM, we are helpping to train it.  
 
-We talk to private LLM, we are building the private advantages.  
+We talk to private LLM, we are building the own advantages.  
 
 Of course, we need to have a private LLM first! 
 <br>  

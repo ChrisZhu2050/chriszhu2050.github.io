@@ -298,16 +298,31 @@ title: "Training Backward Pass"
 
 
     - V & attn  
+      > At this step, all calculations are independently within one head.  
+
+      Below $
+      \frac{\partial \mathcal{L}}{\partial out\_attn}  \in \mathbb R^{[B,H,T,d_k]}
+      $, reshaped and transposed from out\_attn\_merged 
+      $ \in \mathbb R^{[B,T,d]}$ 
+
       > $
       \frac{\partial \mathcal{L}}{\partial V} = attn^\top \cdot \frac{\partial \mathcal{L}}{\partial out\_attn}
       $  
 
       $\frac{\partial \mathcal{L}}{\partial V} \in \mathbb R^{[B,H,T,d_k]}
-      $, means gradient of V within one head  
+      $, means gradient of V within the head  
 
-      $
+      > $
+      \frac{\partial \mathcal{L}}{\partial V_{full}}$ : all heads' gradient of one token will be conbined to full via transpose + reshape
+       
+
+      > $
       \frac{\partial \mathcal{L}}{\partial attn} = \frac{\partial \mathcal{L}}{\partial out\_attn} \cdot V^\top
       $  
+
+      $V \in \mathbb R^{[B, H, T, d_k]}$, $V^\top \in \mathbb R^{[B, H, d_k, T]}$ and       $
+      \frac{\partial \mathcal{L}}{\partial attn} \in \mathbb R^{[B, H, T, T]}
+      $
     - Softmax  
       $
       \frac{\partial \mathcal{L}}{\partial scores} = attn \odot \left( \frac{\partial \mathcal{L}}{\partial attn} - \text{rowsum}\left(\frac{\partial \mathcal{L}}{\partial attn} \odot attn\right) \right)

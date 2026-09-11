@@ -175,7 +175,7 @@ title: "Training Forward Pass"
                   B("`Q = xW<sub>Q</sub> 
                   K = xW<sub>K</sub>
                   V = xW<sub>V</sub>
-                  (W<sub>Q,K,V</sub> ∈ R<sup>D×D</sup>)
+                  (W<sub>Q,K,V</sub> ∈ R<sup>[d,d]</sup>)
                   
                   `") 
           ```  
@@ -337,7 +337,7 @@ title: "Training Forward Pass"
         $$  
         
         Causal Mask:  
-        > Shape:[T × T]  
+        > Shape:[T , T]  
 
         e.g. T = 4  
         
@@ -447,9 +447,9 @@ title: "Training Forward Pass"
                 A1-->A2
                 B1-->B2
                 D1-->D2
-                A2-->A
-                B2-->B
-                D2-->D
+                A2-->C
+                B2-->C
+                D2-->C
                 A1("Head<sub>1</sub>
                 attn<sub>1</sub>=softMax(...)")
                 B1("Head<sub>2</sub>
@@ -459,15 +459,9 @@ title: "Training Forward Pass"
                 A2("out_attn<sub>1</sub>=attn<sub>1</sub>*V<sub>1</sub>")
                 B2("out_attn<sub>2</sub>=attn<sub>2</sub>*V<sub>2</sub>")
                 D2("out_attn<sub>N</sub>=attn<sub>N</sub>*V<sub>N</sub>")
-                A("`
-                Output<sub>1</sub>
-                `") --> C("`out=Concat(Output<sub>1</sub>, O<sub>2</sub>...,O<sub>N</sub>)*W<sub>O</sub>
+                C("`out=Concat(out_attan<sub>1</sub>, out_attan<sub>2</sub>...,out_attn<sub>N</sub>)*W<sub>O</sub>
                 `")
-                B("`
-                O<sub>2</sub>
-                `")--> C
-                D("`O<sub>N</sub>
-                `")--> C
+                
         ```
         Concat example:    
         >$
@@ -650,5 +644,5 @@ title: "Training Forward Pass"
         L_{b,t}
       $$  
 
-      $L_{batch1}$ is input of a Backforwad, 
+      $L_{batch1}$ is input of a Backward
 
