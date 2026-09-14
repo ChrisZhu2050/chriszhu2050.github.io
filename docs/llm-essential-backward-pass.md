@@ -23,13 +23,13 @@ title: "Training Backward Pass"
         a --> c1
         c1 --> d
         c1 --> b1
-        b1 -- ∂L/∂H<sub>N</sub>--> d1
-        d --∂L/∂H<sub>mid</sub>--> d1
+        b1 -- (∂L/∂H<sub>N</sub>)<sup>Residual</sup>--> d1
+        d --(∂L/∂H<sub>mid</sub>)<sup>FNN</sup>--> d1
         d1 --∂L/∂H<sub>mid</sub> --> e1
-        d1 --> e
-        e1 -- ∂L/∂H<sub>mid</sub>--> f
-        e --> f
-        f --> g
+        d1 --∂L/∂H<sub>mid</sub>--> e
+        e1 -- (∂L/∂H<sub>mid</sub>)<sup>Residual</sup>--> f
+        e -- (∂L/∂H<sub>mid-1</sub>)<sup>attn</sup>--> f
+        f --∂L/∂H<sub>mid-1</sub>--> g
 
 
         
@@ -364,6 +364,7 @@ title: "Training Backward Pass"
       > $
       \frac{\partial \mathcal{L}}{\partial W_Q} = \left(\frac{\partial \mathcal{L}}{\partial Q}\right)^\top \cdot x\_{norm}
       $  
+      
       $
       \frac{\partial \mathcal{L}}{\partial W_K} = \left(\frac{\partial \mathcal{L}}{\partial K}\right)^\top \cdot x\_{norm}
       $  
@@ -374,17 +375,35 @@ title: "Training Backward Pass"
       For W<sub>Q</sub>,W<sub>K</sub> updating process, same as [LM Head Weight updating](#Backward-LM-Head-Weight)  
 
     - RMSNorm  
-      > $
-      \frac{\partial \mathcal{L}}{\partial \gamma} = \sum_{b,t} \frac{\partial \mathcal{L}}{\partial x\_norm_{b,t}} \cdot \hat{x}_{b,t}
-      $   
-      
-      $  
-      \frac{\partial \mathcal{L}}{\partial x\_{norm}}
-      = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}
-      $  
+      > $\frac{\partial \mathcal{L}}{\partial \gamma} = \sum_{b,t} \frac{\partial \mathcal{L}}{\partial x\_norm_{b,t}} \cdot \hat{x}_{b,t}$  
 
-      > $
-      \frac{\partial \mathcal{L}}{\partial h_{mid-1}} = \frac{\gamma}{r} \left[ \frac{\partial \mathcal{L}}{\partial x\_{norm}} - \frac{h_{mid-1}}{d \cdot r^2} \sum_{j=1}^d \frac{\partial \mathcal{L}}{\partial x\_{norm}_j} \cdot h_{mid-1,j} \right]
-      $  
+      Among above calculation:  
+      $\frac{\partial \mathcal{L}}{\partial x\_{norm}}
+      = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}$    
+      
+      
+      > $\frac{\partial \mathcal{L}}{\partial H^{(N-1)}_{ij}}^{\text{(attn)}} 
+      = \frac{1}{\text{RMS}(H^{(N-1)}_i)} 
+      \left( 
+      g_{ij} - \frac{\hat{h}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{h}_{ik} 
+      \right)$   
+
+      Among above calculation:  
+      $
+      g_{ij} = \frac{\partial \mathcal{L}}{\partial \tilde{H}^{(N-1)}_{ij}} \cdot \gamma_{1,j}
+      $
+
+      $
+      \hat{h}_{ij} = \frac{H^{(N-1)}_{ij}}{\text{RMS}(H^{(N-1)}_i)}
+      $
+
+      $
+      \text{RMS}(H^{(N-1)}_i) = \sqrt{\frac{1}{d} \sum_{j=1}^{d} \left( H^{(N-1)}_{ij} \right)^2 + \epsilon}
+      $ 
+
+6. **2nd Gradient Accumulation**  
+   $
+    \frac{\partial \mathcal{L}}{\partial H^{(N-1)}} = \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(residual)}} + \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(attn)}}
+  $
 
   <a href="" id="whereami"></a>  
