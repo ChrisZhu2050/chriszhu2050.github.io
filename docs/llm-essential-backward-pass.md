@@ -25,9 +25,9 @@ title: "Training Backward Pass"
         c1 --> b1
         b1 -- ∂L/∂H<sub>N</sub>--> d1
         d --∂L/∂H<sub>mid</sub>--> d1
-        d1 --> e1
+        d1 --∂L/∂H<sub>mid</sub> --> e1
         d1 --> e
-        e1 --> f
+        e1 -- ∂L/∂H<sub>mid</sub>--> f
         e --> f
         f --> g
 
@@ -379,12 +379,12 @@ title: "Training Backward Pass"
       $   
       
       $  
-      \frac{\partial \mathcal{L}}{\partial x\_norm}
+      \frac{\partial \mathcal{L}}{\partial x\_{norm}}
       = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}
       $  
 
       > $
-      \frac{\partial \mathcal{L}}{\partial h_{mid-1}} = \frac{\gamma}{r} \left[ \frac{\partial \mathcal{L}}{\partial x\_norm} - \frac{h_{mid-1}}{d \cdot r^2} \sum_{j=1}^d \frac{\partial \mathcal{L}}{\partial x\_norm_j} \cdot h_{mid-1,j} \right]
+      \frac{\partial \mathcal{L}}{\partial h_{mid-1}} = \frac{\gamma}{r} \left[ \frac{\partial \mathcal{L}}{\partial x\_{norm}} - \frac{h_{mid-1}}{d \cdot r^2} \sum_{j=1}^d \frac{\partial \mathcal{L}}{\partial x\_{norm}_j} \cdot h_{mid-1,j} \right]
       $  
 
   <a href="" id="whereami"></a>  
