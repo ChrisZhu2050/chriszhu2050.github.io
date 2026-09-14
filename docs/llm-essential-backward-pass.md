@@ -48,7 +48,7 @@ title: "Training Backward Pass"
         $$
       > y is a one-shot, then the y<sub>i</sub>=1 here  
 
-      Shape of $\frac{\partial L}{\partial Z}$ is same as Z=> ($T \times V$)
+      Shape of $\frac{\partial L}{\partial Z}$ is same as Z=> ($B,T,voca$)
 
     $\frac{\partial L}{\partial Z_i}$ is the gradient of Softmax + Cross-Entropy, it's a scalar(e.g. -0.09).
     Nagetive means increase the logits(i) will reduce the loss, meanwhile should decrease other logits, vice versa.  
@@ -76,7 +76,7 @@ title: "Training Backward Pass"
 
     <br>  
 
-     - $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head, the shape is  $[V \times d]$   
+     - $\frac{\partial L}{\partial W_{\mathrm{LM}}}$ is for updating the weight of LM Head, the shape is  $[voca, d]$   
 
        > $
          \frac{\partial L}{\partial W_{LM}} = (\frac{\partial L}{\partial Z})^T \cdot H
@@ -84,7 +84,7 @@ title: "Training Backward Pass"
 
          Shape of H is => [B, T, d]  
 
-         Shape of $\frac{\partial L}{\partial Z}$ is => ($T \times V$)  
+         Shape of $\frac{\partial L}{\partial Z}$ is => ($B,T, voca$)  
 
        Once above gradient is ready, next will perform the weight of LM Head updating  
        > $W_n=W_o - η*\nabla L(W_o)$  
