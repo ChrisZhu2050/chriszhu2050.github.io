@@ -27,9 +27,9 @@ title: "Training Backward Pass"
         d --(∂L/∂H<sub>mid</sub>)<sup>FNN</sup>--> d1
         d1 --∂L/∂H<sub>mid</sub> --> e1
         d1 --∂L/∂H<sub>mid</sub>--> e
-        e1 -- (∂L/∂H<sub>mid</sub>)<sup>Residual</sup>--> f
-        e -- (∂L/∂H<sub>mid-1</sub>)<sup>attn</sup>--> f
-        f --∂L/∂H<sub>mid-1</sub>--> g
+        e1 -- (∂L/∂H<sup>N-1</sup>)<sup>residual</sup>--> f
+        e -- (∂L/∂H<sup>N-1</sup>)<sup>attn</sup>--> f
+        f --∂L/∂H<sup>(N-1)</sup>--> g
 
 
         
@@ -382,24 +382,14 @@ title: "Training Backward Pass"
       = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}$    
       
       
-      > $\frac{\partial \mathcal{L}}{\partial H^{(N-1)}_{ij}}^{\text{(attn)}} 
-      = \frac{1}{\text{RMS}(H^{(N-1)}_i)} 
-      \left( 
-      g_{ij} - \frac{\hat{h}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{h}_{ik} 
-      \right)$   
+      > $\frac{\partial \mathcal{L}}{\partial H^{(N-1)}_{ij}}^{\text{(attn)}}= \frac{1}{\text{RMS}(H^{(N-1)}_i)}\left(g_{ij} - \frac{\hat{h}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{h}_{ik}\right)$   
 
       Among above calculation:  
-      $
-      g_{ij} = \frac{\partial \mathcal{L}}{\partial \tilde{H}^{(N-1)}_{ij}} \cdot \gamma_{1,j}
-      $
+      $g_{ij} = \frac{\partial \mathcal{L}}{\partial \tilde{H}^{(N-1)}_{ij}} \cdot \gamma_{1,j}$
 
-      $
-      \hat{h}_{ij} = \frac{H^{(N-1)}_{ij}}{\text{RMS}(H^{(N-1)}_i)}
-      $
+      $\hat{h}_{ij} = \frac{H^{(N-1)}_{ij}}{\text{RMS}(H^{(N-1)}_i)}$
 
-      $
-      \text{RMS}(H^{(N-1)}_i) = \sqrt{\frac{1}{d} \sum_{j=1}^{d} \left( H^{(N-1)}_{ij} \right)^2 + \epsilon}
-      $ 
+      $\text{RMS}(H^{(N-1)}_i) = \sqrt{\frac{1}{d} \sum_{j=1}^{d} \left( H^{(N-1)}_{ij} \right)^2 + \epsilon}$ 
 
 6. **2nd Gradient Accumulation**  
    $
