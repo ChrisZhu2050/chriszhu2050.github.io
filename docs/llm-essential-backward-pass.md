@@ -106,11 +106,11 @@ title: "Training Backward Pass"
         <a href="" id="Backward-LM-Head-Weight"></a>
        - LM Head Weight Updating with AdamW  
          Hyper Param example:  
-         > η = 0.001 (Learning rate)  
+         > η = 0.004 (Learning rate - pretraining)  
          β1 = 0.9 (Firt moment decay coefficient)  
-         β2=0.999  (Second  moment decay coefficient)  
+         β2=0.95  (Second  moment decay coefficient)  
          ϵ=10<sup>-8</sup> (Numerical stability constant)  
-         λ = 0.01(Weight decay coefficient)  
+         λ = 0.1(Weight decay coefficient)  
 
          First Moment m:  
          > $
@@ -139,9 +139,8 @@ title: "Training Backward Pass"
          $  
 
          Weight updating:    
-
-         > $
-            W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
+         >$
+          W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
           $  
 
            Everytime $\lambda$ pull Weight to 0 a little bit, it affects Weight straightly in AdamW, insteadly it affects Gradiant in Adam, that's the major different between AdamW and Adam.  
@@ -252,7 +251,7 @@ title: "Training Backward Pass"
 
       W<sub>gate</sub> updating process is same as [LM Head Weight's updating](#Backward-LM-Head-Weight) 
     - Sum of Up and Gate's grandiant as input of RMSNorm2's backpropagation  
-      $
+      $  
       \frac{\partial \mathcal{L}}{\partial h_{norm}} = \frac{\partial \mathcal{L}}{\partial h_{norm}}\bigg|_{gate} + \frac{\partial \mathcal{L}}{\partial h_{norm}}\bigg|_{up}
       $  
       $\frac{\partial \mathcal{L}}{\partial h_{norm}} \in \mathbb R^{[B, T, d]}$  
@@ -301,19 +300,19 @@ title: "Training Backward Pass"
       > At this step, all calculations are independently within one head.  
 
       Below $
-      \frac{\partial \mathcal{L}}{\partial out\_attn}  \in \mathbb R^{[B,H,T,d_k]}
+      \frac{\partial \mathcal{L}}{\partial out\_{attn}}  \in \mathbb R^{[B,H,T,d_k]}
       $, reshaped and transposed from out\_attn\_merged 
       $ \in \mathbb R^{[B,T,d]}$ 
 
       > $
-      \frac{\partial \mathcal{L}}{\partial V} = attn^\top \cdot \frac{\partial \mathcal{L}}{\partial out\_attn}
+      \frac{\partial \mathcal{L}}{\partial V} = attn^\top \cdot \frac{\partial \mathcal{L}}{\partial out\_{attn}}
       $  
 
       $\frac{\partial \mathcal{L}}{\partial V} \in \mathbb R^{[B,H,T,d_k]}
       $, means gradient of V within the head  
 
       > $
-      \frac{\partial \mathcal{L}}{\partial V_{full}}$ : all heads' gradient of one token will be conbined to full via transpose + reshape
+      \frac{\partial \mathcal{L}}{\partial V_{full}}$ : all heads' gradient of one token will be combined to full via transpose + reshape
        
 
       > $
@@ -322,6 +321,15 @@ title: "Training Backward Pass"
 
       $V \in \mathbb R^{[B, H, T, d_k]}$, $V^\top \in \mathbb R^{[B, H, d_k, T]}$ and       $
       \frac{\partial \mathcal{L}}{\partial attn} \in \mathbb R^{[B, H, T, T]}
+      $
+    - W<sub>V</sub> updating   
+      > $
+      \frac{\partial \mathcal{L}}{\partial W_V} = \left(\frac{\partial \mathcal{L}}{\partial V_{full}}\right)^\top \cdot x\_norm
+      $  
+
+      For W<sub>V</sub> updating process, refer to [LM Head Weight updating](#Backward-LM-Head-Weight)  
+      > $  
+      \frac{\partial \mathcal{L}}{\partial x\_norm}\bigg|_{V} = W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V_{full}}
       $
     - Softmax  
       $
@@ -346,25 +354,37 @@ title: "Training Backward Pass"
       $  
 
       *V is not needed since V didn't do the RoPE in the Forward Pass*
-    - Q & K & V  
+    - W<sub>Q</sub> and W<sub>K</sub> 
       > $
-      \frac{\partial \mathcal{L}}{\partial x\_norm} = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}
+      \frac{\partial \mathcal{L}}{\partial x\_norm} = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K}
       $  
 
       $\frac{\partial \mathcal{L}}{\partial x\_norm} \in \mathbb R^{[B, T, d]}$
 
       > $
-      \frac{\partial \mathcal{L}}{\partial W_Q} = \left(\frac{\partial \mathcal{L}}{\partial Q}\right)^\top \cdot x\_norm
+      \frac{\partial \mathcal{L}}{\partial W_Q} = \left(\frac{\partial \mathcal{L}}{\partial Q}\right)^\top \cdot x\_{norm}
       $  
       $
-      \frac{\partial \mathcal{L}}{\partial W_K} = \left(\frac{\partial \mathcal{L}}{\partial K}\right)^\top \cdot x\_norm
+      \frac{\partial \mathcal{L}}{\partial W_K} = \left(\frac{\partial \mathcal{L}}{\partial K}\right)^\top \cdot x\_{norm}
       $  
-      $
-      \frac{\partial \mathcal{L}}{\partial W_V} = \left(\frac{\partial \mathcal{L}}{\partial V}\right)^\top \cdot x\_norm
+ 
+
+      $\frac{\partial \mathcal{L}}{\partial W_Q},\frac{\partial \mathcal{L}}{\partial W_K} \in \mathbb R^{[d,d]}$  
+
+      For W<sub>Q</sub>,W<sub>K</sub> updating process, same as [LM Head Weight updating](#Backward-LM-Head-Weight)  
+
+    - RMSNorm  
+      > $
+      \frac{\partial \mathcal{L}}{\partial \gamma} = \sum_{b,t} \frac{\partial \mathcal{L}}{\partial x\_norm_{b,t}} \cdot \hat{x}_{b,t}
+      $   
+      
+      $  
+      \frac{\partial \mathcal{L}}{\partial x\_norm}
+      = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}
       $  
 
-      $\frac{\partial \mathcal{L}}{\partial W_Q},\frac{\partial \mathcal{L}}{\partial W_K},\frac{\partial \mathcal{L}}{\partial W_V} \in \mathbb R^{[d,d]}$
-    - RMSNorm
-  
+      > $
+      \frac{\partial \mathcal{L}}{\partial h_{mid-1}} = \frac{\gamma}{r} \left[ \frac{\partial \mathcal{L}}{\partial x\_norm} - \frac{h_{mid-1}}{d \cdot r^2} \sum_{j=1}^d \frac{\partial \mathcal{L}}{\partial x\_norm_j} \cdot h_{mid-1,j} \right]
+      $  
 
   <a href="" id="whereami"></a>  

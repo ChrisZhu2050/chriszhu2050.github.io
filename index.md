@@ -111,7 +111,10 @@ graph LR
   
       <br>  
   2. **LayerNorm/RMSNorm**  
-      <a href="" id="Weights-LayerNorm"></a> 
+      <a href="" id="Weights-LayerNorm"></a>  
+      > Each layer has one!  
+       But $γ_{final},β_{final}$ has only one in a model for final LayerNorm/RMSNorm, 
+
       > $γ,β \in R^{(d)} $ are learnable weights  
       *γ: Scale Param*  
       *β: Shift Param*
@@ -261,6 +264,8 @@ graph LR
 
   6. **LM Head**   
       <a href="" id="Weights-LM-Head"></a>
+      > Only one in a Model!  
+
       W<sub>LM</sub> is LM Head's weight and the shape of W<sub>LM</sub> is **$[voca , d]$**.  
       Used by logits like below:
       > logits = h*W<sub>LM</sub><sup>T</sup>  

@@ -15,7 +15,7 @@ title: "Training Forward Pass"
               graph LR
                   A("`Raw Data`") --> B("`Tokenizer`")--> D("`Sequence Packing`")  
       ```  
-      > *Refer to => [Raw Data](#training-data) and [Tokenizer](#tokenizer-pipeline)*  
+      > *Refer to => [Raw Data](/index) and [Tokenizer](/docs/llm-essential-tokenizer-pipeline)*  
 
         Sequence Packing:  
           Training Sequence Length = 4096  
@@ -62,7 +62,7 @@ title: "Training Forward Pass"
         Differences with original Transformer:  
         > a. No encoder  
         b. No 2nd Multiple-head attention(Cross Attention)  
-        c. Post-LN instead of Pre-LN 
+        c. Pre-LN instead of Post-LN
 
       ```mermaid
           block
@@ -122,7 +122,7 @@ title: "Training Forward Pass"
                   A("`Input
                   (*Token IDs*)
                   `") --> B("`Search token in Weight and return the row vector
-                  (*Weight: V x d<sub>model</sub>*)
+                  (*Weight: voca x d<sub>model</sub>*)
                   `")--> D("`Output
                   *[seq_len, d<sub>model</sub>]*
                   `")  
@@ -166,7 +166,9 @@ title: "Training Forward Pass"
           ```  
           > $\text{RMS}(x) = \sqrt{\frac{1}{d}\sum_{j=1}^{d} x_j^2}$  
 
-          RMSNorm removed the $x_i - \mu$, because centralization is not impactting the result, only scale part will do.
+          RMSNorm removed the $x_i - \mu$, because centralization is not impactting the result, only scale part will do.  
+          RMSNorm normally don't use β, because scale will bring the impact instead of shift.(?)   
+          $γ_i$ and $\epsilon$ may refer the above LayerNorm's description.  
       - Q/K/V Calculation
         ```mermaid
               graph LR
@@ -562,9 +564,9 @@ title: "Training Forward Pass"
 
         > $h_{final} \in \mathbb R^{(B,T,d)}$  
 
-        > $W_{LM} \in \mathbb R^{(V \times d)}$  
+        > $W_{LM} \in \mathbb R^{(voca \times d)}$  
 
-        > $Z = logits \in \mathbb R^{(B, T, V )}$  
+        > $Z = logits \in \mathbb R^{(B, T, voca )}$  
 
         e.g.   
         >$
@@ -617,10 +619,10 @@ title: "Training Forward Pass"
 
       Loss calculation:  
       > $$
-        L=-\sum_{i=1}^{V}
+        L=-\sum_{i=1}^{voca}
         y_i\log(p_i)
       $$  
-      > V：Vocabulary Size
+      > voca：Vocabulary Size
       > y<sub>i</sub> is real target's one-shot
       > p<sub>i</sub> is probility of i from essimation of current model
 
