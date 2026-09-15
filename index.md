@@ -21,7 +21,7 @@ graph LR
 
 ***  
 ### Glance
-- Only one in a model:
+- Weights that only one in a model:
 
     | Component | Weight | Shape | 
     |:----:|:----:|:----:|
@@ -30,7 +30,7 @@ graph LR
     | LM Head | $W_{LM}$| [voca, d] |
  
 
-- One per layer(N layers)  
+- Weights that one per layer ( N layers )  
 
     | Component | Weight | Shape | 
     |:----:|:----:|:----:|
