@@ -21,7 +21,7 @@ graph LR
 
 ***  
 ## Glance
-- Weights that only one in a model:
+- Learnable weights that only one in a model:
 
     | Component | Weight | Shape | 
     |:----:|:----:|:----:|
@@ -30,7 +30,7 @@ graph LR
     | LM Head | $W_{LM}$| [voca, d] |
  
 
-- Weights that one per layer ( N layers )  
+- Learnable weights that one per layer ( N layers )  
 
     | Component | Weight | Shape | 
     |:----:|:----:|:----:|
