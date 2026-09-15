@@ -23,10 +23,10 @@ title: "Weights Initialization"
       <br>
       > Only one in a model!  
 
-      Matrix Shape:  
-      > V × d<sub>model</sub>  
+      Shape of $W_E$:  
+      > [voca , d<sub>model</sub>]  
 
-      (*V for Vocabulary size*)
+      (*voca for Vocabulary size*)
          
       e.g.  
       > V = 32000  
@@ -61,7 +61,10 @@ title: "Weights Initialization"
   
       <br>  
   2. **LayerNorm/RMSNorm**  
-      <a href="" id="Weights-LayerNorm"></a> 
+      <a href="" id="Weights-LayerNorm"></a>  
+      > Each layer has one!  
+       But $γ_{final},β_{final}$ has only one in a model for final LayerNorm/RMSNorm, 
+
       > $γ,β \in R^{(d)} $ are learnable weights  
       *γ: Scale Param*  
       *β: Shift Param*
@@ -81,10 +84,10 @@ title: "Weights Initialization"
 
       IF head = 1:  
 
-      > d<sub>model</sub>  × d<sub>model</sub>   
+      > [d<sub>model</sub>  , d<sub>model</sub>]   
 
       IF head>1:  
-      > d<sub>model</sub>  ×  $\frac{d_{model} }{head}$   
+      > [d<sub>model</sub>  .  $\frac{d_{model} }{head}]$   
 
 
       W<sub>Q</sub> / W<sub>K</sub> / W<sub>V</sub>  Normal Initialization:  
@@ -116,7 +119,7 @@ title: "Weights Initialization"
       Residual Depth Scaling:  
 
       W<sub>Output</sub> Matrix Shape:     
-      > d<sub>model</sub>  × d<sub>model</sub>  
+      > [d<sub>model</sub>  , d<sub>model</sub>]  
       
       <br>  
 
@@ -153,7 +156,7 @@ title: "Weights Initialization"
 
           W<sub>1</sub>:  
           Matrix shape:     
-          > d<sub>model</sub>  × d<sub>ffn</sub>  
+          > [d<sub>model</sub>  , d<sub>ffn</sub>]  
 
           Initialization:  
           > W<sub>1</sub> ~ N(0,$\sqrt \frac{2}{d_{model}}$)   
@@ -162,7 +165,7 @@ title: "Weights Initialization"
 
           W<sub>2</sub>:  
           Matrix shape:  
-          > d<sub>ffn</sub> × d<sub>model</sub>  
+          > [d<sub>ffn</sub> , d<sub>model</sub>]  
 
           Initialization:    
           > W<sub>2</sub> ~ N(0,$\sqrt \frac{2}{d_{ff}}$) 
@@ -211,7 +214,9 @@ title: "Weights Initialization"
 
   6. **LM Head**   
       <a href="" id="Weights-LM-Head"></a>
-      W<sub>LM</sub> is LM Head's weight and the shape of W<sub>LM</sub> is **$[V \times d]$**.  
+      > Only one in a Model!  
+
+      W<sub>LM</sub> is LM Head's weight and the shape of W<sub>LM</sub> is **$[voca , d]$**.  
       Used by logits like below:
       > logits = h*W<sub>LM</sub><sup>T</sup>  
 
