@@ -31,6 +31,7 @@ graph LR
  
 
 - One per layer(N layers)  
+
     | Component | Weight | Shape | 
     |:----:|:----:|:----:|
     | RMSNorm1 | $γ_1$ | [d] |
