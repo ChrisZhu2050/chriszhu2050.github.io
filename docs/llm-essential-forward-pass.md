@@ -15,7 +15,7 @@ title: "Training Forward Pass"
               graph LR
                   A("`Raw Data`") --> B("`Tokenizer`")--> D("`Sequence Packing`")  
       ```  
-      > *Refer to => [Raw Data](/index) and [Tokenizer](/docs/llm-essential-tokenizer-pipeline)*  
+      > *[Raw Data](/index) and [Tokenizer](/docs/llm-essential-tokenizer-pipeline) already have been introduced before.*  
 
         Sequence Packing:  
           Training Sequence Length = 4096  
@@ -59,7 +59,7 @@ title: "Training Forward Pass"
       <a href="" id="Forward-Transformer"></a>
   2. **GPT's Decoder-only Transformer**  
    <br>
-        Differences with original Transformer:  
+        Differences with original Transformed r:  
         > a. No encoder  
         b. No 2nd Multiple-head attention(Cross Attention)  
         c. Pre-LN instead of Post-LN
@@ -68,12 +68,14 @@ title: "Training Forward Pass"
           block
           columns 6
 
-            a("Token embedding")
+            a("Token embedding of 
+            First Layer
+            ")
             
 
           block:group2:1
             columns 1
-            c1("RMSNorm") space
+            c1("RMSNorm1") space
             b1("Q/K/V") space
             b("Positional embedding") space
             c2("Masked multi-head attention") space
@@ -81,7 +83,7 @@ title: "Training Forward Pass"
           end
           block:group3:1
             columns 1
-            d("2nd RMSNorm") space
+            d("RMSNorm2") space
             e("Feed-forward neural network") space
             h("2nd Add")
           end
@@ -93,8 +95,9 @@ title: "Training Forward Pass"
           end
           
             z("Logits")
-            y("Input Of Next Layer
-            or Softmax for final output")
+            y("Input of Next Layer's RMSNorm
+            or 
+            Softmax for final output")
           
 
           c1 --> b1
@@ -122,7 +125,7 @@ title: "Training Forward Pass"
                   A("`Input
                   (*Token IDs*)
                   `") --> B("`Search token in Weight and return the row vector
-                  (*Weight: voca x d<sub>model</sub>*)
+                  (*Weight: voca , d<sub>model</sub>*)
                   `")--> D("`Output
                   *[seq_len, d<sub>model</sub>]*
                   `")  
@@ -155,14 +158,14 @@ title: "Training Forward Pass"
             $$  
          <br>  
       <a href="" id="Forward-RMSNorm"></a>  
-      - RMSNorm  
+      - RMSNorm1  
         ```mermaid
               graph LR
                   A("`Input x<sub>i</sub>($$X \in \mathbb R^{B,T,d}$$)`")
                   --> 
                   C("`Normalization $$\hat{x}_i = \frac{x_i}{RMS(x)+ \epsilon}$$`")
                   --> 
-                  D("`Output:$$y_i = \gamma_i \cdot \hat{x}_i $$`")  
+                  D("`Output:$$x\_{norm}_i = \gamma_{1i} ⊙ \hat{x}_i $$`")  
           ```  
           > $\text{RMS}(x) = \sqrt{\frac{1}{d}\sum_{j=1}^{d} x_j^2}$  
 
@@ -172,18 +175,18 @@ title: "Training Forward Pass"
       - Q/K/V Calculation
         ```mermaid
               graph LR
-                  A("`Input                   x ∈ R<sup>(B, T, d)</sup>
+                  A("`Input                   x_norm ∈ R<sup>(B, T, d)</sup>
                   `") --> 
-                  B("`Q = xW<sub>Q</sub> 
-                  K = xW<sub>K</sub>
-                  V = xW<sub>V</sub>
+                  B("`Q = x_norm*W<sub>Q</sub> 
+                  K = x_norm*W<sub>K</sub>
+                  V = x_norm*W<sub>V</sub>
                   (W<sub>Q,K,V</sub> ∈ R<sup>[d,d]</sup>)
                   
                   `") 
           ```  
             
 
-        What happened in Q = xW<sub>Q</sub> ?
+        What happened in Q = x_norm*W<sub>Q</sub> ?
         >$$
         q_i = x_i \cdot W_Q = \left[ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k1},\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,k2},\ \dots,\ \sum_{k=1}^{D} x_{ik} \cdot W_{Q,kD} \right]
         $$  
@@ -210,61 +213,60 @@ title: "Training Forward Pass"
         <br>
       - Positional embedding
           > Original transformer's Sinusoidal Positional Encoding is almost deprecated:  
-          X = TokenEmbedding + PositionEmbedding
-          - RoPE(Rotary Position Embedding)  
-            Where RoPE happens:
-            > X = TokenEmbedding  
-            Q = XW<sub>Q​</sub>   
-            K = XW<sub>K</sub>  
+          X = TokenEmbedding + PositionEmbedding  
+        - RoPE(Rotary Position Embedding)  
+          Where RoPE happens:
+          > Q = x_norm\*W<sub>Q​</sub>   
+          K = x_norm\*W<sub>K</sub>  
 
-            <br>  
+          <br>  
 
-            Then:  ​  
-              > Q<sub>rot</sub>= RoPE(Q)  
-              K<sub>rot</sub>= RoPE(K)  
+          Then:  ​  
+            > Q<sub>rot</sub>= RoPE(Q)  
+            K<sub>rot</sub>= RoPE(K)  
 
 
-            What's RoPE？
-            > $$
-                \begin{bmatrix}
-                x' \\
-                y'
-                \end{bmatrix}
-                =
-                \begin{bmatrix}
-                \cos\theta & -\sin\theta \\
-                \sin\theta & \cos\theta
-                \end{bmatrix}
-                \begin{bmatrix}
-                x \\
-                y
-                \end{bmatrix}
-              $$  
-            > x′= xcosθ − ysinθ  
-            y′= xsinθ + ycosθ  
-
-            Where's θ from?   
-            (*all above θ is below θ<sub>p,i</sub>, don't confuse with the below RoPE Base*) 
-            > θ<sub>p,i</sub> ​= p*ω<sub>i</sub>​  
-            $$
-            \omega_i=\frac{1}{\theta^{2i/d}}
+          What's RoPE？
+          > $$
+              \begin{bmatrix}
+              x' \\
+              y'
+              \end{bmatrix}
+              =
+              \begin{bmatrix}
+              \cos\theta & -\sin\theta \\
+              \sin\theta & \cos\theta
+              \end{bmatrix}
+              \begin{bmatrix}
+              x \\
+              y
+              \end{bmatrix}
             $$  
-            ω<sub>i</sub> => Rotary frequency  
-            d => Attention head dimension  
-            i => A certain two-dimensional dimension of Q/K  => 0,1,2,…,d/2−1  
-            θ => RoPE Base => normally the value is 10000
+          > x′= xcosθ − ysinθ  
+          y′= xsinθ + ycosθ  
 
-            Finally:
+          Where's θ from?   
+          (*all above θ is below θ<sub>p,i</sub>, don't confuse with the below RoPE Base*) 
+          > θ<sub>p,i</sub> ​= p*ω<sub>i</sub>​  
+          $$
+          \omega_i=\frac{1}{\theta^{2i/d}}
+          $$  
+          ω<sub>i</sub> => Rotary frequency  
+          d => Attention head dimension  
+          i => A certain two-dimensional dimension of Q/K  => 0,1,2,…,d/2−1  
+          θ => RoPE Base => normally the value is 10000
 
-            >$$
-            \mathrm{Attention}
-            =
-            \mathrm{Softmax}
-            \left(
-            \frac{Q_{rot}K_{rot}^T}{\sqrt{d_{\mathrm{head}}}}
-            \right)V
-            $$
-          
+          Finally:
+
+          >$$
+          \mathrm{Attention}
+          =
+          \mathrm{Softmax}
+          \left(
+          \frac{Q_{rot}K_{rot}^T}{\sqrt{d_{\mathrm{head}}}}
+          \right)V
+          $$
+        
       <br>  
 
       - Independent $Q_{rot}$, $K_{rot}$ and V in each head  
@@ -518,19 +520,19 @@ title: "Training Forward Pass"
         flowchart LR
             
             A("`RMSNorm Output 
-            (x ∈ R<sup>Lxd</sup>)
+            (x ∈ R<sup>B,T,d</sup>)
             `")  --> B("`Gate Path
-            (W<sub>gate</sub> ∈ R<sup>d<sub>ff</sub>xd</sup>)
+            (W<sub>gate</sub> ∈ R<sup>d<sub>ff</sub>,d</sup>)
             `") & B1("`Value Path
-            (W<sub>up</sub> ∈ R<sup>d<sub>ff</sub>xd</sup>)
+            (W<sub>up</sub> ∈ R<sup>d<sub>ff</sub>,d</sup>)
             `")
             B1 --$$up=x\cdot W_{up}$$--> E
             B --$$a=x\cdot W_{gate}$$--> D("`SiLU
             g=SiLU(a)=a⋅σ(a)
             σ = Sigmoid()
             `") --> 
-            E("`$$act^{L\times d_{ff}} = g \odot up$$
-            `") --> F("`$$out^{L\times d_{model}} = act\cdot W_{down}$$
+            E("`$$act^{B,T,d_{ff}} = g \odot up$$
+            `") --> F("`$$out^{B,T,d_{model}} = act\cdot W_{down}$$
             `") 
         ```   
         > act => activation  
@@ -557,6 +559,7 @@ title: "Training Forward Pass"
         $$
      - Final RMSNorm  
         Same mechanism with previous RMSNorm, only the position is different.  
+        $\gamma_{final} \in \mathbb R^{[d]}$  
         Output is $h_{final} \in \mathbb R^{(B, T, d)}$  
 
      - LM Head and Logits 

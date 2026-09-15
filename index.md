@@ -73,7 +73,7 @@ graph LR
       <br>
       > Only one in a model!  
 
-      Matrix Shape:  
+      Shape of $W_E$:  
       > [voca , d<sub>model</sub>]  
 
       (*voca for Vocabulary size*)

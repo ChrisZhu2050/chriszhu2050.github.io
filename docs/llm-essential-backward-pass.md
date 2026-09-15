@@ -11,14 +11,15 @@ title: "Training Backward Pass"
           a("Loss ->LM Head")
           c1("Final RMSNorm")
           b1("Residual")
-          d("FFN + RMSNorm")
+          d("FFN + RMSNorm2")
           d1("1st Gradient 
           Accumulation")
-          e("Attention + RMSNorm")  
+          e("Attention + RMSNorm1")  
           e1("Residual") 
           f("2nd Gradient
            Accumulation")
           g("Layer N-1")
+          h("Embedding")
         
         a --> c1
         c1 --> d
@@ -30,6 +31,7 @@ title: "Training Backward Pass"
         e1 -- (∂L/∂H<sup>N-1</sup>)<sup>residual</sup>--> f
         e -- (∂L/∂H<sup>N-1</sup>)<sup>attn</sup>--> f
         f --∂L/∂H<sup>(N-1)</sup>--> g
+        g--(∂L/∂H<sup>0</sup>)-->h
 
 
         
@@ -372,28 +374,33 @@ title: "Training Backward Pass"
 
       $\frac{\partial \mathcal{L}}{\partial W_Q},\frac{\partial \mathcal{L}}{\partial W_K} \in \mathbb R^{[d,d]}$  
 
-      For W<sub>Q</sub>,W<sub>K</sub> updating process, same as [LM Head Weight updating](#Backward-LM-Head-Weight)  
+      For W<sub>Q</sub>,W<sub>K</sub> updating process, same as [LM Head Weight updating](#Backward-LM-Head-Weight).  
 
-    - RMSNorm  
-      > $\frac{\partial \mathcal{L}}{\partial \gamma} = \sum_{b,t} \frac{\partial \mathcal{L}}{\partial x\_norm_{b,t}} \cdot \hat{x}_{b,t}$  
+    - RMSNorm1  
+      > $\frac{\partial \mathcal{L}}{\partial \gamma_1} = \sum_{b,t} \frac{\partial \mathcal{L}}{\partial x\_{norm}_{b,t}} \cdot \hat{x}_{b,t}$  
 
-      Among above calculation:  
+      $\hat{x}_{b,t}$: Cache from [Forward Pass calculation](/docs/llm-essential-forward-pass#Forward-RMSNorm)
+ 
       $\frac{\partial \mathcal{L}}{\partial x\_{norm}}
       = W_Q^\top \cdot \frac{\partial \mathcal{L}}{\partial Q} + W_K^\top \cdot \frac{\partial \mathcal{L}}{\partial K} + W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V}$    
+     Update $\gamma_{1}$ by AdamW, same process as the [Final RMSNorm](#Backward-RMSNorm)  
       
+      > $
+      \frac{\partial \mathcal{L}}{\partial H_{N-1,i}} = \frac{\gamma_{1,i}}{r} \left[ \frac{\partial \mathcal{L}}{\partial x\_norm_i} - \frac{h_{N-1,i}}{d \cdot r^2} \sum_{j=1}^d \left( \frac{\partial \mathcal{L}}{\partial x\_norm_j} \cdot H_{N-1,j} \right) \right]
+      $  
+
+      r=RMS(x) and cached from [RMS(x) of Forward Pass](/docs/llm-essential-forward-pass#Forward-RMSNorm)  
+      $H_{N-1}$ is the input of RMSNorm1 of each layer and cached from Forward Pass
+
       
-      > $\frac{\partial \mathcal{L}}{\partial H^{(N-1)}_{ij}}^{\text{(attn)}}= \frac{1}{\text{RMS}(H^{(N-1)}_i)}\left(g_{ij} - \frac{\hat{h}_{ij}}{d} \sum_{k=1}^{d} g_{ik} \hat{h}_{ik}\right)$   
-
-      Among above calculation:  
-      $g_{ij} = \frac{\partial \mathcal{L}}{\partial \tilde{H}^{(N-1)}_{ij}} \cdot \gamma_{1,j}$
-
-      $\hat{h}_{ij} = \frac{H^{(N-1)}_{ij}}{\text{RMS}(H^{(N-1)}_i)}$
-
-      $\text{RMS}(H^{(N-1)}_i) = \sqrt{\frac{1}{d} \sum_{j=1}^{d} \left( H^{(N-1)}_{ij} \right)^2 + \epsilon}$ 
 
 6. **2nd Gradient Accumulation**  
    $
     \frac{\partial \mathcal{L}}{\partial H^{(N-1)}} = \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(residual)}} + \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(attn)}}
-  $
+  $  
+6. **Token Embedding**  
+    > $
+    \frac{\partial \mathcal{L}}{\partial W_E} = \left(\frac{\partial \mathcal{L}}{\partial h_0}\right)^\top \cdot x_{one\_hot}
+    $ 
 
   <a href="" id="whereami"></a>  
