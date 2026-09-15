@@ -6,7 +6,7 @@ title: "LLM Essential"
   
 ***  
   
-GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))           [[>>]](/docs/llm-essential-backward-pass/#whereami)
+GPT Training Process via Transformer ([State of GPT](https://karpathy.ai/))           [[>>>]](/docs/llm-essential-backward-pass/#whereami)
 
 ```mermaid
 
@@ -20,5 +20,25 @@ graph LR
 ```     
 
 ***  
-  
+- Only one in a model:
+
+    | Component | Weight | Shape | 
+    |:----:|:----:|:----:|
+    | Token Embedding | $W_E$ | [voca, d] |
+    | Final RMSNorm | $γ_{final}$ | [d]|
+    | LM Head | $W_{LM}$| [voca, d] |
+ 
+
+- One per layer(N layers)
+    | Component | Weight | Shape | 
+    |:----:|:----:|:----:|
+    | RMSNorm1 | $γ_1$ | [d] |
+    | Attention | $W_Q$ | [d, d]|
+    | Attention | $W_K$ | [d, d] |
+    | Attention | $W_V$ | [d, d] |
+    | Attention | $W_O$ | [d, d] |
+    | RMSNorm2  | $γ_2$| [d] |
+    | SwiGLU | $W_{gate}$| [d, $d_{dff}$] |
+    | SwiGLU | $W_{up}$| [d, $d_{dff}$] |
+    | SwiGLU | $W_{down}$| [$d_{dff}$, d] |
 
