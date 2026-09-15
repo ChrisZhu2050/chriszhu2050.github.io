@@ -40,7 +40,7 @@ graph LR
     | Attention | $W_V$ | [d, d] |
     | Attention | $W_O$ | [d, d] |
     | RMSNorm2  | $γ_2$| [d] |
-    | SwiGLU | $W_{gate}$| [d, $d_{dff}$] |
-    | SwiGLU | $W_{up}$| [d, $d_{dff}$] |
-    | SwiGLU | $W_{down}$| [$d_{dff}$, d] |
+    | SwiGLU | $W_{gate}$| [d, $d_{ff}$] |
+    | SwiGLU | $W_{up}$| [d, $d_{ff}$] |
+    | SwiGLU | $W_{down}$| [$d_{ff}$, d] |
 
