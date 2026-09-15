@@ -20,7 +20,7 @@ graph LR
 ```     
 
 ***  
-### Glance
+## Glance
 - Weights that only one in a model:
 
     | Component | Weight | Shape | 
