@@ -397,7 +397,9 @@ title: "Training Backward Pass"
 6. **2nd Gradient Accumulation**  
    $
     \frac{\partial \mathcal{L}}{\partial H^{(N-1)}} = \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(residual)}} + \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(attn)}}
-  $  
+  $   
+  <br>  
+  
 6. **Token Embedding**  
     > $
     \frac{\partial \mathcal{L}}{\partial W_E} = \left(\frac{\partial \mathcal{L}}{\partial h_0}\right)^\top \cdot x_{one\_hot}
