@@ -19,7 +19,7 @@ title: "Training Backward Pass"
           f("2nd Gradient
            Accumulation")
           g("Layer N-1")
-          h("Embedding")
+          h("Token Embedding")
         
         a --> c1
         c1 --> d
@@ -401,6 +401,8 @@ title: "Training Backward Pass"
 6. **Token Embedding**  
     > $
     \frac{\partial \mathcal{L}}{\partial W_E} = \left(\frac{\partial \mathcal{L}}{\partial h_0}\right)^\top \cdot x_{one\_hot}
-    $ 
+    $  
+
+    Shape of $\frac{\partial \mathcal{L}}{\partial W_E} \in \mathbb R^{[voca,d]}$  
 
   <a href="" id="whereami"></a>  
