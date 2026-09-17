@@ -2,13 +2,13 @@
 layout: page
 title: "Training Data"
 ---  
-   - Raw data of base model's training 
+   - Raw data of base model's pre-training 
      - [Common Crawl](https://commoncrawl.org/)
      - [C4/C4.EN](https://github.com/google-research/text-to-text-transfer-transformer/tree/main#c4) (filtered from April 2019 snapshot of Common Crawl )
      - Github / [Wikipedia](http://wikipedia.org) / [ArXiv](https://arxiv.org/) / [Stack Exchange](https://stackexchange.com/)
      - Books 1/2/3 (digital books)  
     <br>  
-   - Training Data of SFT model  
+   - Training Data of SFT (Supervised Finetuning) model  
       Manually prepared by people  
 
       | Question | Answer |

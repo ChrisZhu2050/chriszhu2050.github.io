@@ -5,7 +5,7 @@ title: "Training Forward Pass"
   
   ```mermaid
         graph LR
-            A("`Tokenization`") --> D("`Transformer`") --> I("`Cross Entropy Loss`") 
+            A("`Tokenization`") --> D("`Decoder-only Transformer`") --> I("`Cross Entropy Loss`") 
             click D "#Forward-Transformer"
             click I "#Forward-Cross-Entropy-Loss"
   ```
