@@ -4,15 +4,15 @@ title: "LLM Fine-tune"
 # permalink: /llm-fine-tune/
 ---
  
- <a href="" id="whereami"></a>  
-  - Full Fine-Tuning
-  - PERT
+ <a href="" id="whereami"></a> 
+  - CPT (Continued Pre-Training) 
+  - SFT (Supervised Fine-Tuning)
+  - RLHF (Reinforcement Learning from Human Feedback)
+  - PERT (Parameter-Efficient Fine-Tuning)
     - LoRA
     - QLoRA
     - Adapter Tuning
-    - Prefix/Prompt Tuning
-  - Behavior alignement Fine-Tuning
-    - Instruction Tuning/SFT
-    - RLHF
-    - DPO
+    - Prefix/Prompt Tuning  
+  - Full Fine-Tuning
+
     

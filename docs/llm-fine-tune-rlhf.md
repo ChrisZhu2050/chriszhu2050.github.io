@@ -1,5 +1,5 @@
 ---
 layout: page
-title: "RLHF"
+title: "RLHF (Reinforcement Learning from Human Feedback)"
 # permalink: /llm-distillation/
 ---
