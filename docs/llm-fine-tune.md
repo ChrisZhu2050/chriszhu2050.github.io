@@ -4,8 +4,7 @@ title: "LLM Fine-tune"
 # permalink: /llm-fine-tune/
 ---
  
-
-(?)
+ <a href="" id="whereami"></a>  
   - Full Fine-Tuning
   - PERT
     - LoRA

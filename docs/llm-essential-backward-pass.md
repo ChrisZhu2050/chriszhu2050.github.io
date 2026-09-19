@@ -384,18 +384,11 @@ title: "Training Backward Pass"
 
 6. **2<sup>nd</sup> Gradient Accumulation**  
    $
-<<<<<<< HEAD
     \frac{\partial \mathcal{L}}{\partial H^{(N-1)}} = \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(residual)}} + \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(attn)}}  
   $  
   $\frac{\partial \mathcal{L}}{\partial H^{(N-1)}} \in \mathbb R^{[B,T,d]}$
 7. **Token Embedding**  
-=======
-    \frac{\partial \mathcal{L}}{\partial H^{(N-1)}} = \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(residual)}} + \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(attn)}}
-  $   
-  <br>  
-  
-6. **Token Embedding**  
->>>>>>> 77045721275d163f592cedd50a366c4cee4d5e33
+
     > $
     \frac{\partial \mathcal{L}}{\partial W_E} = x^\top_{one\_{hot}} \cdot \frac{\partial \mathcal{L}}{\partial h_0}
     $  
@@ -512,6 +505,3 @@ title: "Training Backward Pass"
           | $\gamma_1, \gamma_2, \gamma_{final}$ | **0.0** |
  
       > Gradient Accumulation will be used for Batch size over the GPUs' capability
-
-
-  <a href="" id="whereami"></a>  
