@@ -1,5 +1,5 @@
 ---
 layout: page
-title: "SFT ((Supervised Fine-Tuning))"
+title: "Supervised Fine-Tuning"
 # permalink: /llm-distillation/
 ---

@@ -1,5 +1,5 @@
 ---
 layout: page
-title: "PERT (Parameter-Efficient Fine-Tuning)"
+title: "Parameter-Efficient Fine-Tuning"
 # permalink: /llm-distillation/
 ---
