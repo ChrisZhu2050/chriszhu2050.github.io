@@ -28,10 +28,23 @@
       </div>
     </details>
     
+      <details class="sidebar-group" {% if  page.url contains 'llm-fine-tune' %}open{% endif %}>
+      <summary class="sidebar-group-title {% if page.url contains 'llm-fine-tune' %}active{% endif %}">
+        <a href="{{ "/docs/llm-fine-tune/" | relative_url }}" class="sidebar-group-link {% if  page.url contains 'llm-fine-tune' %}active{% endif %}" onclick="event.stopPropagation();">
+          LLM Fine-tune
+        </a>
+        <span class="sidebar-toggle" aria-hidden="true"></span>
+      </summary>
 
-    <a href="{{ "/docs/llm-fine-tune/" | relative_url }}" class="{% if page.url contains 'llm-fine-tune' %}active{% endif %}">
-      LLM Fine-tune
-    </a>
+      <div class="sidebar-subnav">
+        <a href="{{ '/docs/llm-fine-tune-full/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-full' %}active{% endif %}">LLM Full Fine-tune</a>
+        <a href="{{ '/docs/llm-fine-tune-pert/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-pert' %}active{% endif %}">PERT</a>
+        <a href="{{ '/docs/llm-fine-tune-sft/' | relative_url }}" class="{% if page.url contains 'llm-essential-sft' %}active{% endif %}">SFT</a>
+        <a href="{{ '/docs/llm-fine-tune-rlhf/' | relative_url }}" class="{% if page.url contains 'llm-essential-rlhf' %}active{% endif %}">RLHF</a>
+        
+      </div>
+    </details>
+
 
     <a href="{{ "/docs/llm-distillation/" | relative_url }}" class="{% if page.url contains 'llm-distillation' %}active{% endif %}">
       LLM Distillation
