@@ -5,6 +5,7 @@ title: "LLM Fine-tune"
 ---
  
  <a href="" id="whereami"></a> 
+## Glance
   - CPT (Continued Pre-Training) 
   - SFT (Supervised Fine-Tuning)
   - RLHF (Reinforcement Learning from Human Feedback)
