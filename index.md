@@ -43,4 +43,5 @@ graph LR
     | SwiGLU | $W_{gate}$| [d, $d_{ff}$] |
     | SwiGLU | $W_{up}$| [d, $d_{ff}$] |
     | SwiGLU | $W_{down}$| [$d_{ff}$, d] |
+    
 

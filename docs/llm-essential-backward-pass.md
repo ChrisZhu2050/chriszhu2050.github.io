@@ -3,7 +3,6 @@ layout: page
 title: "Training Backward Pass"
 ---
 
-> When got the Loss of the batch, then calculate all the Gradient with learnable Parameters ( [Initialized Weights](#weights-initialization) ) 
 
   ```mermaid
         flowchart LR
@@ -13,13 +12,14 @@ title: "Training Backward Pass"
           b1("Residual")
           d("FFN + RMSNorm2")
           d1("1st Gradient 
-          Accumulation")
+          Summation")
           e("Attention + RMSNorm1")  
           e1("Residual") 
           f("2nd Gradient
-           Accumulation")
+           Summation")
           g("Layer N-1")
           h("Token Embedding")
+          i("Unified Weights Updating")
         
         a --> c1
         c1 --> d
@@ -28,10 +28,11 @@ title: "Training Backward Pass"
         d --(∂L/∂H<sub>mid</sub>)<sup>FNN</sup>--> d1
         d1 --∂L/∂H<sub>mid</sub> --> e1
         d1 --∂L/∂H<sub>mid</sub>--> e
-        e1 -- (∂L/∂H<sup>N-1</sup>)<sup>residual</sup>--> f
-        e -- (∂L/∂H<sup>N-1</sup>)<sup>attn</sup>--> f
-        f --∂L/∂H<sup>(N-1)</sup>--> g
-        g--(∂L/∂H<sup>0</sup>)-->h
+        e1 -- (∂L/∂H<sub>N</sub>)<sup>residual</sup>--> f
+        e -- (∂L/∂H<sub>N</sub>)<sup>attn</sup>--> f
+        f --∂L/∂H<sub>(N-1)</sub>--> g
+        g--(∂L/∂H<sub>0</sub>)-->h
+        h-->i
 
 
         
@@ -53,7 +54,7 @@ title: "Training Backward Pass"
       Shape of $\frac{\partial L}{\partial Z}$ is same as Z=> ($B,T,voca$)
 
     $\frac{\partial L}{\partial Z_i}$ is the gradient of Softmax + Cross-Entropy, it's a scalar(e.g. -0.09).
-    Nagetive means increase the logits(i) will reduce the loss, meanwhile should decrease other logits, vice versa.  
+    The negative means increase the logits(i) will reduce the loss, meanwhile should decrease other logits, vice versa.  
 
     Move on the Backward Pass as below:
     > $$
@@ -192,20 +193,7 @@ title: "Training Backward Pass"
       
       Shape of $\frac{\partial \mathcal{L}}{\partial W_{down}}$ is [d, d<sub>ff</sub>]
 
-      For update the W<sub>down</sub>:  
-      - Global L2 Norm Clipping  
-        $
-          \|g\|_{global} = \sqrt{\|g_{W_{down}}\|_2^2 + \|g_{W_{gate}}\|_2^2 + \|g_{W_{up}}\|_2^2 + \|g_{W_{head}}\|_2^2 + \cdots}
-        $
-      - AdamW  
-        HyperParam example:
-        > η = same as the attention's  
-        λ =0.1 (Weight Decay)  
-        β<sub>1</sub> = 0.9  
-        β<sub>2</sub> = 0.95  
-        ϵ = 1e-8  
-
-        Weight updating process is same as [LM Head Weight's updating](#Backward-LM-Head-Weight)    
+      W<sub>down</sub> will be updated via  [Unified Weights Updating](#backward-pass-weights-updating)  
         <br>
       > $
       \frac{\partial \mathcal{L}}{\partial act} = W_{down}^\top \cdot \frac{\partial \mathcal{L}}{\partial h^N}
@@ -251,7 +239,7 @@ title: "Training Backward Pass"
       \frac{\partial \mathcal{L}}{\partial W_{gate}} = \frac{\partial \mathcal{L}}{\partial gate} \cdot h_{norm}^\top
       $  
 
-      W<sub>gate</sub> updating process is same as [LM Head Weight's updating](#Backward-LM-Head-Weight) 
+      W<sub>gate</sub> will be updated via  [Unified Weights Updating](#backward-pass-weights-updating) 
     - Sum of Up and Gate's grandiant as input of RMSNorm2's backpropagation  
       $  
       \frac{\partial \mathcal{L}}{\partial h_{norm}} = \frac{\partial \mathcal{L}}{\partial h_{norm}}\bigg|_{gate} + \frac{\partial \mathcal{L}}{\partial h_{norm}}\bigg|_{up}
@@ -275,7 +263,7 @@ title: "Training Backward Pass"
 
       <br>  
 
-4. **1st Gradient Accumulation**  
+4. **1<sup>st</sup> Gradient Accumulation**  
     > $
     \frac{\partial \mathcal{L}}{\partial h_{mid}}^{total} = \frac{\partial \mathcal{L}}{\partial h_N} + \frac{\partial \mathcal{L}}{\partial h_{mid}}\bigg|_{FFN}
     $  
@@ -289,7 +277,7 @@ title: "Training Backward Pass"
       \frac{\partial \mathcal{L}}{\partial W_O} = \left(\frac{\partial \mathcal{L}}{\partial h_{mid}}\right)^\top \cdot out\_attn\_merged
       $  
 
-      $\frac{\partial \mathcal{L}}{\partial W_O}\in \mathbb R^{[d,d]}$ and updating process of $W_O$ is same as [LM Head Weight's updating](#Backward-LM-Head-Weight) 
+      $\frac{\partial \mathcal{L}}{\partial W_O}\in \mathbb R^{[d,d]}$ and $W_O$ will be updated via  [Unified Weights Updating](#backward-pass-weights-updating) 
 
       > $
       \frac{\partial \mathcal{L}}{\partial out\_attn\_merged} = W_O^\top \cdot \frac{\partial \mathcal{L}}{\partial h_{mid}}
@@ -329,7 +317,7 @@ title: "Training Backward Pass"
       \frac{\partial \mathcal{L}}{\partial W_V} = \left(\frac{\partial \mathcal{L}}{\partial V_{full}}\right)^\top \cdot x\_norm
       $  
 
-      For W<sub>V</sub> updating process, refer to [LM Head Weight updating](#Backward-LM-Head-Weight)  
+      For W<sub>V</sub> will be updated via  [Unified Weights Updating](#backward-pass-weights-updating)  
       > $  
       \frac{\partial \mathcal{L}}{\partial x\_norm}\bigg|_{V} = W_V^\top \cdot \frac{\partial \mathcal{L}}{\partial V_{full}}
       $
@@ -374,7 +362,7 @@ title: "Training Backward Pass"
 
       $\frac{\partial \mathcal{L}}{\partial W_Q},\frac{\partial \mathcal{L}}{\partial W_K} \in \mathbb R^{[d,d]}$  
 
-      For W<sub>Q</sub>,W<sub>K</sub> updating process, same as [LM Head Weight updating](#Backward-LM-Head-Weight).  
+      W<sub>Q</sub>,W<sub>K</sub> will be updated via  [Unified Weights Updating](#backward-pass-weights-updating)  
 
     - RMSNorm1  
       > $\frac{\partial \mathcal{L}}{\partial \gamma_1} = \sum_{b,t} \frac{\partial \mathcal{L}}{\partial x\_{norm}_{b,t}} \cdot \hat{x}_{b,t}$  
@@ -394,17 +382,136 @@ title: "Training Backward Pass"
 
       
 
-6. **2nd Gradient Accumulation**  
+6. **2<sup>nd</sup> Gradient Accumulation**  
    $
+<<<<<<< HEAD
+    \frac{\partial \mathcal{L}}{\partial H^{(N-1)}} = \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(residual)}} + \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(attn)}}  
+  $  
+  $\frac{\partial \mathcal{L}}{\partial H^{(N-1)}} \in \mathbb R^{[B,T,d]}$
+7. **Token Embedding**  
+=======
     \frac{\partial \mathcal{L}}{\partial H^{(N-1)}} = \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(residual)}} + \frac{\partial \mathcal{L}}{\partial H^{(N-1)}}^{\text{(attn)}}
   $   
   <br>  
   
 6. **Token Embedding**  
+>>>>>>> 77045721275d163f592cedd50a366c4cee4d5e33
     > $
-    \frac{\partial \mathcal{L}}{\partial W_E} = \left(\frac{\partial \mathcal{L}}{\partial h_0}\right)^\top \cdot x_{one\_hot}
+    \frac{\partial \mathcal{L}}{\partial W_E} = x^\top_{one\_{hot}} \cdot \frac{\partial \mathcal{L}}{\partial h_0}
     $  
 
-    Shape of $\frac{\partial \mathcal{L}}{\partial W_E} \in \mathbb R^{[voca,d]}$  
+    $\frac{\partial \mathcal{L}}{\partial W_E} \in \mathbb R^{[voca,d]}$ and align with $W_E \in \mathbb R^{[voca,d]}$ 
+
+    $x_{one\_{hot}} \in \mathbb R^{[B,T,voca]}$  and $(x_{one\_{hot}})^\top \in \mathbb R^{[B,voca,T]}$
+
+    $\frac{\partial \mathcal{L}}{\partial h_0} \in \mathbb R^{[B,T,d]}$     
+
+    W<sub>E</sub> will be updated via  [Unified Weights Updating](#backward-pass-weights-updating).  
+
+    <a href="" id="backward-pass-weights-updating"></a>
+  8. **Unified Weights Updating (Global Clipping + AdamW)**   
+      > After all gradients for all Weights have been calculated for the batch(s), will update all the weights together. 
+
+      | Component | Weight | Shape | 
+      |:----:|:----:|:----:|
+      | Token Embedding | $W_E$ | [voca, d] |
+      | RMSNorm1 | $γ_1$ | [d] |
+      | Attention | $W_Q$ | [d, d]|
+      | Attention | $W_K$ | [d, d] |
+      | Attention | $W_V$ | [d, d] |
+      | Attention | $W_O$ | [d, d] |
+      | RMSNorm2  | $γ_2$| [d] |
+      | SwiGLU | $W_{gate}$| [d, $d_{ff}$] |
+      | SwiGLU | $W_{up}$| [d, $d_{ff}$] |
+      | SwiGLU | $W_{down}$| [$d_{ff}$, d] |
+      | Final RMSNorm | $γ_{final}$ | [d]|
+      | LM Head | $W_{LM}$| [voca, d] |
+
+      - Global L2 Norm Clipping  
+        Calculate all sum of squares in each of Gradient of above Weights  
+
+        > $
+        S_k = \|g_k\|_2^2 = \sum_{i} g_{k,i}^2
+        $  
+
+        $g_k$: $k^{th}$ gradient (e.g. $g_{W_E}$ / $g_{γ_1}$ / $g_{W_Q}$)  
+        $S_k$ is a scalar(e.g. 6.5 /7.2 /9 etc.), it's sum of the Gradients' square  
+        > $S_{total} = S_{W_E}+S_{γ_1}+S_{W_Q}+...+S_{W_{LM}}$  
+
+        $S_{total}$ is accumulated sum of all Weights' gradient  
+        > $g_{global} = \sqrt{S_{total}}$  
+
+        compare $g_{global}$ with max_norm(normally = 1.0):  
+        if $g_{global}$ <= max_norm,   
+        clip_coef = 1, skip  the clipping step.  
+        if $g_{global}$ > max_norm, then calcualte the clip coefficent:  
+        > clip_coef =  $\frac{max\_norm}{g_{global}}$  
+
+        Every gradients' para x  clip_coef:
+        > clip_coef x $g_{W_E}$ --> $g_{W_E}$   
+        clip_coef x $g_{γ_1}$ --> $g_{γ_1}$  
+        clip_coef x $g_{W_Q}$ --> $g_{W_Q}$  
+        ......  
+
+      - AdamW  
+        Hyper Param example:  
+         > η = 0.004 (Learning rate - pretraining)  
+         β1 = 0.9 (Firt moment decay coefficient)  
+         β2 = 0.95  (Second  moment decay coefficient)  
+         ϵ = 1e-8 (Numerical stability constant)  
+         λ = 0.1 (Weight decay coefficient)  
+
+        > AdamW maintain 2 same shape status variables (m, v) for each Weights(e.g. $m_{W_E}$, $v_{W_E} \in \mathbb R^{[voca, d]}$, initilized with 0 at beginning):   
+
+         First Moment m:  
+         > $
+           m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t  
+           $  
+
+        t: the number of the updating  
+         Shape of m is same as Weight  
+         (new m = 90% old m + 10% the gradient)
+
+         Second Moment v:
+         > $
+           v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2
+           $  
+
+         Shape of v is same as Weight  
+         (new variance = 95% old variance + 5% square of the gradient)
+
+         > *Above caculation method is EMA: Exponential Moving Average,  instead of arithmetic mean*  
+
+         Since *m* intiliazed with 0, caused the m<sub>t</sub> is too small at the begining, for example:  
+         > Step 1: m<sub>1</sub>=0.9×0+0.1×g<sub>1</sub>=0.1g<sub>1</sub>  
+         ​Step 2: m<sub>2</sub>=0.9×0.1g<sub>1</sub>+0.1×g<sub>2</sub>≈0.19g  
+
+         So here's the adjustment formular for m and v:  
+         > $  
+         \hat{m}_t = \frac{m_t}{1 - \beta_1^t}
+         $  
+         $
+         \hat{v}_t = \frac{v_t}{1 - \beta_2^t}
+         $  
+
+        > $\beta_1^t$ example:  
+        when t=1, $\beta_1^1$= 0.9  
+        when t=2, $\beta_1^2$= 0.81  
+        when t→∞, $\beta_1^∞$ -> 0 
+
+         Weight updating:    
+         >$
+          W_t = W_{t-1} - \eta \left( \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \epsilon} + \lambda \cdot W_{t-1} \right)
+          $  
+
+           Everytime $\lambda$ pull Weight to 0 a little bit, it affects Weight straightly in AdamW, insteadly it affects Gradiant in Adam, that's the major different between AdamW and Adam.  
+
+           | Weights | $\lambda$ |
+          | :--- | :--- |
+          | $W_E, W_Q, W_K, W_V, W_O, W_{gate}, W_{up}, W_{down}, W_{LM}$ | **0.1** |
+          | $\gamma_1, \gamma_2, \gamma_{final}$ | **0.0** |
+ 
+      > Gradient Accumulation will be used for Batch size over the GPUs' capability
+
 
   <a href="" id="whereami"></a>  
