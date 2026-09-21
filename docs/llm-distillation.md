@@ -6,8 +6,8 @@ title: "LLM Distillation"
  <a href="" id="whereami"></a> 
 ## Glance
 - S1  
-[Paper: Simple test-time scaling](#https://arxiv.org/abs/2501.19393)   
-[Project: Simple Scalling](#https://github.com/simplescaling/s1)  
+[Paper: Simple test-time scaling](https://arxiv.org/abs/2501.19393)   
+[Project: Simple Scaling](https://github.com/simplescaling/s1)  
 - Category
   - Black Box
   - White Box
