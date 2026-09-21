@@ -25,13 +25,17 @@ title: "Continued Pre-Training"
         - DuckDB  
         - MinHash
         - BPE(Byte-Pair Encoding) for Tokenizer extension
- 
+
 - Vocabulary extension  
     - tokenizer  
     - special_tokens_map  
 
+- Tool
+    - Unsloth
 - Estimate & Monitor  
     - MLflow  
     - DVC  
 - Deployment
     - vLLM  
+
+*(7B-14B recommended?)*
