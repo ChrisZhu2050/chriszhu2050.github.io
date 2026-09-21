@@ -13,7 +13,7 @@ title: "Continued Pre-Training"
         - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
 
     - Weights \> 100B  
-        [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
+        - [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
 
 
 - Data 
