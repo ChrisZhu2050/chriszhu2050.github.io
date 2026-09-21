@@ -20,21 +20,15 @@ title: "Continued Pre-Training"
             - 5:5 or 8:2 for avoiding the Catastrophic Forgetting  
         - Learning Rate: 1e-5 ~ 5e-5  
             Higher than SFT, much lower than pre-training 
-    - Cleanning & Deduplication
+    - Cleaning & Deduplication
         - Apache NiFi
         - DuckDB  
         - MinHash
-        - BPE(Byte-Pair Encoding) for Tokenizer extention
+        - BPE(Byte-Pair Encoding) for Tokenizer extension
  
-- Vocabulary extention  
+- Vocabulary extension  
     - tokenizer  
     - special_tokens_map  
-
-- Training frameworK  
-    - Weights\<100B  
-        Hugging Face Transformers + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
-    - Weights\> 100B  
-        Megatron-LM  
 
 - Estimate & Monitor  
     - MLflow  
