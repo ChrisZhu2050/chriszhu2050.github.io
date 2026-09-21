@@ -9,9 +9,9 @@ title: "Continued Pre-Training"
     - corpus tokens > 100m   
         Continued Pre-Training  
     - Weights \<100B  
-        Hugging Face Transformers + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
+        [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
     - Weights \> 100B  
-        Megatron-LM    
+        [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
 
 
 - Data 
