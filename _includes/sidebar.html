@@ -28,6 +28,23 @@
       </div>
     </details>
 
+    <details class="sidebar-group" {% if  page.url contains 'llm-fine-tune' %}open{% endif %}>
+      <summary class="sidebar-group-title {% if page.url contains 'llm-fine-tune' %}active{% endif %}">
+        <a href="{{ "/docs/llm-fine-tune/" | relative_url }}" class="sidebar-group-link {% if  page.url contains 'llm-fine-tune' %}active{% endif %}" onclick="event.stopPropagation();">
+          LLM Fine-tune
+        </a>
+        <span class="sidebar-toggle" aria-hidden="true"></span>
+      </summary>
+
+      <div class="sidebar-subnav">
+        <a href="{{ '/docs/llm-fine-tune-cpt/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-cpt' %}active{% endif %}">Continued Pre-Training</a>
+        <a href="{{ '/docs/llm-fine-tune-sft/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-sft' %}active{% endif %}">SFT</a>
+        <a href="{{ '/docs/llm-fine-tune-rlhf/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-rlhf' %}active{% endif %}">RLHF</a>
+        <a href="{{ '/docs/llm-fine-tune-pert/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-pert' %}active{% endif %}">PERT</a>
+        <a href="{{ '/docs/llm-fine-tune-full/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-full' %}active{% endif %}">Full Fine-tune</a>
+        
+      </div>
+    </details>
 
       <details class="sidebar-group" {% if  page.url contains 'llm-distillation' %}open{% endif %}>
       <summary class="sidebar-group-title {% if page.url contains 'llm-distillation' %}active{% endif %}">
@@ -45,23 +62,7 @@
       </div>
     </details>
 
-      <details class="sidebar-group" {% if  page.url contains 'llm-fine-tune' %}open{% endif %}>
-      <summary class="sidebar-group-title {% if page.url contains 'llm-fine-tune' %}active{% endif %}">
-        <a href="{{ "/docs/llm-fine-tune/" | relative_url }}" class="sidebar-group-link {% if  page.url contains 'llm-fine-tune' %}active{% endif %}" onclick="event.stopPropagation();">
-          LLM Fine-tune
-        </a>
-        <span class="sidebar-toggle" aria-hidden="true"></span>
-      </summary>
 
-      <div class="sidebar-subnav">
-        <a href="{{ '/docs/llm-fine-tune-cpt/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-cpt' %}active{% endif %}">Continued Pre-Training</a>
-        <a href="{{ '/docs/llm-fine-tune-sft/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-sft' %}active{% endif %}">SFT</a>
-        <a href="{{ '/docs/llm-fine-tune-rlhf/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-rlhf' %}active{% endif %}">RLHF</a>
-        <a href="{{ '/docs/llm-fine-tune-pert/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-pert' %}active{% endif %}">PERT</a>
-        <a href="{{ '/docs/llm-fine-tune-full/' | relative_url }}" class="{% if page.url contains 'llm-fine-tune-full' %}active{% endif %}">Full Fine-tune</a>
-        
-      </div>
-    </details>
 
 
 
