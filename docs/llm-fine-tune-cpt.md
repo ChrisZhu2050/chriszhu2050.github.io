@@ -9,7 +9,9 @@ title: "Continued Pre-Training"
     - corpus tokens > 100m   
         Continued Pre-Training  
     - Weights \<100B  
-        [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
+        - Unsloth
+        - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
+
     - Weights \> 100B  
         [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
 
@@ -30,8 +32,6 @@ title: "Continued Pre-Training"
     - tokenizer  
     - special_tokens_map  
 
-- Tool
-    - Unsloth
 - Estimate & Monitor  
     - MLflow  
     - DVC  
