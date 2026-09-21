@@ -9,7 +9,7 @@ title: "Continued Pre-Training"
     - corpus tokens > 100m   
         Continued Pre-Training  
     - Weights \<100B  
-        - Unsloth
+        - [Unsloth](https://unsloth.ai/)
         - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
 
     - Weights \> 100B  
