@@ -25,6 +25,7 @@ title: "Training Data"
 
          *(20 times of Weights of base model may get best convergent effect e.g. 8B base model need 160B tokens industry data ?)*  
       <br>
+   ---
    - Data Cleaning & Deduplication  
       - Encoding & character standardization
          - Transfer text to UTF-8 without byte order mark  
@@ -46,9 +47,9 @@ title: "Training Data"
          - MinHash(Deduplication)
          - BPE(Byte-Pair Encoding) for Tokenizer extension  
          - Apache NiFi
-
  
-   <br>  
+   <br>
+   ---
 
    - Training Data of SFT (Supervised Finetuning) model  
       Manually prepared by people  
