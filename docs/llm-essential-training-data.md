@@ -11,8 +11,9 @@ title: "Training Data"
    <a href="" id="training-data-cpt"></a>
    - Data of continued pre-training  
       - Inudustry data  
-         - Synthetic big corpus via small corpus
-            - [EntiGraph algorithm](https://arxiv.org/abs/2409.07431)
+         - [IndustryCorpus 2](https://huggingface.co/datasets/BAAI/IndustryCorpus2) 
+         - [Pile](https://pile.eleuther.ai/)  
+         > Synthetic big corpus via small corpus: [EntiGraph algorithm](https://arxiv.org/abs/2409.07431)
       - General data
          - [SlimPajama Dataset](https://huggingface.co/datasets/cerebras/SlimPajama-627B) -- [Introduction](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
          - [Common Crawl](https://commoncrawl.org/)  
