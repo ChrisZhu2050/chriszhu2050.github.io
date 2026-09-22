@@ -15,7 +15,7 @@ title: "Training Data"
          - [Pile](https://pile.eleuther.ai/)  
          > Synthetic big corpus via small corpus: [EntiGraph algorithm](https://arxiv.org/abs/2409.07431)
       - General data
-         - [SlimPajama Dataset](https://huggingface.co/datasets/cerebras/SlimPajama-627B) -- [Introduction](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
+         - [SlimPajama Dataset](https://modelscope.cn/datasets/swift/SlimPajama-627B/files) -- [Introduction](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
          - [Common Crawl](https://commoncrawl.org/)  
          - Dolmino Mix 1124 - Dedicated for Mid-training  
 
