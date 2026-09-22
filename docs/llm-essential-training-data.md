@@ -19,11 +19,9 @@ title: "Training Data"
          - [Common Crawl](https://commoncrawl.org/)  
          - Dolmino Mix 1124 - Dedicated for Mid-training  
 
-         > Industry corpus & General corpus：  
-         5:5 or 8:2 for avoiding the Catastrophic Forgetting  
+         > Industry corpus & General corpus： 5:5 or 8:2 for avoiding the Catastrophic Forgetting  
 
-         > Learning Rate: 1e-5 ~ 5e-5:   
-         Higher than SFT, much lower than pre-training  
+         > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training  
 
          *(20 times of Weights of base model may get best convergent effect e.g. 8B base model need 160B tokens industry data ?)*  
       <br>
