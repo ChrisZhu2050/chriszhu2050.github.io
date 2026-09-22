@@ -23,9 +23,8 @@ title: "Training Data"
 
          > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training  
 
-         *(20 times of Weights of base model may get best convergent effect e.g. 8B base model need 160B tokens industry data ?)*  
-      <br>
-   ---
+         *(20 times of Weights of base model may get best convergent effect e.g. 8B base model need 160B tokens industry data ?)*    
+---
    - Data Cleaning & Deduplication  
       - Encoding & character standardization
          - Transfer text to UTF-8 without byte order mark  
@@ -46,10 +45,8 @@ title: "Training Data"
 
          - MinHash(Deduplication)
          - BPE(Byte-Pair Encoding) for Tokenizer extension  
-         - Apache NiFi
- 
-   <br>
-   ---
+         - Apache NiFi   
+ ---
 
    - Training Data of SFT (Supervised Finetuning) model  
       Manually prepared by people  
