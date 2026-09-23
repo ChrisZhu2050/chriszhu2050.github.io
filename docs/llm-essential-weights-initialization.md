@@ -17,7 +17,8 @@ title: "Weights Initialization"
           click F "#Weights-LM-Head"
           click G "#Weights-MoE"
   ```  
-
+ 
+  
   1. **Token Embedding**  
     <a href="" id="Weights-Token-Embedding"></a>  
       <br>
@@ -225,4 +226,24 @@ title: "Weights Initialization"
       - [Independent] => initialize via W~N(0, σ<sup>2</sup>)(e.g. GPT-3, LLaMA)
       - [Share Weight with Token Embedding] => for saving parameter purpose?(e.g. Bert, GPT-2)  
   <br>   
- 
+
+  7. **Others**  
+      > n_layers  
+      n_heads  
+      d_model  
+      vocab_size  
+      max_seq_len(?)  
+      MoE number  
+      std  
+      η  
+      β1  
+      β2  
+      ϵ  
+      λ  
+
+      >e.g.  
+      η = 0.004 (Learning rate - pretraining)  
+        *β1 = 0.9 (Firt moment decay coefficient)*  
+        β2 = 0.95 (Second moment decay coefficient)  
+        ϵ = 1e-8 (Numerical stability constant)  
+        λ = 0.1 (Weight decay coefficient) 

@@ -485,7 +485,7 @@ title: "Training Forward Pass"
         $    
 
         >$
-        out\_attn\_merged = \operatorname{Concat}(O_1,\ldots,O_N)
+        out\_{attn\_{merged}} = \operatorname{Concat}(O_1,\ldots,O_N)
         \in
         \mathbb{R}^{T\times d_{\mathrm{model}}}
         $
@@ -502,7 +502,7 @@ title: "Training Forward Pass"
         X_{in} \in \mathbb R^{(L \times d)} 
         $  
         > $
-         out\_attn \in \mathbb R^{(L \times d)} 
+         out\_{attn} \in \mathbb R^{(L \times d)} 
          $  
 
 

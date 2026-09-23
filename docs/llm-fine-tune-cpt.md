@@ -23,7 +23,7 @@ title: "Continued Pre-Training"
 ---  
 
 - Transformer Components  
-    > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training  
+    > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training(4e-3)  
     - Vocabulary extension  
         - tokenizer  
             BPE (Byte-Pair Encoding) for Tokenizer extension  
