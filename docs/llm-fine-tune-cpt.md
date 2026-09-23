@@ -55,7 +55,6 @@ title: "Continued Pre-Training"
 e.g. 8B base model need 160B tokens industry data  
 
 <br>  
- 
 - Deployment
     - vLLM  
 
