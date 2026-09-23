@@ -16,7 +16,8 @@ title: "Continued Pre-Training"
     - Weights \> 100B  
         - [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
 
-  - [Training Data >>](/docs/llm-essential-training-data/#training-data-cpt)  
+    - [Training Data >>](/docs/llm-essential-training-data/#training-data-cpt)   
+
 ---  
 
 - Transformer Components  
@@ -38,14 +39,14 @@ title: "Continued Pre-Training"
 
     *(1k~10k pieces of text are enough for loss calculation. High frequency monitoring will be done because only rely on the loss calculation)* 
 
-    About propotion of Industry corpus & General corpus, dynamic adjustment based on loss monitoring, here's the example:  
-    1. At beginning use propotion 9:1 (Industry corpus : Wikipedia corpus) for quickly learn the industry knowledge  
+    About proportion of Industry corpus & General corpus, dynamic adjustment based on loss monitoring, here's the example:  
+    1. At beginning use proportion 9:1 (Industry corpus : Wikipedia corpus) for quickly learn the industry knowledge  
     2. Adjust to 7:3 later for avoiding the Catastrophic Forgetting  
 
-    *(20 times volumn of Weights of base model may get best convergent effect e.g. 8B base model need 160B tokens industry data ?)*   
+    *(20 times volume of Weights of base model may get best convergent effect e.g. 8B base model need 160B tokens industry data ?)*   
 <br>  
 - Catastrophic Forgetting  
-    - make sure the [proper propotion of Domain and General corpus](/docs/llm-essential-training-data/#)  
+    - make sure the [proper proportion of Domain and General corpus](/docs/llm-essential-training-data/#)  
 <br>  
 - Estimate & Monitor  
     - Baseline of estimation
@@ -58,7 +59,7 @@ title: "Continued Pre-Training"
 - Deployment
     - vLLM  
 ---  
- 
+
 - Other Appoaches
     - Model Merging  
 
