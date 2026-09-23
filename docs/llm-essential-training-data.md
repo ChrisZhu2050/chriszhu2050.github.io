@@ -2,7 +2,7 @@
 layout: page
 title: "Training Data"
 ---  
-   - Raw data of base model's pre-training 
+   - Data of base model's pre-training 
      - [Common Crawl](https://commoncrawl.org/)
      - [C4/C4.EN](https://github.com/google-research/text-to-text-transfer-transformer/tree/main#c4) (filtered from April 2019 snapshot of Common Crawl )
      - Github / [Wikipedia](http://wikipedia.org) / [ArXiv](https://arxiv.org/) / [Stack Exchange](https://stackexchange.com/)
@@ -10,23 +10,26 @@ title: "Training Data"
    <br>  
    <a href="" id="training-data-cpt"></a>
    - Data of continued pre-training  
-      - Inudustry data  
-         - [IndustryCorpus 2](https://huggingface.co/datasets/BAAI/IndustryCorpus2) 
-         - [Pile](https://pile.eleuther.ai/)  
-      > Synthetic big corpus via small corpus: [EntiGraph algorithm](https://arxiv.org/abs/2409.07431)
-      - General data
-         - [SlimPajama Dataset](https://modelscope.cn/datasets/swift/SlimPajama-627B/files) -- [Introduction](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
-         - [Common Crawl](https://commoncrawl.org/)  
-         - Dolmino Mix 1124 - Dedicated for Mid-training  
+      - Domain data  
 
-         > Industry corpus & General corpus： 5:5 or 8:2 for avoiding the Catastrophic Forgetting  
+      |  | Industry Corpus |
+      |:----:|:----|
+      | Public Industry Dataset | [IndustryCorpus 2](https://huggingface.co/datasets/BAAI/IndustryCorpus2)<br>[Pile](https://pile.eleuther.ai/)<br>Hugging Face Datasets / arXiv / OpendataLab / IEEE /ACM / patent database (e.g.USPTO) |
+      | Publication| Professional textbooks and guides(e.g. CPA, PMP)<br>Industry Analytic Report <br>Official published data from government <br>Industry Books |
+      | Vertical community | (e.g. StackOverflow/GitHub) |
+      | Synthetic Data | Synthetic big corpus via small corpus by [EntiGraph algorithm](https://arxiv.org/abs/2409.07431) |
+      | Enterprise Privacy Data | Operational Data (e.g. ERP / CRM / MES )<br>Internal docs( Manual / SOP / Product intro)<br>Customer interaction data( chat / ticket / text of phone call )<br> R&D data ( design / code / bug / testing )  | 
 
-         > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training  
+      <br>  
 
-         *(20 times of Weights of base model may get best convergent effect e.g. 8B base model need 160B tokens industry data ?)*    
+      - General data  
+         - [SlimPajama Dataset](https://huggingface.co/datasets/cerebras/SlimPajama-627B) -- [Introduction](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
+         - [Wikipedia Dataset](https://huggingface.co/datasets/wikimedia/wikipedia)
+         -  Dolmino Mix 1124 - Dedicated for Mid-training  
+         - [Common Crawl](https://commoncrawl.org/) 
 
-   ---  
-
+      <br>
+   ---
    - Data Cleaning & Deduplication  
       - Encoding & character standardization
          - Transfer text to UTF-8 without byte order mark  
@@ -41,14 +44,18 @@ title: "Training Data"
       - Cleaning of non-target languages  
       - Length and basic statistical filtering  
          - Filter out extremely short texts (e.g. < 10 words) and extremely long texts without line breaks  
-         - Filter out the repetition rate of a certain word or phrase in a piece of text is excessively high (e.g.30%)
+         - Filter out the repetition rate of a certain word or phrase in a piece of text is excessively high (e.g. 30%)
+      - Quality Classifier  
+         Train the caterize small model(e.g. FastText)
+      - Perplexity Filtering  
+         use small N-gram to calculate the PPL and filter the very high / low text  
+      - Compliance and privacy removal (e.g. PII) 
+      - MinHash (Deduplication)
+      - Tools  
+         - DataTrove (HF) 
+         - NeMo Curator (NVIDIA)
+         - Open Source Pipeline (RedPajama/FineWeb) 
 
-
-
-         - MinHash(Deduplication)
-         - BPE(Byte-Pair Encoding) for Tokenizer extension  
-         - Apache NiFi   
-   
    ---
 
    - Training Data of SFT (Supervised Finetuning) model  
