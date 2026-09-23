@@ -28,8 +28,8 @@ title: "Training Data"
          -  Dolmino Mix 1124 - Dedicated for Mid-training  
          - [Common Crawl](https://commoncrawl.org/) 
 
-      <br>
-   ---
+   ---  
+   
    - Data Cleaning & Deduplication  
       - Encoding & character standardization
          - Transfer text to UTF-8 without byte order mark  
