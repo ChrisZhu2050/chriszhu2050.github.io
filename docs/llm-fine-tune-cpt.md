@@ -28,7 +28,7 @@ title: "Continued Pre-Training"
         - special_tokens_map   
 <br>  
 
-- Validation approach:  
+- Dataset of Validation   
     - Loss of industry validation set  
         - Extract 2% ~ 5% high quality corpus as the validaton set (must exlcude from Industry training corpus)
         - Low frequency (e.g. run on each 500 steps) since comparision is needed   
@@ -40,25 +40,22 @@ title: "Continued Pre-Training"
         - 1k~10k pieces of text are enough for loss calculation. High frequency monitoring will be done because only rely on the loss calculation  
 <br>  
 
-- Dynamic proportion of corpus  
-    Adjust proportion of domain & general corpus base on loss monitoring, here's the example:  
-    1. At beginning use proportion 9:1 (Industry corpus : Wikipedia corpus) for quickly learn the industry knowledge  
-    2. Adjust to 7:3 later for avoiding the Catastrophic Forgetting  
-
-    > Corpus 20 times than volume of Weights of base model may get best convergent effect(?)  
+-  Monitor & Adjustment 
+     - Baseline of estimation  
+         - Loss of Domain train
+         - Loss of domain validation set
+         - Loss of General validation set
+     - Dynamic proportion of corpus  
+         Adjust proportion of domain & general corpus base on loss monitoring, here's the example:  
+         1. At beginning use proportion 9:1 (Industry corpus : Wikipedia corpus) for quickly learn the industry knowledge  
+         2. Adjust to 7:3 later for avoiding the Catastrophic Forgetting  
+     - MLflow  
+     - DVC  
+    > Corpus 20 times than volume of Weights of base model may get best convergent effect (?)  
     e.g. 8B base model need 160B tokens industry data  
+
 <br>  
-- Catastrophic Forgetting  
-    - make sure the [proper proportion of Domain and General corpus](/docs/llm-essential-training-data/#)  
-<br>  
-- Estimate & Monitor  
-    - Baseline of estimation
-        - Loss of Domain train
-        - Loss of domain validation set
-        - Loss of General validation set
-    - MLflow  
-    - DVC   
-<br>  
+ 
 - Deployment
     - vLLM  
 
