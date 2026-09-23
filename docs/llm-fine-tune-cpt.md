@@ -6,7 +6,7 @@ title: "Continued Pre-Training"
 - Before Start  
     ```mermaid
             graph LR
-                A("`Corpus Token
+                A("`Domain Corpus Token
                 `") --> C{"`If >100m
                 `"}--NO-->D(SFT/RAG)
                 C--YES-->E(Continued Pre-Training)-->F{IF Weight >100B}--NO-->G(Unsloth / Hugging Face Transformer / Meta Chinchilla)
