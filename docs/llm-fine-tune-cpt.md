@@ -51,8 +51,8 @@ title: "Continued Pre-Training"
          2. Adjust to 7:3 later for avoiding the Catastrophic Forgetting  
      - MLflow  
      - DVC  
-    > Corpus 20 times than volume of Weights of base model may get best convergent effect (?)  
-    e.g. 8B base model need 160B tokens industry data  
+> Corpus 20 times than volume of Weights of base model may get best convergent effect (?)  
+e.g. 8B base model need 160B tokens industry data  
 
 <br>  
  
