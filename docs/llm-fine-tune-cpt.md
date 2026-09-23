@@ -4,17 +4,21 @@ title: "Continued Pre-Training"
 # permalink: /llm-distillation/
 ---  
 - Before Start  
-    - corpus tokens < 100m   
-        consider SFT / RAG  
-    - corpus tokens > 100m   
-        consider Continued Pre-Training  
-    - Weights \<100B  
-        - [Unsloth](https://unsloth.ai/)
-        - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
-        - [Meta Chinchilla](metachinchilla.com)  
+    ```mermaid
+            graph LR
+                A("`Corpus Token
+                `") --> C{"`If >100m
+                `"}--NO-->D(SFT/RAG)
+                C--YES-->E(Continued Pre-Training)-->F{IF Weight >100B}--NO-->G(Unsloth / Hugging Face Transformer / Meta Chinchilla)
+                F--YES-->H(Megatron-LM)
+                
+    ```
+   
+    - [Unsloth](https://unsloth.ai/)
+    - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
+    - [Meta Chinchilla](metachinchilla.com)  
 
-    - Weights \> 100B  
-        - [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
+    - [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
 
     - [Training Data >>](/docs/llm-essential-training-data/#training-data-cpt)   
 
