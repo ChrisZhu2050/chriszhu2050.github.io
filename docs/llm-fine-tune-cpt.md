@@ -21,15 +21,6 @@ title: "Continued Pre-Training"
     - [Training Data >>](/docs/llm-essential-training-data/#training-data-cpt)   
 
 ---  
-
-- Transformer Components  
-    > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training(4e-3)  
-    - Vocabulary extension  
-        - tokenizer  
-            BPE (Byte-Pair Encoding) for Tokenizer extension  
-        - special_tokens_map   
-<br>  
-
 - Dataset of Validation   
     - Loss of industry validation set  
         - Extract 2% ~ 5% high quality corpus as the validaton set (must exlcude from Industry training corpus)
@@ -41,7 +32,13 @@ title: "Continued Pre-Training"
 
         - 1k~10k pieces of text are enough for loss calculation. High frequency monitoring will be done because only rely on the loss calculation  
 <br>  
-
+- Transformer Components  
+    > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training(4e-3)  
+    - Vocabulary extension  
+        - tokenizer  
+            BPE (Byte-Pair Encoding) for Tokenizer extension  
+        - special_tokens_map   
+<br>  
 -  Monitor & Adjustment 
      - Baseline of estimation  
          - Loss of Domain train
