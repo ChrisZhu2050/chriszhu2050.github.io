@@ -17,9 +17,7 @@ title: "Continued Pre-Training"
     - [Unsloth](https://unsloth.ai/)
     - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
     - [Meta Chinchilla](metachinchilla.com)  
-
     - [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
-
     - [Training Data >>](/docs/llm-essential-training-data/#training-data-cpt)   
 
 ---  
