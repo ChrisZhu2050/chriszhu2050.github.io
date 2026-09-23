@@ -37,13 +37,16 @@ title: "Continued Pre-Training"
         - [SlimPajama validation split](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
         - [MMLU](https://crfm.stanford.edu/helm/mmlu/latest/)  
 
-    *(1k~10k pieces of text are enough for loss calculation. High frequency monitoring will be done because only rely on the loss calculation)* 
+        - 1k~10k pieces of text are enough for loss calculation. High frequency monitoring will be done because only rely on the loss calculation  
+<br>  
 
-    About proportion of Industry corpus & General corpus, dynamic adjustment based on loss monitoring, here's the example:  
+- Dynamic proportion of corpus  
+    Adjust proportion of domain & general corpus base on loss monitoring, here's the example:  
     1. At beginning use proportion 9:1 (Industry corpus : Wikipedia corpus) for quickly learn the industry knowledge  
     2. Adjust to 7:3 later for avoiding the Catastrophic Forgetting  
 
-    *(20 times volume of Weights of base model may get best convergent effect e.g. 8B base model need 160B tokens industry data ?)*   
+    > Corpus 20 times than volume of Weights of base model may get best convergent effect(?)  
+    e.g. 8B base model need 160B tokens industry data  
 <br>  
 - Catastrophic Forgetting  
     - make sure the [proper proportion of Domain and General corpus](/docs/llm-essential-training-data/#)  

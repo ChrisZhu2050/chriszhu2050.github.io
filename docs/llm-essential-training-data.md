@@ -51,7 +51,7 @@ title: "Training Data"
       - Compliance and privacy removal (e.g. PII) 
       - MinHash (Deduplication)
       - Tools  
-         - DataTrove (HF) 
+         - [DataTrove (HF)](https://github.com/huggingface/datatrove) 
          - NeMo Curator (NVIDIA)
          - Open Source Pipeline (RedPajama/FineWeb) 
 
