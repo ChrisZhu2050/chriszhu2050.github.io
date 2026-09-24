@@ -15,7 +15,7 @@ title: "Training Data"
 
       |  | Industry Corpus |
       |:----:|:----|
-      | Public Industry Dataset | [IndustryCorpus 2](https://huggingface.co/datasets/BAAI/IndustryCorpus2)<br>[Pile](https://pile.eleuther.ai/)<br>Hugging Face Datasets / arXiv / OpendataLab / IEEE /ACM / patent database (e.g.USPTO) |
+      | Public Industry Dataset | [IndustryCorpus 2](https://huggingface.co/datasets/BAAI/IndustryCorpus2)<br>[Pile](https://pile.eleuther.ai/)<br>[Hugging Face Datasets](https://github.com/huggingface/datasets) and [Sources](https://huggingface.co/datasets)     <br>arXiv / OpendataLab / IEEE /ACM / patent database (e.g.USPTO) |
       | Publication| Professional textbooks and guides(e.g. CPA, PMP)<br>Industry Analytic Report <br>Official published data from government <br>Industry Books |
       | Vertical community | (e.g. StackOverflow/GitHub) |
       | Synthetic Data | Synthetic big corpus via small corpus by [EntiGraph algorithm](https://arxiv.org/abs/2409.07431) |
