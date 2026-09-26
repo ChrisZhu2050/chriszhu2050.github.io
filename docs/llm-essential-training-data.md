@@ -54,12 +54,15 @@ title: "Training Data"
       - Customized Filtering Strategy   
         - Compliance and privacy removal (e.g. PII)  
       - Quality Scoring / Filtering   
+       
       - Text Duplication  
+      
          | Level | Method | Comments | 
          |:----:|:----:|:----:|
          | File | SHA-256 | Avoid duplicate file with different name |
          | Phase | Bloom Filter + Hashset | Use Hashset double confirm the Bloom indicated duplication case |
          | File | MinHash+LSH |  Transfer file to shingles, and calculate Jaccard similarity |  
+
       - Quality Check   
 
       - Tools  
