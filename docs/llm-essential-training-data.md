@@ -32,7 +32,7 @@ title: "Training Data"
    - Data Cleaning & Deduplication  
       ```mermaid
          graph LR
-            A("`RAW Dataset`") --> B("`Language classification  `") --> C("`Primary Processing Transformation`") --> D("`Tagging`")  --> E("`Customized Filtering Strategy`") --> F("`Quality Filtering `")--> G("`Industry Classification `") --> H("`Text Duplication`")--> I("`Quality Check Test`")--> J("`Target Test`") 
+            B("`Language classification  `") --> C("`Primary Processing Transformation`") --> D("`Tagging`")  --> E("`Customized Filtering Strategy`") --> F("`Quality Filtering `")--> G("`Industry Classification `") --> H("`Text Duplication`")--> I("`Quality Check Test`")
             click A "#Forward-Transformer"
       ```
 
