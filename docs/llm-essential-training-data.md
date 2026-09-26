@@ -68,7 +68,16 @@ title: "Training Data"
          | Phase | Bloom Filter + Hashset | Use Hashset double confirm the Bloom indicated duplication case |
          | File | MinHash+LSH |  Transfer file to shingles, and calculate Jaccard similarity |  
 
-      - Manual Quality Check Test   
+      - Manual Quality Check Test  
+        - Validate with the long tail cases 
+        - Manually prepare the basement dataset(Gold Standard) for evaluating the cleaning process  
+        - An manual check example by Data Annotator:  
+          1. Define the checklist (e.g. no HTML mark left / none TECH related subject)  
+          2. Layering Sampling (e.g. from blog sourcing data random select 100 items)  
+          3. Training of Data Annotator(e.g. define precisely what's none TECH related)  
+          4. Perform the data checking in data annotate platform (e.g. Argilla, Label Studio, CVAT)  
+          5. Analyze the verification result (e.g. Severe residual HTML in the data of blog source data)  
+          6. Optimizing & Iteration (e.g. enhance the filtering for blog sourcing data)  
 
       - Other Tools  
          - [DataTrove (HF)](https://github.com/huggingface/datatrove) 
