@@ -70,10 +70,10 @@ title: "Training Data"
 
       - Manual Quality Check Test   
 
-      - Tools  
+      - Other Tools  
          - [DataTrove (HF)](https://github.com/huggingface/datatrove) 
-         - NeMo Curator (NVIDIA)
-         - Open Source Pipeline (RedPajama/FineWeb) 
+  
+
 
    ---
 
