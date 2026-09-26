@@ -32,7 +32,7 @@ title: "Training Data"
    - Data Cleaning & Deduplication  
       ```mermaid
          graph LR
-            B("`Language classification  `") --> C("`Primary Processing Transformation`") --> D("`Tagging`")  --> E("`Customized Filtering Strategy`") --> F("`Quality Scoring / Filtering `") --> H("`Text Duplication`")--> I("`Quality Check Test`")
+            B("`Language classification  `") --> C("`Primary Processing Transformation`") --> D("`Tagging`")  --> E("`Customized Filtering Strategy`") --> F("`Quality Scoring / Filtering `") --> H("`Text Duplication`")--> I("`Manual Quality Check Test`")
             click A "#Forward-Transformer"
       ```  
       - Language classification  
@@ -53,7 +53,12 @@ title: "Training Data"
            > Calculate perplexity for the corpus via LLM (e.g. GPT-2, LLAMA), base on the calculated PPL and filter the very high / low text  
       - Customized Filtering Strategy   
         - Compliance and privacy removal (e.g. PII)  
-      - Quality Scoring / Filtering   
+      - Quality Scoring / Filtering  
+         > The Model for scoring the corpus to identify the quality and then filtering   
+         - [FastText](https://fasttext.cc/)
+         - [NVIDIA NeMo Curator](https://github.com/NVIDIA-NeMo/Curator)  
+         - LLM-as-judge (e.g. GPT-4) 
+          
        
       - Text Duplication  
       
@@ -63,7 +68,7 @@ title: "Training Data"
          | Phase | Bloom Filter + Hashset | Use Hashset double confirm the Bloom indicated duplication case |
          | File | MinHash+LSH |  Transfer file to shingles, and calculate Jaccard similarity |  
 
-      - Quality Check   
+      - Manual Quality Check Test   
 
       - Tools  
          - [DataTrove (HF)](https://github.com/huggingface/datatrove) 
