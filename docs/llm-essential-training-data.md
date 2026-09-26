@@ -37,7 +37,7 @@ title: "Training Data"
       ```  
       - Language classification  
         - Cleaning of non-target languages  
-      - Standardization  
+      - Primary Processing Transformation  
          - Remove email addresses, URL links, phone numbers  
           - Remove Emoji emoticons  
           - Transfer Markdown to HTML and extract text  
@@ -48,20 +48,20 @@ title: "Training Data"
             - e.g. replace 160 to normal space(32)  
          - Remove the unicode Zero-width characters  
             - e.g. U+200B/U+200C/U+FEFF/U+200E  
-
-      - Deduplication  
-
+      - Tagging
+        -  Perplexity Filtering  
+           > Calculate perplexity for the corpus via LLM (e.g. GPT-2, LLAMA), base on the calculated PPL and filter the very high / low text  
+      - Customized Filtering Strategy   
+        - Compliance and privacy removal (e.g. PII) 
+      - Quality Scoring  
+      - Text Duplication  
          | Level | Method | Comments | 
          |:----:|:----:|:----:|
          | File | SHA-256 | Avoid duplicate file with different name |
          | Phase | Bloom Filter + Hashset | Use Hashset double confirm the Bloom indicated duplication case |
-         | File | MinHash+LSH |  Transfer file to shingles, and calculate Jaccard similarity |
+         | File | MinHash+LSH |  Transfer file to shingles, and calculate Jaccard similarity |  
+      - Quality Check   
 
-
-      -  Perplexity Filtering  
-         > Calculate perplexity for the corpus via LLM (e.g. GPT-2, LLAMA), base on the calculated PPL and filter the very high / low text  
-       - Compliance and privacy removal (e.g. PII) 
-        
       - Tools  
          - [DataTrove (HF)](https://github.com/huggingface/datatrove) 
          - NeMo Curator (NVIDIA)
