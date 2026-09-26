@@ -30,6 +30,12 @@ title: "Training Data"
    ---  
 
    - Data Cleaning & Deduplication  
+      ```mermaid
+         graph LR
+            A("`RAW Dataset`") --> B("`Language classification  `") --> C("`Primary Processing Transformation`") --> D("`Tagging`")  --> E("`Customized Filtering Strategy`") --> F("`Quality Filtering `")--> G("`Industry Classification `") --> H("`Text Duplication`")--> I("`Quality Check Test`")--> J("`Target Test`") 
+            click A "#Forward-Transformer"
+      ```
+
       - Encoding & character standardization
          - Transfer text to UTF-8 without byte order mark  
          - Remove the ASCII 0-31 and 128-159 code and zero-width characters in Unicode  
