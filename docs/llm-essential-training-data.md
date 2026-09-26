@@ -36,30 +36,32 @@ title: "Training Data"
             click A "#Forward-Transformer"
       ```  
       - Language classification  
-        - Cleaning of non-target languages
-      - Primary Processing Transformation  
-        - File level  
-          - MinHash (Deduplication)
-        - Text level  
-          - Remove email addresses, URL links, phone numbers  
+        - Cleaning of non-target languages  
+      - Standardization  
+         - Remove email addresses, URL links, phone numbers  
           - Remove Emoji emoticons  
           - Transfer Markdown to HTML and extract text  
           - Filter out extremely short texts (e.g. < 10 words) and extremely long texts without line breaks  
-          - Filter out the repetition rate of a certain word or phrase in a piece of text is excessively high (e.g. 30%)
-          - Encoding & character standardization
-             - Transfer text to UTF-8 without byte order mark  
-             - Remove the ASCII 0-31 and 128-159 code and zero-width characters in Unicode  
-             - Standardize spaces and punctuation  
-                - e.g. replace 160 to normal space(32)  
-             - Remove the unicode Zero-width characters  
-                - e.g. U+200B/U+200C/U+FEFF/U+200E  
-          -  Perplexity Filtering  
-             > Calculate perplexity for the corpus via LLM (e.g. GPT-2, LLAMA), base on the calculated PPL and filter the very high / low text  
-          - Compliance and privacy removal (e.g. PII) 
+         - Transfer text to UTF-8 without byte order mark  
+         - Remove the ASCII 0-31 and 128-159 code and zero-width characters in Unicode  
+         - Standardize spaces and punctuation  
+            - e.g. replace 160 to normal space(32)  
+         - Remove the unicode Zero-width characters  
+            - e.g. U+200B/U+200C/U+FEFF/U+200E  
+
+      - Deduplication  
+         | Level | Method | Comments | 
+         |:----:|:----:|:----:|
+         | File | SHA-256 | Avoid duplicate file with different name |
+         | Phase | Bloom Filter + Hashset | Use Hashset double confirm the Bloom indicated duplication case |
+         | File | MinHash+LSH |  Transfer file to shingles, and calculate Jaccard similarity |
+
+
+      -  Perplexity Filtering  
+         > Calculate perplexity for the corpus via LLM (e.g. GPT-2, LLAMA), base on the calculated PPL and filter the very high / low text  
+       - Compliance and privacy removal (e.g. PII) 
         
       - Tools  
-         - Quality Classifier  
-           Train the caterize small model(e.g. FastText)
          - [DataTrove (HF)](https://github.com/huggingface/datatrove) 
          - NeMo Curator (NVIDIA)
          - Open Source Pipeline (RedPajama/FineWeb) 
