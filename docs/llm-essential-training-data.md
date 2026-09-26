@@ -32,7 +32,7 @@ title: "Training Data"
    - Data Cleaning & Deduplication  
       ```mermaid
          graph LR
-            B("`Language classification  `") --> C("`Primary Processing Transformation`") --> D("`Tagging`")  --> E("`Customized Filtering Strategy`") --> F("`Quality Filtering `")--> G("`Industry Classification `") --> H("`Text Duplication`")--> I("`Quality Check Test`")
+            B("`Language classification  `") --> C("`Primary Processing Transformation`") --> D("`Tagging`")  --> E("`Customized Filtering Strategy`") --> F("`Quality Scoring / Filtering `") --> H("`Text Duplication`")--> I("`Quality Check Test`")
             click A "#Forward-Transformer"
       ```  
       - Language classification  
@@ -52,8 +52,8 @@ title: "Training Data"
         -  Perplexity Filtering  
            > Calculate perplexity for the corpus via LLM (e.g. GPT-2, LLAMA), base on the calculated PPL and filter the very high / low text  
       - Customized Filtering Strategy   
-        - Compliance and privacy removal (e.g. PII) 
-      - Quality Scoring  
+        - Compliance and privacy removal (e.g. PII)  
+      - Quality Scoring / Filtering   
       - Text Duplication  
          | Level | Method | Comments | 
          |:----:|:----:|:----:|
