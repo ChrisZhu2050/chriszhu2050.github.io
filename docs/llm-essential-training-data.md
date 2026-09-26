@@ -34,28 +34,29 @@ title: "Training Data"
          graph LR
             B("`Language classification  `") --> C("`Primary Processing Transformation`") --> D("`Tagging`")  --> E("`Customized Filtering Strategy`") --> F("`Quality Filtering `")--> G("`Industry Classification `") --> H("`Text Duplication`")--> I("`Quality Check Test`")
             click A "#Forward-Transformer"
-      ```
-
-      - Encoding & character standardization
-         - Transfer text to UTF-8 without byte order mark  
-         - Remove the ASCII 0-31 and 128-159 code and zero-width characters in Unicode  
-         - Standardize spaces and punctuation  
-            - e.g. replace 160 to normal space(32)  
-         - Remove the unicode Zero-width characters  
-            - e.g. U+200B/U+200C/U+FEFF/U+200E
-      - Strip HTML/XML tags using regular expressions  
-         - Excluding URL links, email addresses, phone numbers and Markdown special syntax characters  
-         - Remove Emoji emoticons
-      - Cleaning of non-target languages  
-      - Length and basic statistical filtering  
-         - Filter out extremely short texts (e.g. < 10 words) and extremely long texts without line breaks  
-         - Filter out the repetition rate of a certain word or phrase in a piece of text is excessively high (e.g. 30%)
-      - Quality Classifier  
-         Train the caterize small model(e.g. FastText)
-      - Perplexity Filtering  
-         use small N-gram to calculate the PPL and filter the very high / low text  
-      - Compliance and privacy removal (e.g. PII) 
-      - MinHash (Deduplication)
+      ```  
+      - Language classification  
+        - Cleaning of non-target languages
+      - Primary Processing Transformation
+        - Encoding & character standardization
+           - Transfer text to UTF-8 without byte order mark  
+           - Remove the ASCII 0-31 and 128-159 code and zero-width characters in Unicode  
+           - Standardize spaces and punctuation  
+              - e.g. replace 160 to normal space(32)  
+           - Remove the unicode Zero-width characters  
+              - e.g. U+200B/U+200C/U+FEFF/U+200E
+        - Strip HTML/XML tags using regular expressions  
+           - Excluding URL links, email addresses, phone numbers and Markdown special syntax characters  
+           - Remove Emoji emoticons  
+        - Length and basic statistical filtering  
+           - Filter out extremely short texts (e.g. < 10 words) and extremely long texts without line breaks  
+           - Filter out the repetition rate of a certain word or phrase in a piece of text is excessively high (e.g. 30%)
+        - Quality Classifier  
+           Train the caterize small model(e.g. FastText)
+        - Perplexity Filtering  
+           use small N-gram to calculate the PPL and filter the very high / low text  
+        - Compliance and privacy removal (e.g. PII) 
+        - MinHash (Deduplication)
       - Tools  
          - [DataTrove (HF)](https://github.com/huggingface/datatrove) 
          - NeMo Curator (NVIDIA)
