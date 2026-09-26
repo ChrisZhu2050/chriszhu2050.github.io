@@ -69,7 +69,7 @@ title: "Training Data"
          | File | MinHash+LSH |  Transfer file to shingles, and calculate Jaccard similarity |  
 
       - Manual Quality Check Test   
-         - An manual check example by Data Annotator:  
+         - An manual checking example with Data Annotator:  
             1. Define the checklist (e.g. no HTML mark left / none TECH related subject)  
             2. Layering Sampling (e.g. from blog sourcing data random select 100 items)  
             3. Training of Data Annotator(e.g. define precisely what's none TECH related)  
