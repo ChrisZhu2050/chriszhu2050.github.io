@@ -9,15 +9,15 @@ title: "Continued Pre-Training"
                 A("`Domain Corpus Token
                 `") --> C{"`If >100m
                 `"}--NO-->D(SFT/RAG)
-                C--YES-->E(Continued Pre-Training)-->F{IF Weight >100B}--NO-->G(Unsloth / Hugging Face Transformer / Meta Chinchilla)
+                C--YES-->E(Continued Pre-Training)-->F{IF Weight >70B}--NO-->G(Hugging Face Transformer / Meta Chinchilla)
                 F--YES-->H(Megatron-LM)
                 
     ```
    
-    - [Unsloth](https://unsloth.ai/)
     - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
     - [Meta Chinchilla](metachinchilla.com)  
     - [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
+    - [LLaMA-Factory](https://github.com/hiyouga/LLaMAFactory)  
     - [Training Data >>](/docs/llm-essential-training-data/#training-data-cpt)   
 
 ---  
