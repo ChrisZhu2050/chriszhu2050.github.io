@@ -13,11 +13,8 @@ title: "Continued Pre-Training"
                 F--YES-->H(Megatron-LM)
                 
     ```
-   
-    - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
-    - [Meta Chinchilla](metachinchilla.com)  
     - [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
-    - [LLaMA-Factory](https://github.com/hiyouga/LLaMAFactory)  
+    - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
     - [Training Data >>](/docs/llm-essential-training-data/#training-data-cpt)   
 
 ---  
@@ -51,10 +48,11 @@ title: "Continued Pre-Training"
      - MLflow  
      - DVC  
 > Corpus 20 times than volume of Weights of base model may get best convergent effect (?)  
-e.g. 8B base model need 160B tokens industry data  
+e.g. 8B base model need 160B tokens industry data   
 
 <br>  
-- Deployment
+
+- Deployment   
     - vLLM  
 
 ---  
