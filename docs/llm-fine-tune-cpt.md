@@ -8,14 +8,21 @@ title: "Continued Pre-Training"
             graph LR
                 A("`Domain Corpus Token
                 `") --> C{"`If >100m
-                `"}--NO-->D(SFT/RAG)
-                C--YES-->E(Continued Pre-Training)-->F{IF Weight >70B}--NO-->G(Hugging Face Transformer / Meta Chinchilla)
-                F--YES-->H(Megatron-LM)
+                `"}--NO-->
+                D1{If Syntheticed Data will work?}--YES-->D2("`Synthetic Data
+                (e.g. EntiGraph algorithm)`")
+                D1--NO-->D3("` SFT / RAG `")
+                C--YES-->E(Continued Pre-Training)-->F{"`If base on large-scale model?
+                ( e.g. >100B )`"}--NO-->G( Hugging Face Trainer )
+                F--YES-->H(NVIDIA NeMo Framework / Megatron-LM
+                )
                 
-    ```
-    - [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
-    - [Hugging Face Transformers](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed)  
-    - [Training Data >>](/docs/llm-essential-training-data/#training-data-cpt)   
+    ```  
+    - [Hugging Face ( Transformers + Accelerate )](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed )  
+        - Accelerate of Hugging Face 
+        - DeepSpeed's ZeRO-3 + CPU Offload may help single GPU to run the major LLM model(?)
+    - [NVIDIA NeMo Framework](https://docs.nvidia.com/nemo-framework/index.html) + [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
+    - [Synthetic Data](/docs/llm-essential-training-data/#training-data-cpt)   
 
 ---  
 - Dataset of Validation   
