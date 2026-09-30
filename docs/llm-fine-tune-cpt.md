@@ -18,8 +18,9 @@ title: "Continued Pre-Training"
                 )
                 
     ```  
-    - [Hugging Face ( Transformers + Accelerate )](#https://huggingface.co/docs/transformers/en/index) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed )  
-        - Accelerate of Hugging Face 
+    - [Hugging Face ( Transformers + Accelerate )](https://github.com/huggingface) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed )  
+
+        - Accelerate of Hugging Face is for covering multi-GPUs/TPU/fp16 part when using PyTorch models to write the training loop  
         - DeepSpeed's ZeRO-3 + CPU Offload may help single GPU to run the major LLM model(?)
     - [NVIDIA NeMo Framework](https://docs.nvidia.com/nemo-framework/index.html) + [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
     - [Synthetic Data](/docs/llm-essential-training-data/#training-data-cpt)   
