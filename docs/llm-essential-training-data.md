@@ -2,15 +2,17 @@
 layout: page
 title: "Training Data"
 ---  
-   - Data of base model's pre-training 
+   - Pre-training 
      - [Common Crawl](https://commoncrawl.org/)
      - [C4/C4.EN](https://github.com/google-research/text-to-text-transfer-transformer/tree/main#c4) (filtered from April 2019 snapshot of Common Crawl )
      - Github / [Wikipedia](http://wikipedia.org) / [ArXiv](https://arxiv.org/) / [Stack Exchange](https://stackexchange.com/)
      - Books 1/2/3 (digital books)  
     
    <a href="" id="training-data-cpt"></a>
-   - Data of continued pre-training   
-    
+   - Continued pre-training   
+      > Need to mix the general and domain training data to avoid the Catastrophic Forgetting.  
+      The proportion is dynamic. (e.g. from 9:1 to 7:3)  
+
       - Domain data   
 
       |  | Industry Corpus |
