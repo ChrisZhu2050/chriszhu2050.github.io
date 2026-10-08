@@ -10,7 +10,7 @@ title: "Training Data"
     
    <a href="" id="training-data-cpt"></a>
    - Continued pre-training   
-      > Need to mix the general and domain training data to avoid the Catastrophic Forgetting.  
+      > Mixing the general and domain training data in order to avoid the Catastrophic Forgetting.  
       The proportion is dynamic. (e.g. from 9:1 to 7:3)  
 
       - Domain data   
