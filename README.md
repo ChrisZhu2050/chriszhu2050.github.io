@@ -10,6 +10,6 @@ Outline:
 - [Agent Framework](docs/agent-framework.md)  
     >A2A is the trend, choose a proper agent framwork will significantly increase the prodctivity.
 - [Self-learning](docs/data-flywheel.md)  
-    >Self learning is the trend of LLM, not for learning known knowledge, but for evolution  
+    >Self learning is the trend of LLM, not for learning known knowledge, but for exploring and evolution  
 <br>
 
