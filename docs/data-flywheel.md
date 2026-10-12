@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Data Flywheel"
+title: "Self-learning"
 # permalink: /data-flywheel/
 ---
 
