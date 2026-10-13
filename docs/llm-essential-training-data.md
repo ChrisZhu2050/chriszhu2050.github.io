@@ -5,8 +5,8 @@ title: "Training Data"
    - Pre-training 
      - [Common Crawl](https://commoncrawl.org/)
      - [C4/C4.EN](https://github.com/google-research/text-to-text-transfer-transformer/tree/main#c4) (filtered from April 2019 snapshot of Common Crawl )
-     - Github / [Wikipedia](http://wikipedia.org) / [ArXiv](https://arxiv.org/) / [Stack Exchange](https://stackexchange.com/)
-     - Books 1/2/3 (digital books)  
+     - Github / [Wikipedia](http://wikipedia.org) / [ArXiv](https://arxiv.org/) / [Stack Exchange](https://stackexchange.com/) 
+     - Specifically books 3 are part of [Pile](https://pile.eleuther.ai/), need to download seperately. Books 1/2 used by GPT, no clue on the sources. 
     
    <a href="" id="training-data-cpt"></a>
    - Continued pre-training   

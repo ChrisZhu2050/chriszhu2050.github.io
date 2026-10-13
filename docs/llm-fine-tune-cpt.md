@@ -32,8 +32,9 @@ title: "Continued Pre-Training"
         - Low frequency (e.g. run on each 500 steps) since comparision is needed   
 
     - Loss of general validation set  
-        - [SlimPajama validation split](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
         - [MMLU](https://crfm.stanford.edu/helm/mmlu/latest/)  
+        - [SlimPajama validation split](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
+
 
         - 1k~10k pieces of text are enough for loss calculation. High frequency monitoring will be done because only rely on the loss calculation  
 <br>  
