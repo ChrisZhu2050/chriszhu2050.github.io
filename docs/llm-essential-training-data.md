@@ -5,8 +5,10 @@ title: "Training Data"
    - Pre-training 
      - [Common Crawl](https://commoncrawl.org/)
      - [C4/C4.EN](https://github.com/google-research/text-to-text-transfer-transformer/tree/main#c4) (filtered from April 2019 snapshot of Common Crawl )
-     - Github / [Wikipedia](http://wikipedia.org) / [ArXiv](https://arxiv.org/) / [Stack Exchange](https://stackexchange.com/) 
+     - Github / [ArXiv](https://arxiv.org/) / [Stack Exchange](https://stackexchange.com/) 
      - Specifically books 3 are part of [Pile](https://pile.eleuther.ai/), need to download seperately. Books 1/2 used by GPT, no clue on the sources. 
+      - [SlimPajama Dataset](https://huggingface.co/datasets/cerebras/SlimPajama-627B) [(Introduction)](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
+      - [Wikipedia Dataset](https://huggingface.co/datasets/wikimedia/wikipedia)
     
    <a href="" id="training-data-cpt"></a>
    - Continued pre-training   
@@ -23,11 +25,9 @@ title: "Training Data"
       | Synthetic Data | - Synthetic big corpus via small corpus by [EntiGraph algorithm](https://arxiv.org/abs/2409.07431)  <br>- From answer generate question, the challeange is diversity and authenticity|
       | Enterprise Privacy Data | Operational Data (e.g. ERP / CRM / MES )<br>Internal docs( Manual / SOP / Product intro)<br>Customer interaction data( chat / ticket / text of phone call )<br> R&D data ( design / code / bug / testing )  | 
 
-      - General data  
-         - [SlimPajama Dataset](https://huggingface.co/datasets/cerebras/SlimPajama-627B) -- [Introduction](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
-         - [Wikipedia Dataset](https://huggingface.co/datasets/wikimedia/wikipedia)
-         -  Dolmino Mix 1124 - Dedicated for Mid-training  
-         - [Common Crawl](https://commoncrawl.org/) 
+      -  [Dolmino Mix 1124](https://www.modelscope.cn/datasets/allenai/dolmino-mix-1124) 
+         - Dedicated for Mid-training  
+
 
    ---  
 
