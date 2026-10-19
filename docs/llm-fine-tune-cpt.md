@@ -3,35 +3,14 @@ layout: page
 title: "Continued Pre-Training"
 # permalink: /llm-distillation/
 ---  
-- Before Start  
-    ```mermaid
-            graph LR
-                A("`Domain Corpus Token
-                `") --> C{"`If >100m
-                `"}--NO-->
-                D1{If Syntheticed Data will work?}--YES-->D2("`Synthetic Data
-                (e.g. EntiGraph algorithm)`")
-                D1--NO-->D3("` SFT / RAG `")
-                C--YES-->E(Continued Pre-Training)-->F{"`If base on large-scale model?
-                ( e.g. >100B )`"}--NO-->G( Hugging Face Trainer )
-                F--YES-->H(NVIDIA NeMo Framework / Megatron-LM
-                )
-                
-    ```  
-    - [Hugging Face ( Transformers + Accelerate )](https://github.com/huggingface) + [DeepSpeed](https://github.com/deepspeedai/DeepSpeed )  
+> CPT is for supplimenting model's specific domain knowledge (e.g. legal / medical science)  
 
-        - Accelerate of Hugging Face is for covering multi-GPUs/TPU/fp16 part when using PyTorch models to write the training loop  
-        - DeepSpeed's ZeRO-3 + CPU Offload may help single GPU to run the major LLM model(?)
-    - [NVIDIA NeMo Framework](https://docs.nvidia.com/nemo-framework/index.html) + [Megatron-LM](#https://github.com/nvidia/megatron-lm)    
-    - [Synthetic Data](/docs/llm-essential-training-data/#training-data-cpt)   
-
----  
-- Dataset of Validation   
-    - Loss of industry validation set  
-        - Extract 2% ~ 5% high quality corpus as the validaton set (must exlcude from Industry training corpus)
+- Dataset of validation   
+    - Dataset of domain validation   
+        - Extract 2% ~ 5% high quality corpus as the validaton set (must exlcude from Domain training corpus)
         - Low frequency (e.g. run on each 500 steps) since comparision is needed   
 
-    - Loss of general validation set  
+    - Dataset of general validation  
         - [MMLU](https://crfm.stanford.edu/helm/mmlu/latest/)  
         - [SlimPajama validation split](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
 
@@ -47,8 +26,8 @@ title: "Continued Pre-Training"
 <br>  
 -  Monitor & Adjustment 
      - Baseline of estimation  
-         - Loss of Domain train
-         - Loss of domain validation set
+         - Loss of Domain training(?)
+         - Loss of domain validation set(?)
          - Loss of General validation set
      - Dynamic proportion of corpus  
          Adjust proportion of domain & general corpus base on loss monitoring, here's the example:  
