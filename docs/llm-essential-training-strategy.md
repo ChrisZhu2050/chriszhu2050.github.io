@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Training Approach"
+title: "Training Monitoring"
 ---  
 
 - Validation   
