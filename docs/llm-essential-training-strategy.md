@@ -21,10 +21,9 @@ title: "Training Monitoring"
 
     - Dataset of general validation  
         - [MMLU](https://crfm.stanford.edu/helm/mmlu/latest/)  
-        - [SlimPajama validation split](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
-
-
+        - [SlimPajama validation split](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama) 
         - 1k~10k pieces of text are enough for loss calculation. High frequency monitoring will be done because only rely on the loss calculation  
+
 ***  
 - Warmup  
     - At beginning of training, gradually increase the learning rate  
