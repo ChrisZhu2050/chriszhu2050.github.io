@@ -30,7 +30,8 @@ title: "Training Monitoring"
 - Learning Rate Annealing  
     - At the end of training, gradually decrease the learning rate  
 - Early Stopping  
-    - According to the above indicators and stop the training when unexpected result shows(e.g. patience=5 and validation result still negative after that)
+    - According to the above indicators and stop the training when unexpected result shows(e.g. patience=5 and validation result still negative after that)  
+
 ***  
 
 - Cosine Annealing  
