@@ -5,21 +5,10 @@ title: "Continued Pre-Training"
 ---  
 > CPT is for supplimenting model's specific domain knowledge (e.g. legal / medical science)  
 
-- Dataset of validation   
-    - Dataset of domain validation   
-        - Extract 2% ~ 5% high quality corpus as the validaton set (must exlcude from Domain training corpus)
-        - Low frequency (e.g. run on each 500 steps) since comparision is needed   
 
-    - Dataset of general validation  
-        - [MMLU](https://crfm.stanford.edu/helm/mmlu/latest/)  
-        - [SlimPajama validation split](https://www.cerebras.ai/blog/slimpajama-a-627b-token-cleaned-and-deduplicated-version-of-redpajama)  
-
-
-        - 1k~10k pieces of text are enough for loss calculation. High frequency monitoring will be done because only rely on the loss calculation  
-<br>  
 - Transformer Components  
     > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training(4e-3)  
-    - Vocabulary extension  
+    - Vocabulary extension (*Optional*)  
         - tokenizer  
             BPE (Byte-Pair Encoding) for Tokenizer extension  
         - special_tokens_map   
