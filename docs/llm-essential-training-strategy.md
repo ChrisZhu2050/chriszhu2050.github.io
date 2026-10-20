@@ -5,6 +5,7 @@ title: "Training Approach"
 
 - Validation   
     - Indicators of training result    
+  
         | Phase | Data | Indicator | Expectation | 
         |:----:|:----:|:----:|:----:|
         | Entire | Training Dataset | Training Loss | Monotonically decreasing |
