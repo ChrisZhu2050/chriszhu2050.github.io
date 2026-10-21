@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "crewAI"
+title: "CrewAI"
 # permalink: /agent-framework/
 ---
 [CrewAI](https://github.com/crewAIInc/crewAI)  
