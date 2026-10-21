@@ -64,13 +64,20 @@
     </details>
 
 
+    <details class="sidebar-group" {% if  page.url contains 'agent-framework' %}open{% endif %}>
+      <summary class="sidebar-group-title {% if page.url contains 'llm-distillation' %}active{% endif %}">
+        <a href="{{ "/docs/agent-framework/" | relative_url }}" class="sidebar-group-link {% if  page.url contains 'agent-framework' %}active{% endif %}" onclick="event.stopPropagation();">
+          Agent Framework
+        </a>
+        <span class="sidebar-toggle" aria-hidden="true"></span>
+      </summary>
 
-
-
-
-    <a href="{{ "/docs/agent-framework/" | relative_url }}" class="{% if page.url contains 'agent-framework' %}active{% endif %}">
-      Agent Framework
-    </a>
+      <div class="sidebar-subnav">
+        <a href="{{ '/docs/agent-framework-langchain/' | relative_url }}" class="{% if page.url contains 'agent-framework-langchain' %}active{% endif %}">Langchain</a>
+        <a href="{{ '/docs/agent-framework-harness/' | relative_url }}" class="{% if page.url contains 'agent-framework-harness' %}active{% endif %}">Deepseek Harness</a>
+        <a href="{{ '/docs/agent-framework-crewai/' | relative_url }}" class="{% if page.url contains 'agent-framework-crewai' %}active{% endif %}">CrewAI</a>
+      </div>
+    </details>
 
     <a href="{{ "/docs/data-flywheel/" | relative_url }}" class="{% if page.url contains 'data-flywheel' %}active{% endif %}">
       Self-learning
