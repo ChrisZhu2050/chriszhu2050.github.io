@@ -5,6 +5,7 @@ title: "Lab"
 
 ## Glance  
 - Evolution sources  
+  
     | Data | Handling Approach | Expectation | 
     |:----:|:----:|:----:|
     | New conversation data | Memory | Memorable |
