@@ -24,5 +24,5 @@ title: "Lab"
     | Monthly | LoRA | Accumulated new domain data | Memorable |
     | Quarterly | CPT+SFT+DPO | Accumulated data with latest base model<br>(exclude expired data)  | Inferable |   
 
-*(Period of above depends on base model's iteration and new generated data volumn)*
+    *(Period of above depends on base model's iteration and new generated data volume)*
 
