@@ -24,7 +24,7 @@ title: "Parameter-Efficient Fine-Tuning"
 
 - QLoRA  
   with LoRA, frozen weights of base model will still consume GPU, for example a 7B model, the weights will occupy 14G GPU even frozen.  
-  Three key technology:  
+  Three key technology of QLoRA help to optimize it:  
   1. NF4 (4-bit NormalFloat)
      - Compress the weights from 16-bit to 4-bit   
   2. Double quantification  
