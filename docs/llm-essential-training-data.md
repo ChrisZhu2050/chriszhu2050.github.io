@@ -11,7 +11,7 @@ title: "Training Data"
       - [Wikipedia Dataset](https://huggingface.co/datasets/wikimedia/wikipedia)
     
    <a href="" id="training-data-cpt"></a>
-   - Continued pre-training   
+   - Continued pre-training (massive corpus)   
       > Mixing the general and domain training data in order to avoid the Catastrophic Forgetting.  
       The proportion is dynamic. (e.g. from 9:1 to 7:3)  
 
@@ -28,6 +28,8 @@ title: "Training Data"
       -  [Dolmino Mix 1124](https://www.modelscope.cn/datasets/allenai/dolmino-mix-1124) 
          - Dedicated for Mid-training  
 
+   - Continued pre-training (Small corpus)  
+    
 
    ---  
 

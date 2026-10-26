@@ -15,8 +15,7 @@ title: "Continued Pre-Training"
 <br>  
 -  Monitor & Adjustment 
      - Baseline of estimation  
-         - Loss of Domain training(?)
-         - Loss of domain validation set(?)
+         - Loss of domain validation set
          - Loss of General validation set
      - Dynamic proportion of corpus  
          Adjust proportion of domain & general corpus base on loss monitoring, here's the example:  
