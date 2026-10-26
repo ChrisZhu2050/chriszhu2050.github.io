@@ -22,9 +22,21 @@ title: "Parameter-Efficient Fine-Tuning"
     
 ***  
 
-- QLoRA
-- Adapter Tuning
-- DPO
+- QLoRA  
+  with LoRA, frozen weights of base model will still consume GPU, for example a 7B model, the weights will occupy 14G GPU even frozen.  
+  Three key technology:  
+  1. NF4 (4-bit NormalFloat)
+     - Compress the weights from 16-bit to 4-bit   
+  2. Double quantification  
+     - Compress the Scaling constant  
+  3. Paged Optimizers  
+     - may use CPU to balance he workload of GPU to avoid the out of memory
+
+
+***  
+
+- Adapter Tuning  
+- DPO  
 - Prefix/Prompt Tuning  
 - RETRO
 - MemLLM
