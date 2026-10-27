@@ -33,8 +33,6 @@ e.g. 8B base model need 160B tokens industry data
 
 ---  
 
-- Other Appoaches
-    - Model Merging  
-
-*(7B-14B recommended?)*
+- Low GPU solution
+  - Q-GaLore  
  <a href="" id="whereami"></a> 
