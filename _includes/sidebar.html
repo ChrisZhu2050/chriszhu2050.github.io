@@ -82,9 +82,21 @@
     <a href="{{ "/docs/data-flywheel/" | relative_url }}" class="{% if page.url contains 'data-flywheel' %}active{% endif %}">
       Self-learning
     </a>
-    <a href="{{ "/docs/llm-lab/" | relative_url }}" class="{% if page.url contains 'data-flywheel' %}active{% endif %}">
-      Lab
-    </a>
+
+    <details class="sidebar-group" {% if  page.url contains 'llm-lab' %}open{% endif %}>
+      <summary class="sidebar-group-title {% if page.url contains 'llm-lab' %}active{% endif %}">
+        <a href="{{ "/docs/llm-lab/" | relative_url }}" class="sidebar-group-link {% if  page.url contains 'llm-lab' %}active{% endif %}" onclick="event.stopPropagation();">
+          LLM Lab
+        </a>
+        <span class="sidebar-toggle" aria-hidden="true"></span>
+      </summary>
+
+      <div class="sidebar-subnav">
+        <a href="{{ '/docs/llm-lab-cpt/' | relative_url }}" class="{% if page.url contains 'llm-lab-cpt' %}active{% endif %}">CPT</a>
+
+      </div>
+    </details>
+
   </nav>
 
 
