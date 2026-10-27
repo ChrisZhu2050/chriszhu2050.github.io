@@ -11,5 +11,7 @@ Outline:
     >A2A is the trend, choose a proper agent framwork will significantly increase the prodctivity.
 - [Self-learning](docs/data-flywheel.md)  
     >Self learning is the trend of LLM, not for learning known knowledge, but for exploring and evolution  
+- [Lab](docs/llm-lab.md)  
+    >Pratice repos and notes 
 <br>
 
