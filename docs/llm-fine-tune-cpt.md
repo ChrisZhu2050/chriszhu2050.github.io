@@ -39,5 +39,7 @@ e.g. 8B base model need 160B tokens industry data
     - enable gradient acccumulation  
     - enable activation checking  
     - enable ZeRO-3 CPU offload    
-  - Q-GaLore(?)
+  - [GaLore](https://github.com/jiaweizzhao/galore)  
+    - a gradient projection method, compress gradient matrix and reduce the GPU consumption
+  
  <a href="" id="whereami"></a> 
