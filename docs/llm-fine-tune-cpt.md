@@ -34,5 +34,10 @@ e.g. 8B base model need 160B tokens industry data
 ---  
 
 - Low GPU solution
-  - Q-GaLore  
+  - Hugging face transformer + DeepSpeed  
+    - reduce batch size  
+    - enable gradient acccumulation  
+    - enable activation checking  
+    - enable ZeRO-3 CPU offload    
+  - Q-GaLore(?)
  <a href="" id="whereami"></a> 
