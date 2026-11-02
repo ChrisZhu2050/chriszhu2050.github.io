@@ -33,13 +33,14 @@ e.g. 8B base model need 160B tokens industry data
 
 ---  
 
-- Low GPU solution
+- Low GPU solution  
+  - [GaLore (Gradient Low-Rank Projection)](https://github.com/jiaweizzhao/galore)  
+    - Project the gradient to low rank in order to reduce the GPU consumption of Adam
   - Hugging face transformer + DeepSpeed  
     - reduce batch size  
     - enable gradient acccumulation  
     - enable activation checking  
     - enable ZeRO-3 CPU offload    
-  - [GaLore](https://github.com/jiaweizzhao/galore)  
-    - a gradient projection method, compress gradient matrix and reduce the GPU consumption
+
   
  <a href="" id="whereami"></a> 
