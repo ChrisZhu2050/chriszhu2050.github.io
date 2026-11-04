@@ -14,7 +14,7 @@ title: "Training Monitoring"
     | Entire | Training Dataset | Plateau | The loss curve enters a flat range, doesn't mean should stop the training, recent research shows during this period silent learning is happening behind  |
     | Entire | Training Dataset | Gradient Norm | Good experience shows low gradient and high loss at beginning is the positive signal of better final performance model, may base on this to stop the poor quality training |
 
-
+- [GLUE (General Language Understanding Evaluation)](https://gluebenchmark.com/)  
 - Dataset of domain validation   
     - Extract 2% ~ 5% high quality corpus as the validaton set (must exclude from domain training corpus)
     - Low frequency (e.g. run on each 500 steps) since comparision is needed   
