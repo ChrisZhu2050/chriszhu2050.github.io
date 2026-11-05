@@ -35,7 +35,8 @@ e.g. 8B base model need 160B tokens industry data
 
 - Low GPU solution  
   - [GaLore (Gradient Low-Rank Projection)](https://github.com/jiaweizzhao/galore)  
-    - Project the gradient to low rank in order to reduce the GPU consumption of Adam
+    - Project the gradient to low rank in order to reduce the GPU consumption of Adam  
+    - ‌SVD (Singular Value Decomposition)
   - Hugging face transformer + DeepSpeed  
     - reduce batch size  
     - enable gradient acccumulation  
