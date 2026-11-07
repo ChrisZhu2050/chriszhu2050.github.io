@@ -47,10 +47,10 @@ graph LR
 - AdamW (Optimizer) 
   > AdamW needs to store each leanable weights's first moment and second moment for optimizing the weights updating direction and length. 
 
-    \[
+    \(
     \underbrace{mn}_{W{_{gradient}}}+\underbrace{mn}_{M{_{1st moment}}}+\underbrace{mn}_{V{_{2nd moment}}}=3mn
-    \]  
-    
+    \)  
+      
      e.g. a 7B module's pre-training needs at least 58GB GPU:
   - 14GB for trainable parameters
   - 42GB for Adam weight gradients and optimizer states 
