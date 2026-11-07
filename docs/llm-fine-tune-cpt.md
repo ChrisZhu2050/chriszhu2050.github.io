@@ -6,6 +6,19 @@ title: "Continued Pre-Training"
 > CPT is for supplimenting model's specific domain knowledge (e.g. legal / medical science)  
 
 
+
+- Low GPU solution  
+  - [GaLore (Gradient Low-Rank Projection)](https://github.com/jiaweizzhao/galore)  
+    > Project the gradient to low rank in order to reduce the GPU consumption of Adam  
+    - ‌SVD (Singular Value Decomposition)  
+  - Hugging face transformer + DeepSpeed  
+    - reduce batch size  
+    - enable gradient acccumulation  
+    - enable activation checking  
+    - enable ZeRO-3 CPU offload    
+
+***  
+
 - Transformer Components  
     > Learning Rate: 1e-5 ~ 5e-5: Higher than SFT, much lower than pre-training(4e-3)  
     - Vocabulary extension (*Optional*)  
@@ -30,18 +43,5 @@ e.g. 8B base model need 160B tokens industry data
 
 - Deployment   
     - vLLM  
-
----  
-
-- Low GPU solution  
-  - [GaLore (Gradient Low-Rank Projection)](https://github.com/jiaweizzhao/galore)  
-    - Project the gradient to low rank in order to reduce the GPU consumption of Adam  
-    - ‌SVD (Singular Value Decomposition)
-  - Hugging face transformer + DeepSpeed  
-    - reduce batch size  
-    - enable gradient acccumulation  
-    - enable activation checking  
-    - enable ZeRO-3 CPU offload    
-
   
  <a href="" id="whereami"></a> 
