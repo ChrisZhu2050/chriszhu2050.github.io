@@ -625,7 +625,7 @@ title: "Training Forward Pass"
         L=-\sum_{i=1}^{voca}
         y_i\log(p_i)
       $$  
-      > voca：Vocabulary Size
+      > voca：Vocabulary Size  
       > y<sub>i</sub> is real target's one-shot
       > p<sub>i</sub> is probility of i from essimation of current model
 
