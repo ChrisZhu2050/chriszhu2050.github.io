@@ -9,8 +9,7 @@ title: "Continued Pre-Training"
 - [GaLore (Gradient Low-Rank Projection)](https://github.com/jiaweizzhao/galore)  
     > GaLore is a low GPU CPT solution， it project the gradient to low rank in order to reduce the GPU consumption of AdamW  
 
-    SVD (Singular Value Decomposition)  
-    Any matrix 
+    SVD (Singular Value Decomposition) means any matrix 
     $
     A=UΣV^T
     $  
@@ -19,7 +18,7 @@ title: "Continued Pre-Training"
     - Shape of Σ is (mxn) 
     - Shape of $V^T$ is (nxn) 
 
-    > Elments on the main diagonal of Σ called singular value.  
+    > The elments on the main diagonal of Σ are singular value.  
 
     Example:  
 
@@ -36,27 +35,30 @@ title: "Continued Pre-Training"
     location (2, 2) = $\sigma_2$  
     others = 0
 
-    So the singular value is: [$\sigma_1$, $\sigma_2$]  
+    So the singular value is [$\sigma_1$, $\sigma_2$]  
 
     > Keep the top K largest singular values and their corresponding vectors to get the best low-rank approximation.  
 
-    > When sort singular value in descending order of Σ, meanwhile U and V will also swithing in order to align with sort of Σ. 
+    > When sort singular value in descending order of Σ, meanwhile U and V will also swith in order to align with sort of Σ. 
 
-    > If target is keep top k(i.e. keep 95% of singular value), then need to talor Σ, U and V.  
+    > If target is keep top k(e.e. keep 95% of singular value), then need to talor Σ, U and V.  
+
     - Shape of $Σ_k$ is (k x k) 
     - Shape of $U_k$ is (m x k) 
     - Shape of $V_k^T$ is (k x n) 
     - Shape of $A_k = U_kΣ_kV_k^T$  is (m x n)  
     > A and $A_k$ has same shape (m x n), but we didn't store $A_k$, insteadly we store $U_k$,$V_k^T$ and $s_k$.  
 
-    > Here're their shapes:  
-        $U_k$: m x k  
-        $V_k^T$: k x n  
-        $s_k$: k numbers array(e.g. [$\sigma_1$, $\sigma_2$...$\sigma_n$])   
+    Here're their shapes:  
+        $U_k$: (m x k)  
+        $V_k^T$: (k x n)  
+        $s_k$: k numbers array (e.g. [$\sigma_1$, $\sigma_2$...$\sigma_n$])   
 
     > Follow-up calculation tasks will wrok on the k dimention, and will reduce the computational load.  
 
-    
+***    
+
+- DAPT (Domain-Adaptive Pre-training)  
 
 
 ***   
