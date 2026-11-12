@@ -3,7 +3,8 @@ layout: page
 title: "Continued Pre-Training"
 # permalink: /llm-distillation/
 ---  
-> CPT is for supplimenting model's specific domain knowledge (e.g. legal / medical science)  
+> CPT is for supplimenting model's specific domain knowledge (e.g. legal / medical science).  
+**Massive high quality training data needed (i.e. > 10B corpus)**
 
 
 - [GaLore (Gradient Low-Rank Projection)](https://github.com/jiaweizzhao/galore)  
@@ -55,11 +56,6 @@ title: "Continued Pre-Training"
         $s_k$: k numbers array (e.g. [$\sigma_1$, $\sigma_2$...$\sigma_n$])   
 
     > Follow-up calculation tasks will wrok on the k dimention, and will reduce the computational load.  
-
-***    
-
-- DAPT (Domain-Adaptive Pre-training)  
-
 
 ***   
 
