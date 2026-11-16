@@ -2,7 +2,9 @@
 layout: page
 title: "Reinforcement Learning from Human Feedback"
 # permalink: /llm-distillation/
----
+---  
+
+*(replaced by DPO)*  
 
 2 steps:  
     - use preference data to train the reward model  
