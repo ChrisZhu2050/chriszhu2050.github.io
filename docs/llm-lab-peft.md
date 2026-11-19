@@ -7,12 +7,12 @@ title: "PEFT Practice"
     - Capability A 
     - Capability B 
     - Capability C 
-- Base model: QWen 3.5 - 4B - Instruct (bf16)
+- Base model: Qwen3-VL-4B-Instruct (bf16)
     - Instruct version is recommended
 - SFT - LoRA   
 - Integrate adapter to LLM  
 - DPO - LoRA
-    > Since it's Instructe version, means already done a round SFT and DPO
+    > Since it's instruct version, means already done a round SFT and DPO
     - Low rate  
     - 1 epoch  
 

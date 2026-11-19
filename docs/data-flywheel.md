@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Self-learning"
+title: "Recursive Self-Improvement"
 # permalink: /data-flywheel/
 ---
 
